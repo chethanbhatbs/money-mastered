@@ -32,3 +32,6 @@ finance-dashboard/
 images/
 fetch_images.py
 insert_images.py
+.chartenv/
+chartdata/
+charts/
