@@ -282,6 +282,13 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .bindex{columns:2;column-gap:42px;font-size:.85rem;line-height:1.5;}
 .bindex p{break-inside:avoid;margin:0 0 .3em;}
 .bindex .ent{font-weight:600;color:var(--ink);}
+/* ---- worked calculation block (the math) ---- */
+.calc{margin:1.6em 0;padding:16px 22px;border:1px solid var(--ink);background:#FCFBF7;font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:1.85;}
+.calc .ct{font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.7em;}
+.calc b{color:var(--accent);font-weight:700;}
+.calc .r{color:var(--ink-soft);font-style:italic;}
+.calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
+.fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
 
 /* ---- sub-chapter headings (x.y) ---- */
@@ -653,9 +660,68 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">3.3</span> Margins — the Quality Gauge</h3>
   <p>Raw profit figures are hard to compare across companies of different sizes, so we convert them into <strong>margins</strong> — profit as a percentage of revenue. In the example above, the net margin is $100 ÷ $1,000 = <strong>10%</strong>: the company keeps 10 cents of every sales dollar. Margins are one of the most revealing numbers in analysis. A high, <em>stable</em> margin often signals a strong business with pricing power (a sign of a moat, Chapter 10); a thin or shrinking margin signals fierce competition or trouble. Compare a company's margins to its own history and to its direct rivals — never across unrelated industries, since a supermarket and a software firm live in completely different margin worlds.</p>
+  <div class="fml">Net margin&nbsp; = &nbsp;Net profit&nbsp; ÷ &nbsp;Revenue&nbsp; × &nbsp;100%</div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · a real company (The Coca-Cola Company, approximate recent-year figures)</span>
+    Revenue&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≈ &nbsp;$46.0 billion<br>
+    − Cost of goods&nbsp; ≈ −$18.0 billion<br>
+    <b>= Gross profit&nbsp; &nbsp;≈ &nbsp;$28.0 billion</b>&nbsp; →&nbsp; gross margin = 28.0 ÷ 46.0 = <b>61%</b><br>
+    − Operating costs ≈ −$14.2 billion<br>
+    <b>= Operating profit ≈ $13.8 billion</b>&nbsp; →&nbsp; operating margin = 13.8 ÷ 46.0 = <b>30%</b><br>
+    − Interest &amp; tax&nbsp; &nbsp;≈ −$3.3 billion<br>
+    <b>= Net profit&nbsp; &nbsp; &nbsp;≈ &nbsp;$10.5 billion</b>&nbsp; →&nbsp; net margin = 10.5 ÷ 46.0 = <b>23%</b><br>
+    <hr>
+    <span class="r">Read it: keeping 61 cents of gross and 23 cents of net profit on every sales dollar is exceptional — a fingerprint of pricing power and a strong brand moat (Ch 10). A typical supermarket nets ~2–3%. Figures are rounded and approximate; a company's exact numbers change every year, so always check its current filings.</span>
+  </div>
 
   <h3><span class="subnum">3.4</span> Earnings Per Share (EPS)</h3>
   <p>Finally, net profit is often expressed <em>per share</em>, so owners can see their slice. <strong>Earnings per share (EPS)</strong> = net profit ÷ the number of shares outstanding. If our company earned $100 (think millions) and has 100 shares (think millions), EPS = $1. EPS matters because it's profit on a <em>per-share</em> basis — exactly what you own a piece of — and it feeds directly into the most famous valuation ratio of all, the price-to-earnings (P/E) ratio, which we'll meet in Chapter 9. Watch EPS <em>growth</em> over several years: rising EPS, driven by a genuinely growing business (not financial trickery), is what ultimately drives long-term share value.</p>
+  <div class="fml">EPS&nbsp; = &nbsp;Net profit&nbsp; ÷ &nbsp;Number of shares outstanding</div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · EPS (same company, approximate)</span>
+    Net profit&nbsp; &nbsp; &nbsp; &nbsp; ≈ &nbsp;$10.5 billion<br>
+    Shares outstanding ≈ &nbsp;4.3 billion<br>
+    <hr>
+    <b>EPS = 10.5 ÷ 4.3 ≈ $2.44 per share</b><br>
+    <span class="r">So each share earned about $2.44 of profit that year. If the share traded at, say, $60, its P/E (Ch 9) would be 60 ÷ 2.44 ≈ 24.6×. Approximate, rounded figures.</span>
+  </div>
+  <p>Numbers in a table are abstract; a picture of them over several years tells the real story. Here is the same company's revenue and net profit across five years — exactly the kind of chart you should draw (most financial websites do it for you) before judging any business:</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 3.2</b> &nbsp;·&nbsp; Revenue &amp; Net Profit Over Five Years (approximate, $ billions)</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Revenue and profit chart over five years">
+        <rect width="760" height="300" fill="#fff"/>
+        <!-- axes -->
+        <line x1="70" y1="260" x2="700" y2="260" stroke="#1E1A15" stroke-width="1.5"/>
+        <line x1="70" y1="55" x2="70" y2="260" stroke="#1E1A15" stroke-width="1.5"/>
+        <!-- y gridlines & labels -->
+        <g font-family="JetBrains Mono" font-size="9.5" fill="#8C8475">
+          <line x1="70" y1="222" x2="700" y2="222" stroke="#EFE8D7"/><text x="64" y="226" text-anchor="end">$10</text>
+          <line x1="70" y1="184" x2="700" y2="184" stroke="#EFE8D7"/><text x="64" y="188" text-anchor="end">$20</text>
+          <line x1="70" y1="146" x2="700" y2="146" stroke="#EFE8D7"/><text x="64" y="150" text-anchor="end">$30</text>
+          <line x1="70" y1="108" x2="700" y2="108" stroke="#EFE8D7"/><text x="64" y="112" text-anchor="end">$40</text>
+          <line x1="70" y1="70"  x2="700" y2="70"  stroke="#EFE8D7"/><text x="64" y="74"  text-anchor="end">$50</text>
+        </g>
+        <!-- revenue bars (dark) -->
+        <g fill="#1E1A15">
+          <rect x="100" y="119" width="60" height="141"/><rect x="220" y="135" width="60" height="125"/><rect x="340" y="112" width="60" height="148"/><rect x="460" y="97" width="60" height="163"/><rect x="580" y="85" width="60" height="175"/>
+        </g>
+        <!-- net profit line (gold) -->
+        <polyline points="130,226 250,230 370,222 490,224 610,219" fill="none" stroke="#8A6A23" stroke-width="3"/>
+        <g fill="#8A6A23"><circle cx="130" cy="226" r="4"/><circle cx="250" cy="230" r="4"/><circle cx="370" cy="222" r="4"/><circle cx="490" cy="224" r="4"/><circle cx="610" cy="219" r="4"/></g>
+        <!-- year labels & values -->
+        <g font-family="Archivo" font-size="10" text-anchor="middle" fill="#1E1A15">
+          <text x="130" y="276">Y1</text><text x="250" y="276">Y2</text><text x="370" y="276">Y3</text><text x="490" y="276">Y4</text><text x="610" y="276">Y5</text>
+        </g>
+        <g font-family="JetBrains Mono" font-size="10" text-anchor="middle" fill="#fff">
+          <text x="130" y="135">37</text><text x="250" y="151">33</text><text x="370" y="128">39</text><text x="490" y="113">43</text><text x="610" y="101">46</text>
+        </g>
+        <rect x="430" y="40" width="13" height="13" fill="#1E1A15"/><text x="450" y="51" font-family="Archivo" font-size="10" fill="#4E483D">Revenue</text>
+        <rect x="540" y="40" width="13" height="13" fill="#8A6A23"/><text x="560" y="51" font-family="Archivo" font-size="10" fill="#4E483D">Net profit (~23% of revenue)</text>
+      </svg>
+    </div>
+    <figcaption><b>The story in the bars.</b> Revenue dipped in Y2 (a tough year) then climbed to new highs; net profit (gold) tracks steadily at roughly 23% of revenue — a stable, fat margin year after year, the visual signature of a high-quality, moated business. <em>Drawing this five-year picture is step one of analysing any company.</em> (Approximate, illustrative figures for a real consumer-goods company; verify exact numbers in current filings.)</figcaption>
+  </figure>
 
   <div class="box callout">
     <span class="title">In Plain Terms · don't be fooled by revenue alone</span>
@@ -942,6 +1008,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">7.1</span> The Return Ratios — ROE, ROA, ROCE</h3>
   <p>The headline question is: <em>for every dollar tied up in this business, how many cents of profit does it produce?</em> Three ratios answer it from slightly different angles. <strong>Return on Equity (ROE)</strong> = net profit ÷ shareholders' equity — how much profit the company generates on the <em>owners'</em> money. <strong>Return on Assets (ROA)</strong> = profit ÷ total assets — how well it uses <em>everything</em> it controls. <strong>Return on Capital Employed (ROCE)</strong> = operating profit ÷ (equity + debt) — how productively it uses all the long-term capital, debt included. Of the three, ROE is the most quoted and ROCE is often the most revealing, because it isn't flattered by piling on debt.</p>
+  <div class="fml">ROE = Net profit ÷ Equity&nbsp; &nbsp;·&nbsp; &nbsp;ROA = Net profit ÷ Total assets&nbsp; &nbsp;·&nbsp; &nbsp;ROCE = Operating profit ÷ (Equity + Debt)</div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · the three return ratios (same company, approximate)</span>
+    Net profit ≈ $10.5 B&nbsp; · &nbsp;Operating profit ≈ $13.8 B<br>
+    Equity ≈ $27 B&nbsp; · &nbsp;Total assets ≈ $98 B&nbsp; · &nbsp;Debt ≈ $43 B<br>
+    <hr>
+    <b>ROE&nbsp; = 10.5 ÷ 27&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;≈ 39%</b><br>
+    <b>ROA&nbsp; = 10.5 ÷ 98&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;≈ 11%</b><br>
+    <b>ROCE = 13.8 ÷ (27 + 43) ≈ 20%</b><br>
+    <hr>
+    <span class="r">Notice ROE (39%) is far above ROCE (20%). That gap is the work of <b>debt</b>: with relatively little equity and a lot of borrowing, profits look enormous <em>per dollar of owners' money</em> — but the business actually earns ~20% on all the capital it uses. ROCE is the more honest gauge of operating quality; the high ROE is partly borrowed. (Approximate figures; verify in current filings.)</span>
+  </div>
   <figure>
     <div class="figframe">
       <div class="figtab"><b>Figure 7.1</b> &nbsp;·&nbsp; Return on Equity, in One Picture</div>
@@ -1083,6 +1161,20 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">9.1</span> The P/E Ratio</h3>
   <p>The <strong>price-to-earnings (P/E) ratio</strong> is the most quoted number in all of investing: the share price divided by earnings per share (EPS, from Chapter 3). A P/E of 20 means you're paying $20 for every $1 of the company's annual profit — or, loosely, that at today's earnings it would take 20 years of profit to “buy back” your purchase price. A <em>high</em> P/E means the market expects strong growth (or is over-excited); a <em>low</em> P/E means the market is pessimistic (or has spotted a bargain). The P/E is wonderfully quick, but on its own it's almost meaningless — a P/E of 30 can be cheap for a fast-growing star and wildly expensive for a stagnant one. Its power comes entirely from <em>comparison</em>.</p>
+  <div class="fml">P/E = Price ÷ EPS&nbsp; ·&nbsp; P/B = Price ÷ Book value per share&nbsp; ·&nbsp; Dividend yield = Dividend ÷ Price</div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · the valuation multiples (same company, share price assumed $60)</span>
+    EPS ≈ $2.44 · Book value/share = $27 B ÷ 4.3 B ≈ $6.28 · Dividend ≈ $1.94/sh<br>
+    Market cap = $60 × 4.3 B ≈ $258 B · Debt ≈ $43 B · Cash ≈ $12 B · EBITDA ≈ $15.3 B<br>
+    <hr>
+    <b>P/E&nbsp; &nbsp; &nbsp; &nbsp;= 60 ÷ 2.44&nbsp; &nbsp; &nbsp; &nbsp; ≈ 24.6×</b>&nbsp; <span class="r">$24.6 paid per $1 of yearly profit</span><br>
+    <b>P/B&nbsp; &nbsp; &nbsp; &nbsp;= 60 ÷ 6.28&nbsp; &nbsp; &nbsp; &nbsp; ≈ 9.6×</b>&nbsp; <span class="r">high — the brand isn't on the balance sheet</span><br>
+    <b>P/S&nbsp; &nbsp; &nbsp; &nbsp;= 258 ÷ 46&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;≈ 5.6×</b><br>
+    <b>EV/EBITDA = (258 + 43 − 12) ÷ 15.3 ≈ 18.9×</b><br>
+    <b>Dividend yield = 1.94 ÷ 60&nbsp; ≈ 3.2%</b>&nbsp; · &nbsp;payout = 1.94 ÷ 2.44 ≈ <b>80%</b><br>
+    <hr>
+    <span class="r">On their own these say little. A P/E of ~25 and P/B of ~10 look “expensive” in the abstract — but for a business earning ~20% on capital with a fortress brand, the market is paying up for quality and durability. The 80% payout means most profit is returned as dividends (little reinvestment needed — a mature, cash-rich firm). Always compare to the company's own history and direct peers. Approximate figures.</span>
+  </div>
   <figure>
     <div class="figframe">
       <div class="figtab"><b>Figure 9.1</b> &nbsp;·&nbsp; The Main Valuation Multiples</div>
@@ -1422,6 +1514,36 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">13.3</span> Discounted Cash Flow, in Plain Terms</h3>
   <p>Put the pieces together and you get <strong>discounted cash flow (DCF)</strong>, the textbook method for valuing a business. In plain terms, a DCF does three things: <strong>(1)</strong> estimate the cash the business will generate each year into the future; <strong>(2)</strong> discount each year's cash back to its present value; and <strong>(3)</strong> add them all up. That total is an estimate of the business's intrinsic value today. Divide by the number of shares and you get an estimated value per share — which you can then compare to the market price (Chapter 1). It is the most theoretically sound way to answer “what is it worth?”, because it goes straight to the only thing that ultimately matters: the cash the business will actually produce for its owners.</p>
+  <p>Let's actually <em>do</em> one. Suppose a company is expected to produce <strong>$100 million</strong> of free cash flow next year, growing <strong>8% a year</strong> for five years, after which it settles into a steady <strong>3% forever</strong>. We'll discount at <strong>10%</strong> (our required return). Here is the entire calculation laid bare:</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 13.2</b> &nbsp;·&nbsp; A Discounted Cash Flow, Worked in Full ($ millions)</div>
+      <div class="compare" style="margin:0;">
+        <table>
+          <thead><tr><th>Year</th><th>Free cash flow</th><th>Discount factor @10%</th><th>Present value</th></tr></thead>
+          <tbody>
+            <tr><td>Year 1</td><td>100.0</td><td>1 ÷ 1.10 = 0.909</td><td>90.9</td></tr>
+            <tr><td>Year 2</td><td>108.0</td><td>1 ÷ 1.10² = 0.826</td><td>89.2</td></tr>
+            <tr><td>Year 3</td><td>116.6</td><td>1 ÷ 1.10³ = 0.751</td><td>87.6</td></tr>
+            <tr><td>Year 4</td><td>126.0</td><td>1 ÷ 1.10⁴ = 0.683</td><td>86.1</td></tr>
+            <tr><td>Year 5</td><td>136.0</td><td>1 ÷ 1.10⁵ = 0.621</td><td>84.5</td></tr>
+            <tr><td>Terminal value*</td><td>≈ 2,001</td><td>0.621</td><td>1,242.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <figcaption><b>Every step, nothing hidden.</b> Each year's cash is shrunk to its present value by the discount factor, then all are summed. *The terminal value captures all cash beyond Year 5: $136m × 1.03 ÷ (0.10 − 0.03) = $2,001m, then discounted back. Notice how much of the total comes from the terminal value — a hallmark (and weakness) of DCF.</figcaption>
+  </figure>
+  <div class="calc">
+    <span class="ct">Worked Calculation · from cash flows to a value per share</span>
+    Sum of Years 1–5 present values&nbsp; = 90.9 + 89.2 + 87.6 + 86.1 + 84.5 ≈ <b>$438 m</b><br>
+    + Present value of terminal value&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ≈ <b>$1,243 m</b><br>
+    <hr>
+    <b>Estimated business value ≈ $1,681 m</b><br>
+    ÷ shares outstanding (say 100 m)&nbsp; &nbsp; &nbsp; &nbsp; →&nbsp; <b>≈ $16.81 per share</b><br>
+    <hr>
+    <span class="r">So our estimate of intrinsic value is ~$17/share. With a margin of safety (Ch 14) you might only buy below ~$12. <b>But change one assumption and watch it swing:</b> use a 12% discount rate instead of 10% and the value drops toward ~$12/share; assume 4% terminal growth instead of 3% and it jumps above ~$20. That sensitivity is exactly why a DCF gives a <em>range</em>, never a precise truth.</span>
+  </div>
 
   <h3><span class="subnum">13.4</span> The Danger of False Precision</h3>
   <p>Now the essential warning. A DCF <em>looks</em> rigorous — it produces a precise number like “$87.34 per share” — but that precision is an illusion, because the inputs are guesses about the future: how much cash, growing how fast, for how long, discounted at what rate. Change those assumptions slightly and the “precise” answer swings wildly. The great mistake beginners (and even professionals) make is to trust the exact output and forget the shaky inputs. The wise use of a DCF is the opposite: treat it as a way to <em>think clearly</em> about what a business must achieve to justify its price, and to produce a rough <em>range</em> of value — never a false-precision point estimate. As the saying goes, it's better to be roughly right than precisely wrong.</p>
@@ -1570,8 +1692,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">15.2</span> A Worked Example</h3>
   <div class="box" style="border-left:4px solid #8A6A23;border-top:none;border-bottom:none;padding:4px 0 4px 22px;"><span class="htag">Worked Example · running the checklist (illustrative)</span>
-    <p style="margin-bottom:.5em;">Consider a fictional consumer-goods company, “Everyday Foods.” <strong>1) Understand?</strong> Yes — it sells branded packaged foods; simple to grasp. <strong>2) Good?</strong> Strong: return on capital has averaged ~20% for a decade, with stable ~12% net margins — signs of pricing power and a brand <em>moat</em>. <strong>3) Safe?</strong> Yes — low debt (interest coverage ~15×), and operating cash flow consistently exceeds reported profit. <strong>4) Well run?</strong> Management owns a meaningful stake, communicates candidly, and has reinvested and bought back shares sensibly rather than chasing splashy acquisitions. <strong>5) Price?</strong> A rough DCF and a peer comparison both suggest a value range of about $90–$110 per share. The market price is $96 — inside the range, but with <em>no</em> margin of safety.</p>
-    <p style="margin-bottom:0;"><strong>Verdict:</strong> a wonderful business — but at $96 it offers no cushion. The disciplined action is to add it to a watch-list and <em>wait</em> for a market dip (Chapter 1's “moody partner”) to offer it at, say, $75 — comfortably below the range. Passing checks 1–4 makes it a <em>candidate</em>; only check 5, with a margin of safety, makes it a <em>buy</em>.</p>
+    <p style="margin-bottom:.5em;">Let's run the checklist on a <em>real</em> business everyone knows — <strong>The Coca-Cola Company</strong> — using the approximate figures we computed through this book. <em>(This is a teaching exercise, not a recommendation; figures are rounded and change every year — always check current filings.)</em></p>
+    <p style="margin-bottom:.5em;"><strong>1) Do I understand it?</strong> Easily — it makes and sells beverage concentrate and branded drinks worldwide. A child could explain the business.</p>
+    <p style="margin-bottom:.5em;"><strong>2) Is it a good business?</strong> Outstanding. Gross margin ~61%, net margin ~23% (Ch 3); ROCE ~20%, ROE ~39% (Ch 7) — and, crucially, these have been high and <em>stable for decades</em>. That durability points to a powerful <strong>brand moat</strong> (Ch 10): people the world over reach for the name and will pay a premium for it.</p>
+    <p style="margin-bottom:.5em;"><strong>3) Is it safe?</strong> Reasonably — it carries meaningful debt (~$43 B), but interest coverage is comfortably high and operating cash flow is huge and reliable, easily covering interest, dividends and reinvestment. It would sail through a bad year (Ch 8).</p>
+    <p style="margin-bottom:.5em;"><strong>4) Is it well run?</strong> Generally regarded as a disciplined capital allocator — modest reinvestment needs (a mature business), steadily rising dividends and buybacks returning cash to owners, rather than reckless empire-building (Ch 11). Its ~80% payout ratio fits a cash-rich, slow-growth giant.</p>
+    <p style="margin-bottom:0;"><strong>5) Is the price right?</strong> Here is the catch. At a P/E of ~25, P/B ~10 and EV/EBITDA ~19 (Ch 9), and on a rough DCF, the market is already paying a full price for this quality — a value range of, say, $50–$65 against a market price around $60 leaves <em>little or no margin of safety</em>. <strong>Verdict:</strong> a genuinely wonderful business that passes checks 1–4 with flying colours — but quality alone doesn't make it a buy. Without a clear discount to value (Ch 14), the disciplined move is to admire it, add it to a watch-list, and <em>wait</em> for the market's mood (Ch 1) to offer it cheaper. A great company is only a great <em>investment</em> at the right price.</p>
   </div>
 
   <h3><span class="subnum">15.3</span> Common Mistakes</h3>
@@ -1708,7 +1834,7 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <h3>Your Next Step</h3>
   <p>You can now judge a business and estimate what it's worth. The roadmap continues with <strong>Book 5 — <em>Technical Analysis</em></strong>, which studies the other half of the picture: not the business, but the price <em>chart</em> — candlestick patterns, trends and indicators — and, importantly, an honest account of what charts can and can't do. Where this book asked “is this a good business at a good price?”, the next asks “what is the price actually doing?” Together they round out your view of any stock.</p>
   <h3>Source Notes</h3>
-  <p style="font-size:.95rem;">This book teaches universal principles of business analysis; all company examples (including “Everyday Foods”) are fictional and illustrative, and all figures are simplified and rounded purely to teach a method. Currency is shown as “$” as a stand-in for any currency. Accounting standards, statement formats, line-item names and tax treatments vary by country — always check the conventions a real company reports under. Concepts here — price vs value, the financial statements, profitability/solvency/valuation ratios, moats, capital allocation, competitive forces, the time value of money and discounted cash flow — reflect mainstream, well-established financial analysis. Nothing here is investment advice or a recommendation of any security; verify specifics and do your own research before acting.</p>
+  <p style="font-size:.95rem;">This book teaches universal principles of business analysis. Where a real company (The Coca-Cola Company) is used as a worked example, the figures are <strong>approximate, rounded and illustrative</strong>, drawn from publicly reported data that changes every year — they are used purely to demonstrate the <em>method</em>, are <strong>not</strong> a recommendation to buy or sell any security, and should be re-checked against current filings before any real decision. All numeric examples (margins, ratios, the DCF) are simplified to teach the calculation. Currency is shown as “$” as a stand-in for any currency. Accounting standards, statement formats, line-item names and tax treatments vary by country — always check the conventions a real company reports under. Concepts here — price vs value, the financial statements, profitability/solvency/valuation ratios, moats, capital allocation, competitive forces, the time value of money and discounted cash flow — reflect mainstream, well-established financial analysis. Nothing here is investment advice or a recommendation of any security; verify specifics and do your own research before acting.</p>
   <div class="ornament"></div>
   <div class="pq" style="border-top:none;border-bottom:none;font-size:1.7rem;">
     “It is far better to buy a wonderful company at a fair price than a fair company at a wonderful price.”
