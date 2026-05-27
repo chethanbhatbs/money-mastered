@@ -282,6 +282,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .bindex{columns:2;column-gap:42px;font-size:.85rem;line-height:1.5;}
 .bindex p{break-inside:avoid;margin:0 0 .3em;}
 .bindex .ent{font-weight:600;color:var(--ink);}
+.calc{margin:1.6em 0;padding:16px 22px;border:1px solid var(--ink);background:#FCFBF7;font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:1.85;}
+.calc .ct{font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.7em;}
+.calc b{color:var(--accent);font-weight:700;}
+.calc .r{color:var(--ink-soft);font-style:italic;}
+.calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
+.fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
 </style>
 </head>
@@ -1406,12 +1412,20 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <div class="formula">Index = (Current free-float market cap ÷ Base market cap) × Base index value</div>
   <p>The Sensex's base is set so that 1978–79 = 100; the Nifty's base is 1995 = 1,000. There's one elegant complication. When a member does a stock split, bonus, or rights issue — or when a company enters or leaves the index — the raw market cap jumps for reasons that have nothing to do with the market actually moving. To keep the index <em>continuous</em>, the provider quietly adjusts a behind-the-scenes number called the <strong>divisor</strong>, so the index doesn't lurch artificially. You never see the divisor, but it's why corporate actions don't create phantom jumps in the Sensex.</p>
 
-  <div class="box" style="border:none;border-left:4px solid #8A6A23;border-top:none;border-bottom:none;padding:4px 0 4px 22px;"><span class="htag">In Numbers · a tiny index, built from scratch</span>
-    <p style="margin-bottom:.5em;">Let's build a three-stock index to see the formula breathe. On the <strong>base day</strong> we set the index = 1,000 and record the total free-float market cap:</p>
-    <p style="margin-bottom:.5em;font-family:'JetBrains Mono',monospace;font-size:.9rem;">Base day: A ₹4,000 cr + B ₹3,500 cr + C ₹2,500 cr = ₹10,000 cr → Index = 1,000</p>
-    <p style="margin-bottom:.5em;">A year later, the companies have grown and their free-float market caps are now A ₹5,200 cr, B ₹4,300 cr, C ₹2,500 cr — a new total of ₹12,000 cr. Apply the formula:</p>
-    <p style="margin-bottom:.5em;font-family:'JetBrains Mono',monospace;font-size:.9rem;">Index = (12,000 ÷ 10,000) × 1,000 = <strong>1,200</strong></p>
-    <p style="margin-bottom:0;">The index rose <strong>20%</strong> — exactly matching the 20% rise in the basket's total value. Notice that A (the biggest) moving up pulled the index more than C standing still: that's free-float weighting in action. And if, say, B had done a 2:1 split mid-year, its market cap wouldn't change but its share count would — so the <em>divisor</em> would be quietly adjusted to keep the index at 1,200, not jolt it. <em>(Illustrative.)</em></p>
+  <p>Free-float market cap of one company is itself a quick calculation:</p>
+  <div class="fml">Free-float mkt cap = price &times; shares &times; free-float %</div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · A three-stock index, built from scratch</span>
+    <b>Base day</b> — total free-float market cap of the three members:<br>
+    &nbsp; A ₹4,000 cr + B ₹3,500 cr + C ₹2,500 cr = ₹10,000 cr<br>
+    &nbsp; We define this as Index = <b>1,000</b>.
+    <hr>
+    <b>One year later</b> — caps are now A ₹5,200, B ₹4,300, C ₹2,500 cr:<br>
+    &nbsp; New total = 5,200 + 4,300 + 2,500 = ₹12,000 cr
+    <hr>
+    Index = (12,000 &divide; 10,000) &times; 1,000 = <b>1,200</b> &nbsp;<span class="r">(+20%)</span>
+    <hr>
+    <span class="r">The index rose 20% — exactly the basket's rise. Note A (the biggest) moving up pulled the index more than C standing still: free-float weighting in action. If B did a 2:1 split, its market cap wouldn't change but its share count would — so the hidden <i>divisor</i> is adjusted to keep the index at 1,200, not jolt it. (Illustrative.)</span>
   </div>
 
   <h3>Step 4 — Rebalancing</h3>
@@ -1455,8 +1469,15 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3>The Definition That Cures a Common Error</h3>
   <p>A company's <strong>market capitalisation</strong> is simply:</p>
-  <div class="formula">Market cap = share price × total number of shares</div>
-  <p>This is the only honest measure of a company's size — and it cures the beginner's instinct to judge a company by its share price. A ₹50 share with 200 crore shares (₹10,000 crore) is a <em>far</em> bigger company than a ₹5,000 share with 1 crore shares (₹5,000 crore). The per-share price is an accident of how many slices the ownership was cut into (Chapter 2); the market cap is the whole pie.</p>
+  <div class="fml">Market cap = share price &times; total number of shares</div>
+  <p>This is the only honest measure of a company's size — and it cures the beginner's instinct to judge a company by its share price. Watch how the cheaper-looking share is the bigger company:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Price lies; market cap tells the truth</span>
+    Company X: ₹50 &times; 200 crore shares = <b>₹10,000 crore</b><br>
+    Company Y: ₹5,000 &times; 1 crore shares = <b>₹5,000 crore</b>
+    <hr>
+    <span class="r">The ₹50 share (X) belongs to a company <b>twice</b> the size of the ₹5,000 share (Y). The per-share price is just an accident of how many slices the ownership was cut into (Chapter 2); market cap is the whole pie. Never judge size — or “expensiveness” — by share price alone.</span>
+  </div>
 
   <h3>Large, Mid &amp; Small-Cap — the SEBI Definition</h3>
   <p>India classifies companies precisely. SEBI ranks all listed companies by market cap: the <strong>top 100</strong> are <strong>large-caps</strong>, ranks <strong>101–250</strong> are <strong>mid-caps</strong>, and everything from <strong>251 onwards</strong> is <strong>small-cap</strong>. This isn't trivia — mutual funds are categorised by these buckets, and the buckets carry very different risk-and-reward characters.</p>
@@ -2124,8 +2145,22 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <figcaption><b>Small individually, ruinous in bulk.</b> Notice why this matters: the charges are <em>per trade</em>, so they scale with <em>activity</em>, not wisdom. The patient investor who buys and holds barely notices them; the hyperactive trader pays them hundreds of times over — one more reason the calm strategy wins.</figcaption>
   </figure>
 
-  <div class="box" style="border:none;"><span class="htag">In Rupees</span>
-    <p style="margin-bottom:0;">Say you buy ₹50,000 of a share on a zero-delivery-brokerage app. STT, exchange, SEBI, stamp and GST charges together might come to roughly <strong>₹60–₹90</strong> — well under 0.2% of the trade. Hold for years and that's the entire cost. But a day-trader turning over ₹50,000 <em>fifty times</em> a month pays such charges fifty-plus times — thousands of rupees that come straight out of returns, before the market has moved at all. <em>(Illustrative; exact rates vary and change.)</em></p>
+  <p>Let's itemise it for real. You buy <strong>₹50,000</strong> of a share (a delivery trade) on a zero-delivery-brokerage app. Each charge has its own rate; here is the full stack:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · True cost of a ₹50,000 delivery buy</span>
+    Brokerage (zero on delivery) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = <b>₹0.00</b><br>
+    STT (0.1% on buy) &nbsp;&nbsp;&nbsp;&nbsp; 0.001 &times; 50,000 = <b>₹50.00</b><br>
+    Exchange txn (~0.00297%) 0.0000297 &times; 50,000 = <b>₹1.49</b><br>
+    SEBI fee (₹10 per crore) &nbsp; 0.000001 &times; 50,000 = <b>₹0.05</b><br>
+    Stamp duty (0.015% on buy) 0.00015 &times; 50,000 = <b>₹7.50</b>
+    <hr>
+    GST (18% on brokerage + txn + SEBI):<br>
+    &nbsp; 0.18 &times; (0 + 1.49 + 0.05) = <b>₹0.28</b>
+    <hr>
+    Total charges = 0 + 50.00 + 1.49 + 0.05 + 7.50 + 0.28 = <b>₹59.32</b><br>
+    <span class="r">= about 0.12% of the trade. Hold for years and that's the entire cost.</span>
+    <hr>
+    <span class="r">But a day-trader turning over ₹50,000 <b>fifty times a month</b> pays such charges 50+ times — and intraday adds brokerage too. That's thousands of rupees a month bled before the market has moved at all. (Illustrative; rates vary and change — verify current SEBI/exchange rates.)</span>
   </div>
 
   <h3>How to Read Your Contract Note</h3>
