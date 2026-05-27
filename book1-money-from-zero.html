@@ -294,6 +294,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .roadmap .bk .tag{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);}
 .roadmap .bk.here{font-weight:700;color:var(--accent-deep);}
 .roadmap .bk.here .tag{color:var(--accent);}
+.calc{margin:1.6em 0;padding:16px 22px;border:1px solid var(--ink);background:#FCFBF7;font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:1.85;}
+.calc .ct{font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.7em;}
+.calc b{color:var(--accent);font-weight:700;}
+.calc .r{color:var(--ink-soft);font-style:italic;}
+.calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
+.fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
 </style>
 </head>
@@ -560,9 +566,29 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     </div>
     <figcaption><b>The leaky bucket.</b> Doing “nothing” with money is not a neutral choice — it is a slow, certain loss. This is the deepest reason to invest (Part III): you need your money to grow at least as fast as prices just to keep what you have.</figcaption>
   </figure>
+  <p>Those shrinking numbers come from the same compounding maths as Chapter 8 — just running <em>against</em> you. Purchasing power after <i>n</i> years is:</p>
+  <div class="fml">Future buying power = $100 &divide; (1 + inflation)<sup>n</sup></div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · $100 eroding at 3% inflation</span>
+    In 10 yrs: 100 &divide; (1.03)<sup>10</sup> = 100 &divide; 1.344 = <b>$74.41</b><br>
+    In 20 yrs: 100 &divide; (1.03)<sup>20</sup> = 100 &divide; 1.806 = <b>$55.37</b><br>
+    In 30 yrs: 100 &divide; (1.03)<sup>30</sup> = 100 &divide; 2.427 = <b>$41.20</b>
+    <hr>
+    <span class="r">Using the Rule of 72 in reverse: at 3% inflation, money loses <i>half</i> its value in about 72 &divide; 3 = 24 years — exactly the figure on the chart. Inflation is just compounding pointed the wrong way.</span>
+  </div>
 
   <h3><span class="subnum">2.4</span> Nominal vs. Real — the Trick That Fools Everyone</h3>
   <p>Here is the mental error that quietly costs people their whole lives. The <strong>nominal</strong> figure is the number you see; the <strong>real</strong> figure is that number <em>after subtracting inflation</em> — what it's actually worth. If your savings earn 4% but inflation is 5%, the bank statement cheerfully grows (nominal +4%) while your purchasing power actually <em>shrinks</em> by about 1% (real −1%). You feel richer and are getting poorer.</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Real return</span>
+    Quick rule: real ≈ nominal &minus; inflation = 4% &minus; 5% = <b>&minus;1%</b><br>
+    <hr>
+    <span class="r">Exact (the Fisher relation):</span><br>
+    real = [ (1 + nominal) &divide; (1 + inflation) ] &minus; 1<br>
+    &nbsp;&nbsp;&nbsp; = (1.04 &divide; 1.05) &minus; 1 = 0.9905 &minus; 1 = <b>&minus;0.95%</b>
+    <hr>
+    <span class="r">The simple subtraction (&minus;1%) is close enough for everyday use. Either way the verdict is the same: a “4% return” in 5% inflation is a real <em>loss</em>. Always judge money by its real return.</span>
+  </div>
 
   <div class="box callout">
     <span class="title">In Plain Terms · always ask “real or nominal?”</span>
@@ -1021,6 +1047,17 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     </div>
     <figcaption><b>The hockey stick.</b> The curve barely lifts off for years, then climbs steeply. This is why compounding rewards <em>patience</em> above all: the dull early years are the price of admission to the explosive later ones. Quit early and you pay the price without collecting the reward.</figcaption>
   </figure>
+  <p>That curve isn't magic — it's one simple formula. The future value of a lump sum compounding each period is:</p>
+  <div class="fml">Future Value = P &times; (1 + r)<sup>n</sup></div>
+  <p>where <b>P</b> is the starting amount, <b>r</b> the return per period (as a decimal), and <b>n</b> the number of periods. Let's prove the chart's numbers with $10,000 at 8% (r = 0.08):</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · $10,000 at 8% compounding</span>
+    After 10 yrs: 10,000 &times; (1.08)<sup>10</sup> = 10,000 &times; 2.159 = <b>$21,589</b><br>
+    After 25 yrs: 10,000 &times; (1.08)<sup>25</sup> = 10,000 &times; 6.848 = <b>$68,485</b><br>
+    After 40 yrs: 10,000 &times; (1.08)<sup>40</sup> = 10,000 &times; 21.72 = <b>$217,245</b>
+    <hr>
+    <span class="r">The same $10,000 — never added to — becomes ~22× larger in 40 years, matching the curve above. Notice the jumps: +$11,600 in the first decade, but +$149,000 in the last. That acceleration is the exponent <i>n</i> at work.</span>
+  </div>
 
   <h3><span class="subnum">8.3</span> Time Beats Amount — the Tale of Two Savers</h3>
   <p>Here is the most persuasive example in all of personal finance. <strong>Anya</strong> invests $200 a month for just ten years (from age 25 to 35), then stops completely and never adds another cent. <strong>Ben</strong> waits, then invests $200 a month for thirty years (from age 35 to 65). Both earn 8%. Ben put in three times as much money over three times as long. Who has more at 65?</p>
@@ -1029,12 +1066,34 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <div class="stat"><div class="n">Ben</div><div class="t">$72,000 in (30 later years) → roughly <strong>$298,000</strong> at 65</div></div>
     <div class="stat"><div class="n">3×</div><div class="t">Ben invested three times as much — and still finished behind</div></div>
   </div>
-  <p>Anya invested one-third as much money and ended up <em>ahead</em>, purely because her money had more <em>time</em> to compound. (Figures illustrative, 8% assumed.) The lesson is almost unfair, and it is the most valuable sentence in this book: <strong>time in the market is a more powerful lever than the amount you invest.</strong> The best day to start was years ago; the second-best is today.</p>
+  <p>Anya invested one-third as much money and ended up <em>ahead</em>, purely because her money had more <em>time</em> to compound. The lesson is almost unfair, and it is the most valuable sentence in this book: <strong>time in the market is a more powerful lever than the amount you invest.</strong> The best day to start was years ago; the second-best is today.</p>
+  <p>These aren't hand-waved figures. The future value of regular monthly contributions follows the “annuity” formula, with monthly rate <i>i</i> = 8%/12 = 0.006667:</p>
+  <div class="fml">FV = PMT &times; [ ((1 + i)<sup>n</sup> &minus; 1) &divide; i ]</div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Anya vs. Ben (8%, $200/mo)</span>
+    <b>Anya</b> — $200/mo for 120 months (10 yrs):<br>
+    &nbsp; FV at 35 = 200 &times; [((1.006667)<sup>120</sup>&minus;1)&divide;0.006667] &asymp; <b>$36,600</b><br>
+    &nbsp; then untouched 30 yrs: 36,600 &times; (1.08)<sup>30</sup> &asymp; <b>$368,000</b>
+    <hr>
+    <b>Ben</b> — $200/mo for 360 months (30 yrs):<br>
+    &nbsp; FV at 65 = 200 &times; [((1.006667)<sup>360</sup>&minus;1)&divide;0.006667] &asymp; <b>$298,000</b>
+    <hr>
+    <span class="r">Anya put in $24,000 and finished with ~$368,000; Ben put in $72,000 and finished with ~$298,000. Three times the money, less to show for it — the whole difference is the extra years Anya's early dollars spent compounding. (Illustrative; 8% assumed.)</span>
+  </div>
 
   <h3><span class="subnum">8.4</span> The Rule of 72</h3>
   <p>Here's a piece of mental maths that will serve you for life. To find roughly how many years it takes money to <em>double</em>, divide 72 by the annual return:</p>
-  <div class="formula">Years to double ≈ 72 ÷ annual % return</div>
-  <p>At 8%, money doubles in about <strong>9 years</strong> (72 ÷ 8). At 10%, about 7 years. At a 2% savings account, about 36 years. The same trick reveals the danger of debt (Chapter 6): a 24% credit card <em>doubles what you owe</em> in roughly three years. One simple division lets you judge any return — or any debt — in seconds.</p>
+  <div class="fml">Years to double ≈ 72 &divide; annual % return</div>
+  <p>At 8%, money doubles in about <strong>9 years</strong> (72 ÷ 8). At 10%, about 7 years. At a 2% savings account, about 36 years. The same trick reveals the danger of debt (Chapter 6): a 24% credit card <em>doubles what you owe</em> in roughly three years. One simple division lets you judge any return — or any debt — in seconds. And it's a genuinely good approximation — let's check it against the exact formula:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · How good is the Rule of 72?</span>
+    Rule of 72 at 8%: 72 &divide; 8 = <b>9.0 years</b>
+    <hr>
+    <span class="r">Exact: solve (1.08)<sup>n</sup> = 2.</span><br>
+    n = ln(2) &divide; ln(1.08) = 0.6931 &divide; 0.07696 = <b>9.006 years</b>
+    <hr>
+    <span class="r">The shortcut (9.0) versus the true answer (9.006) — almost identical. The Rule of 72 is most accurate near 8% and drifts slightly at extremes, but for everyday mental maths it's remarkably reliable.</span>
+  </div>
 
   <h3><span class="subnum">8.5</span> Why Starting Today Matters</h3>
   <p>Because the curve bends most at the end, every year you delay doesn't just cost you that one year — it costs you the most powerful year, the one furthest out where the snowball is largest. Waiting “until I earn more” is the most expensive financial decision most people make, precisely because it steals time, the one ingredient that can't be bought back. You don't need a large sum to begin; you need to begin, with whatever you have, and then simply <em>not stop</em>.</p>

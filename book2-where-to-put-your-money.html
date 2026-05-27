@@ -294,6 +294,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .roadmap .bk .tag{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);}
 .roadmap .bk.here{font-weight:700;color:var(--accent-deep);}
 .roadmap .bk.here .tag{color:var(--accent);}
+.calc{margin:1.6em 0;padding:16px 22px;border:1px solid var(--ink);background:#FCFBF7;font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:1.85;}
+.calc .ct{font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.7em;}
+.calc b{color:var(--accent);font-weight:700;}
+.calc .r{color:var(--ink-soft);font-style:italic;}
+.calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
+.fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
 </style>
 </head>
@@ -528,6 +534,17 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">2.3</span> Total Return — the Only Honest Scoreboard</h3>
   <p>Here's a mistake that fools beginners constantly: judging an investment by only one of its two rewards. A share might pay a small dividend (income) <em>and</em> rise in price (growth); a high-rent property might barely appreciate. To compare fairly, add both together into <strong>total return</strong> — income <em>plus</em> growth — over the period you held it.</p>
+  <div class="fml">Total return % = [ (income + price change) &divide; starting price ] &times; 100</div>
+  <p>Say you buy a share for <b>$100</b>, collect <b>$3</b> in dividends over the year, and it ends at <b>$108</b>:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Total return</span>
+    Income (dividend) = $3<br>
+    Growth (price change) = 108 &minus; 100 = $8
+    <hr>
+    Total return = (3 + 8) &divide; 100 &times; 100 = <b>11%</b>
+    <hr>
+    <span class="r">Judging by the +8% price rise alone understates it; by the 3% dividend alone, badly so. Only the combined <b>11%</b> is the honest scoreboard. (A “growth” stock might be 0% income + 11% price; an “income” stock 6% + 5% — same total, different shape.)</span>
+  </div>
   <figure>
     <div class="figframe">
       <div class="figtab"><b>Figure 2.1</b> &nbsp;·&nbsp; Total Return = Income + Growth</div>
@@ -706,6 +723,17 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">4.3</span> The Bond See-Saw</h3>
   <p>Here is the one bond fact that surprises everyone, and it's worth understanding: <strong>when interest rates in the economy rise, the market price of existing bonds falls — and vice versa.</strong> Why? Imagine you hold a bond paying a 3% coupon. If new bonds start being issued at 5%, no one will buy yours at full price when they can get 5% elsewhere — so to sell it, you must drop your price until its effective return matches the new 5%. The reverse happens when rates fall: your higher-paying old bond becomes more valuable. You only lock in this price change if you <em>sell</em> early; hold to maturity and you still get your principal back. But the see-saw is real, and it's why even “safe” government bonds can lose market value in a year when rates jump.</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Why the price must fall</span>
+    Your bond pays a fixed <b>$30/yr</b> coupon (3% of $1,000 face).<br>
+    Current yield = annual coupon &divide; price.
+    <hr>
+    At face value: 30 &divide; 1,000 = <b>3.0%</b><br>
+    But new bonds now pay 5%. To yield 5%, your bond's price must fall to:<br>
+    price = 30 &divide; 0.05 = <b>$600</b>
+    <hr>
+    <span class="r">A buyer paying $600 for a $30 coupon gets 30&divide;600 = 5% — matching the market. So rates rising 3%→5% knocks your bond's resale price from $1,000 toward ~$600. Hold to maturity and you still get $1,000 back; sell early and you take the loss. That's the see-saw, in numbers.</span>
+  </div>
   <figure>
     <div class="figframe">
       <div class="figtab"><b>Figure 4.2</b> &nbsp;·&nbsp; The Bond See-Saw</div>
@@ -902,6 +930,16 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">6.4</span> Why Fees Matter So Much</h3>
   <p>We met this in Chapter 1, and it's worth hammering because it's the one lever you fully control. A fund's annual fee (its “expense ratio”) is charged every year on your whole balance, and it compounds against you. Index funds often charge a tiny fraction of a percent; many active funds charge ten times more. Over an investing lifetime, that gap can quietly transfer a large share of your potential wealth from you to the fund company — for no extra return. When choosing a fund, the most reliable predictor of good long-term results isn't the manager's brilliance or last year's chart; it's the <em>lowest fee</em>.</p>
+  <p>This sounds abstract until you run the numbers. Compare two funds, both earning 8% a year before fees, on a $10,000 investment over 30 years — one charging a 0.1% index fee, the other a 1.0% active fee (so they net 7.9% vs. 7.0%):</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · What a 1% fee really costs</span>
+    Low-fee (nets 7.9%): 10,000 &times; (1.079)<sup>30</sup> = <b>$97,900</b><br>
+    High-fee (nets 7.0%): 10,000 &times; (1.070)<sup>30</sup> = <b>$76,100</b>
+    <hr>
+    Difference = 97,900 &minus; 76,100 = <b>$21,800</b>
+    <hr>
+    <span class="r">A fee gap of less than 1% a year quietly ate <b>~22%</b> of the final pot — about $21,800 on a $10,000 start — and handed it to the fund company, for no extra return. The fee compounds against you exactly as your money compounds for you. This is why “lowest fee” is the single most reliable fund-picking rule.</span>
+  </div>
 
   <div class="box callout">
     <span class="title">In Plain Terms · the beginner's default</span>
@@ -1220,6 +1258,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     </div>
     <figcaption><b>The dip is the opportunity.</b> A fixed monthly amount automatically buys more when prices are low, lowering your average cost and removing the impossible task of timing. The investor who panicked and stopped in March missed exactly the cheap units that powered the recovery — which is why the hardest, most important rule is: <em>don't stop in a crash.</em></figcaption>
   </figure>
+  <p>Here's the quietly remarkable part, worked out: your <em>average cost per unit</em> ends up <em>below</em> the average <em>price</em> over the same months.</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Average cost beats average price</span>
+    Units: 100&divide;10 + 100&divide;8 + 100&divide;5 + 100&divide;10<br>
+    &nbsp;&nbsp;&nbsp; = 10.0 + 12.5 + 20.0 + 10.0 = <b>52.5 units</b><br>
+    Total invested = 4 &times; $100 = <b>$400</b>
+    <hr>
+    Average cost = 400 &divide; 52.5 = <b>$7.62 / unit</b><br>
+    Average price = (10+8+5+10) &divide; 4 = <b>$8.25 / unit</b>
+    <hr>
+    <span class="r">You paid $7.62 against an $8.25 average price — a free discount of ~8%, purely from buying the same dollar amount through ups and downs. Investing equal <i>dollars</i> (not equal <i>units</i>) mathematically tilts you toward the cheap months. That's the hidden engine of dollar-cost averaging.</span>
+  </div>
 
   <h3><span class="subnum">10.3</span> Automate It</h3>
   <p>The final, decisive trick is to take <em>yourself</em> out of the loop. Set up an <strong>automatic transfer</strong> that invests your chosen amount on the same date each month, before you can spend it or second-guess it. Automation does three magical things: it guarantees you actually invest (no relying on willpower), it enforces steady dollar-cost averaging, and — crucially — it keeps you investing right through the scary times, when your emotions would otherwise scream at you to stop. Decide the plan once, automate it, and then mostly ignore the noise. The investors who do best are often the ones who set this up and then, almost literally, forget about it for years.</p>
