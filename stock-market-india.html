@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Stock Market, From Scratch — An Indian Investor’s Complete Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE COMPLETE MONEY · v3 — Broadsheet editorial
+   Monochrome ink-on-paper + a single gold accent.
+   No gradients, no rounded cards, no drop-shadows.
+   Type: Fraunces (display) · Spectral (text) · Archivo (furniture)
+   ============================================================ */
+:root{
+  --paper:#F6F0E2;          /* warm broadsheet stock */
+  --paper-deep:#ECE3D0;     /* page surround */
+  --panel:#EFE8D7;          /* faint inset tint */
+  --ink:#1E1A15;            /* near-black warm ink */
+  --ink-soft:#4E483D;
+  --faint:#8C8475;
+  --hair:#C9BFA9;           /* hairline rules */
+  --rule:#C9BFA9;
+  --accent:#8A6A23;         /* the single accent — deep gold, on light */
+  --accent-deep:#1E1A15;    /* figures: dark fills = ink */
+  --accent-soft:#CFC4AC;    /* figures: warm gray */
+  --accent-tint:#EFE8D7;
+  --gold:#9C7B30;           /* slightly lighter gold for on-dark highlights */
+  --maxw:840px;
+}
+/* all former part-themes collapse to one monochrome system */
+.theme-1,.theme-2,.theme-3,.theme-4,.theme-5,.theme-6,.theme-7,.theme-8,.theme-9,.theme-10{
+  --accent:#8A6A23; --accent-deep:#1E1A15; --accent-soft:#CFC4AC; --accent-tint:#EFE8D7; --gold:#9C7B30;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper-deep);
+  color:var(--ink);
+  font-family:'Spectral',Georgia,'Times New Roman',serif;
+  font-size:18px;line-height:1.72;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  counter-reset:pg;
+  padding:34px 14px;
+}
+
+/* ---------------- THE PAGE SHEET ---------------- */
+.sheet{
+  position:relative;
+  max-width:var(--maxw);
+  margin:0 auto 22px;
+  background:var(--paper);
+  border:1px solid var(--hair);
+  border-top:3px solid var(--ink);     /* masthead rule */
+  padding:62px 78px 76px;
+  counter-increment:pg;
+}
+.sheet::before{                          /* running head */
+  content:"The Stock Market \00b7 From Scratch   \2014   " attr(data-part);
+  position:absolute;top:22px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  padding-bottom:9px;border-bottom:1px solid var(--hair);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.sheet::after{                           /* folio */
+  content:counter(pg) "   \00b7   " attr(data-chapter);
+  position:absolute;bottom:30px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+  text-align:center;padding-top:9px;border-top:1px solid var(--hair);
+}
+.sheet.plain::before,.sheet.plain::after{content:none;}
+
+/* ---------------- TYPOGRAPHY ---------------- */
+h1,h2,h3,h4,.display{font-family:'Fraunces','Spectral',Georgia,serif;font-optical-sizing:auto;color:var(--ink);font-weight:600;letter-spacing:-.005em;}
+.chapter-title{font-size:3.05rem;line-height:1.02;font-weight:900;margin:.12em 0 .3em;}
+h3{font-size:1.5rem;font-weight:600;margin:2.4em 0 .55em;padding-top:.7em;border-top:1px solid var(--hair);}
+h4{font-size:1.06rem;margin:1.7em 0 .3em;color:var(--ink);font-weight:700;font-family:'Archivo',sans-serif;letter-spacing:.02em;text-transform:uppercase;}
+p{margin:0 0 1.1em;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--hair);}
+a:hover{color:var(--ink);border-color:var(--accent);}
+.lead{font-size:1.4rem;line-height:1.5;color:var(--ink-soft);font-weight:400;font-style:italic;margin-bottom:1.2em;font-family:'Spectral',serif;}
+strong{font-weight:600;color:var(--ink);}
+.label,.kicker{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;font-weight:700;color:var(--accent);}
+.drop::first-letter{font-family:'Fraunces',serif;float:left;font-size:4.8rem;line-height:.76;font-weight:900;color:var(--ink);padding:.04em .1em 0 0;}
+.ornament{text-align:center;color:var(--accent);margin:2em 0;letter-spacing:.5em;font-size:.85rem;}
+.ornament::before{content:"\2756   \2756   \2756";}
+
+/* ---------------- CHAPTER OPENER ---------------- */
+.opener{margin:0 0 26px;}
+.opener .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.opener .cnum{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;}
+.opener .cline{flex:1;height:1px;background:var(--hair);}
+.opener .lead{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:.7em 0;margin-top:.3em;}
+
+/* ---------------- COVER (broadsheet front page) ---------------- */
+.cover{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:46px 70px 60px;text-align:center;
+}
+.cover .masthead{border-bottom:3px double var(--ink);padding-bottom:8px;margin-bottom:4px;
+  display:flex;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);}
+.cover .masthead .r{color:var(--accent);}
+.cover .vol{font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--hair);padding-bottom:18px;margin-bottom:34px;}
+.cover .seal{margin:6px auto 22px;display:block;}
+.cover .kicker{display:block;margin-bottom:10px;}
+.cover h1{font-family:'Fraunces',serif;font-weight:900;font-size:5rem;line-height:.94;margin:.1em 0 .14em;color:var(--ink);letter-spacing:-.02em;}
+.cover .sub{font-size:1.5rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:560px;margin:22px auto;}
+.cover .deck{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:16px 0;margin-top:28px;
+  font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);}
+
+/* ---------------- PART DIVIDER (section front page) ---------------- */
+.divider{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:54px 78px 64px;color:var(--ink);
+}
+.divider .big{font-family:'Fraunces',serif;font-size:9rem;line-height:.8;font-weight:900;color:var(--ink);letter-spacing:-.04em;}
+.divider .ptag{font-family:'Archivo',sans-serif;letter-spacing:.32em;text-transform:uppercase;font-size:.8rem;color:var(--accent);margin:6px 0 0;border-top:3px double var(--ink);padding-top:14px;}
+.divider h2{font-family:'Fraunces',serif;color:var(--ink);font-size:3.4rem;font-weight:900;margin:.14em 0 .35em;letter-spacing:-.015em;}
+.divider .pintro{font-size:1.3rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:580px;}
+.divider .chips{margin-top:30px;border-top:1px solid var(--hair);padding-top:18px;display:flex;flex-wrap:wrap;gap:0;}
+.divider .chip{font-family:'Archivo',sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:0 16px;border-right:1px solid var(--hair);}
+.divider .chip:first-child{padding-left:0;}
+.divider .chip:last-child{border-right:none;}
+
+/* ---------------- FEATURE BLOCKS (ruled, not cards) ---------------- */
+.box{margin:2em 0;padding:18px 0 4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:.98rem;line-height:1.62;}
+.box .htag{font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:.5em;color:var(--accent);}
+.box .title{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;display:block;margin-bottom:.5em;color:var(--ink);}
+
+/* Did You Know — double rules */
+.dyk{border-top:3px double var(--ink);border-bottom:3px double var(--ink);}
+/* Finance Psychology — heavy left rule */
+.psy{border:none;border-left:4px solid var(--accent);padding:4px 0 4px 22px;}
+.psy .htag{color:var(--accent);}
+/* Common Mistakes — heavy ink left rule */
+.err{border:none;border-left:4px solid var(--ink);padding:4px 0 4px 22px;}
+.err .htag{color:var(--ink);}
+/* Callout — single hairlines, faint tint */
+.callout{background:var(--panel);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 24px;}
+/* Case study — reversed ink panel (the editorial sidebar) */
+.case{background:var(--ink);color:#E9E1CF;border:none;padding:22px 26px;}
+.case .htag{color:var(--gold);} .case .title{color:#fff;} .case strong{color:#fff;}
+
+/* Takeaways — boxed with double rules */
+.takeaways{margin:2.2em 0;padding:20px 26px;border:2px solid var(--ink);background:var(--paper);}
+.takeaways .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.takeaways ol{margin:.7em 0 0;padding-left:1.3em;} .takeaways li{margin:.5em 0;} .takeaways strong{color:var(--ink);}
+
+/* Resources — ruled reading list */
+.resources{margin:2em 0;padding:16px 0 4px;border-top:1px solid var(--hair);}
+.resources .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.resources ul{margin:.6em 0 0;padding-left:0;list-style:none;columns:1;}
+.resources li{margin:.4em 0;padding-left:1.4em;position:relative;font-size:.95rem;}
+.resources li::before{content:"\2014";position:absolute;left:0;color:var(--accent);}
+
+/* Pull quote — editorial, ruled */
+.pq{margin:2.4em 0;padding:18px 0;border-top:3px double var(--ink);border-bottom:3px double var(--ink);
+   font-family:'Fraunces',serif;font-size:1.9rem;line-height:1.24;color:var(--ink);font-style:italic;font-weight:500;text-align:center;}
+.pq cite{display:block;margin-top:.6em;font-family:'Archivo',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+
+/* Margin note — floats into the side as a sidenote */
+.mnote{float:right;clear:right;width:34%;margin:6px 0 16px 28px;padding-left:16px;border-left:2px solid var(--accent);
+  font-family:'Spectral',serif;font-size:.86rem;font-style:italic;line-height:1.5;color:var(--ink-soft);}
+.mnote .ml{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.3em;}
+
+/* lists */
+ul,ol{margin:0 0 1.2em;padding-left:1.35em;} li{margin:.34em 0;}
+
+/* ---------------- TABLES (newspaper data) ---------------- */
+.compare{margin:2.2em 0;font-family:'Spectral',serif;}
+.compare table{width:100%;border-collapse:collapse;font-size:.94rem;}
+.compare caption{caption-side:top;text-align:left;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);
+  padding:0 0 10px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:none;}
+.compare thead th{background:none;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;font-size:.66rem;font-weight:700;
+  font-family:'Archivo',sans-serif;padding:8px 14px;text-align:left;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);}
+.compare th,.compare td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--hair);}
+.compare tbody tr:last-child td{border-bottom:2px solid var(--ink);}
+.compare td:first-child{font-weight:600;color:var(--ink);width:22%;}
+
+/* ---------------- FIGURES (plates) ---------------- */
+figure{margin:2.4em 0;}
+.figframe{border:1px solid var(--ink);background:#fff;}
+.figframe .figtab{font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding:9px 16px;color:var(--ink);border-bottom:1px solid var(--ink);background:var(--paper);}
+.figframe .figtab b{color:var(--accent);}
+figure svg{width:100%;height:auto;display:block;}
+figcaption{font-family:'Spectral',serif;font-style:italic;font-size:.88rem;color:var(--ink-soft);margin-top:.7em;line-height:1.5;padding:0 2px;}
+figcaption b{color:var(--ink);font-style:normal;font-weight:600;}
+
+/* ---------------- STAT STRIP (ruled, no cards) ---------------- */
+.stats{display:flex;flex-wrap:wrap;gap:0;margin:2em 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+.stat{flex:1;min-width:150px;padding:16px 22px 16px 0;margin-right:22px;border-right:1px solid var(--hair);}
+.stat:last-child{border-right:none;margin-right:0;}
+.stat .n{font-family:'Fraunces',serif;font-size:2.1rem;color:var(--ink);font-weight:900;line-height:1;}
+.stat .t{font-family:'Spectral',serif;font-size:.84rem;color:var(--ink-soft);margin-top:7px;line-height:1.45;}
+
+/* formula */
+.formula{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--ink);
+  padding:14px;margin:1.6em 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);letter-spacing:.02em;}
+code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--accent);}
+
+/* ---------------- TOC ---------------- */
+.toc h2{font-size:2.7rem;font-weight:900;}
+.toc .prow{margin:1.7em 0 .4em;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);letter-spacing:.16em;
+  text-transform:uppercase;font-size:.74rem;border-bottom:2px solid var(--ink);padding-bottom:.5em;}
+.toc ol{list-style:none;padding:0;margin:0;}
+.toc li{display:flex;justify-content:space-between;align-items:baseline;padding:.32em 0;border-bottom:1px solid var(--hair);}
+.toc li a{border:none;color:var(--ink);font-size:1.05rem;}
+.toc li a:hover{color:var(--accent);}
+.toc .pg{font-family:'JetBrains Mono',monospace;color:var(--faint);font-size:.82rem;}
+
+/* glossary columns */
+.glos{columns:2;column-gap:42px;font-size:.92rem;}
+.glos p{break-inside:avoid;margin:0 0 .8em;}
+
+/* colophon */
+.colophon{max-width:var(--maxw);margin:0 auto;background:var(--paper);border:1px solid var(--hair);border-top:3px solid var(--ink);
+  text-align:center;padding:42px 40px;font-family:'Archivo',sans-serif;font-size:.82rem;color:var(--faint);letter-spacing:.04em;}
+.colophon .rule{display:none;}
+.colophon .bt{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:900;color:var(--ink);margin:0 0 .3em;letter-spacing:-.01em;}
+
+/* responsive */
+@media(max-width:820px){
+  body{padding:10px 0;}
+  .sheet{padding:50px 24px 64px;} .sheet::before,.sheet::after{left:24px;right:24px;}
+  .cover,.divider{padding:40px 26px;}
+  .cover h1{font-size:3rem;} .chapter-title{font-size:2.1rem;}
+  .divider .big{font-size:6rem;} .divider h2{font-size:2.3rem;}
+  .pq{font-size:1.45rem;} .glos{columns:1;}
+  .mnote{float:none;width:auto;margin:14px 0;}
+}
+
+/* ---------------- PRINT ---------------- */
+@page{
+  margin:20mm 18mm 18mm;
+  @top-center{ content:"THE STOCK MARKET \00b7 FROM SCRATCH"; font-family:'Archivo',sans-serif; font-size:7.5pt; letter-spacing:2px; color:#9a917f; }
+  @bottom-center{ content: counter(page); font-family:'Archivo',sans-serif; font-size:9pt; color:#9a917f; }
+}
+@media print{
+  body{background:#fff;padding:0;font-size:10.8pt;}
+  .cover,.divider,.sheet,.colophon{border:none;border-top:2.5px solid #000;margin:0;max-width:100%;page-break-after:always;background:#fff;}
+  .sheet{padding:6mm 2mm 0;}
+  .sheet::before,.sheet::after{display:none !important;}
+  figure,.box,.compare,.takeaways,.case,.dyk,.callout,.pq,.stats,.opener{page-break-inside:avoid;}
+  h2,h3,h4{page-break-after:avoid;}
+  .mnote{float:none;width:auto;border-left:2px solid #000;}
+  a{color:var(--ink);border:none;}
+}
+
+
+/* ---- photographic plates (real images) ---- */
+.figframe img{display:block;width:100%;height:auto;}
+.figframe.plate{background:#fff;}
+.figframe.plate img{max-width:520px;margin:0 auto;}
+.credit{display:block;font-family:'Archivo',sans-serif;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:.5em;font-style:normal;}
+.rupee{font-feature-settings:"tnum";}
+.big-num{font-family:'Fraunces',serif;font-weight:900;}
+
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<header class="cover">
+  <div class="masthead"><span>Mumbai · First Edition · 2026</span><span class="r">For the Indian Investor · in ₹</span></div>
+  <div class="vol">NSE · BSE · SEBI · Sensex · Nifty · Demat · SIP</div>
+  <svg class="seal" width="116" height="116" viewBox="0 0 116 116" aria-hidden="true">
+    <circle cx="58" cy="58" r="54" fill="none" stroke="#1E1A15" stroke-width="1.5"/>
+    <circle cx="58" cy="58" r="45" fill="none" stroke="#8A6A23" stroke-width="1"/>
+    <path d="M40 74 L40 42 M40 42 L60 62 L74 48 M70 44 L78 44 L78 52" stroke="#1E1A15" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="58" y="98" text-anchor="middle" font-family="Fraunces, serif" font-size="20" font-weight="900" fill="#8A6A23">&#8377;</text>
+  </svg>
+  <div class="kicker">A Complete Beginner-to-Confident Guide</div>
+  <h1>The Stock Market,<br>From Scratch</h1>
+  <p class="sub">How India's stock market actually works — and how an ordinary person can invest in it wisely. Explained in plain language, illustrated throughout, and grounded entirely in rupees, NSE &amp; BSE.</p>
+  <div class="deck">From “What Is a Share?” to Your First Portfolio · Six Parts · Twenty-Two Chapters</div>
+</header>
+
+<!-- ===================== COPYRIGHT ===================== -->
+<section class="sheet plain">
+  <div style="font-family:'Spectral',serif;font-size:.94rem;color:var(--ink-soft);line-height:1.75;">
+    <p><strong>The Stock Market, From Scratch — An Indian Investor's Complete Guide.</strong> First Edition · 2026. A self-contained broadsheet volume of six parts and twenty-two chapters.</p>
+    <p style="margin-top:1.3em;"><strong>This is education, not advice.</strong> This book explains how the Indian securities market works and how to think about investing in it. It is <em>not</em> investment advice and contains no stock “tips.” Specific companies, funds, and figures are named only as <em>examples</em> to illustrate a concept — never as recommendations. Markets carry real risk; you can lose money, including your entire capital. Before investing, do your own research and, where needed, consult a SEBI-registered investment adviser.</p>
+    <p style="margin-top:1.3em;"><strong>On accuracy &amp; rules.</strong> Facts were cross-checked against SEBI, NSE, BSE, the Income Tax Department, and the depositories (NSDL/CDSL). Tax rates reflect the rules announced in Union Budget 2024 (effective 23 July 2024) and may change in future Budgets — always verify current rates before you file. Figures marked “illustrative” use stated assumptions for teaching only. Source notes appear in the back matter.</p>
+    <p style="margin-top:1.3em;color:var(--faint);">Set in Fraunces, Spectral &amp; Archivo. Diagrams drawn as native vector graphics; photographs are used under free licences and credited where they appear.</p>
+  </div>
+</section>
+
+<!-- ===================== EPIGRAPH ===================== -->
+<section class="sheet plain" style="display:flex;align-items:center;justify-content:center;min-height:42vh;text-align:center;">
+  <div class="pq" style="border-top:none;border-bottom:none;font-size:2rem;">
+    “The stock market is a device for transferring money from the impatient to the patient.”
+    <cite>— Warren Buffett</cite>
+  </div>
+</section>
+
+<!-- ===================== TABLE OF CONTENTS ===================== -->
+<nav class="sheet toc" data-part="Contents" data-chapter="Table of Contents">
+  <div class="label">Contents</div>
+  <h2>What's Inside</h2>
+  <p class="lead" style="font-style:normal;font-size:1.05rem;">Six parts, twenty-two chapters — a deliberate path from “what is a share?” to building and protecting your first portfolio. Everything is in rupees and built around India's exchanges, rules, and taxes.</p>
+
+  <div class="prow">Front Matter</div>
+  <ol><li><a href="#howto">How to Read This Book</a><span class="pg">i</span></li></ol>
+
+  <div class="prow">Part I · Foundations — What &amp; Why</div>
+  <ol>
+    <li><a href="#ch1">1 · What Is a Share, Really?</a><span class="pg">1</span></li>
+    <li><a href="#ch2">2 · Why a Stock Market Exists</a><span class="pg">2</span></li>
+    <li><a href="#ch3">3 · The Indian Market Map: NSE, BSE, SEBI &amp; the Depositories</a><span class="pg">3</span></li>
+    <li><a href="#ch4">4 · Sensex &amp; Nifty: How an Index Works</a><span class="pg">4</span></li>
+  </ol>
+  <div class="prow">Part II · Getting Started</div>
+  <ol>
+    <li><a href="#ch5">5 · The Three Accounts: Bank, Trading &amp; Demat</a><span class="pg">5</span></li>
+    <li><a href="#ch6">6 · Placing Your First Trade</a><span class="pg">6</span></li>
+    <li><a href="#ch7">7 · Timings, Settlement (T+1) &amp; Circuit Breakers</a><span class="pg">7</span></li>
+  </ol>
+  <div class="prow">Part III · How to Analyse a Stock</div>
+  <ol>
+    <li><a href="#ch8">8 · Reading a Stock: Price, Market Cap &amp; P/E</a><span class="pg">8</span></li>
+    <li><a href="#ch9">9 · Fundamental Analysis: The Business Behind the Ticker</a><span class="pg">9</span></li>
+    <li><a href="#ch10">10 · Technical Analysis: Charts &amp; Candlesticks</a><span class="pg">10</span></li>
+    <li><a href="#ch11">11 · IPOs: Mainboard, SME &amp; How to Apply</a><span class="pg">11</span></li>
+  </ol>
+  <div class="prow">Part IV · Ways to Invest</div>
+  <ol>
+    <li><a href="#ch12">12 · Mutual Funds, Index Funds &amp; ETFs</a><span class="pg">12</span></li>
+    <li><a href="#ch13">13 · SIP — The Indian Investor's Superpower</a><span class="pg">13</span></li>
+    <li><a href="#ch14">14 · Derivatives: Futures &amp; Options (Handle with Care)</a><span class="pg">14</span></li>
+    <li><a href="#ch15">15 · Beyond Stocks: Bonds, Gold &amp; REITs</a><span class="pg">15</span></li>
+  </ol>
+  <div class="prow">Part V · The Mind, the Tax &amp; the Traps</div>
+  <ol>
+    <li><a href="#ch16">16 · Risk, Diversification &amp; Asset Allocation</a><span class="pg">16</span></li>
+    <li><a href="#ch17">17 · The Psychology of the Indian Investor</a><span class="pg">17</span></li>
+    <li><a href="#ch18">18 · Taxes for the Indian Investor</a><span class="pg">18</span></li>
+    <li><a href="#ch19">19 · Costs, Scams &amp; Staying Safe</a><span class="pg">19</span></li>
+  </ol>
+  <div class="prow">Part VI · Putting It Together</div>
+  <ol>
+    <li><a href="#ch20">20 · Building Your First Portfolio</a><span class="pg">20</span></li>
+    <li><a href="#ch21">21 · Lessons from Indian Market History</a><span class="pg">21</span></li>
+    <li><a href="#ch22">22 · Your 12-Month Action Plan</a><span class="pg">22</span></li>
+  </ol>
+  <div class="prow">Back Matter</div>
+  <ol>
+    <li><a href="#glossary">Glossary of Indian Market Terms</a><span class="pg">A</span></li>
+    <li><a href="#resources">Resources &amp; Source Notes</a><span class="pg">B</span></li>
+  </ol>
+</nav>
+
+<!-- ===================== HOW TO READ ===================== -->
+<section class="sheet" id="howto" data-part="Front Matter" data-chapter="How to Read This Book">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Foreword</span><span class="cline"></span></div>
+    <h2 class="chapter-title">How to Read This Book</h2>
+    <p class="lead">You do not need a finance degree, a fancy job, or a lot of money to invest in the stock market. You need a few clear ideas, a little discipline, and the patience to let time do the heavy lifting. This book gives you the first; the rest is up to you.</p>
+  </div>
+  <p class="drop">Most stock-market guides in India fall into two traps. Some are dry textbooks that bury you in jargon. Others are breathless “multibagger” channels promising to double your money by Friday. This book is neither. It assumes you know nothing about shares, and it walks you — calmly, in plain English and in rupees — from the very meaning of a share to building a sensible portfolio you can hold for life.</p>
+  <p>Every chapter follows the same rhythm: an <strong>opener</strong> sets the scene, a <strong>core idea</strong> is explained simply, a <strong>diagram</strong> makes it visual, then <strong>India-specific examples</strong>, <strong>common mistakes</strong>, the <strong>psychology</strong> at work, and finally <strong>key takeaways</strong>. Watch for these recurring features:</p>
+  <div class="box callout">
+    <span class="title">The recurring features</span>
+    <ul style="margin-bottom:0;">
+      <li><strong>In Rupees</strong> — worked examples with real Indian numbers.</li>
+      <li><strong>Did You Know?</strong> — the surprising and unforgettable from Dalal Street.</li>
+      <li><strong>Investor Psychology</strong> — the mental traps that cost Indians the most.</li>
+      <li><strong>Common Mistakes</strong> — what beginners get wrong, and how to avoid it.</li>
+      <li><strong>Watch Out</strong> — scams, hidden costs, and red flags specific to India.</li>
+      <li><strong>Compare &amp; Understand</strong> — side-by-side tables for fast clarity.</li>
+    </ul>
+  </div>
+  <p>A note on honesty. This book will sometimes tell you things the “finfluencer” economy won't — that most people who trade Futures &amp; Options lose money, that low-cost index funds quietly beat most experts, that there are no shortcuts. That candour is the point. You should finish thinking: <em>“I finally understand how this works — and I know exactly what to do next.”</em></p>
+  <div class="pq" style="border-top:none;">Investing is simple, but not easy. The simple part is in this book. The “not easy” part is your patience.</div>
+  <p>Beginners should start at Chapter 1 and read straight through. If you already have a demat account, you can skim Part II. Wherever a number appears, it is either sourced or clearly labelled illustrative.</p>
+  <div class="ornament"></div>
+  <p style="text-align:center;font-style:italic;color:var(--ink-soft);">Let's begin at the very beginning — with what a single share of a company actually is.</p>
+</section>
+
+<!-- ===================== PART I DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">I</div>
+  <div class="ptag">Part One</div>
+  <h2>Foundations — What &amp; Why</h2>
+  <p class="pintro">Before you buy a single share, you should understand what a share <em>is</em>, why a stock market exists at all, and who runs the Indian one. Get these four ideas clear and everything afterwards becomes simple.</p>
+  <div class="chips"><span class="chip">What a share is</span><span class="chip">Why markets exist</span><span class="chip">NSE · BSE · SEBI</span><span class="chip">Sensex &amp; Nifty</span></div>
+</section>
+
+<!-- ===================== CH 1 ===================== -->
+<section class="sheet" id="ch1" data-part="Part I · Foundations" data-chapter="Chapter 1 · What Is a Share, Really?">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter One</span><span class="cline"></span></div>
+    <h2 class="chapter-title">What Is a Share, Really?</h2>
+    <p class="lead">Strip away the screens, the tickers and the noise, and a share is the simplest idea in all of finance: it is a small piece of a real business that you are allowed to own.</p>
+  </div>
+  <p class="drop">Imagine your neighbour runs a hugely popular dosa restaurant. It earns good money, and she wants to open ten more outlets — but that needs, say, ₹1 crore she doesn't have. She has two choices. She can <em>borrow</em> the money (a loan she must repay with interest), or she can <em>sell a part of her business</em> to people who give her the ₹1 crore and, in return, become part-owners who share in all future profits. That second path — selling ownership — is what a <strong>share</strong> is. A share is a slice of ownership in a company.</p>
+
+  <h3>Ownership, Cut Into Slices</h3>
+  <p>A company's total ownership is divided into a fixed number of equal pieces called <strong>shares</strong> (or “equity shares”). If a company has issued 1,00,000 shares and you own 1,000 of them, you own 1% of the entire company — its brand, its shops, its bank balance, and crucially, 1% of every rupee of profit it makes from now on. Own a share of <em>Reliance Industries</em> or <em>Tata Consultancy Services (TCS)</em>, and you are — in a tiny, real, legal way — a part-owner of that giant.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 1.1</b> &nbsp;·&nbsp; A Company, Divided Into Shares</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Ownership divided into shares">
+        <rect width="760" height="300" fill="#fff"/>
+        <text x="40" y="44" font-family="Fraunces" font-size="20" font-weight="900" fill="#1E1A15">One company  =  100% ownership  =  all the shares</text>
+        <!-- big bar split -->
+        <rect x="40" y="70" width="680" height="70" fill="none" stroke="#1E1A15"/>
+        <rect x="40" y="70" width="340" height="70" fill="#1E1A15"/>
+        <rect x="380" y="70" width="238" height="70" fill="#8A6A23"/>
+        <rect x="618" y="70" width="102" height="70" fill="#CFC4AC"/>
+        <text x="210" y="112" text-anchor="middle" fill="#fff" font-family="Archivo" font-size="13" font-weight="700">PROMOTERS  50%</text>
+        <text x="499" y="112" text-anchor="middle" fill="#fff" font-family="Archivo" font-size="13" font-weight="700">PUBLIC &amp; FUNDS  35%</text>
+        <text x="669" y="106" text-anchor="middle" fill="#1E1A15" font-family="Archivo" font-size="11" font-weight="700">YOU</text>
+        <text x="669" y="122" text-anchor="middle" fill="#1E1A15" font-family="Archivo" font-size="11" font-weight="700">15%</text>
+        <text x="40" y="172" font-family="Spectral" font-size="13" fill="#4E483D">The “promoters” are the founders/family who started and still control the firm — a uniquely</text>
+        <text x="40" y="192" font-family="Spectral" font-size="13" fill="#4E483D">important idea in India. The rest is the “public float” — shares that ordinary investors,</text>
+        <text x="40" y="212" font-family="Spectral" font-size="13" fill="#4E483D">mutual funds and foreign institutions can buy and sell on the exchange.</text>
+        <text x="40" y="252" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">YOUR SLICE — own 1,000 of 1,00,000 shares  →  you own 1% of everything the company is and earns.</text>
+      </svg>
+    </div>
+    <figcaption><b>Ownership, sliced.</b> Every listed Indian company publishes its “shareholding pattern” each quarter, showing how much promoters, institutions and the public own. A high, stable promoter holding often signals the founders have “skin in the game.”</figcaption>
+  </figure>
+
+  <h3>How You Actually Make Money</h3>
+  <p>Owning a share rewards you in two ways. First, <strong>capital appreciation</strong>: if the business grows and becomes more valuable, the price of each share rises, and you can sell for more than you paid. Second, <strong>dividends</strong>: many profitable Indian companies hand a slice of their yearly profit directly to shareholders as cash. If you own 1,000 shares and the company declares a dividend of ₹8 per share, ₹8,000 simply arrives in your bank account. You did nothing that day except own a good business.</p>
+
+  <div class="box callout">
+    <span class="title">Face value vs. market price — don't confuse them</span>
+    <p style="margin-bottom:0;">Every Indian share has a <strong>face value</strong> (often ₹1, ₹2, ₹5 or ₹10) — an accounting figure printed at birth, used for dividends and corporate actions. Its <strong>market price</strong> is what the share actually trades at today, set by buyers and sellers, and it can be hundreds or thousands of rupees. A share with a ₹1 face value might trade at ₹3,500. Beginners often think a “₹10 face value” share is cheap or a “high price” share is expensive — both are meaningless without looking at the whole company's value (Chapter 8).</p>
+  </div>
+
+  <div class="box" style="border:none;"><span class="htag">In Rupees</span>
+    <p style="margin-bottom:0;">Suppose you buy 50 shares of a company at ₹400 each — an investment of <strong>₹20,000</strong>. Over three years the business does well and the price rises to ₹620. Your holding is now worth ₹31,000 — a gain of ₹11,000 (capital appreciation). Along the way it also paid ₹10 per share in dividends each year: 50 × ₹10 × 3 = <strong>₹1,500</strong> in cash. Total reward: ₹12,500 on ₹20,000. (Illustrative — real prices can also fall.)</p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">India's priciest share costs more than a motorbike</span>
+    <p style="margin-bottom:0;">A single share of <em>MRF Ltd</em> — the tyre maker — has traded above <strong>₹1,00,000</strong>, making it famously the highest-priced share on Indian exchanges. One share costs more than many people's monthly salary. Yet a “₹1 lakh share” is not necessarily expensive and a “₹20 share” is not necessarily cheap: price per share depends simply on how many slices the company chose to cut its ownership into. What matters is the value of the <em>whole</em> business (Chapter 8).</p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Thinking a share is just a number on a screen</span>
+    <p style="margin-bottom:0;">The single most damaging beginner mistake is forgetting that a share is a piece of a <em>real business.</em> People buy a flashing ticker because it's “going up,” with no idea what the company does, whether it earns a profit, or what it's worth. When you remember you are buying part-ownership of a business, you start asking the right questions — Is it profitable? Is it growing? Is the price sensible? — and you stop gambling.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>A share is a slice of real ownership</strong> in a company — not a lottery ticket.</li>
+      <li><strong>You earn two ways:</strong> the price rising (capital appreciation) and cash dividends from profits.</li>
+      <li><strong>In India, watch the “promoter” holding</strong> — founders with skin in the game.</li>
+      <li><strong>Face value ≠ market price,</strong> and a high share price doesn't mean “expensive.”</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 2 ===================== -->
+<section class="sheet" id="ch2" data-part="Part I · Foundations" data-chapter="Chapter 2 · Why a Stock Market Exists">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Two</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Why a Stock Market Exists</h2>
+    <p class="lead">A stock market is not a casino, though it can be misused as one. At its heart it is a brilliant machine that does two jobs: it helps good companies raise money to grow, and it lets ordinary people share in that growth — while always being able to sell.</p>
+  </div>
+  <p class="drop">Think of your local <em>sabzi mandi</em> (vegetable market). Farmers bring produce, buyers come to purchase, and out of all their haggling a fair price emerges for tomatoes that day. A stock market is exactly this, but for tiny pieces of companies — and like the mandi, its magic is that a buyer and a seller can always find each other and agree on a price. That ability to buy or sell at any moment is called <strong>liquidity</strong>, and it is the reason the whole system works.</p>
+
+  <h3>The Two Halves of the Market</h3>
+  <p>The market does two distinct things, and confusing them causes endless misunderstanding.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 2.1</b> &nbsp;·&nbsp; Primary vs. Secondary Market</div>
+      <svg viewBox="0 0 760 320" role="img" aria-label="Primary and secondary market">
+        <rect width="760" height="320" fill="#fff"/>
+        <defs><marker id="ar2" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#8A6A23"/></marker></defs>
+        <!-- primary -->
+        <text x="40" y="44" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">1 · PRIMARY MARKET — money reaches the company (an IPO)</text>
+        <rect x="60" y="60" width="150" height="60" rx="0" fill="#fff" stroke="#1E1A15"/><text x="135" y="88" text-anchor="middle" font-family="Spectral" font-size="13">Investors</text><text x="135" y="106" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">pay ₹ for new shares</text>
+        <rect x="550" y="60" width="150" height="60" fill="#1E1A15"/><text x="625" y="88" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="13">Company</text><text x="625" y="106" text-anchor="middle" fill="#CFC4AC" font-family="Spectral" font-size="11">gets the cash to grow</text>
+        <path d="M212 82 L548 82" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar2)"/><text x="380" y="74" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">money in →</text>
+        <path d="M548 104 L212 104" stroke="#1E1A15" stroke-width="2.5" marker-end="url(#ar2)"/><text x="380" y="118" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">← new shares</text>
+        <!-- secondary -->
+        <text x="40" y="178" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">2 · SECONDARY MARKET — investors trade those shares among themselves (daily)</text>
+        <rect x="60" y="194" width="150" height="60" fill="#fff" stroke="#1E1A15"/><text x="135" y="228" text-anchor="middle" font-family="Spectral" font-size="13">Investor A (sells)</text>
+        <rect x="305" y="194" width="150" height="60" fill="#8A6A23"/><text x="380" y="222" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="13">NSE / BSE</text><text x="380" y="240" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="11">matches them</text>
+        <rect x="550" y="194" width="150" height="60" fill="#fff" stroke="#1E1A15"/><text x="625" y="228" text-anchor="middle" font-family="Spectral" font-size="13">Investor B (buys)</text>
+        <path d="M212 224 L303 224" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar2)"/>
+        <path d="M457 224 L548 224" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar2)"/>
+        <text x="380" y="290" text-anchor="middle" font-family="Spectral" font-size="12" fill="#4E483D">The company gets no new money here — but the <tspan font-style="italic">promise</tspan> of an easy exit is what made investors fund it in the first place.</text>
+      </svg>
+    </div>
+    <figcaption><b>Two halves, one engine.</b> A company raises money only once, at its <b>IPO</b> (the primary market). After that, its shares change hands endlessly between investors on the exchange (the secondary market). When the news says “the market fell today,” it means the secondary market.</figcaption>
+  </figure>
+
+  <h3>What the Market Does for the Country</h3>
+  <p>Zoom out and the stock market is one of the engines of a growing economy. It channels the savings of millions of Indians — sitting idle in accounts — towards companies that can put that money to productive use: building factories, hiring engineers, opening stores. Those companies grow, employ people, pay taxes, and create wealth, a slice of which flows back to the investors who funded them. When it works honestly, almost everyone benefits. When it is distorted by manipulation or mania (Chapter 21), money flows to the wrong places and is destroyed.</p>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">Short-term votes, long-term weighs</span>
+    <p style="margin-bottom:0;">The investor Benjamin Graham said the market is, in the short run, a <em>voting machine</em> — driven by emotion, news, and popularity — but in the long run a <em>weighing machine</em> that settles on a company's true earning power. Day to day the Sensex lurches on rumours and global cues. Over a decade, it tracks how much money Indian companies actually earned. Most mistakes come from treating the daily “votes” as if they were the long-term “weight.”</p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">You already (probably) own shares</span>
+    <p style="margin-bottom:0;">If you have a job with EPF (Provident Fund), a portion of your retirement money is invested by the EPFO into Indian shares through index ETFs. If you hold an LIC policy or any mutual fund, you indirectly own shares too. Tens of crores of Indians are already part-owners of the country's biggest companies — often without realising it. This book simply helps you do it knowingly and well.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>A market's core gift is liquidity</strong> — you can always find a buyer or seller and agree a price.</li>
+      <li><strong>Primary market = a company raises money (IPO); secondary market = investors trade existing shares.</strong></li>
+      <li><strong>The market routes the nation's savings to productive companies</strong> and shares the rewards back.</li>
+      <li><strong>Short term it runs on emotion; long term on earnings.</strong> Patience bridges the two.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 3 ===================== -->
+<section class="sheet" id="ch3" data-part="Part I · Foundations" data-chapter="Chapter 3 · The Indian Market Map">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Three</span><span class="cline"></span></div>
+    <h2 class="chapter-title">The Indian Market Map</h2>
+    <p class="lead">NSE, BSE, SEBI, NSDL, CDSL, demat, broker — the alphabet soup scares beginners off. But the Indian market is just a tidy chain of five players, each with one clear job. Learn the chain once and the jargon dissolves.</p>
+  </div>
+  <p class="drop">When you tap “Buy” on a trading app, an invisible relay race begins across five institutions in seconds. Understanding who does what — and who is watching over the whole thing — is what separates a confident investor from a nervous one. Let's meet the players, starting with the two great exchanges where it all happens.</p>
+
+  <h3>The Two Exchanges: BSE &amp; NSE</h3>
+  <p>The <strong>Bombay Stock Exchange (BSE)</strong>, founded in <strong>1875</strong> on Mumbai's Dalal Street, is Asia's oldest stock exchange. For over a century it was the beating heart of Indian finance, with traders shouting orders in an open outcry ring. Its benchmark index is the <strong>Sensex</strong>.</p>
+  <figure>
+    <div class="figframe plate">
+      <div class="figtab"><b>Plate 3.1</b> &nbsp;·&nbsp; The BSE, Dalal Street, Mumbai — Asia's oldest exchange (est. 1875)</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/BSE_building_at_Dalal_Street.JPG/330px-BSE_building_at_Dalal_Street.JPG" alt="The Bombay Stock Exchange (Phiroze Jeejeebhoy Towers) on Dalal Street, Mumbai" loading="lazy">
+    </div>
+    <figcaption><b>Phiroze Jeejeebhoy Towers.</b> The address “Dalal Street” is to Indian finance what “Wall Street” is to America's. <span class="credit">Photograph via Wikimedia Commons, used under a free licence.</span></figcaption>
+  </figure>
+
+  <p>The <strong>National Stock Exchange (NSE)</strong>, launched in the early 1990s and based in Mumbai's Bandra Kurla Complex, was India's answer to the old ring: a fully electronic, screen-based exchange where orders are matched by computers in microseconds. It quickly became — and remains — India's <strong>largest exchange by trading volume</strong>. Its benchmark is the <strong>Nifty 50</strong>.</p>
+  <figure>
+    <div class="figframe plate">
+      <div class="figtab"><b>Plate 3.2</b> &nbsp;·&nbsp; The NSE, Bandra Kurla Complex, Mumbai — India's largest exchange by volume</div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/IT7A2918_copy.jpg/250px-IT7A2918_copy.jpg" alt="The National Stock Exchange of India building in Bandra Kurla Complex, Mumbai" loading="lazy">
+    </div>
+    <figcaption><b>Exchange Plaza, BKC.</b> The NSE's screen-based trading, launched in the 1990s, democratised the market — a trader in a small town now sees the same prices as a Mumbai institution. <span class="credit">Photograph via Wikimedia Commons, used under a free licence.</span></figcaption>
+  </figure>
+  <p>For a beginner, the practical truth is reassuring: most large companies are listed on <em>both</em> exchanges, prices are near-identical, and your app handles the choice. You don't need to pick.</p>
+
+  <h3>The Watchdog: SEBI</h3>
+  <p>Sitting above everything is the <strong>Securities and Exchange Board of India (SEBI)</strong>, the market's regulator, established in <strong>1992</strong> after a major scam (Chapter 21) exposed how vulnerable investors were. SEBI's job is to protect you: it licenses brokers, sets the rules, punishes fraud and manipulation, and forces companies to disclose the truth. When you hear that a stock has been “banned” or a fund “penalised,” that is SEBI at work. It is the reason the Indian market is far safer today than a generation ago.</p>
+
+  <h3>Where Your Shares Actually Live: NSDL &amp; CDSL</h3>
+  <p>Your shares are not paper certificates in a cupboard. They are electronic entries held safely in a <strong>depository</strong> — either <strong>NSDL</strong> or <strong>CDSL</strong>, the two national vaults for shares. Your <strong>demat account</strong> (Chapter 5) is simply your personal locker inside one of these depositories. Your broker is the “depository participant” (DP) that connects you to it.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 3.3</b> &nbsp;·&nbsp; The Indian Market, In One Map</div>
+      <svg viewBox="0 0 760 360" role="img" aria-label="Map of the Indian market participants">
+        <rect width="760" height="360" fill="#fff"/>
+        <defs><marker id="ar3" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#8A6A23"/></marker></defs>
+        <!-- SEBI umbrella -->
+        <rect x="230" y="30" width="300" height="44" fill="#1E1A15"/>
+        <text x="380" y="52" text-anchor="middle" fill="#fff" font-family="Archivo" font-size="12" font-weight="700">SEBI — THE REGULATOR (1992)</text>
+        <text x="380" y="68" text-anchor="middle" fill="#CFC4AC" font-family="Spectral" font-size="10.5">watches over everyone below</text>
+        <line x1="380" y1="74" x2="380" y2="100" stroke="#CFC4AC" stroke-dasharray="3 3"/>
+        <!-- You -->
+        <rect x="40" y="110" width="150" height="62" fill="#8A6A23"/><text x="115" y="138" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="14" font-weight="600">YOU</text><text x="115" y="156" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="10.5">the investor</text>
+        <!-- Broker -->
+        <rect x="240" y="110" width="150" height="62" fill="#fff" stroke="#1E1A15"/><text x="315" y="134" text-anchor="middle" font-family="Spectral" font-size="13" font-weight="600">Broker (DP)</text><text x="315" y="152" text-anchor="middle" font-family="Spectral" font-size="10.5" fill="#4E483D">Zerodha, Groww…</text>
+        <!-- Exchange -->
+        <rect x="440" y="110" width="150" height="62" fill="#fff" stroke="#1E1A15"/><text x="515" y="134" text-anchor="middle" font-family="Spectral" font-size="13" font-weight="600">Exchange</text><text x="515" y="152" text-anchor="middle" font-family="Spectral" font-size="10.5" fill="#4E483D">NSE / BSE</text>
+        <!-- Depository -->
+        <rect x="610" y="110" width="120" height="62" fill="#1E1A15"/><text x="670" y="134" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="12" font-weight="600">Depository</text><text x="670" y="152" text-anchor="middle" fill="#CFC4AC" font-family="Spectral" font-size="10">NSDL / CDSL</text>
+        <path d="M190 141 L238 141" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar3)"/>
+        <path d="M390 141 L438 141" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar3)"/>
+        <path d="M590 141 L608 141" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar3)"/>
+        <!-- captions row -->
+        <text x="115" y="210" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">places an order</text>
+        <text x="315" y="210" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">routes it to…</text>
+        <text x="515" y="210" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">matches buyer &amp; seller</text>
+        <text x="670" y="210" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">stores your shares</text>
+        <!-- bank note -->
+        <rect x="40" y="250" width="690" height="70" fill="none" stroke="#1E1A15"/>
+        <text x="60" y="278" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">AND YOUR MONEY?</text>
+        <text x="60" y="300" font-family="Spectral" font-size="12.5" fill="#1E1A15">Cash sits in your BANK account · shares sit in your DEMAT account · the TRADING account is the bridge that connects the two. (Chapter 5)</text>
+      </svg>
+    </div>
+    <figcaption><b>The relay race.</b> You → broker → exchange → depository, all under SEBI's eye. It feels instant on your phone, but every tap travels this exact chain. Knowing it means you'll never be confused about “where my shares are” or “who to complain to.”</figcaption>
+  </figure>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">India settles trades faster than Wall Street</span>
+    <p style="margin-bottom:0;">In January 2023, India became one of the first major markets in the world to move to <strong>T+1 settlement</strong> — your trade fully completes one working day after you make it. The United States only caught up in May 2024. For a market once mocked as a sleepy backwater, India's plumbing is now among the most advanced on Earth (more in Chapter 7).</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Two exchanges:</strong> the BSE (1875, Asia's oldest, index = Sensex) and the NSE (1990s, largest by volume, index = Nifty 50).</li>
+      <li><strong>SEBI (1992) is the regulator</strong> — it licenses brokers, enforces rules, and protects investors.</li>
+      <li><strong>Your shares live in a depository (NSDL/CDSL)</strong> via your demat account; the broker is your connection.</li>
+      <li><strong>The chain is: You → Broker → Exchange → Depository, all under SEBI.</strong></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 4 ===================== -->
+<section class="sheet" id="ch4" data-part="Part I · Foundations" data-chapter="Chapter 4 · Sensex &amp; Nifty">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Four</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Sensex &amp; Nifty: How an Index Works</h2>
+    <p class="lead">“Sensex crosses 80,000!” shouts the news. But 80,000 <em>what</em>? An index is simply a thermometer for the market — a single number that tells you, at a glance, whether India's biggest companies are collectively rising or falling.</p>
+  </div>
+  <p class="drop">You can't track 5,000 listed companies at once, so we use an <strong>index</strong>: a carefully chosen basket of important shares, bundled into one number. When that number rises, the basket is worth more on average; when it falls, less. It's the same idea as a “cost of living index” — one figure summarising thousands of prices.</p>
+
+  <h3>India's Two Famous Baskets</h3>
+  <div class="compare"><table>
+    <caption>Compare &amp; Understand · Sensex vs. Nifty 50</caption>
+    <thead><tr><th></th><th>Sensex</th><th>Nifty 50</th></tr></thead>
+    <tbody>
+      <tr><td>Exchange</td><td>BSE</td><td>NSE</td></tr>
+      <tr><td>Companies</td><td>30 of India's largest, most-traded firms</td><td>50 of India's largest, most-traded firms</td></tr>
+      <tr><td>Born</td><td>1986 (base year 1978–79 = 100)</td><td>1996 (base 1995 = 1,000)</td></tr>
+      <tr><td>How it's weighted</td><td>Free-float market-cap weighted</td><td>Free-float market-cap weighted</td></tr>
+      <tr><td>Think of it as</td><td>India's “Top 30” team</td><td>India's “Top 50” team</td></tr>
+    </tbody>
+  </table></div>
+  <p>Both are <strong>free-float market-capitalisation weighted</strong> — a mouthful that means something simple: bigger companies count for more. A giant like Reliance or HDFC Bank moves the index far more than the smallest member. So the index mostly reflects what India's biggest companies are doing.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 4.1</b> &nbsp;·&nbsp; An Index Is a Weighted Basket</div>
+      <svg viewBox="0 0 760 320" role="img" aria-label="Index as weighted basket">
+        <rect width="760" height="320" fill="#fff"/>
+        <text x="40" y="42" font-family="Fraunces" font-size="19" font-weight="900" fill="#1E1A15">Bigger company = bigger slice of the index</text>
+        <text x="40" y="64" font-family="Spectral" font-size="12.5" fill="#4E483D">Illustrative weights of a few Nifty 50 heavyweights (actual weights change daily).</text>
+        <!-- bars -->
+        <g font-family="Archivo" font-size="11" font-weight="700">
+          <text x="40" y="100" fill="#1E1A15">HDFC BANK</text><rect x="200" y="88" width="300" height="18" fill="#1E1A15"/><text x="512" y="102" fill="#4E483D">~13%</text>
+          <text x="40" y="130" fill="#1E1A15">RELIANCE</text><rect x="200" y="118" width="225" height="18" fill="#8A6A23"/><text x="437" y="132" fill="#4E483D">~9%</text>
+          <text x="40" y="160" fill="#1E1A15">ICICI BANK</text><rect x="200" y="148" width="185" height="18" fill="#1E1A15"/><text x="397" y="162" fill="#4E483D">~8%</text>
+          <text x="40" y="190" fill="#1E1A15">INFOSYS</text><rect x="200" y="178" width="135" height="18" fill="#8A6A23"/><text x="347" y="192" fill="#4E483D">~6%</text>
+          <text x="40" y="220" fill="#1E1A15">TCS</text><rect x="200" y="208" width="100" height="18" fill="#1E1A15"/><text x="312" y="222" fill="#4E483D">~4%</text>
+          <text x="40" y="250" fill="#1E1A15">…45 OTHERS</text><rect x="200" y="238" width="330" height="18" fill="#CFC4AC"/><text x="542" y="252" fill="#4E483D">the rest</text>
+        </g>
+        <text x="40" y="295" font-family="Spectral" font-size="12" fill="#4E483D">Buy a “Nifty 50 index fund” (Chapter 12) and you own all 50 in exactly these proportions — instant diversification.</text>
+      </svg>
+    </div>
+    <figcaption><b>Weighted, not equal.</b> A handful of banks, energy and IT giants drive most of the index's movement. This is why “the market” can rise even when most small stocks fall — the heavyweights did well that day.</figcaption>
+  </figure>
+
+  <h3>What the Number Actually Means</h3>
+  <p>The level itself — 80,000 on the Sensex, 24,000 on the Nifty — is only meaningful <em>relative to the past</em>. The Sensex started at a base of 100 in 1979. Crossing 80,000 means India's top companies are collectively worth roughly 800 times what they were then — a staggering testament to four decades of Indian economic growth. You don't invest in “the number”; you use it to judge direction, compare your own returns, and (via index funds) to own the whole basket cheaply.</p>
+
+  <div class="box callout">
+    <span class="title">Large-cap, mid-cap, small-cap</span>
+    <p style="margin-bottom:0;">SEBI classifies listed companies by size. The <strong>top 100</strong> by market value are <strong>large-caps</strong> (stable giants — Nifty 50 lives here). <strong>101–250</strong> are <strong>mid-caps</strong> (faster-growing, bumpier). Beyond 250 are <strong>small-caps</strong> (highest potential, highest risk, easiest to manipulate). A sensible beginner starts with large-caps and index funds, and only later — carefully — ventures into mid and small.</p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">“The Sensex is at an all-time high, so it's too late to invest”</span>
+    <p style="margin-bottom:0;">Because a growing economy's index trends upward over decades, it spends much of its life near “all-time highs” — and waiting for a crash that may not come has cost patient Indians dearly. The Sensex was at an “all-time high” at 5,000… and 20,000… and 50,000. Time <em>in</em> the market, through a low-cost index fund and regular SIPs (Chapter 13), beats trying to time the perfect entry.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>An index is a thermometer</strong> — one number summarising a basket of important shares.</li>
+      <li><strong>Sensex = 30 companies (BSE); Nifty 50 = 50 (NSE),</strong> both free-float market-cap weighted, so bigger firms count more.</li>
+      <li><strong>The level matters only versus the past;</strong> rising indices reflect long-run economic growth.</li>
+      <li><strong>Start with large-caps;</strong> mid- and small-caps offer more growth but far more risk.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART II DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">II</div>
+  <div class="ptag">Part Two</div>
+  <h2>Getting Started</h2>
+  <p class="pintro">Now the practical part. Three accounts, one quick KYC, and you can place your first trade today. This part shows you exactly how — and the timings, settlement and safety-switches every Indian investor must know.</p>
+  <div class="chips"><span class="chip">Bank · Trading · Demat</span><span class="chip">Your first order</span><span class="chip">T+1 settlement</span><span class="chip">Circuit breakers</span></div>
+</section>
+
+<!-- ===================== CH 5 ===================== -->
+<section class="sheet" id="ch5" data-part="Part II · Getting Started" data-chapter="Chapter 5 · The Three Accounts">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Five</span><span class="cline"></span></div>
+    <h2 class="chapter-title">The Three Accounts</h2>
+    <p class="lead">To invest in Indian shares you need three accounts working together — your bank account, a trading account, and a demat account. Most apps open all three for you in minutes. Here is exactly what each one does.</p>
+  </div>
+  <p class="drop">People imagine “opening a demat account” is one mysterious step. In truth it's three simple boxes, and you almost certainly already have one of them. Once you see how the trio fits together, the whole act of buying a share — money out, shares in — becomes obvious.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 5.1</b> &nbsp;·&nbsp; The Three Accounts, and What Each Holds</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Three accounts">
+        <rect width="760" height="300" fill="#fff"/>
+        <g font-family="Spectral">
+          <rect x="40" y="60" width="210" height="150" fill="#fff" stroke="#1E1A15"/><text x="145" y="92" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">BANK ACCOUNT</text><text x="145" y="128" text-anchor="middle" font-size="13">holds your</text><text x="145" y="148" text-anchor="middle" font-size="15" font-weight="600">money (₹)</text><text x="145" y="180" text-anchor="middle" font-size="11" fill="#4E483D">you already have one</text>
+          <rect x="275" y="60" width="210" height="150" fill="#1E1A15"/><text x="380" y="92" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#9C7B30">TRADING ACCOUNT</text><text x="380" y="128" text-anchor="middle" fill="#fff" font-size="13">the bridge —</text><text x="380" y="148" text-anchor="middle" fill="#fff" font-size="15" font-weight="600">places orders</text><text x="380" y="180" text-anchor="middle" fill="#CFC4AC" font-size="11">moves ₹ ⇄ shares</text>
+          <rect x="510" y="60" width="210" height="150" fill="#fff" stroke="#1E1A15"/><text x="615" y="92" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">DEMAT ACCOUNT</text><text x="615" y="128" text-anchor="middle" font-size="13">holds your</text><text x="615" y="148" text-anchor="middle" font-size="15" font-weight="600">shares</text><text x="615" y="180" text-anchor="middle" font-size="11" fill="#4E483D">in NSDL / CDSL</text>
+        </g>
+        <text x="262" y="140" text-anchor="middle" font-family="Archivo" font-size="20" fill="#8A6A23">⇄</text>
+        <text x="497" y="140" text-anchor="middle" font-family="Archivo" font-size="20" fill="#8A6A23">⇄</text>
+        <text x="380" y="252" text-anchor="middle" font-family="Spectral" font-size="13" fill="#1E1A15">BUY: money leaves the bank → trading account buys on the exchange → shares arrive in demat.</text>
+        <text x="380" y="274" text-anchor="middle" font-family="Spectral" font-size="13" fill="#1E1A15">SELL: shares leave demat → trading account sells → money returns to the bank. Simple as that.</text>
+      </svg>
+    </div>
+    <figcaption><b>Money in the bank, shares in the demat, trades through the middle.</b> Modern brokers bundle the trading + demat accounts into one app and link your bank, so it feels like a single login. But knowing the three roles means you'll always understand where your money and shares actually are.</figcaption>
+  </figure>
+
+  <h3>Opening Them: KYC in Minutes</h3>
+  <p>Opening is now fully digital. You'll need your <strong>PAN card</strong>, <strong>Aadhaar</strong> (for e-KYC), a bank account, and a photo/signature. You complete <strong>KYC</strong> (Know Your Customer — the identity check SEBI mandates to keep the market clean), e-sign with an Aadhaar OTP, and you're usually trading within a day. There is no minimum amount; you can start by buying a single share or a ₹500 SIP.</p>
+
+  <h3>Choosing a Broker</h3>
+  <div class="compare"><table>
+    <caption>Compare &amp; Understand · Discount vs. full-service brokers</caption>
+    <thead><tr><th></th><th>Discount broker</th><th>Full-service broker</th></tr></thead>
+    <tbody>
+      <tr><td>Examples (illustrative)</td><td>Zerodha, Groww, Upstox, Dhan</td><td>ICICI Direct, HDFC Securities, Kotak, Angel One</td></tr>
+      <tr><td>Brokerage</td><td>Very low or zero on delivery; flat fee on trades</td><td>Higher, often a % of trade value</td></tr>
+      <tr><td>Advice / research</td><td>Little — you decide (DIY)</td><td>Research reports, relationship manager</td></tr>
+      <tr><td>Best for</td><td>Self-directed investors, low cost</td><td>Those wanting hand-holding (at a price)</td></tr>
+    </tbody>
+  </table></div>
+  <p>For most beginners who intend to buy and hold index funds and quality shares, a low-cost <strong>discount broker</strong> is the sensible default — every rupee saved in fees stays invested and compounds (Chapter 12). Whatever you choose, confirm the broker is <strong>SEBI-registered</strong>; the registration number is public and easy to check.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">Never share your password, OTP, or “run my account for me”</span>
+    <p style="margin-bottom:0;">No genuine broker, “advisor,” or Telegram tipster ever needs your login password or OTP. Handing over account control — or money to someone promising to “trade on your behalf for guaranteed returns” — is the single most common way Indians are defrauded (Chapter 19). Your demat account is yours alone. SEBI-registered <em>advisers</em> advise; they never take custody of your money or your login.</p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">India crossed 20 crore demat accounts</span>
+    <p style="margin-bottom:0;">A decade ago, owning shares was a city, upper-middle-class affair. The arrival of cheap smartphones, UPI, and zero-cost discount brokers triggered an explosion: India now has well over <strong>20 crore (200 million) demat accounts</strong>, with millions of first-time investors from small towns. You are joining the largest wave of new investors in the country's history — which makes learning to do it <em>wisely</em> more important than ever.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Three accounts:</strong> bank (money), trading (places orders), demat (holds shares). Apps bundle them.</li>
+      <li><strong>Opening is digital</strong> — PAN, Aadhaar e-KYC; no minimum to start.</li>
+      <li><strong>Discount brokers suit most beginners;</strong> always confirm SEBI registration.</li>
+      <li><strong>Never share passwords/OTPs</strong> or let anyone “trade for you” for guaranteed returns.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 6 ===================== -->
+<section class="sheet" id="ch6" data-part="Part II · Getting Started" data-chapter="Chapter 6 · Placing Your First Trade">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Six</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Placing Your First Trade</h2>
+    <p class="lead">The “Buy” button hides a few choices that quietly decide what price you pay and what kind of trade you're making. Get these right and you'll never fat-finger an order or be surprised by a bad fill.</p>
+  </div>
+  <p class="drop">Every share has, at any instant, a highest price someone is willing to pay (the <strong>bid</strong>) and the lowest price someone will accept to sell (the <strong>ask</strong> or offer). The tiny gap between them is the <strong>spread</strong>. A trade happens when a buyer and seller agree. The order <em>type</em> you choose decides how your order interacts with these prices.</p>
+
+  <h3>Market vs. Limit Orders</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 6.1</b> &nbsp;·&nbsp; The Two Orders You'll Use Most</div>
+      <svg viewBox="0 0 760 280" role="img" aria-label="Market vs limit order">
+        <rect width="760" height="280" fill="#fff"/>
+        <rect x="40" y="50" width="330" height="190" fill="#fff" stroke="#1E1A15"/>
+        <text x="60" y="80" font-family="Archivo" font-size="13" font-weight="700" fill="#8A6A23">MARKET ORDER</text>
+        <text x="60" y="108" font-family="Spectral" font-size="13" fill="#1E1A15">“Buy now, at whatever the going price is.”</text>
+        <text x="60" y="138" font-family="Spectral" font-size="12.5" fill="#4E483D">✓ Fills instantly</text>
+        <text x="60" y="162" font-family="Spectral" font-size="12.5" fill="#4E483D">✗ Price not guaranteed — can slip</text>
+        <text x="60" y="196" font-family="Spectral" font-size="12" fill="#1E1A15">Use for: large, liquid stocks when</text>
+        <text x="60" y="214" font-family="Spectral" font-size="12" fill="#1E1A15">you just want in/out quickly.</text>
+        <rect x="390" y="50" width="330" height="190" fill="#1E1A15"/>
+        <text x="410" y="80" font-family="Archivo" font-size="13" font-weight="700" fill="#9C7B30">LIMIT ORDER</text>
+        <text x="410" y="108" font-family="Spectral" font-size="13" fill="#fff">“Buy only at ₹500 or better.”</text>
+        <text x="410" y="138" font-family="Spectral" font-size="12.5" fill="#CFC4AC">✓ Price guaranteed (or no trade)</text>
+        <text x="410" y="162" font-family="Spectral" font-size="12.5" fill="#CFC4AC">✗ May not fill if price never reached</text>
+        <text x="410" y="196" font-family="Spectral" font-size="12" fill="#fff">Use for: most buys — you stay in</text>
+        <text x="410" y="214" font-family="Spectral" font-size="12" fill="#fff">control of the price you pay.</text>
+      </svg>
+    </div>
+    <figcaption><b>Control vs. speed.</b> A <b>market order</b> trades immediately but at whatever price is available — risky in a thin or fast-moving stock. A <b>limit order</b> lets you name your price; it trades only if the market reaches it. Beginners should prefer limit orders to avoid nasty surprises.</figcaption>
+  </figure>
+
+  <h3>Delivery vs. Intraday — a Crucial Indian Distinction</h3>
+  <p>When you buy, your app asks how you intend to hold the shares. <strong>Delivery</strong> (called <code>CNC</code> in many Indian apps) means you pay in full and the shares are delivered to your demat account to keep for as long as you like — this is <em>investing</em>. <strong>Intraday</strong> (<code>MIS</code>) means you'll buy and sell the same day, often with borrowed leverage, and any open position is auto-squared-off before close — this is <em>trading</em>, and it is far riskier. <strong>For everything in this book, choose Delivery.</strong></p>
+
+  <div class="box callout">
+    <span class="title">A clean first order, step by step</span>
+    <p style="margin-bottom:0;">1) Search the company. 2) Tap <strong>Buy</strong>. 3) Choose <strong>Delivery (CNC)</strong>. 4) Choose <strong>Limit</strong> and type a price at or just above the current ask. 5) Enter quantity (you can buy a single share — no “lots” for delivery equity). 6) Review the order &amp; estimated charges. 7) Confirm with your PIN/biometric. The shares land in your demat by the next day (T+1, Chapter 7). Congratulations — you're now a part-owner.</p>
+  </div>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">The thrill is the warning sign</span>
+    <p style="margin-bottom:0;">Placing a trade can feel exciting — and that feeling is exactly what app designers and your own brain reward. But excitement is the enemy of returns. The investors who do best are almost <em>bored</em>: they buy quality or an index fund, choose delivery, and check their portfolio rarely. If trading gives you a rush, treat that as a red flag, not a reward.</p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Using a market order on an illiquid stock</span>
+    <p style="margin-bottom:0;">In a thinly traded small-cap, a market order can fill far from the price you saw — sometimes several percent worse — because there aren't enough sellers near the screen price. Always use a <strong>limit order</strong> for anything outside the largest, most-liquid names. And never place orders in the chaotic first minute after the 9:15 open, when prices can swing wildly.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Bid, ask, spread:</strong> a trade happens when a buyer and seller meet between them.</li>
+      <li><strong>Market order = speed (price not guaranteed); limit order = price control.</strong> Beginners: prefer limit.</li>
+      <li><strong>Choose “Delivery (CNC)” to invest;</strong> avoid “Intraday (MIS)” leverage.</li>
+      <li><strong>Excitement is a warning sign;</strong> good investing is calm and infrequent.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 7 ===================== -->
+<section class="sheet" id="ch7" data-part="Part II · Getting Started" data-chapter="Chapter 7 · Timings, Settlement &amp; Circuits">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Seven</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Timings, Settlement &amp; Circuit Breakers</h2>
+    <p class="lead">When can you trade? When does the money actually arrive? And what happens when the whole market panics? Three nuts-and-bolts answers that save beginners a lot of confusion.</p>
+  </div>
+  <p class="drop">The Indian market runs on a precise daily clock and a fast settlement cycle, with automatic “safety switches” that pause trading when prices move too violently. None of it is complicated once you see it laid out.</p>
+
+  <h3>The Trading Day</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 7.1</b> &nbsp;·&nbsp; A Trading Day on NSE &amp; BSE</div>
+      <svg viewBox="0 0 760 220" role="img" aria-label="Trading day timeline">
+        <rect width="760" height="220" fill="#fff"/>
+        <line x1="60" y1="120" x2="700" y2="120" stroke="#1E1A15" stroke-width="2"/>
+        <g font-family="Archivo" font-size="11" font-weight="700" text-anchor="middle">
+          <line x1="120" y1="108" x2="120" y2="132" stroke="#1E1A15" stroke-width="2"/><text x="120" y="100" fill="#8A6A23">9:00</text>
+          <line x1="240" y1="108" x2="240" y2="132" stroke="#1E1A15" stroke-width="2"/><text x="240" y="100" fill="#1E1A15">9:15</text>
+          <line x1="600" y1="108" x2="600" y2="132" stroke="#1E1A15" stroke-width="2"/><text x="600" y="100" fill="#1E1A15">15:30</text>
+        </g>
+        <rect x="120" y="120" width="120" height="22" fill="#CFC4AC"/><text x="180" y="160" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">Pre-open</text><text x="180" y="176" text-anchor="middle" font-family="Spectral" font-size="10" fill="#4E483D">9:00–9:15</text>
+        <rect x="240" y="120" width="360" height="22" fill="#1E1A15"/><text x="420" y="160" text-anchor="middle" font-family="Spectral" font-size="11" fill="#1E1A15" font-weight="600">Normal trading · 9:15 AM – 3:30 PM</text>
+        <text x="650" y="160" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">Closed</text>
+        <text x="60" y="205" font-family="Spectral" font-size="11.5" fill="#4E483D">Monday–Friday only; closed on exchange holidays. The pre-open session sets a fair opening price and absorbs the early rush.</text>
+      </svg>
+    </div>
+    <figcaption><b>Six hours and fifteen minutes.</b> The market trades 9:15 AM–3:30 PM, weekdays. The 9:00–9:15 “pre-open” auction discovers a sensible opening price so the bell doesn't open into chaos. You can <em>place</em> orders anytime in your app; they queue for the next session.</figcaption>
+  </figure>
+
+  <h3>T+1 Settlement: When Money &amp; Shares Truly Move</h3>
+  <p>A trade isn't finished the instant it executes; it must <strong>settle</strong> — money and shares actually changing hands. India runs on a <strong>T+1</strong> cycle: settlement completes <em>one working day</em> after the trade (“T”). Buy shares today, and they're firmly in your demat by the end of tomorrow; sell, and the cash reaches your account on T+1. India adopted this in January 2023 — ahead of most of the world — and is piloting an optional same-day <strong>T+0</strong> settlement, which may become common in time.</p>
+
+  <h3>Circuit Breakers: The Market's Safety Switch</h3>
+  <p>To stop panics and manipulation from spiralling, exchanges automatically halt trading when prices move too far, too fast. There are two kinds:</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 7.2</b> &nbsp;·&nbsp; Market-Wide Circuit Breakers</div>
+      <svg viewBox="0 0 760 250" role="img" aria-label="Circuit breakers">
+        <rect width="760" height="250" fill="#fff"/>
+        <text x="40" y="42" font-family="Spectral" font-size="13" fill="#4E483D">If the Sensex or Nifty moves this much in a day, all equity trading halts nationwide:</text>
+        <g font-family="Archivo">
+          <rect x="40" y="64" width="220" height="150" fill="#fff" stroke="#1E1A15"/>
+          <text x="150" y="98" text-anchor="middle" font-size="30" font-weight="900" fill="#1E1A15" font-family="Fraunces">10%</text>
+          <text x="150" y="128" text-anchor="middle" font-family="Spectral" font-size="12" fill="#1E1A15">Before 1 PM → 45-min halt</text>
+          <text x="150" y="150" text-anchor="middle" font-family="Spectral" font-size="12" fill="#1E1A15">1–2:30 PM → 15-min halt</text>
+          <text x="150" y="172" text-anchor="middle" font-family="Spectral" font-size="12" fill="#1E1A15">After 2:30 PM → no halt</text>
+          <rect x="270" y="64" width="220" height="150" fill="#8A6A23"/>
+          <text x="380" y="98" text-anchor="middle" font-size="30" font-weight="900" fill="#fff" font-family="Fraunces">15%</text>
+          <text x="380" y="128" text-anchor="middle" font-family="Spectral" font-size="12" fill="#fff">Before 1 PM → 1hr 45m halt</text>
+          <text x="380" y="150" text-anchor="middle" font-family="Spectral" font-size="12" fill="#fff">1–2 PM → 45-min halt</text>
+          <text x="380" y="172" text-anchor="middle" font-family="Spectral" font-size="12" fill="#fff">After 2 PM → halt rest of day</text>
+          <rect x="500" y="64" width="220" height="150" fill="#1E1A15"/>
+          <text x="610" y="98" text-anchor="middle" font-size="30" font-weight="900" fill="#fff" font-family="Fraunces">20%</text>
+          <text x="610" y="135" text-anchor="middle" font-family="Spectral" font-size="12" fill="#fff">Trading halts for</text>
+          <text x="610" y="157" text-anchor="middle" font-family="Spectral" font-size="12" fill="#fff">the rest of the day</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Cooling-off by design.</b> Market-wide breakers at 10/15/20% pause everything so panic can subside and information can spread. Individual stocks also have their own <b>upper</b> and <b>lower circuits</b> (e.g. 5/10/20%); a stock “hitting the upper circuit” means buyers are stuck with no sellers at that limit — common in hyped small-caps.</figcaption>
+  </figure>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">The day India hit the 10% breaker — twice</span>
+    <p style="margin-bottom:0;">During the COVID crash of March 2020, Indian markets fell so sharply that the market-wide circuit breaker triggered and trading was halted — a rare, dramatic event most investors never witness. Those who panicked and sold at the bottom locked in huge losses; those who kept their SIPs running through the fear saw the Nifty roughly double over the next two years (Chapter 21). Circuit breakers protect the <em>market</em>; only discipline protects <em>you.</em></p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Chasing a stock “locked” in the upper circuit</span>
+    <p style="margin-bottom:0;">Beginners see a small-cap repeatedly hitting its <em>upper</em> circuit and assume easy money. But if you can't buy (no sellers), you also won't be able to <em>sell</em> when it reverses and slams into the <em>lower</em> circuit day after day — trapping your money as it falls. Repeated circuit-hitting in an obscure stock is often a sign of manipulation, not opportunity. Stay away.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Market hours: 9:15 AM–3:30 PM</strong> weekdays, with a 9:00–9:15 pre-open auction.</li>
+      <li><strong>T+1 settlement:</strong> money/shares fully change hands one working day after the trade.</li>
+      <li><strong>Market-wide circuit breakers</strong> halt trading at 10/15/20% moves; individual stocks have their own circuits.</li>
+      <li><strong>Circuits protect the market, not your decisions</strong> — discipline does that.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART III DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">III</div>
+  <div class="ptag">Part Three</div>
+  <h2>How to Analyse a Stock</h2>
+  <p class="pintro">Anyone can buy a share. The skill is judging whether it's worth buying. This part gives you the two great lenses — the business behind the ticker, and the chart in front of it — plus how to read an IPO without getting burnt.</p>
+  <div class="chips"><span class="chip">Price, market cap &amp; P/E</span><span class="chip">Fundamentals</span><span class="chip">Charts &amp; candles</span><span class="chip">IPOs</span></div>
+</section>
+
+<!-- ===================== CH 8 ===================== -->
+<section class="sheet" id="ch8" data-part="Part III · Analysis" data-chapter="Chapter 8 · Reading a Stock">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Eight</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Reading a Stock</h2>
+    <p class="lead">Open any stock's page and you're hit with a wall of numbers — price, market cap, P/E, 52-week high, volume. Five of them tell you almost everything a beginner needs. Here's how to read the dashboard.</p>
+  </div>
+  <p class="drop">A stock quote looks intimidating, but most of it is noise. Learn what a handful of figures actually mean and you can size up any company in thirty seconds — and, crucially, tell whether its price is sensible or silly.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 8.1</b> &nbsp;·&nbsp; Anatomy of a Stock Quote</div>
+      <svg viewBox="0 0 760 340" role="img" aria-label="Stock quote anatomy">
+        <rect width="760" height="340" fill="#fff"/>
+        <rect x="40" y="40" width="680" height="270" fill="none" stroke="#1E1A15"/>
+        <text x="60" y="78" font-family="Fraunces" font-size="22" font-weight="900" fill="#1E1A15">Hindustan Example Ltd</text>
+        <text x="60" y="100" font-family="Archivo" font-size="11" fill="#4E483D">NSE: HINDEX  ·  illustrative figures</text>
+        <text x="520" y="80" font-family="Fraunces" font-size="30" font-weight="900" fill="#1E1A15">₹1,240</text>
+        <text x="520" y="104" font-family="Archivo" font-size="12" fill="#8A6A23">▲ +1.8% today</text>
+        <line x1="60" y1="120" x2="700" y2="120" stroke="#C9BFA9"/>
+        <g font-family="Spectral" font-size="13">
+          <text x="60" y="152" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">MARKET CAP</text><text x="60" y="174" font-size="16" font-weight="600">₹2,48,000 cr</text><text x="60" y="194" font-size="11" fill="#4E483D">the whole company's value</text>
+          <text x="270" y="152" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">P/E RATIO</text><text x="270" y="174" font-size="16" font-weight="600">28×</text><text x="270" y="194" font-size="11" fill="#4E483D">price ÷ yearly profit per share</text>
+          <text x="500" y="152" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">DIVIDEND YIELD</text><text x="500" y="174" font-size="16" font-weight="600">1.2%</text><text x="500" y="194" font-size="11" fill="#4E483D">yearly cash payout ÷ price</text>
+          <text x="60" y="232" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">52-WEEK RANGE</text><text x="60" y="254" font-size="16" font-weight="600">₹780 – ₹1,310</text><text x="60" y="274" font-size="11" fill="#4E483D">low &amp; high of the past year</text>
+          <text x="500" y="232" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">VOLUME</text><text x="500" y="254" font-size="16" font-weight="600">18.4 lakh</text><text x="500" y="274" font-size="11" fill="#4E483D">shares traded today (liquidity)</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>The five that matter.</b> Price alone is meaningless. <b>Market cap</b> tells you the company's true size; <b>P/E</b> tells you how expensive the price is relative to profits; <b>dividend yield</b> shows the cash return; the <b>52-week range</b> gives context; <b>volume</b> shows how easily you can buy or sell.</figcaption>
+  </figure>
+
+  <h3>Market Cap: The Only Honest Measure of Size</h3>
+  <p>As Chapter 1 warned, share price alone tells you nothing about size. <strong>Market capitalisation</strong> — share price × total number of shares — is the real figure: what the whole company is worth. A ₹100 stock with 100 crore shares (₹10,000 crore) is a far bigger company than a ₹2,000 stock with 1 crore shares (₹2,000 crore). In India, market cap also defines the large/mid/small-cap buckets (Chapter 4).</p>
+
+  <h3>The P/E Ratio: Cheap or Expensive?</h3>
+  <p>The <strong>Price-to-Earnings (P/E)</strong> ratio is the single most useful valuation number for a beginner. It's the share price divided by the company's annual profit <em>per share</em>. A P/E of 28 loosely means “investors are paying ₹28 for every ₹1 of yearly profit” — or that, at today's profit, it would take 28 years of earnings to buy the whole company. A high P/E means the market expects fast growth (or is over-excited); a low P/E means pessimism (or a bargain). Compare a company's P/E to its <em>own history</em> and to <em>peers in the same industry</em> — never across unrelated sectors.</p>
+
+  <div class="box" style="border:none;"><span class="htag">In Rupees</span>
+    <p style="margin-bottom:0;">Two FMCG companies each trade at ₹500. Company A earns ₹25 profit per share → P/E = 500 ÷ 25 = <strong>20×</strong>. Company B earns ₹10 per share → P/E = 500 ÷ 10 = <strong>50×</strong>. Same price, but you're paying far more for each rupee of B's profit. B is “priced for growth” — if that growth disappoints, its price can fall hard. The price tag (₹500) was identical; the <em>value</em> was completely different.</p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">A “bonus” or “split” doesn't make you richer</span>
+    <p style="margin-bottom:0;">When an Indian company announces a 1:1 <strong>bonus</strong> or a stock <strong>split</strong>, beginners celebrate “free shares” and a lower price. But you simply hold twice as many shares at half the price — the same total value. It's like changing a ₹500 note into five ₹100 notes. Splits can improve liquidity, but they create no wealth. Don't buy a stock just because it “looks cheap” after a split.</p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Buying because it's “near its 52-week low” (or high)</span>
+    <p style="margin-bottom:0;">A stock near its low isn't automatically a bargain — it may be falling for excellent reasons (collapsing profits, fraud, debt). A stock near its high isn't automatically expensive — great companies make new highs for years. These markers give <em>context</em>, not a buy/sell signal. Judge the business and its valuation, not where the price sits on a 12-month ruler.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Five figures tell you most:</strong> market cap, P/E, dividend yield, 52-week range, volume.</li>
+      <li><strong>Market cap</strong> (price × shares) is the only honest measure of company size.</li>
+      <li><strong>P/E</strong> shows how expensive the price is per rupee of profit — compare to history and industry peers.</li>
+      <li><strong>Bonuses/splits create no wealth;</strong> 52-week markers are context, not signals.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 9 ===================== -->
+<section class="sheet" id="ch9" data-part="Part III · Analysis" data-chapter="Chapter 9 · Fundamental Analysis">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Nine</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Fundamental Analysis</h2>
+    <p class="lead">Behind every ticker is a real business that either makes money or doesn't. Fundamental analysis is simply checking the health of that business before you buy a piece of it — the way you'd inspect a flat before purchasing it.</p>
+  </div>
+  <p class="drop">You wouldn't buy a shop without asking what it earns, what it owes, and whether sales are growing. Owning a share is buying a sliver of a business, so the same questions apply. You don't need to be a chartered accountant; you need to read a few numbers and ask a few sensible questions.</p>
+
+  <h3>The Numbers That Matter</h3>
+  <p>Every listed company publishes quarterly and annual results. Three documents tell the story (covered in depth in any accounting primer): the <strong>income statement</strong> (did it make a profit?), the <strong>balance sheet</strong> (what does it own and owe?), and the <strong>cash-flow statement</strong> (is real cash coming in?). From these flow a handful of ratios that let you compare any two companies fairly.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 9.1</b> &nbsp;·&nbsp; A Beginner's Fundamental Checklist</div>
+      <svg viewBox="0 0 760 320" role="img" aria-label="Fundamental checklist">
+        <rect width="760" height="320" fill="#fff"/>
+        <g font-family="Spectral" font-size="13.5">
+          <text x="40" y="58" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">IS IT GROWING?</text>
+          <text x="60" y="84" fill="#1E1A15">• Are revenue &amp; profit rising over 3–5 years (not just one quarter)?</text>
+          <text x="40" y="124" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">IS IT PROFITABLE &amp; EFFICIENT?</text>
+          <text x="60" y="150" fill="#1E1A15">• Healthy profit margins? • ROE (return on equity) ideally above ~15%?</text>
+          <text x="40" y="190" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">IS IT SAFE?</text>
+          <text x="60" y="216" fill="#1E1A15">• Low debt (debt-to-equity)? • Positive operating cash flow?</text>
+          <text x="40" y="256" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">IS THE PRICE SENSIBLE?</text>
+          <text x="60" y="282" fill="#1E1A15">• P/E vs. peers &amp; its own history? • Not paying a fortune for hype?</text>
+        </g>
+        <line x1="40" y1="64" x2="720" y2="64" stroke="#C9BFA9"/>
+        <line x1="40" y1="130" x2="720" y2="130" stroke="#C9BFA9"/>
+        <line x1="40" y1="196" x2="720" y2="196" stroke="#C9BFA9"/>
+        <line x1="40" y1="262" x2="720" y2="262" stroke="#C9BFA9"/>
+      </svg>
+    </div>
+    <figcaption><b>Four questions, in order.</b> Growing, profitable, safe, sensibly priced. A company that passes all four is a candidate; one that fails “safe” (heavy debt, no cash) is dangerous however exciting its story. Free Indian sites like Screener.in lay out years of these numbers in one view.</figcaption>
+  </figure>
+
+  <h3>Three Ratios to Start With</h3>
+  <div class="compare"><table>
+    <caption>Compare &amp; Understand · Three beginner-friendly ratios</caption>
+    <thead><tr><th>Ratio</th><th>What it asks</th><th>Rough rule of thumb</th></tr></thead>
+    <tbody>
+      <tr><td>ROE (Return on Equity)</td><td>How much profit does it earn on owners' money?</td><td>Higher is better; consistently &gt;15% is strong</td></tr>
+      <tr><td>Debt-to-Equity</td><td>How much does it borrow vs. own?</td><td>Lower is safer; &gt;1–2 deserves scrutiny (banks differ)</td></tr>
+      <tr><td>P/E</td><td>How expensive is the price per ₹ of profit?</td><td>Judge vs. peers &amp; history, not in isolation</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">Promoter pledging — a uniquely Indian red flag</span>
+    <p style="margin-bottom:0;">In India, watch whether promoters have <strong>pledged</strong> (mortgaged) their shares to borrow money. High or rising pledged-share percentages are a danger sign: if the price falls, lenders can dump those shares, crashing the stock further. You can see “% of promoter holding pledged” in the shareholding pattern. A quality, low-debt company with little or no pledging is a far calmer place for a beginner's money.</p>
+  </div>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">Fall in love with the business, not the story</span>
+    <p style="margin-bottom:0;">Humans are wired for narratives — “this EV company will be the next Tesla!” A great story makes us skip the boring numbers. But the market is littered with thrilling stories attached to companies that never made a rupee of profit. Let the story <em>attract</em> your attention, then let the <em>numbers</em> make the decision. If the fundamentals don't back the tale, walk away.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Owning a share = owning a business;</strong> check its health before buying.</li>
+      <li><strong>Ask four questions:</strong> is it growing, profitable, safe (low debt), and sensibly priced?</li>
+      <li><strong>Start with ROE, debt-to-equity, and P/E;</strong> free tools like Screener.in show years at a glance.</li>
+      <li><strong>In India, beware high promoter pledging;</strong> and never let a story override the numbers.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 10 ===================== -->
+<section class="sheet" id="ch10" data-part="Part III · Analysis" data-chapter="Chapter 10 · Technical Analysis">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Ten</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Technical Analysis</h2>
+    <p class="lead">If fundamental analysis studies the business, technical analysis studies the <em>price chart</em> — the footprints of buyers and sellers. It's useful for understanding what you're looking at; it's far less reliable as a money-making machine than its loudest promoters claim.</p>
+  </div>
+  <p class="drop">Technical analysis assumes that price movements form patterns driven by crowd psychology, and that studying them hints at what comes next. There is some truth here — and a great deal of wishful thinking sold to beginners. We'll teach you to <em>read</em> a chart so you understand the market, while being honest that for long-term wealth, owning good businesses (and index funds) matters far more than chart-reading.</p>
+
+  <h3>Reading a Candlestick</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 10.1</b> &nbsp;·&nbsp; Anatomy of a Candlestick</div>
+      <svg viewBox="0 0 760 320" role="img" aria-label="Candlestick anatomy">
+        <rect width="760" height="320" fill="#fff"/>
+        <line x1="190" y1="60" x2="190" y2="100" stroke="#1E1A15" stroke-width="2.5"/>
+        <rect x="170" y="100" width="40" height="100" fill="#1E1A15"/>
+        <line x1="190" y1="200" x2="190" y2="240" stroke="#1E1A15" stroke-width="2.5"/>
+        <g font-family="Spectral" font-size="12" fill="#4E483D">
+          <text x="225" y="64">High of the day (top wick)</text>
+          <text x="225" y="108">Close (top of a green/up candle)</text>
+          <text x="225" y="200">Open (bottom of an up candle)</text>
+          <text x="225" y="244">Low of the day (bottom wick)</text>
+        </g>
+        <text x="190" y="272" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">UP DAY (close &gt; open)</text>
+        <line x1="560" y1="70" x2="560" y2="110" stroke="#1E1A15" stroke-width="2.5"/>
+        <rect x="540" y="110" width="40" height="100" fill="#8A6A23"/>
+        <line x1="560" y1="210" x2="560" y2="250" stroke="#1E1A15" stroke-width="2.5"/>
+        <text x="560" y="282" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">DOWN DAY (close &lt; open)</text>
+      </svg>
+    </div>
+    <figcaption><b>Four prices in one shape.</b> Each candle packs the day's open, close, high and low. The <b>body</b> spans open-to-close; the thin <b>wicks</b> mark the extremes. (Indian apps usually colour up-candles green and down-candles red.) Long wicks signal indecision; long bodies, conviction.</figcaption>
+  </figure>
+
+  <h3>Trend, Support &amp; Resistance</h3>
+  <p>Three ideas do most of the useful work. A <strong>trend</strong> is the general direction — up (higher highs), down, or sideways. <strong>Support</strong> is a price level where buyers have repeatedly stepped in, stopping falls; <strong>resistance</strong> is where sellers repeatedly appear, capping rises. <strong>Volume</strong> — how many shares traded — tells you how much conviction is behind a move; a breakout on huge volume is more believable than one on a trickle.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 10.2</b> &nbsp;·&nbsp; Support &amp; Resistance</div>
+      <svg viewBox="0 0 760 280" role="img" aria-label="Support and resistance">
+        <rect width="760" height="280" fill="#fff"/>
+        <line x1="60" y1="80" x2="700" y2="80" stroke="#8A6A23" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="60" y="72" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">RESISTANCE — sellers keep appearing here</text>
+        <line x1="60" y1="210" x2="700" y2="210" stroke="#1E1A15" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="60" y="232" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">SUPPORT — buyers keep stepping in here</text>
+        <polyline points="60,200 130,120 200,200 270,90 340,205 410,95 480,200 550,85 620,150 700,82" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <text x="380" y="262" text-anchor="middle" font-family="Spectral" font-size="11.5" fill="#4E483D">Price tends to bounce between the two until it decisively “breaks out” — ideally on high volume.</text>
+      </svg>
+    </div>
+    <figcaption><b>The price corridor.</b> Many traders buy near support and sell near resistance, which is partly why these levels hold — they're self-fulfilling. But they break often and without warning, which is why technicals are a probability tool, never a certainty.</figcaption>
+  </figure>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">The “technical tips” trap</span>
+    <p style="margin-bottom:0;">India is awash with channels selling “sure-shot intraday calls” and chart courses promising riches. The uncomfortable truth: after costs and taxes, the large majority of active short-term traders lose money (Chapter 14). Charts can help you choose <em>when</em> to act on a stock you already want to own for good reasons — but treating squiggly lines as a money-printing machine is how beginners get separated from their savings.</p>
+  </div>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">Patterns we see that aren't there</span>
+    <p style="margin-bottom:0;">The human brain is a pattern-finding machine — so good that it finds patterns in pure randomness (clouds, tea leaves, charts). This is <em>pareidolia</em>, and it makes chart-reading feel more predictive than it is. Combine it with the thrill of trading and the illusion of control, and you have a recipe for overconfidence. Use technicals humbly, as one input — never as a crystal ball.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Technical analysis reads the price chart</strong> (crowd behaviour), not the business.</li>
+      <li><strong>Candlesticks</strong> show open/close/high/low; <strong>trend, support, resistance &amp; volume</strong> are the core ideas.</li>
+      <li><strong>It's a probability tool, not a crystal ball</strong> — levels break often.</li>
+      <li><strong>Most short-term “tip”-driven trading loses money;</strong> for wealth, businesses &amp; index funds matter far more.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 11 ===================== -->
+<section class="sheet" id="ch11" data-part="Part III · Analysis" data-chapter="Chapter 11 · IPOs">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Eleven</span><span class="cline"></span></div>
+    <h2 class="chapter-title">IPOs: Mainboard, SME &amp; How to Apply</h2>
+    <p class="lead">An IPO — Initial Public Offering — is the moment a private company first sells shares to the public and lists on the exchange. It's exciting, often hyped, and an easy place for beginners to lose money chasing “listing gains.” Here's how it really works.</p>
+  </div>
+  <p class="drop">When you apply for an IPO, you are buying in the <em>primary market</em> (Chapter 2) — your money goes to the company. India's IPO process is well-organised and refreshingly investor-friendly, thanks to UPI. But the noise around IPOs — especially the grey market — leads many first-timers astray.</p>
+
+  <h3>Mainboard vs. SME IPOs</h3>
+  <div class="compare"><table>
+    <caption>Compare &amp; Understand · Mainboard vs. SME IPOs</caption>
+    <thead><tr><th></th><th>Mainboard IPO</th><th>SME IPO</th></tr></thead>
+    <tbody>
+      <tr><td>Company size</td><td>Large, established firms</td><td>Small &amp; medium enterprises</td></tr>
+      <tr><td>Lists on</td><td>NSE / BSE main platform</td><td>NSE Emerge / BSE SME</td></tr>
+      <tr><td>Minimum application</td><td>Modest (a few thousand ₹)</td><td>Large lot size (often ₹1–1.5 lakh+)</td></tr>
+      <tr><td>Risk &amp; volatility</td><td>High, but more disclosure &amp; scrutiny</td><td>Very high — thinner, easier to manipulate</td></tr>
+      <tr><td>Suited to</td><td>Beginners (cautiously)</td><td>Experienced, risk-aware investors only</td></tr>
+    </tbody>
+  </table></div>
+  <p>SEBI itself has repeatedly cautioned investors about frothy SME IPOs, where tiny companies have listed at extreme valuations. A beginner should treat SME IPOs as off-limits and approach even mainboard IPOs with discipline.</p>
+
+  <h3>How to Apply: ASBA via UPI</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 11.1</b> &nbsp;·&nbsp; Applying for an IPO (ASBA / UPI)</div>
+      <svg viewBox="0 0 760 260" role="img" aria-label="IPO application flow">
+        <rect width="760" height="260" fill="#fff"/>
+        <defs><marker id="ar11" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#8A6A23"/></marker></defs>
+        <g font-family="Spectral" font-size="11.5" text-anchor="middle">
+          <rect x="30" y="90" width="130" height="64" fill="#fff" stroke="#1E1A15"/><text x="95" y="116" font-weight="600" font-size="12">1 · Apply</text><text x="95" y="134" font-size="10.5" fill="#4E483D">in your app, in the</text><text x="95" y="148" font-size="10.5" fill="#4E483D">price band</text>
+          <rect x="195" y="90" width="130" height="64" fill="#fff" stroke="#1E1A15"/><text x="260" y="116" font-weight="600" font-size="12">2 · Approve UPI</text><text x="260" y="134" font-size="10.5" fill="#4E483D">money is blocked,</text><text x="260" y="148" font-size="10.5" fill="#4E483D">not debited</text>
+          <rect x="360" y="90" width="130" height="64" fill="#1E1A15"/><text x="425" y="116" fill="#fff" font-weight="600" font-size="12">3 · Allotment</text><text x="425" y="134" fill="#CFC4AC" font-size="10.5">shares allotted</text><text x="425" y="148" fill="#CFC4AC" font-size="10.5">(lottery if oversubscribed)</text>
+          <rect x="525" y="55" width="130" height="60" fill="#fff" stroke="#1E1A15"/><text x="590" y="80" font-weight="600" font-size="12">4a · Got shares</text><text x="590" y="98" font-size="10.5" fill="#4E483D">money debited</text>
+          <rect x="525" y="130" width="130" height="60" fill="#fff" stroke="#1E1A15"/><text x="590" y="155" font-weight="600" font-size="12">4b · Didn't</text><text x="590" y="173" font-size="10.5" fill="#4E483D">block released</text>
+        </g>
+        <path d="M160 122 L193 122" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar11)"/>
+        <path d="M325 122 L358 122" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar11)"/>
+        <path d="M490 110 L523 90" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar11)"/>
+        <path d="M490 134 L523 158" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar11)"/>
+        <text x="380" y="225" text-anchor="middle" font-family="Spectral" font-size="11.5" fill="#4E483D">ASBA (“Application Supported by Blocked Amount”) means your money stays in your bank, earning interest, until shares are actually allotted.</text>
+      </svg>
+    </div>
+    <figcaption><b>Block, don't pay.</b> The beauty of India's UPI-based ASBA system: your application money is merely <em>blocked</em> in your own account. If you don't get an allotment (common, when popular IPOs are oversubscribed many times over), the block is simply released — you never lost access to your cash.</figcaption>
+  </figure>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">“Grey Market Premium” (GMP) is not a promise</span>
+    <p style="margin-bottom:0;">Before listing, an unofficial, unregulated “grey market” quotes a <strong>GMP</strong> — a rumoured premium suggesting listing-day gains. Beginners treat it as a guarantee and apply blindly. But the GMP is opaque, easily manipulated, and frequently wrong; plenty of hyped IPOs have listed <em>below</em> their issue price, handing day-one losses. Never apply to an IPO because of GMP. Apply only if you'd happily own the business for years at that valuation.</p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">India is the world's busiest IPO market</span>
+    <p style="margin-bottom:0;">In recent years India has had <em>more IPOs than any other country on Earth</em> — hundreds of companies listing in a single year, from giants to tiny SMEs. This boom creates real opportunity but also froth: when everyone is rushing to list and to apply, valuations get stretched and quality varies wildly. Abundance is not the same as opportunity; selectivity matters more in a hot market, not less.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>An IPO is a company's first public share sale</strong> (primary market — money goes to the company).</li>
+      <li><strong>Mainboard IPOs</strong> are larger &amp; more scrutinised; <strong>SME IPOs</strong> are tiny, volatile, and best avoided by beginners.</li>
+      <li><strong>Apply via UPI/ASBA</strong> — money is only <em>blocked</em>, released if you get no allotment.</li>
+      <li><strong>Ignore the grey-market “GMP.”</strong> Apply only if you'd own the business for years.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART IV DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">IV</div>
+  <div class="ptag">Part Four</div>
+  <h2>Ways to Invest</h2>
+  <p class="pintro">You don't have to pick individual stocks at all. For most Indians, the smartest path is a low-cost index fund and a monthly SIP. This part covers every route — and is honest about which ones quietly destroy wealth.</p>
+  <div class="chips"><span class="chip">Mutual funds &amp; ETFs</span><span class="chip">SIP</span><span class="chip">F&amp;O — handle with care</span><span class="chip">Bonds · gold · REITs</span></div>
+</section>
+
+<!-- ===================== CH 12 ===================== -->
+<section class="sheet" id="ch12" data-part="Part IV · Ways to Invest" data-chapter="Chapter 12 · Mutual Funds, Index Funds &amp; ETFs">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Twelve</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Mutual Funds, Index Funds &amp; ETFs</h2>
+    <p class="lead">Picking winning stocks is hard, even for professionals. A mutual fund lets you skip the picking: pool your money with thousands of others, and own a ready-made basket of dozens of companies in a single click.</p>
+  </div>
+  <p class="drop">Imagine fifty neighbours each put ₹1,000 into a common pot, and a professional uses the ₹50,000 to buy a sensible spread of shares. Each neighbour owns a proportional slice of the whole basket. That, in essence, is a <strong>mutual fund</strong> — the single most important invention for the ordinary Indian investor.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 12.1</b> &nbsp;·&nbsp; How a Mutual Fund Works</div>
+      <svg viewBox="0 0 760 280" role="img" aria-label="How a mutual fund works">
+        <rect width="760" height="280" fill="#fff"/>
+        <defs><marker id="ar12" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#8A6A23"/></marker></defs>
+        <g font-family="Spectral" font-size="11.5" text-anchor="middle">
+          <rect x="30" y="50" width="120" height="40" fill="#fff" stroke="#1E1A15"/><text x="90" y="75">You + ₹500</text>
+          <rect x="30" y="110" width="120" height="40" fill="#fff" stroke="#1E1A15"/><text x="90" y="135">Investor + ₹2,000</text>
+          <rect x="30" y="170" width="120" height="40" fill="#fff" stroke="#1E1A15"/><text x="90" y="195">Investor + ₹10,000</text>
+          <rect x="250" y="100" width="150" height="70" fill="#1E1A15"/><text x="325" y="130" fill="#fff" font-weight="600" font-size="13">THE FUND</text><text x="325" y="150" fill="#CFC4AC" font-size="11">pooled money +</text><text x="325" y="164" fill="#CFC4AC" font-size="11">fund manager</text>
+          <rect x="500" y="50" width="230" height="170" fill="none" stroke="#1E1A15"/>
+          <text x="615" y="44" font-family="Archivo" font-size="10" font-weight="700" fill="#8A6A23">A BASKET OF MANY SHARES</text>
+          <text x="615" y="80" font-size="12">Reliance · HDFC Bank · TCS</text>
+          <text x="615" y="104" font-size="12">Infosys · ITC · L&amp;T · SBI</text>
+          <text x="615" y="128" font-size="12">…dozens more</text>
+          <text x="615" y="170" font-size="11" fill="#4E483D">you own a slice of</text>
+          <text x="615" y="186" font-size="11" fill="#4E483D">all of them at once</text>
+        </g>
+        <path d="M150 70 L248 120" stroke="#8A6A23" stroke-width="2" marker-end="url(#ar12)"/>
+        <path d="M150 130 L248 135" stroke="#8A6A23" stroke-width="2" marker-end="url(#ar12)"/>
+        <path d="M150 190 L248 150" stroke="#8A6A23" stroke-width="2" marker-end="url(#ar12)"/>
+        <path d="M400 135 L498 135" stroke="#8A6A23" stroke-width="2.5" marker-end="url(#ar12)"/>
+        <text x="325" y="245" text-anchor="middle" font-family="Spectral" font-size="11.5" fill="#4E483D">Your slice's value is the “NAV” (Net Asset Value), published once each day after market close.</text>
+      </svg>
+    </div>
+    <figcaption><b>Pooling = instant diversification.</b> With ₹500 you can own a sliver of dozens of companies — impossible to do by buying shares individually. The fund's per-unit price is its <b>NAV</b>; you pay a small yearly fee called the <b>expense ratio.</b></figcaption>
+  </figure>
+
+  <h3>Active vs. Passive — and Why Index Funds Win</h3>
+  <p>There are two philosophies. An <strong>actively managed fund</strong> pays a manager to pick stocks and try to beat the market — and charges a higher fee for the effort. An <strong>index fund</strong> doesn't try to beat the market; it simply <em>buys the whole index</em> (say, all 50 Nifty stocks in their exact weights) at rock-bottom cost. This is <strong>passive</strong> investing. Decades of global data — and a growing pile of Indian data — show that after fees, the <em>majority of active funds fail to beat their index over the long run.</em> The low-cost index fund, boring as it is, quietly wins for most people.</p>
+
+  <div class="compare"><table>
+    <caption>Compare &amp; Understand · The fund jargon, decoded</caption>
+    <thead><tr><th>Term</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td>Index fund</td><td>Mutual fund that copies an index (e.g. Nifty 50) — low fee, passive</td></tr>
+      <tr><td>ETF</td><td>An index fund that trades like a share on the exchange all day (needs a demat account)</td></tr>
+      <tr><td>Expense ratio</td><td>The fund's annual fee. Index funds: often ~0.1–0.3%. Active funds: ~1–2%</td></tr>
+      <tr><td>Direct vs. Regular plan</td><td><strong>Direct</strong> cuts out the distributor commission — same fund, lower fee, higher returns. Always prefer Direct.</td></tr>
+      <tr><td>NAV</td><td>Net Asset Value — the per-unit price, set once daily</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box callout">
+    <span class="title">Why a tiny fee is a huge deal</span>
+    <p style="margin-bottom:0;">A 1.5% yearly fee sounds trivial. Over decades it is brutal, because it's charged every single year on your whole pot and quietly steals from compounding (Chapter 13). On a ₹10,000/month SIP over 30 years, the gap between a ~0.2% index fund and a ~1.5% active fund can run into <strong>tens of lakhs of rupees</strong> of final wealth — for the <em>same</em> market return. Choosing a low-cost <strong>Direct index fund</strong> is the easiest big win available to you.</p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Picking funds by last year's “No. 1” ranking</span>
+    <p style="margin-bottom:0;">Beginners chase whatever fund “gave 45% last year,” shown glittering at the top of an app's list. But last year's winner is very often next year's laggard — performance chases its own tail. SEBI even mandates the warning you ignore: <em>“past performance is not indicative of future results.”</em> A cheap, broad index fund held for decades beats hopping between yesterday's stars.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>A mutual fund pools money</strong> to give you a diversified basket for as little as ₹500.</li>
+      <li><strong>Index funds (passive) beat most active funds</strong> over the long run, mainly because of lower fees.</li>
+      <li><strong>Always choose the “Direct” plan</strong> and the lowest expense ratio.</li>
+      <li><strong>Don't chase last year's top fund;</strong> past performance doesn't predict the future.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 13 ===================== -->
+<section class="sheet" id="ch13" data-part="Part IV · Ways to Invest" data-chapter="Chapter 13 · SIP">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Thirteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">SIP — The Indian Investor's Superpower</h2>
+    <p class="lead">If this book could give you only one habit, it would be this: a Systematic Investment Plan. Invest a fixed sum every month, automatically, into an index fund — and let two forces, rupee-cost averaging and compounding, do the rest.</p>
+  </div>
+  <p class="drop">A <strong>SIP</strong> means you invest a fixed amount — say ₹5,000 — on the same date every month, no matter what the market is doing. It sounds almost too simple to matter. Yet it quietly solves the two hardest problems in investing: <em>when</em> to invest, and <em>staying disciplined.</em> You can start one for as little as ₹100–₹500 a month.</p>
+
+  <h3>Rupee-Cost Averaging: Turning Volatility Into a Friend</h3>
+  <p>Because you invest a fixed rupee amount, you automatically buy <em>more</em> units when the market is low and <em>fewer</em> when it's high — the exact opposite of the human instinct to buy in euphoria and freeze in fear. Over time, this lowers your average cost and removes the impossible task of “timing the market.”</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 13.1</b> &nbsp;·&nbsp; Rupee-Cost Averaging: ₹5,000 Every Month</div>
+      <svg viewBox="0 0 760 280" role="img" aria-label="Rupee cost averaging">
+        <rect width="760" height="280" fill="#fff"/>
+        <g font-family="Archivo" font-size="11" font-weight="700">
+          <text x="60" y="44" fill="#1E1A15">MONTH</text><text x="240" y="44" fill="#1E1A15">NAV (price)</text><text x="430" y="44" fill="#1E1A15">₹ INVESTED</text><text x="600" y="44" fill="#8A6A23">UNITS BOUGHT</text>
+        </g>
+        <line x1="60" y1="54" x2="710" y2="54" stroke="#1E1A15"/>
+        <g font-family="Spectral" font-size="13">
+          <text x="60" y="84">Jan</text><text x="240" y="84">₹100</text><text x="430" y="84">₹5,000</text><text x="600" y="84" font-weight="700" fill="#8A6A23">50.0</text>
+          <text x="60" y="114">Feb (market falls)</text><text x="240" y="114">₹80</text><text x="430" y="114">₹5,000</text><text x="600" y="114" font-weight="700" fill="#8A6A23">62.5</text>
+          <text x="60" y="144">Mar (falls more)</text><text x="240" y="144">₹62.5</text><text x="430" y="144">₹5,000</text><text x="600" y="144" font-weight="700" fill="#8A6A23">80.0</text>
+          <text x="60" y="174">Apr (recovers)</text><text x="240" y="174">₹100</text><text x="430" y="174">₹5,000</text><text x="600" y="174" font-weight="700" fill="#8A6A23">50.0</text>
+        </g>
+        <line x1="60" y1="190" x2="710" y2="190" stroke="#C9BFA9"/>
+        <text x="60" y="218" font-family="Spectral" font-size="13" fill="#1E1A15">Invested ₹20,000 · bought 242.5 units · average cost ≈ <tspan font-weight="700">₹82.5</tspan> — below the ₹85.5 simple price average.</text>
+        <text x="60" y="244" font-family="Spectral" font-size="12.5" fill="#4E483D">The fall in Feb–Mar wasn't a disaster — it let your fixed ₹5,000 scoop up far more units, cheaply.</text>
+      </svg>
+    </div>
+    <figcaption><b>The dip is your friend.</b> A SIP mechanically buys more when prices are low. The investor who panicked and stopped in March missed exactly the cheap units that powered the recovery. Consistency, not cleverness, is what makes a SIP work.</figcaption>
+  </figure>
+
+  <h3>Compounding: The Eighth Wonder, in Rupees</h3>
+  <p>The real magic appears over decades, as your returns earn returns of their own. The curve starts almost flat and then bends sharply upward — which is why <em>starting early</em> matters more than starting big.</p>
+
+  <div class="box" style="border:none;"><span class="htag">In Rupees</span>
+    <p style="margin-bottom:0;">A ₹5,000 monthly SIP, assuming a 12% annual return (roughly the long-run average of Indian equity indices — <em>not</em> guaranteed): after 10 years you'd have invested ₹6 lakh, worth about <strong>₹11.6 lakh</strong>. After 20 years: ₹12 lakh invested, worth about <strong>₹50 lakh</strong>. After 30 years: ₹18 lakh invested, worth about <strong>₹1.76 crore</strong>. You contributed ₹18 lakh; compounding contributed the other ₹1.5 crore-plus. <em>(Illustrative; real returns vary and can be negative for years.)</em></p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">Indians invest over ₹25,000 crore a month via SIPs</span>
+    <p style="margin-bottom:0;">The SIP habit has quietly become a national force. Monthly SIP inflows into Indian mutual funds have crossed <strong>₹25,000 crore</strong> — a steady river of ordinary people's savings flowing into the market every single month. This domestic discipline now helps cushion the market when foreign investors pull out, a stabilising power that simply didn't exist twenty years ago.</p>
+  </div>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">Automate, then look away</span>
+    <p style="margin-bottom:0;">The SIP's secret weapon is that it removes <em>you</em> — your fear, your greed, your urge to “wait for a dip” — from the monthly decision. Set the auto-debit and you'll keep investing through crashes you'd otherwise have fled. The hardest part isn't starting a SIP; it's <em>not stopping</em> one when the news is scary. Investors who paused SIPs in March 2020 missed the rebound; those who let them run were rewarded.</p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Stopping (or redeeming) your SIP when the market falls</span>
+    <p style="margin-bottom:0;">A falling market is precisely when a SIP does its best work, buying cheap units. Stopping then — or worse, redeeming in a panic — converts a temporary paper dip into a permanent, realised loss and resets your compounding to zero. Treat a SIP like a 10-to-30-year commitment, and treat crashes as discounts, not disasters.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>A SIP invests a fixed sum every month, automatically</strong> — start with as little as ₹500.</li>
+      <li><strong>Rupee-cost averaging</strong> buys more units when cheap, less when dear — beating market-timing.</li>
+      <li><strong>Compounding rewards time;</strong> starting early beats starting big.</li>
+      <li><strong>Never stop a SIP in a crash</strong> — that's when it works hardest.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 14 ===================== -->
+<section class="sheet" id="ch14" data-part="Part IV · Ways to Invest" data-chapter="Chapter 14 · Derivatives (Handle with Care)">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Fourteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Derivatives: Futures &amp; Options</h2>
+    <p class="lead">This is the chapter the “finfluencers” won't give you straight. Futures &amp; Options can multiply money fast — and the regulator's own data shows they wipe out the savings of the overwhelming majority who try. Read this before you ever tap “F&amp;O.”</p>
+  </div>
+  <p class="drop">A <strong>derivative</strong> is a contract whose value is <em>derived</em> from an underlying asset — a stock or an index like the Nifty. The two common types are <strong>futures</strong> (an agreement to buy/sell at a set price on a future date) and <strong>options</strong> (the <em>right</em>, not obligation, to buy or sell at a set price). Both let you control a large position with a small deposit — which is exactly what makes them so dangerous.</p>
+
+  <h3>Leverage: A Magnifying Glass for Gains <em>and</em> Losses</h3>
+  <p>With derivatives you put down a fraction of the value (the “margin”) but gain or lose on the <em>full</em> amount. That leverage cuts both ways with brutal symmetry: a move that would earn a modest gain on shares can be magnified into a fortune — or, just as easily, vaporise your entire deposit in hours.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 14.1</b> &nbsp;·&nbsp; The Regulator's Verdict on F&amp;O</div>
+      <svg viewBox="0 0 760 260" role="img" aria-label="F and O loss statistics">
+        <rect width="760" height="260" fill="#fff"/>
+        <text x="40" y="44" font-family="Spectral" font-size="13" fill="#4E483D">SEBI studies of individual equity-F&amp;O traders (FY22–FY24) found, in round terms:</text>
+        <!-- 10 person icons, 9 down -->
+        <g>
+          <text x="40" y="120" font-family="Fraunces" font-size="58" font-weight="900" fill="#1E1A15">9 in 10</text>
+          <text x="40" y="150" font-family="Spectral" font-size="15" fill="#1E1A15">individual F&amp;O traders <tspan font-weight="700">lost money.</tspan></text>
+        </g>
+        <line x1="40" y1="172" x2="720" y2="172" stroke="#C9BFA9"/>
+        <text x="40" y="202" font-family="Spectral" font-size="13.5" fill="#1E1A15">• The average loss-making trader lost roughly <tspan font-weight="700">₹1–2 lakh</tspan>, including hefty transaction costs.</text>
+        <text x="40" y="226" font-family="Spectral" font-size="13.5" fill="#1E1A15">• The tiny minority who profited were mostly large, professional players — not individuals.</text>
+        <text x="40" y="250" font-family="Spectral" font-size="11.5" fill="#8A6A23">Figures are approximate, drawn from SEBI's published studies; verify the latest report before relying on specifics.</text>
+      </svg>
+    </div>
+    <figcaption><b>This is not a typo.</b> India's market regulator, alarmed by the F&amp;O boom among young retail traders, published study after study with the same finding: the great majority lose, often badly. This is the single most important page in this book for protecting your money. Treat F&amp;O as gambling unless you are a trained professional with risk capital you can afford to lose.</figcaption>
+  </figure>
+
+  <h3>What Derivatives Are Actually For</h3>
+  <p>Used by professionals and businesses, derivatives serve a genuine purpose: <strong>hedging</strong> (insurance against price moves) and providing liquidity. An exporter can lock in a rupee–dollar rate; a fund can protect a portfolio against a fall. That is legitimate and useful. The problem is the marketing of F&amp;O to ordinary beginners as a get-rich-quick shortcut — which the data shows it is the opposite of.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">“Option selling for monthly income” and Telegram “tips”</span>
+    <p style="margin-bottom:0;">Two of the most seductive traps: courses promising “steady monthly income from selling options” (which can hide rare, account-destroying losses), and Telegram/WhatsApp groups selling “sure-shot F&amp;O calls.” Many such tipsters are unregistered, take a cut whether you win or lose, and sometimes front-run their own followers. SEBI has cracked down on several. If someone guarantees F&amp;O profits, they are either lying or breaking the law.</p>
+  </div>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">Why the losers keep playing</span>
+    <p style="margin-bottom:0;">F&amp;O hijacks the brain's reward system like a slot machine: fast feedback, occasional thrilling wins, and the “near-miss” that keeps you hooked. Survivorship bias does the rest — you hear loudly about the one friend who “doubled his money,” never about the nine who quietly lost theirs. The house edge here isn't a casino; it's leverage, costs, and probability, all stacked against the individual.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Derivatives (futures &amp; options)</strong> derive value from an underlying asset and use heavy leverage.</li>
+      <li><strong>Leverage magnifies losses as much as gains</strong> — it can wipe out your deposit fast.</li>
+      <li><strong>SEBI data: about 9 in 10 individual F&amp;O traders lose money</strong>, often ₹1–2 lakh each.</li>
+      <li><strong>For beginners building wealth, simply don't.</strong> Treat F&amp;O “tips” and “income” schemes as red flags.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 15 ===================== -->
+<section class="sheet" id="ch15" data-part="Part IV · Ways to Invest" data-chapter="Chapter 15 · Beyond Stocks">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Fifteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Beyond Stocks: Bonds, Gold &amp; REITs</h2>
+    <p class="lead">A complete investor doesn't live on equity alone. A few other instruments — bonds, gold, and property trusts — provide income, safety, and diversification, smoothing the ride when stocks fall.</p>
+  </div>
+  <p class="drop">Stocks are the growth engine, but a sensible portfolio (Chapter 16) holds a few other things too. Here is the rest of the menu available to an Indian investor, each in one clear paragraph.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 15.1</b> &nbsp;·&nbsp; The Indian Investor's Menu</div>
+      <svg viewBox="0 0 760 280" role="img" aria-label="Investment menu">
+        <rect width="760" height="280" fill="#fff"/>
+        <g font-family="Spectral" font-size="12">
+          <rect x="30" y="40" width="220" height="100" fill="#1E1A15"/><text x="140" y="72" text-anchor="middle" fill="#fff" font-family="Archivo" font-size="12" font-weight="700">EQUITY (shares)</text><text x="140" y="98" text-anchor="middle" fill="#fff">Growth engine</text><text x="140" y="118" text-anchor="middle" fill="#CFC4AC">High return, high risk</text>
+          <rect x="270" y="40" width="220" height="100" fill="#fff" stroke="#1E1A15"/><text x="380" y="72" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">BONDS / G-SECS</text><text x="380" y="98" text-anchor="middle">Lend &amp; earn fixed interest</text><text x="380" y="118" text-anchor="middle" fill="#4E483D">Lower return, lower risk</text>
+          <rect x="510" y="40" width="220" height="100" fill="#fff" stroke="#1E1A15"/><text x="620" y="72" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">GOLD</text><text x="620" y="98" text-anchor="middle">SGBs &amp; gold ETFs</text><text x="620" y="118" text-anchor="middle" fill="#4E483D">Hedge &amp; tradition</text>
+          <rect x="150" y="158" width="220" height="100" fill="#fff" stroke="#1E1A15"/><text x="260" y="190" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">REITs / InvITs</text><text x="260" y="216" text-anchor="middle">Own property/infra income</text><text x="260" y="236" text-anchor="middle" fill="#4E483D">Without buying a flat</text>
+          <rect x="390" y="158" width="220" height="100" fill="#fff" stroke="#1E1A15"/><text x="500" y="190" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">FIXED DEPOSITS / PPF</text><text x="500" y="216" text-anchor="middle">Bank FDs, PPF, EPF</text><text x="500" y="236" text-anchor="middle" fill="#4E483D">Safe, for stability</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>A balanced plate.</b> Equity grows wealth; bonds and FDs steady it; gold hedges; REITs add property income. You don't need all of them — but knowing the menu helps you build a portfolio that lets you sleep at night (Chapter 16).</figcaption>
+  </figure>
+
+  <h3>The Other Instruments, Briefly</h3>
+  <p><strong>Bonds &amp; Government Securities (G-Secs).</strong> A bond is a loan you make to a company or the government in return for fixed interest and your money back at maturity. Government bonds are among the safest rupee assets there are; the RBI's <em>Retail Direct</em> platform now lets ordinary Indians buy G-Secs directly. Bonds won't make you rich, but they steady a portfolio.</p>
+  <p><strong>Gold.</strong> Indians have trusted gold for centuries. Today you needn't buy jewellery: <strong>Sovereign Gold Bonds (SGBs)</strong>, issued by the RBI, track the gold price <em>and</em> pay interest, while <strong>gold ETFs</strong> let you hold gold in your demat account. Gold often rises when stocks and the rupee wobble, making it a useful hedge — though it produces nothing on its own.</p>
+  <p><strong>REITs &amp; InvITs.</strong> A <strong>Real Estate Investment Trust</strong> lets you own a slice of large, rent-earning commercial property (offices, malls) for a few thousand rupees, trading just like a share — no down-payment, no tenants, no paperwork. <strong>InvITs</strong> do the same for infrastructure (roads, power lines). Both pay out most of their income to you regularly.</p>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">Indian households hold a fortune in gold</span>
+    <p style="margin-bottom:0;">Indian families are estimated to hold <strong>25,000 tonnes or more of gold</strong> — among the largest private hoards on Earth, worth a staggering sum. Yet most of it sits idle in lockers. Instruments like Sovereign Gold Bonds were designed partly to channel this love of gold into a form that also earns interest and helps the economy — gold that works, instead of gold that merely waits.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Equity grows; bonds &amp; FDs steady; gold hedges; REITs add property income.</strong></li>
+      <li><strong>Bonds/G-Secs</strong> (buy via RBI Retail Direct) offer fixed, safer returns.</li>
+      <li><strong>Hold gold smartly</strong> via SGBs (which pay interest) or gold ETFs, not idle jewellery.</li>
+      <li><strong>REITs/InvITs</strong> give property &amp; infrastructure income without buying the asset outright.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART V DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">V</div>
+  <div class="ptag">Part Five</div>
+  <h2>The Mind, the Tax &amp; the Traps</h2>
+  <p class="pintro">The biggest threat to your returns isn't the market — it's the investor in the mirror, the taxman you forgot, and the fraudster in your group chat. Master these three and you've mastered most of investing.</p>
+  <div class="chips"><span class="chip">Risk &amp; diversification</span><span class="chip">Psychology</span><span class="chip">Taxes</span><span class="chip">Scams &amp; safety</span></div>
+</section>
+
+<!-- ===================== CH 16 ===================== -->
+<section class="sheet" id="ch16" data-part="Part V · Mind, Tax &amp; Traps" data-chapter="Chapter 16 · Risk &amp; Diversification">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Sixteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Risk, Diversification &amp; Asset Allocation</h2>
+    <p class="lead">You cannot escape risk in investing — only manage it. The two great tools are diversification (don't bet everything on one thing) and asset allocation (the mix that fits your goal and your nerves). Get these right and the rest forgives a lot of mistakes.</p>
+  </div>
+  <p class="drop">An old Indian grandmother's wisdom beats most finance degrees: <em>don't keep all your eggs in one basket.</em> If one basket falls, you don't lose every egg. In investing, this single idea — diversification — is the closest thing to a free lunch, reducing your risk without necessarily reducing your return.</p>
+
+  <h3>The First Rule: An Emergency Fund Before Equity</h3>
+  <p>Before a single rupee goes into shares, build an <strong>emergency fund</strong> — three to six months of expenses in a boring bank account or liquid fund. Why? Because emergencies (a job loss, a medical bill) love to strike when the market is also down. Without a buffer, you'd be forced to sell your investments at the worst possible time. The emergency fund is what lets you stay invested through a crash instead of panic-selling into it.</p>
+
+  <h3>Asset Allocation: The Mix Is Most of the Game</h3>
+  <p>How you split your money between equity (growth, risky) and safer assets (bonds, FDs, gold) matters more than which exact stock you pick. The younger you are and the longer your goal, the more equity you can hold — because you have years to ride out crashes. As your goal nears, you shift towards safety so a bad year can't derail you.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 16.1</b> &nbsp;·&nbsp; A Simple Allocation Guide by Life Stage</div>
+      <svg viewBox="0 0 760 250" role="img" aria-label="Asset allocation by life stage">
+        <rect width="760" height="250" fill="#fff"/>
+        <g font-family="Spectral" font-size="12">
+          <text x="40" y="60" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">20s–30s · long horizon</text>
+          <rect x="280" y="46" width="340" height="22" fill="#1E1A15"/><rect x="620" y="46" width="60" height="22" fill="#CFC4AC"/>
+          <text x="290" y="62" fill="#fff" font-size="11">~80% equity</text><text x="650" y="62" fill="#1E1A15" font-size="10">safe</text>
+          <text x="40" y="110" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">40s–50s · mid-life</text>
+          <rect x="280" y="96" width="240" height="22" fill="#1E1A15"/><rect x="520" y="96" width="160" height="22" fill="#CFC4AC"/>
+          <text x="290" y="112" fill="#fff" font-size="11">~60% equity</text><text x="560" y="112" fill="#1E1A15" font-size="10">~40% safe</text>
+          <text x="40" y="160" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">Near / in retirement</text>
+          <rect x="280" y="146" width="140" height="22" fill="#1E1A15"/><rect x="420" y="146" width="260" height="22" fill="#CFC4AC"/>
+          <text x="290" y="162" fill="#fff" font-size="11">~30%</text><text x="500" y="162" fill="#1E1A15" font-size="10">~70% bonds/FD/gold</text>
+        </g>
+        <rect x="280" y="196" width="14" height="14" fill="#1E1A15"/><text x="300" y="208" font-family="Spectral" font-size="11" fill="#4E483D">Equity (growth)</text>
+        <rect x="420" y="196" width="14" height="14" fill="#CFC4AC"/><text x="440" y="208" font-family="Spectral" font-size="11" fill="#4E483D">Safer assets (stability)</text>
+        <text x="40" y="240" font-family="Spectral" font-size="11" fill="#4E483D">A rough guide, not gospel — adjust to your goals, income stability, and how well you sleep during crashes.</text>
+      </svg>
+    </div>
+    <figcaption><b>One dial, set to your life.</b> A common rough rule: keep roughly <em>(100 minus your age)%</em> in equity. The exact number matters less than the principle — more equity when young and patient, more safety as the money is needed sooner.</figcaption>
+  </figure>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Fake diversification</span>
+    <p style="margin-bottom:0;">Owning ten different bank stocks is <em>not</em> diversification — they'll fall together when the sector or economy turns. Real diversification spreads across <em>different</em> sectors (banking, IT, FMCG, pharma…), company sizes, and asset classes (equity, debt, gold). The simplest way for a beginner to be instantly diversified across 50 companies and sectors is a single <strong>Nifty 50 index fund</strong> (Chapter 12). Also dangerous: piling your savings into your own employer's stock — if the company stumbles, you could lose your job and your savings together.</p>
+  </div>
+
+  <div class="box callout">
+    <span class="title">Risk is not just “prices go down”</span>
+    <p style="margin-bottom:0;">Beginners fear only one risk: a falling price. But keeping everything in a savings account carries a quieter, deadlier risk — <strong>inflation</strong>. If prices rise ~6% a year and your money earns 3.5%, you're getting poorer in real terms every year, guaranteed. For long-term goals, <em>avoiding</em> equity is itself a risk. The goal isn't zero risk; it's taking the <em>right</em> risks for your time horizon.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Build an emergency fund (3–6 months) before equity</strong> — it stops panic-selling in a crash.</li>
+      <li><strong>Asset allocation</strong> (equity vs. safe mix) drives most of your results; more equity when young.</li>
+      <li><strong>Diversify across sectors and asset classes;</strong> a Nifty 50 index fund does it in one click.</li>
+      <li><strong>Cash isn't “safe”:</strong> inflation quietly erodes it. Take the right risks for your horizon.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 17 ===================== -->
+<section class="sheet" id="ch17" data-part="Part V · Mind, Tax &amp; Traps" data-chapter="Chapter 17 · Investor Psychology">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Seventeen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">The Psychology of the Indian Investor</h2>
+    <p class="lead">Markets are made of people, and people are driven by two ancient emotions: fear and greed. The investor who understands these forces — in the crowd and in themselves — has the single greatest edge available. It costs nothing and beats every “tip.”</p>
+  </div>
+  <p class="drop">You can know every ratio in this book and still lose money if you buy in euphoria and sell in panic. Decades of research show that the average investor earns far less than the funds they invest in — because they jump in and out at exactly the wrong moments. Mastering your own mind is the real game.</p>
+
+  <h3>The Cycle of Fear &amp; Greed</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 17.1</b> &nbsp;·&nbsp; The Emotional Cycle of the Market</div>
+      <svg viewBox="0 0 760 290" role="img" aria-label="Fear and greed cycle">
+        <rect width="760" height="290" fill="#fff"/>
+        <path d="M50 220 Q180 215 280 120 Q330 70 380 60 Q430 70 470 130 Q540 240 690 235" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <g font-family="Spectral" font-size="11.5" fill="#4E483D">
+          <text x="70" y="245">“Stocks are risky, I'll stay out.”</text>
+          <text x="200" y="120">Optimism →</text>
+          <circle cx="380" cy="58" r="5" fill="#8A6A23"/><text x="330" y="44" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">EUPHORIA — “easy money!”</text>
+          <text x="330" y="92" fill="#4E483D">(maximum risk — everyone's buying)</text>
+          <text x="500" y="150">Anxiety →</text>
+          <circle cx="600" cy="222" r="5" fill="#1E1A15"/><text x="470" y="262" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">PANIC — “sell everything!”</text>
+          <text x="470" y="278" fill="#4E483D">(maximum opportunity — everyone's fleeing)</text>
+        </g>
+        <text x="40" y="30" font-family="Spectral" font-size="12.5" font-weight="600" fill="#1E1A15">The crowd buys at the top (greed) and sells at the bottom (fear) — the exact opposite of what works.</text>
+      </svg>
+    </div>
+    <figcaption><b>Buy euphoria, sell panic — the wrong way round.</b> Warren Buffett's antidote: “Be fearful when others are greedy, and greedy when others are fearful.” Easy to say from an armchair; agonising when your portfolio is down 30% and the news screams catastrophe. A SIP and an index fund quietly force you to do the right thing automatically.</figcaption>
+  </figure>
+
+  <h3>The Traps That Catch Indian Investors Most</h3>
+  <div class="compare"><table>
+    <caption>The biases most likely to cost you money</caption>
+    <thead><tr><th>Trap</th><th>What it looks like in India</th><th>The antidote</th></tr></thead>
+    <tbody>
+      <tr><td>Herd mentality / FOMO</td><td>“Everyone in my office is buying this stock — I'll jump in too”</td><td>If a tip has reached you, it's already too late. Stick to your plan.</td></tr>
+      <tr><td>The “multibagger” lottery</td><td>Chasing penny stocks hoping for 100× overnight</td><td>Most go to zero; treat them as lottery tickets, not investing</td></tr>
+      <tr><td>Loss aversion</td><td>Refusing to sell a falling stock “until it comes back to my buy price”</td><td>The price doesn't know your cost. Judge the business today.</td></tr>
+      <tr><td>Anchoring</td><td>“It was ₹2,000 last year, so ₹900 is cheap”</td><td>Past price is irrelevant; only future prospects matter</td></tr>
+      <tr><td>Overconfidence</td><td>A few lucky wins → over-trading, F&amp;O, concentration</td><td>Assume you're average; default to index funds</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">The “tip” culture — India's special weakness</span>
+    <p style="margin-bottom:0;">From the office WhatsApp group to a relative's “sure thing” to a TV anchor's “stock of the day,” India runs on tips. The psychology is seductive: a tip feels like inside knowledge and saves us the hard work of thinking. But by the time a tip reaches an ordinary investor, the people who started it are often the ones <em>selling to you.</em> The most profitable sentence you can learn is: <em>“I don't act on tips.”</em></p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">The genius who couldn't beat his own emotions</span>
+    <p style="margin-bottom:0;">Sir Isaac Newton — one of history's greatest minds — lost a fortune in the South Sea Bubble of 1720. He sold early with a tidy profit, then, unable to bear watching others get rich, bought back in near the top and was wiped out. He reportedly said he could “calculate the motions of the heavenly bodies, but not the madness of people.” If pure intelligence protected anyone from fear and greed, it would have saved Newton. Temperament beats IQ.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Fear and greed drive markets;</strong> the crowd buys tops and sells bottoms.</li>
+      <li><strong>Be greedy when others are fearful</strong> — a SIP automates this discipline.</li>
+      <li><strong>Beware herd/FOMO, the multibagger lottery, loss aversion, anchoring, and overconfidence.</strong></li>
+      <li><strong>Don't act on tips.</strong> By the time you hear one, the early movers may be selling to you.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 18 ===================== -->
+<section class="sheet" id="ch18" data-part="Part V · Mind, Tax &amp; Traps" data-chapter="Chapter 18 · Taxes for the Indian Investor">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Eighteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Taxes for the Indian Investor</h2>
+    <p class="lead">The taxman is a silent partner in every profit you make. You don't need to be an expert, but a few rules — and one crucial holding-period line — can legally save you a meaningful slice of your returns.</p>
+  </div>
+  <p class="drop">When you sell shares or equity mutual funds for a profit, that profit is a <strong>capital gain</strong>, and it's taxed. How much depends almost entirely on <em>one</em> thing: how long you held before selling. This single line — the twelve-month mark — is the most valuable tax knowledge a stock investor can have.</p>
+
+  <h3>Short-Term vs. Long-Term: The 12-Month Line</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 18.1</b> &nbsp;·&nbsp; How Equity Gains Are Taxed (post 23 July 2024)</div>
+      <svg viewBox="0 0 760 270" role="img" aria-label="Capital gains tax on equity">
+        <rect width="760" height="270" fill="#fff"/>
+        <line x1="40" y1="120" x2="720" y2="120" stroke="#1E1A15" stroke-width="2"/>
+        <line x1="380" y1="100" x2="380" y2="140" stroke="#8A6A23" stroke-width="3"/>
+        <text x="380" y="92" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">12 MONTHS</text>
+        <rect x="40" y="60" width="340" height="40" fill="none" stroke="#1E1A15"/>
+        <text x="210" y="78" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">SHORT-TERM (held &lt; 12 months)</text>
+        <text x="210" y="94" text-anchor="middle" font-family="Spectral" font-size="11">STCG taxed at a flat 20%</text>
+        <rect x="380" y="60" width="340" height="40" fill="#1E1A15"/>
+        <text x="550" y="78" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#9C7B30">LONG-TERM (held ≥ 12 months)</text>
+        <text x="550" y="94" text-anchor="middle" font-family="Spectral" font-size="11" fill="#fff">LTCG taxed at 12.5%</text>
+        <text x="40" y="172" font-family="Spectral" font-size="13" fill="#1E1A15">• Long-term gains up to <tspan font-weight="700">₹1.25 lakh per financial year are tax-free.</tspan> Only the excess is taxed at 12.5%.</text>
+        <text x="40" y="200" font-family="Spectral" font-size="13" fill="#1E1A15">• Holding just past 12 months can cut your tax rate from 20% to 12.5% — patience pays, literally.</text>
+        <text x="40" y="228" font-family="Spectral" font-size="11.5" fill="#8A6A23">Rates per Budget 2024, effective 23 July 2024, for listed equity &amp; equity mutual funds where STT is paid. Verify current rates before filing.</text>
+      </svg>
+    </div>
+    <figcaption><b>Patience is tax-efficient.</b> Sell within a year and your gain is “short-term,” taxed at a flat 20%. Hold beyond a year and it's “long-term,” taxed at just 12.5% — with the first ₹1.25 lakh of long-term gains each year completely tax-free. The tax code itself rewards long-term investing.</figcaption>
+  </figure>
+
+  <h3>The Other Taxes You'll Meet</h3>
+  <p><strong>STT (Securities Transaction Tax)</strong> is a small tax automatically deducted on every buy and sell on the exchange — you never file it separately; it's just built into your contract note. <strong>Dividends</strong> are now taxed in your hands at your normal income-tax slab rate (and TDS may apply above ₹5,000). When you file your annual <strong>Income Tax Return (ITR)</strong>, you report your capital gains; brokers provide a ready “capital gains statement” to make this easy.</p>
+
+  <div class="box callout">
+    <span class="title">Tax-loss harvesting — a legal, simple saving</span>
+    <p style="margin-bottom:0;">If some holdings are showing losses, you can <strong>sell them to “book” the loss</strong> and set it off against your taxable gains, reducing your tax — then, if you still like the investment, buy it back. You can also carry forward unused capital losses for up to eight years (if you file your ITR on time). Used sensibly near the financial year-end, this is a perfectly legal way to keep more of your returns. <em>This is general information, not personal tax advice — consult a CA for your situation.</em></p>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Letting the tax tail wag the investment dog</span>
+    <p style="margin-bottom:0;">Don't make a bad investing decision purely to save tax — for instance, holding a deteriorating stock just to cross the 12-month mark while it keeps falling. A few percent saved in tax is worthless if you lose far more on the underlying holding. Also: many believe “I only pay tax when I withdraw to my bank.” Not so — tax is triggered when you <em>sell</em> (book the gain), even if the money stays in your trading account.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>The 12-month line decides everything:</strong> &lt;12 months = STCG at 20%; ≥12 months = LTCG at 12.5%.</li>
+      <li><strong>The first ₹1.25 lakh of long-term equity gains each year is tax-free.</strong></li>
+      <li><strong>STT is auto-deducted; dividends are taxed at your slab;</strong> report gains in your ITR.</li>
+      <li><strong>Tax-loss harvesting is legal and useful</strong> — but never let tax override good investing.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 19 ===================== -->
+<section class="sheet" id="ch19" data-part="Part V · Mind, Tax &amp; Traps" data-chapter="Chapter 19 · Costs, Scams &amp; Safety">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Nineteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Costs, Scams &amp; Staying Safe</h2>
+    <p class="lead">Two forces quietly drain Indian investors: the costs they don't notice, and the frauds they don't see coming. This chapter arms you against both — and tells you exactly where to complain when something goes wrong.</p>
+  </div>
+  <p class="drop">Every rupee lost to needless costs or outright fraud is a rupee that can never compound for you. The good news: nearly all of it is avoidable with a little knowledge and a healthy suspicion of anything that promises easy money.</p>
+
+  <h3>The True Cost of a Trade</h3>
+  <p>The “zero brokerage” advertised by discount brokers isn't the whole story. Every trade carries a stack of small charges — <strong>brokerage</strong> (if any), <strong>STT</strong>, <strong>exchange fees</strong>, <strong>GST</strong>, <strong>stamp duty</strong>, and SEBI charges. For a long-term investor making a handful of trades, these are negligible. For a frequent trader, they pile up fast and silently eat returns — another reason activity is the enemy of the small investor.</p>
+
+  <h3>The Scams to Know by Name</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 19.1</b> &nbsp;·&nbsp; Anatomy of a “Pump &amp; Dump”</div>
+      <svg viewBox="0 0 760 260" role="img" aria-label="Pump and dump scheme">
+        <rect width="760" height="260" fill="#fff"/>
+        <polyline points="50,200 180,190 320,120 430,60 470,55" fill="none" stroke="#8A6A23" stroke-width="3"/>
+        <polyline points="470,55 540,150 620,200 700,215" fill="none" stroke="#1E1A15" stroke-width="3" stroke-dasharray="2 0"/>
+        <circle cx="470" cy="55" r="5" fill="#1E1A15"/>
+        <g font-family="Spectral" font-size="11.5" fill="#4E483D">
+          <text x="60" y="225">1 · Operators quietly buy a cheap, obscure stock</text>
+          <text x="230" y="110">2 · They “pump” it —</text>
+          <text x="230" y="126">tips, fake news, hype</text>
+          <text x="380" y="44" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">3 · YOU buy at the top (FOMO)</text>
+          <text x="540" y="130" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">4 · They “dump” &amp;</text>
+          <text x="540" y="146" fill="#1E1A15">vanish — you're left</text>
+          <text x="540" y="162" fill="#1E1A15">holding the crash</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>The oldest trick on Dalal Street.</b> Manipulators accumulate a thinly-traded stock, hype it through tips and social media to lure retail buyers, then sell into that demand — collapsing the price. If a little-known stock is suddenly “the talk” with breathless targets, assume you are the exit, not the opportunity.</figcaption>
+  </figure>
+
+  <p>Beyond pump-and-dumps, watch for: <strong>Ponzi / “guaranteed return” schemes</strong> (no real investment pays a fixed high return safely); <strong>fake trading apps and “SEBI-approved” advisors</strong> who don't exist; <strong>“recovery” scams</strong> that target those already cheated; and impostors promising to <strong>“manage your account for assured profit.”</strong> The common thread is always the same: a promise of high returns with low or no risk. That promise is, by the laws of finance, impossible — and therefore always a lie.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">Your three-step safety check</span>
+    <p style="margin-bottom:0;">Before trusting anyone with your money: <strong>(1) Verify registration</strong> — every genuine broker/advisor has a SEBI registration number you can check on SEBI's website. <strong>(2) Never give custody</strong> — a registered adviser advises; they never hold your money or login. <strong>(3) Reject guarantees</strong> — “assured returns” in markets is the universal signature of fraud. If in doubt, walk away. No genuine opportunity vanishes because you took a day to verify it.</p>
+  </div>
+
+  <div class="box callout">
+    <span class="title">Where to complain: SEBI SCORES &amp; the exchanges</span>
+    <p style="margin-bottom:0;">If a broker or company wrongs you, you are not helpless. File a complaint on <strong>SEBI's SCORES</strong> portal (an official online grievance system), or with the relevant exchange (NSE/BSE) and your depository. SEBI also runs an Investor Protection Fund and an Ombudsman/online dispute-resolution mechanism. Knowing these exist — and that the system is on your side — is part of investing with confidence.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Hidden costs (STT, GST, fees) are tiny for investors, ruinous for frequent traders.</strong></li>
+      <li><strong>Know the scams:</strong> pump-and-dump, Ponzi/“guaranteed returns,” fake apps &amp; advisors, account-handling fraud.</li>
+      <li><strong>Safety check:</strong> verify SEBI registration, never hand over custody, reject all “assured return” promises.</li>
+      <li><strong>If wronged, use SEBI SCORES</strong> and the exchanges — the system is built to protect you.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART VI DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">VI</div>
+  <div class="ptag">Part Six</div>
+  <h2>Putting It Together</h2>
+  <p class="pintro">Knowledge without action is just trivia. This final part turns everything you've learned into a concrete portfolio, the hard-won lessons of Indian market history, and a month-by-month plan you can start this week.</p>
+  <div class="chips"><span class="chip">Your first portfolio</span><span class="chip">History's lessons</span><span class="chip">12-month plan</span></div>
+</section>
+
+<!-- ===================== CH 20 ===================== -->
+<section class="sheet" id="ch20" data-part="Part VI · Putting It Together" data-chapter="Chapter 20 · Building Your First Portfolio">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Twenty</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Building Your First Portfolio</h2>
+    <p class="lead">Theory is over. Here is how an ordinary salaried Indian can assemble a sensible, low-stress portfolio — in rupees, step by step — without a single hot tip or sleepless night.</p>
+  </div>
+  <p class="drop">There is no single “correct” portfolio, but there is a sound <em>structure</em> that has served patient investors for decades: secure your foundation first, build a boring core, and only then add a small, optional satellite of higher-risk bets. Let's make it concrete with a worked example.</p>
+
+  <h3>The Core-and-Satellite Approach</h3>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 20.1</b> &nbsp;·&nbsp; A Sample Beginner Portfolio</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Sample portfolio">
+        <rect width="760" height="300" fill="#fff"/>
+        <text x="40" y="40" font-family="Spectral" font-size="13" fill="#4E483D">Step 0 — before any of this: an EMERGENCY FUND of 3–6 months' expenses, in the bank. Non-negotiable.</text>
+        <!-- stacked allocation bar -->
+        <text x="40" y="80" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">THEN INVEST YOUR MONTHLY SURPLUS LIKE THIS:</text>
+        <rect x="40" y="92" width="400" height="46" fill="#1E1A15"/><text x="240" y="120" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="13" font-weight="600">CORE · ~60% · Nifty 50 index fund (SIP)</text>
+        <rect x="440" y="92" width="160" height="46" fill="#8A6A23"/><text x="520" y="116" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="11">~25% · flexi-cap</text><text x="520" y="130" text-anchor="middle" fill="#fff" font-family="Spectral" font-size="11">or large-caps</text>
+        <rect x="600" y="92" width="120" height="46" fill="#CFC4AC"/><text x="660" y="116" text-anchor="middle" fill="#1E1A15" font-family="Spectral" font-size="11">~15%</text><text x="660" y="130" text-anchor="middle" fill="#1E1A15" font-family="Spectral" font-size="11">gold/debt</text>
+        <text x="40" y="180" font-family="Spectral" font-size="12.5" fill="#1E1A15">CORE (the engine): a low-cost Nifty 50 (or broad index) fund — instant diversification, you'll never “blow up.”</text>
+        <text x="40" y="204" font-family="Spectral" font-size="12.5" fill="#1E1A15">SATELLITE (optional spice): a flexi-cap fund, or 3–5 quality large-cap shares you understand and researched.</text>
+        <text x="40" y="228" font-family="Spectral" font-size="12.5" fill="#1E1A15">BALLAST (stability): a little gold (SGB/ETF) and/or debt — calms the ride and gives you something to rebalance with.</text>
+        <text x="40" y="266" font-family="Spectral" font-size="11.5" fill="#8A6A23">Illustrative structure, not advice. The exact split depends on your age, goals and temperament (Chapter 16).</text>
+      </svg>
+    </div>
+    <figcaption><b>Boring core, optional spice.</b> Most of your money rides in a low-cost index fund you never have to babysit. The small satellite is where you can express views or learn stock-picking — sized so that even if it goes to zero, your future is safe.</figcaption>
+  </figure>
+
+  <div class="box" style="border:none;"><span class="htag">In Rupees</span>
+    <p style="margin-bottom:0;">Riya, 28, earns ₹60,000/month and can invest ₹15,000. First she parks ₹1.5 lakh as an emergency fund. Then she sets up auto-SIPs: <strong>₹9,000</strong> into a Nifty 50 index fund (core), <strong>₹4,000</strong> into a flexi-cap fund (satellite), and <strong>₹2,000</strong> into a Sovereign Gold Bond / gold ETF (ballast). She picks the dates just after payday, enables auto-debit, and — this is the hard part — does nothing else for years. At ~12% over 30 years, that ₹15,000/month could grow past <strong>₹5 crore.</strong> <em>(Illustrative; returns vary and aren't guaranteed.)</em></p>
+  </div>
+
+  <h3>Rebalancing: Selling High, Buying Low, on Autopilot</h3>
+  <p>Once a year, check whether your mix has drifted. If a great equity run pushed your equity from 85% to 92%, sell a little and top up gold/debt to return to target. It feels backwards — trimming winners — but it mechanically forces you to <em>sell high and buy low</em>, and keeps your risk from quietly ballooning. Once a year is plenty; more tinkering usually hurts.</p>
+
+  <div class="box err">
+    <span class="htag">Common Mistakes</span>
+    <span class="title">Owning fifteen funds and calling it diversification</span>
+    <p style="margin-bottom:0;">Beginners often collect a dozen mutual funds, imagining more funds = more safety. In reality they overlap heavily (all holding the same top stocks), become impossible to track, and just average out to the index — at higher cost. Two or three well-chosen funds are plenty. Simplicity is a feature, not a compromise.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Foundation first:</strong> emergency fund before any equity.</li>
+      <li><strong>Core-and-satellite:</strong> a low-cost index fund as the boring core, a small optional satellite, a little ballast.</li>
+      <li><strong>Automate SIPs just after payday</strong> and largely leave them alone.</li>
+      <li><strong>Rebalance once a year;</strong> avoid fund-collecting — 2–3 funds beat 15.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 21 ===================== -->
+<section class="sheet" id="ch21" data-part="Part VI · Putting It Together" data-chapter="Chapter 21 · Lessons from History">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Twenty-One</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Lessons from Indian Market History</h2>
+    <p class="lead">The Indian market has lived through scams, crashes, and astonishing recoveries. Each left a lesson written in the savings of those who didn't know it. Learn them here, for free, instead of the expensive way.</p>
+  </div>
+  <p class="drop">History doesn't repeat, but it rhymes — and the Indian market's rhymes are remarkably consistent: manipulation gets exposed, panics pass, and patient investors are rewarded while the impatient and the greedy are punished. Four episodes tell the whole story.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 21.1</b> &nbsp;·&nbsp; Four Moments That Shaped the Market</div>
+      <svg viewBox="0 0 760 230" role="img" aria-label="Indian market history timeline">
+        <rect width="760" height="230" fill="#fff"/>
+        <line x1="70" y1="120" x2="700" y2="120" stroke="#1E1A15" stroke-width="2"/>
+        <g font-family="Archivo" font-size="11" text-anchor="middle">
+          <circle cx="120" cy="120" r="7" fill="#1E1A15"/><text x="120" y="96" font-weight="700" fill="#1E1A15">1992</text><text x="120" y="150" font-family="Spectral" font-size="11" fill="#4E483D">Harshad Mehta</text><text x="120" y="165" font-family="Spectral" font-size="11" fill="#4E483D">scam</text>
+          <circle cx="300" cy="120" r="7" fill="#1E1A15"/><text x="300" y="96" font-weight="700" fill="#1E1A15">2001</text><text x="300" y="150" font-family="Spectral" font-size="11" fill="#4E483D">Ketan Parekh</text><text x="300" y="165" font-family="Spectral" font-size="11" fill="#4E483D">/ dot-com</text>
+          <circle cx="480" cy="120" r="7" fill="#8A6A23"/><text x="480" y="96" font-weight="700" fill="#8A6A23">2008</text><text x="480" y="150" font-family="Spectral" font-size="11" fill="#4E483D">Global Financial</text><text x="480" y="165" font-family="Spectral" font-size="11" fill="#4E483D">Crisis</text>
+          <circle cx="660" cy="120" r="7" fill="#8A6A23"/><text x="660" y="96" font-weight="700" fill="#8A6A23">2020</text><text x="660" y="150" font-family="Spectral" font-size="11" fill="#4E483D">COVID crash</text><text x="660" y="165" font-family="Spectral" font-size="11" fill="#4E483D">&amp; recovery</text>
+        </g>
+        <text x="385" y="205" text-anchor="middle" font-family="Spectral" font-size="11.5" fill="#4E483D">Every crisis felt like the end of the world. Every one was, for the patient investor, eventually a buying opportunity.</text>
+      </svg>
+    </div>
+    <figcaption><b>Crisis, then recovery — every time.</b> Through scams and crashes, the long-term trend of a growing economy's market has been upward. The investors who were ruined were almost always those using leverage, chasing manipulation, or selling in panic.</figcaption>
+  </figure>
+
+  <div class="box case">
+    <span class="htag">Case Study · 1992</span>
+    <span class="title">The Harshad Mehta scam — and the birth of the modern market</span>
+    <p style="margin-bottom:0;">In the early 1990s, stockbroker Harshad Mehta exploited loopholes in the banking system to siphon enormous sums and pump select stocks to dizzying heights, driving the Sensex to a frenzy before the fraud — running into thousands of crores of rupees — was exposed and the market collapsed. Countless small investors who had piled in at the top were wiped out. But from the wreckage came reform: the scam directly accelerated the empowerment of <strong>SEBI</strong> as a statutory regulator and the creation of the screen-based, transparent <strong>NSE</strong>. <strong>Lesson:</strong> when a single operator or “sure thing” drives a stock vertically, you are likely the intended victim — and the system you can trust today was built on the losses of those who learned this the hard way.</p>
+  </div>
+
+  <div class="box case">
+    <span class="htag">Case Study · 2008 &amp; 2020</span>
+    <span class="title">Two great crashes — and the reward for staying invested</span>
+    <p style="margin-bottom:0;">In the <strong>2008 global financial crisis</strong>, the Sensex fell roughly 60% from its peak; in the <strong>March 2020 COVID crash</strong>, Indian markets plunged so fast they triggered circuit breakers. Both times the headlines screamed that this was different, that the system might not survive. Both times, investors who panic-sold locked in catastrophic losses — while those who simply kept their SIPs running bought cheap units through the fear and saw the market recover to new highs within a couple of years. <strong>Lesson:</strong> crashes are violent but temporary; the permanent loss comes from selling into them. Your behaviour, not the market, determines your outcome.</p>
+  </div>
+
+  <div class="box dyk">
+    <span class="htag">Did You Know?</span>
+    <span class="title">A scam became the nation's favourite finance lesson</span>
+    <p style="margin-bottom:0;">The Harshad Mehta saga became so embedded in Indian memory that it was turned into a hit web series watched by millions — accidentally teaching a generation about brokers, the Sensex, and market manipulation. It's a strange tribute: the very scandal that nearly broke trust in the market became the story that taught ordinary Indians how it works. Let it teach you caution, not envy.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>1992 (Harshad Mehta):</strong> manipulation gets exposed; it gave us a stronger SEBI and the NSE.</li>
+      <li><strong>Vertical, operator-driven stocks make you the victim,</strong> not the beneficiary.</li>
+      <li><strong>2008 &amp; 2020:</strong> markets crashed hard, then recovered to new highs — those who held (and kept SIPs) won.</li>
+      <li><strong>The permanent loss is selling in panic.</strong> Your behaviour decides your result.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 22 ===================== -->
+<section class="sheet" id="ch22" data-part="Part VI · Putting It Together" data-chapter="Chapter 22 · Your 12-Month Action Plan">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Twenty-Two</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Your 12-Month Action Plan</h2>
+    <p class="lead">You now know more about investing than most people ever will. The final step is the hardest and simplest: begin. Here is a calm, month-by-month plan to go from zero to a confident, automated investor within a year.</p>
+  </div>
+  <p class="drop">Don't try to do everything at once — that's how people freeze and never start. Take one small step a month. By this time next year, you'll have a working portfolio, real experience, and habits that can compound for the rest of your life.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 22.1</b> &nbsp;·&nbsp; Zero to Confident Investor, in a Year</div>
+      <svg viewBox="0 0 760 320" role="img" aria-label="12 month plan">
+        <rect width="760" height="320" fill="#fff"/>
+        <g font-family="Spectral" font-size="12.5">
+          <text x="40" y="46" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">MONTH 1–2 · FOUNDATION</text>
+          <text x="60" y="70" fill="#1E1A15">Build/confirm your emergency fund. Clear high-interest debt (credit cards) first.</text>
+          <text x="40" y="106" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">MONTH 2 · OPEN ACCOUNTS</text>
+          <text x="60" y="130" fill="#1E1A15">Open a demat + trading account with a SEBI-registered discount broker (PAN, Aadhaar e-KYC).</text>
+          <text x="40" y="166" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">MONTH 3 · START THE CORE SIP</text>
+          <text x="60" y="190" fill="#1E1A15">Begin a small auto-SIP into a low-cost Nifty 50 index fund (Direct plan). Even ₹2,000 counts.</text>
+          <text x="40" y="226" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">MONTH 4–8 · LEARN BY DOING</text>
+          <text x="60" y="250" fill="#1E1A15">Buy 1–2 quality large-cap shares you've researched. Watch how you <tspan font-style="italic">feel</tspan> when they move.</text>
+          <text x="40" y="286" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">MONTH 9–12 · REVIEW &amp; AUTOMATE</text>
+          <text x="60" y="310" fill="#1E1A15">Increase your SIP with any salary hike. Review once. Then let time and compounding work.</text>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Slow is smooth, smooth is fast.</b> Notice what's <em>not</em> here: no F&amp;O, no day-trading, no tips, no “multibaggers.” The boring plan is the one that works. The single most important step is Month 3 — actually starting the SIP. Everything compounds from there.</figcaption>
+  </figure>
+
+  <h3>The Whole Book in Ten Rules</h3>
+  <ol>
+    <li><strong>A share is part-ownership of a real business</strong> — never just a number.</li>
+    <li><strong>Invest only after</strong> an emergency fund and high-interest debt are handled.</li>
+    <li><strong>A low-cost index fund + monthly SIP</strong> beats almost everything, with almost no effort.</li>
+    <li><strong>Time in the market beats timing the market.</strong> Start now; never stop in a crash.</li>
+    <li><strong>Diversify;</strong> never bet the house on one stock, sector, or tip.</li>
+    <li><strong>Keep costs and taxes low;</strong> hold beyond 12 months for gentler tax.</li>
+    <li><strong>Avoid F&amp;O, leverage, and “sure-shot” tips</strong> — the data says they ruin most who try.</li>
+    <li><strong>Master your emotions:</strong> be calm in euphoria, brave in panic.</li>
+    <li><strong>Verify SEBI registration; reject all “guaranteed returns.”</strong></li>
+    <li><strong>Be patient.</strong> Wealth in the market is built in decades, not days.</li>
+  </ol>
+
+  <div class="pq" style="border-top:none;">The best time to start investing was years ago. The second-best time is today. You are now ready.</div>
+
+  <div class="box psy">
+    <span class="htag">Investor Psychology</span>
+    <span class="title">Start before you feel “ready”</span>
+    <p style="margin-bottom:0;">Many wait years to begin, hoping to first feel fully confident or to “catch the perfect dip.” That confidence comes from <em>doing</em>, not reading, and the perfect dip is visible only in hindsight. A ₹2,000 SIP started today teaches you more — and compounds more — than ₹2 lakh invested “someday.” Begin small, begin imperfectly, but begin.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Take one step a month:</strong> foundation → accounts → core SIP → learn by doing → review.</li>
+      <li><strong>Month 3 — starting the SIP — is the step that matters most.</strong></li>
+      <li><strong>The boring plan (index + SIP + patience) is the winning plan.</strong></li>
+      <li><strong>Start before you feel ready;</strong> confidence and wealth both come from beginning.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== GLOSSARY ===================== -->
+<section class="sheet" id="glossary" data-part="Back Matter" data-chapter="Glossary of Indian Market Terms">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Appendix A</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Glossary of Indian Market Terms</h2>
+    <p class="lead">Every term in this book, in plain English. Keep it handy for the first few months.</p>
+  </div>
+  <div class="glos">
+    <p><strong>ASBA</strong> — “Application Supported by Blocked Amount”; IPO money is blocked, not debited, until allotment.</p>
+    <p><strong>BSE</strong> — Bombay Stock Exchange (1875), Asia's oldest; benchmark index is the Sensex.</p>
+    <p><strong>CDSL / NSDL</strong> — India's two depositories, the electronic vaults that hold your shares.</p>
+    <p><strong>Circuit breaker</strong> — an automatic trading halt when prices move too far, too fast.</p>
+    <p><strong>Demat account</strong> — your electronic locker holding shares, inside a depository.</p>
+    <p><strong>Dividend</strong> — a share of company profits paid in cash to shareholders.</p>
+    <p><strong>DP</strong> — Depository Participant; your broker, acting as your link to NSDL/CDSL.</p>
+    <p><strong>ETF</strong> — an index fund that trades on the exchange like a share.</p>
+    <p><strong>Expense ratio</strong> — a fund's annual fee; lower is better.</p>
+    <p><strong>F&amp;O</strong> — Futures &amp; Options; leveraged derivatives most individuals lose money on.</p>
+    <p><strong>GMP</strong> — Grey Market Premium; an unofficial, unreliable IPO rumour. Ignore it.</p>
+    <p><strong>Index fund</strong> — a low-cost fund that copies an index like the Nifty 50.</p>
+    <p><strong>IPO</strong> — Initial Public Offering; a company's first sale of shares to the public.</p>
+    <p><strong>KYC</strong> — “Know Your Customer”; the identity verification required to invest.</p>
+    <p><strong>Large/Mid/Small-cap</strong> — companies ranked by market value (top 100 / 101–250 / beyond).</p>
+    <p><strong>LTCG / STCG</strong> — Long-/Short-Term Capital Gains tax (the 12-month line; 12.5% vs 20% for equity).</p>
+    <p><strong>Market cap</strong> — a company's total value = share price × number of shares.</p>
+    <p><strong>NAV</strong> — Net Asset Value; a mutual fund's per-unit price, set daily.</p>
+    <p><strong>Nifty 50</strong> — NSE's benchmark index of 50 large companies.</p>
+    <p><strong>NSE</strong> — National Stock Exchange; India's largest by volume; index is the Nifty 50.</p>
+    <p><strong>P/E ratio</strong> — price ÷ earnings per share; how expensive a stock is per ₹ of profit.</p>
+    <p><strong>Promoter</strong> — the founder/family group that controls a company.</p>
+    <p><strong>Pledging</strong> — promoters mortgaging their shares to borrow; high pledging is a red flag.</p>
+    <p><strong>REIT / InvIT</strong> — trusts that let you own income-earning property / infrastructure like a share.</p>
+    <p><strong>ROE</strong> — Return on Equity; profit earned on owners' money (higher is better).</p>
+    <p><strong>SEBI</strong> — Securities and Exchange Board of India; the market regulator (since 1992).</p>
+    <p><strong>Sensex</strong> — BSE's benchmark index of 30 large companies.</p>
+    <p><strong>SGB</strong> — Sovereign Gold Bond; RBI-issued gold that also pays interest.</p>
+    <p><strong>SIP</strong> — Systematic Investment Plan; investing a fixed sum every month.</p>
+    <p><strong>STT</strong> — Securities Transaction Tax; small tax auto-deducted on each trade.</p>
+    <p><strong>T+1</strong> — settlement one working day after a trade; money/shares fully change hands.</p>
+  </div>
+</section>
+
+<!-- ===================== RESOURCES & SOURCES ===================== -->
+<section class="sheet" id="resources" data-part="Back Matter" data-chapter="Resources &amp; Source Notes">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Appendix B</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Resources &amp; Source Notes</h2>
+    <p class="lead">Where to learn more — all free and trustworthy — and where the facts in this book came from.</p>
+  </div>
+
+  <h3>Free, Reliable Places to Learn</h3>
+  <div class="resources"><ul>
+    <li><strong>SEBI Investor website</strong> (investor.sebi.gov.in) — official, unbiased basics &amp; the SCORES complaint portal.</li>
+    <li><strong>NSE &amp; BSE</strong> (nseindia.com, bseindia.com) — live data, indices, circuit &amp; timing rules.</li>
+    <li><strong>Zerodha Varsity</strong> — a superb, free, beginner-to-advanced course on Indian markets.</li>
+    <li><strong>AMFI</strong> (amfiindia.com) — the mutual-fund body; fund data and investor education.</li>
+    <li><strong>RBI Retail Direct</strong> — buy government bonds (G-Secs) directly as a retail investor.</li>
+    <li><strong>Screener.in / Tickertape</strong> — free tools to study a company's years of financials.</li>
+    <li><strong>Income Tax Department</strong> (incometax.gov.in) — current capital-gains rules &amp; ITR filing.</li>
+  </ul></div>
+
+  <h3>Books Worth Your Time</h3>
+  <div class="resources"><ul>
+    <li><em>The Psychology of Money</em> — Morgan Housel (behaviour beats brains).</li>
+    <li><em>Let's Talk Money</em> — Monika Halan (personal finance for Indians).</li>
+    <li><em>The Intelligent Investor</em> — Benjamin Graham (the value-investing classic).</li>
+    <li><em>One Up On Wall Street</em> — Peter Lynch (invest in what you understand).</li>
+    <li><em>Coffee Can Investing</em> — Saurabh Mukherjea et al. (long-term quality investing, India).</li>
+  </ul></div>
+
+  <h3>Source Notes</h3>
+  <p style="font-size:.95rem;">Facts were cross-checked against SEBI, NSE, BSE, the depositories (NSDL/CDSL), the RBI, and the Income Tax Department. Key specifics: market hours <strong>9:15&nbsp;AM–3:30&nbsp;PM</strong>; <strong>T+1</strong> settlement (adopted Jan 2023, ahead of the US's May 2024 move); market-wide circuit breakers at <strong>10/15/20%</strong>; capital-gains rules per <strong>Union Budget 2024</strong> (effective 23 July 2024) — equity STCG 20% (Sec. 111A), LTCG 12.5% above ₹1.25 lakh/year (Sec. 112A), 12-month holding line; the BSE founded <strong>1875</strong>, SEBI a statutory regulator from <strong>1992</strong>. The statement that the large majority (around 9 in 10) of individual equity-F&amp;O traders lose money reflects SEBI's published studies (FY22–FY24); figures are approximate — consult the latest SEBI report and current tax rules before relying on specifics.</p>
+  <p style="font-size:.95rem;color:var(--faint);">Photographs of the BSE and NSE buildings are sourced from Wikimedia Commons and used under their free licences. All other figures are original vector diagrams. Worked examples (Riya's portfolio, the SIP and rupee-cost-averaging tables) are clearly labelled illustrative and use stated assumptions; they are teaching aids, not forecasts.</p>
+  <p style="font-size:.95rem;"><strong>A final word.</strong> This book is education, not advice, and names companies and funds only as examples. Rules and rates change; verify the current ones. The market will test your patience far more than your intelligence — and now you are ready for both.</p>
+
+  <div class="ornament"></div>
+  <div class="pq" style="border-top:none;border-bottom:none;font-size:1.7rem;">
+    “Do not save what is left after spending, but spend what is left after saving.”
+    <cite>— Warren Buffett</cite>
+  </div>
+</section>
+
+<div class="colophon">
+  <p class="bt">The Stock Market, From Scratch</p>
+  <p>An Indian Investor's Complete Guide · First Edition, 2026 · Set in Fraunces, Spectral &amp; Archivo</p>
+  <p style="margin-top:1em;color:#7a7363;">Education, not advice. Markets carry risk. Invest patiently, verify everything, and never stop a SIP in a storm.</p>
+</div>
+
+</body>
+</html>

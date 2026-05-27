@@ -1,0 +1,34 @@
+# Only the finance book series is tracked in this repo.
+# Ignore unrelated files in this workspace and transient artifacts.
+
+# Unrelated projects in this folder
+chronicle-of-humankind.html
+chronicle-of-humankind.bak.html
+chronicle-demo.html
+sample-chapter.html
+
+# Backups & temp
+*.bak
+*.bak.html
+*.tmp
+preview*.pdf
+*-check.pdf
+v3*.pdf
+v3*.png
+*.png
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Other personal/unrelated content in this workspace — never track
+Personal Documents/
+mind-and-belief/
+Python/
+Python_Basics/
+finance-dashboard/
+images/
+fetch_images.py
+insert_images.py
