@@ -16,7 +16,7 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 | **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | [`book2-where-to-put-your-money.html`](book2-where-to-put-your-money.html) · [PDF](Book2-Where-to-Put-Your-Money.pdf) | ✅ Done |
 | **2 · The Markets** | **Book 3 — How the Market Works** *(India edition, Vol. I)* | [`vol1-how-the-market-works.html`](vol1-how-the-market-works.html) · [PDF](Vol1-How-the-Market-Works.pdf) | ✅ Done |
 | **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | [`book4-fundamental-analysis.html`](book4-fundamental-analysis.html) · [PDF](Book4-Fundamental-Analysis.pdf) | ✅ Done |
-| 2 · The Markets | Book 5 — Technical Analysis | — | Planned |
+| **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | [`book5-technical-analysis.html`](book5-technical-analysis.html) · [PDF](Book5-Technical-Analysis.pdf) | ✅ Done |
 | 2 · The Markets | Book 6 — Funds, SIPs & Portfolios | — | Planned |
 | 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | Planned |
 | **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | Planned |

@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Technical Analysis — Reading the Price Chart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE COMPLETE MONEY · v3 — Broadsheet editorial
+   Monochrome ink-on-paper + a single gold accent.
+   No gradients, no rounded cards, no drop-shadows.
+   Type: Fraunces (display) · Spectral (text) · Archivo (furniture)
+   ============================================================ */
+:root{
+  --paper:#F6F0E2;          /* warm broadsheet stock */
+  --paper-deep:#ECE3D0;     /* page surround */
+  --panel:#EFE8D7;          /* faint inset tint */
+  --ink:#1E1A15;            /* near-black warm ink */
+  --ink-soft:#4E483D;
+  --faint:#8C8475;
+  --hair:#C9BFA9;           /* hairline rules */
+  --rule:#C9BFA9;
+  --accent:#8A6A23;         /* the single accent — deep gold, on light */
+  --accent-deep:#1E1A15;    /* figures: dark fills = ink */
+  --accent-soft:#CFC4AC;    /* figures: warm gray */
+  --accent-tint:#EFE8D7;
+  --gold:#9C7B30;           /* slightly lighter gold for on-dark highlights */
+  --maxw:840px;
+}
+/* all former part-themes collapse to one monochrome system */
+.theme-1,.theme-2,.theme-3,.theme-4,.theme-5,.theme-6,.theme-7,.theme-8,.theme-9,.theme-10{
+  --accent:#8A6A23; --accent-deep:#1E1A15; --accent-soft:#CFC4AC; --accent-tint:#EFE8D7; --gold:#9C7B30;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper-deep);
+  color:var(--ink);
+  font-family:'Spectral',Georgia,'Times New Roman',serif;
+  font-size:18px;line-height:1.72;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  counter-reset:pg;
+  padding:34px 14px;
+}
+
+/* ---------------- THE PAGE SHEET ---------------- */
+.sheet{
+  position:relative;
+  max-width:var(--maxw);
+  margin:0 auto 22px;
+  background:var(--paper);
+  border:1px solid var(--hair);
+  border-top:3px solid var(--ink);     /* masthead rule */
+  padding:62px 78px 76px;
+  counter-increment:pg;
+}
+.sheet::before{                          /* running head */
+  content:"Technical Analysis \00b7 Book Five   \2014   " attr(data-part);
+  position:absolute;top:22px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  padding-bottom:9px;border-bottom:1px solid var(--hair);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.sheet::after{                           /* folio */
+  content:counter(pg) "   \00b7   " attr(data-chapter);
+  position:absolute;bottom:30px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+  text-align:center;padding-top:9px;border-top:1px solid var(--hair);
+}
+.sheet.plain::before,.sheet.plain::after{content:none;}
+
+/* ---------------- TYPOGRAPHY ---------------- */
+h1,h2,h3,h4,.display{font-family:'Fraunces','Spectral',Georgia,serif;font-optical-sizing:auto;color:var(--ink);font-weight:600;letter-spacing:-.005em;}
+.chapter-title{font-size:3.05rem;line-height:1.02;font-weight:900;margin:.12em 0 .3em;}
+h3{font-size:1.5rem;font-weight:600;margin:2.4em 0 .55em;padding-top:.7em;border-top:1px solid var(--hair);}
+h4{font-size:1.06rem;margin:1.7em 0 .3em;color:var(--ink);font-weight:700;font-family:'Archivo',sans-serif;letter-spacing:.02em;text-transform:uppercase;}
+p{margin:0 0 1.1em;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--hair);}
+a:hover{color:var(--ink);border-color:var(--accent);}
+.lead{font-size:1.4rem;line-height:1.5;color:var(--ink-soft);font-weight:400;font-style:italic;margin-bottom:1.2em;font-family:'Spectral',serif;}
+strong{font-weight:600;color:var(--ink);}
+.label,.kicker{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;font-weight:700;color:var(--accent);}
+.drop::first-letter{font-family:'Fraunces',serif;float:left;font-size:4.8rem;line-height:.76;font-weight:900;color:var(--ink);padding:.04em .1em 0 0;}
+.ornament{text-align:center;color:var(--accent);margin:2em 0;letter-spacing:.5em;font-size:.85rem;}
+.ornament::before{content:"\2756   \2756   \2756";}
+
+/* ---------------- CHAPTER OPENER ---------------- */
+.opener{margin:0 0 26px;}
+.opener .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.opener .cnum{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;}
+.opener .cline{flex:1;height:1px;background:var(--hair);}
+.opener .lead{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:.7em 0;margin-top:.3em;}
+
+/* ---------------- COVER (broadsheet front page) ---------------- */
+.cover{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:46px 70px 60px;text-align:center;
+}
+.cover .masthead{border-bottom:3px double var(--ink);padding-bottom:8px;margin-bottom:4px;
+  display:flex;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);}
+.cover .masthead .r{color:var(--accent);}
+.cover .vol{font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--hair);padding-bottom:18px;margin-bottom:34px;}
+.cover .seal{margin:6px auto 22px;display:block;}
+.cover .kicker{display:block;margin-bottom:10px;}
+.cover h1{font-family:'Fraunces',serif;font-weight:900;font-size:5rem;line-height:.94;margin:.1em 0 .14em;color:var(--ink);letter-spacing:-.02em;}
+.cover .sub{font-size:1.5rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:560px;margin:22px auto;}
+.cover .deck{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:16px 0;margin-top:28px;
+  font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);}
+
+/* ---------------- PART DIVIDER (section front page) ---------------- */
+.divider{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:54px 78px 64px;color:var(--ink);
+}
+.divider .big{font-family:'Fraunces',serif;font-size:9rem;line-height:.8;font-weight:900;color:var(--ink);letter-spacing:-.04em;}
+.divider .ptag{font-family:'Archivo',sans-serif;letter-spacing:.32em;text-transform:uppercase;font-size:.8rem;color:var(--accent);margin:6px 0 0;border-top:3px double var(--ink);padding-top:14px;}
+.divider h2{font-family:'Fraunces',serif;color:var(--ink);font-size:3.4rem;font-weight:900;margin:.14em 0 .35em;letter-spacing:-.015em;}
+.divider .pintro{font-size:1.3rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:580px;}
+.divider .chips{margin-top:30px;border-top:1px solid var(--hair);padding-top:18px;display:flex;flex-wrap:wrap;gap:0;}
+.divider .chip{font-family:'Archivo',sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:0 16px;border-right:1px solid var(--hair);}
+.divider .chip:first-child{padding-left:0;}
+.divider .chip:last-child{border-right:none;}
+
+/* ---------------- FEATURE BLOCKS (ruled, not cards) ---------------- */
+.box{margin:2em 0;padding:18px 0 4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:.98rem;line-height:1.62;}
+.box .htag{font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:.5em;color:var(--accent);}
+.box .title{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;display:block;margin-bottom:.5em;color:var(--ink);}
+
+/* Did You Know — double rules */
+.dyk{border-top:3px double var(--ink);border-bottom:3px double var(--ink);}
+/* Finance Psychology — heavy left rule */
+.psy{border:none;border-left:4px solid var(--accent);padding:4px 0 4px 22px;}
+.psy .htag{color:var(--accent);}
+/* Common Mistakes — heavy ink left rule */
+.err{border:none;border-left:4px solid var(--ink);padding:4px 0 4px 22px;}
+.err .htag{color:var(--ink);}
+/* Callout — single hairlines, faint tint */
+.callout{background:var(--panel);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 24px;}
+/* Case study — reversed ink panel (the editorial sidebar) */
+.case{background:var(--ink);color:#E9E1CF;border:none;padding:22px 26px;}
+.case .htag{color:var(--gold);} .case .title{color:#fff;} .case strong{color:#fff;}
+
+/* Takeaways — boxed with double rules */
+.takeaways{margin:2.2em 0;padding:20px 26px;border:2px solid var(--ink);background:var(--paper);}
+.takeaways .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.takeaways ol{margin:.7em 0 0;padding-left:1.3em;} .takeaways li{margin:.5em 0;} .takeaways strong{color:var(--ink);}
+
+/* Resources — ruled reading list */
+.resources{margin:2em 0;padding:16px 0 4px;border-top:1px solid var(--hair);}
+.resources .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.resources ul{margin:.6em 0 0;padding-left:0;list-style:none;columns:1;}
+.resources li{margin:.4em 0;padding-left:1.4em;position:relative;font-size:.95rem;}
+.resources li::before{content:"\2014";position:absolute;left:0;color:var(--accent);}
+
+/* Pull quote — editorial, ruled */
+.pq{margin:2.4em 0;padding:18px 0;border-top:3px double var(--ink);border-bottom:3px double var(--ink);
+   font-family:'Fraunces',serif;font-size:1.9rem;line-height:1.24;color:var(--ink);font-style:italic;font-weight:500;text-align:center;}
+.pq cite{display:block;margin-top:.6em;font-family:'Archivo',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+
+/* Margin note — floats into the side as a sidenote */
+.mnote{float:right;clear:right;width:34%;margin:6px 0 16px 28px;padding-left:16px;border-left:2px solid var(--accent);
+  font-family:'Spectral',serif;font-size:.86rem;font-style:italic;line-height:1.5;color:var(--ink-soft);}
+.mnote .ml{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.3em;}
+
+/* lists */
+ul,ol{margin:0 0 1.2em;padding-left:1.35em;} li{margin:.34em 0;}
+
+/* ---------------- TABLES (newspaper data) ---------------- */
+.compare{margin:2.2em 0;font-family:'Spectral',serif;}
+.compare table{width:100%;border-collapse:collapse;font-size:.94rem;}
+.compare caption{caption-side:top;text-align:left;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);
+  padding:0 0 10px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:none;}
+.compare thead th{background:none;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;font-size:.66rem;font-weight:700;
+  font-family:'Archivo',sans-serif;padding:8px 14px;text-align:left;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);}
+.compare th,.compare td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--hair);}
+.compare tbody tr:last-child td{border-bottom:2px solid var(--ink);}
+.compare td:first-child{font-weight:600;color:var(--ink);width:22%;}
+
+/* ---------------- FIGURES (plates) ---------------- */
+figure{margin:2.4em 0;}
+.figframe{border:1px solid var(--ink);background:#fff;}
+.figframe .figtab{font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding:9px 16px;color:var(--ink);border-bottom:1px solid var(--ink);background:var(--paper);}
+.figframe .figtab b{color:var(--accent);}
+figure svg{width:100%;height:auto;display:block;}
+figcaption{font-family:'Spectral',serif;font-style:italic;font-size:.88rem;color:var(--ink-soft);margin-top:.7em;line-height:1.5;padding:0 2px;}
+figcaption b{color:var(--ink);font-style:normal;font-weight:600;}
+
+/* ---------------- STAT STRIP (ruled, no cards) ---------------- */
+.stats{display:flex;flex-wrap:wrap;gap:0;margin:2em 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+.stat{flex:1;min-width:150px;padding:16px 22px 16px 0;margin-right:22px;border-right:1px solid var(--hair);}
+.stat:last-child{border-right:none;margin-right:0;}
+.stat .n{font-family:'Fraunces',serif;font-size:2.1rem;color:var(--ink);font-weight:900;line-height:1;}
+.stat .t{font-family:'Spectral',serif;font-size:.84rem;color:var(--ink-soft);margin-top:7px;line-height:1.45;}
+
+/* formula */
+.formula{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--ink);
+  padding:14px;margin:1.6em 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);letter-spacing:.02em;}
+code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--accent);}
+
+/* ---------------- TOC ---------------- */
+.toc h2{font-size:2.7rem;font-weight:900;}
+.toc .prow{margin:1.7em 0 .4em;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);letter-spacing:.16em;
+  text-transform:uppercase;font-size:.74rem;border-bottom:2px solid var(--ink);padding-bottom:.5em;}
+.toc ol{list-style:none;padding:0;margin:0;}
+.toc li{display:flex;justify-content:space-between;align-items:baseline;padding:.32em 0;border-bottom:1px solid var(--hair);}
+.toc li a{border:none;color:var(--ink);font-size:1.05rem;}
+.toc li a:hover{color:var(--accent);}
+.toc .pg{font-family:'JetBrains Mono',monospace;color:var(--faint);font-size:.82rem;}
+
+/* glossary columns */
+.glos{columns:2;column-gap:42px;font-size:.92rem;}
+.glos p{break-inside:avoid;margin:0 0 .8em;}
+
+/* colophon */
+.colophon{max-width:var(--maxw);margin:0 auto;background:var(--paper);border:1px solid var(--hair);border-top:3px solid var(--ink);
+  text-align:center;padding:42px 40px;font-family:'Archivo',sans-serif;font-size:.82rem;color:var(--faint);letter-spacing:.04em;}
+.colophon .rule{display:none;}
+.colophon .bt{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:900;color:var(--ink);margin:0 0 .3em;letter-spacing:-.01em;}
+
+/* responsive */
+@media(max-width:820px){
+  body{padding:10px 0;}
+  .sheet{padding:50px 24px 64px;} .sheet::before,.sheet::after{left:24px;right:24px;}
+  .cover,.divider{padding:40px 26px;}
+  .cover h1{font-size:3rem;} .chapter-title{font-size:2.1rem;}
+  .divider .big{font-size:6rem;} .divider h2{font-size:2.3rem;}
+  .pq{font-size:1.45rem;} .glos{columns:1;}
+  .mnote{float:none;width:auto;margin:14px 0;}
+}
+
+/* ---------------- PRINT ---------------- */
+@page{
+  margin:20mm 18mm 18mm;
+  @top-center{ content:"TECHNICAL ANALYSIS \00b7 BOOK FIVE"; font-family:'Archivo',sans-serif; font-size:7.5pt; letter-spacing:2px; color:#9a917f; }
+  @bottom-center{ content: counter(page); font-family:'Archivo',sans-serif; font-size:9pt; color:#9a917f; }
+}
+@media print{
+  body{background:#fff;padding:0;font-size:10.8pt;}
+  .cover,.divider,.sheet,.colophon{border:none;border-top:2.5px solid #000;margin:0;max-width:100%;page-break-after:always;background:#fff;}
+  .sheet{padding:6mm 2mm 0;}
+  .sheet::before,.sheet::after{display:none !important;}
+  figure,.box,.compare,.takeaways,.case,.dyk,.callout,.pq,.stats,.opener{page-break-inside:avoid;}
+  h2,h3,h4{page-break-after:avoid;}
+  .mnote{float:none;width:auto;border-left:2px solid #000;}
+  a{color:var(--ink);border:none;}
+}
+
+
+/* ---- photographic plates (real images) ---- */
+.figframe img{display:block;width:100%;height:auto;}
+.figframe.plate{background:#fff;}
+.figframe.plate img{max-width:520px;margin:0 auto;}
+.credit{display:block;font-family:'Archivo',sans-serif;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:.5em;font-style:normal;}
+.rupee{font-feature-settings:"tnum";}
+.big-num{font-family:'Fraunces',serif;font-weight:900;}
+/* ---- learning objectives ---- */
+.objectives{margin:1.4em 0 2em;padding:14px 0 6px;border-top:1px solid var(--ink);border-bottom:1px solid var(--hair);}
+.objectives .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.objectives ul{margin:.2em 0 .4em;padding-left:1.2em;font-size:.95rem;}
+.objectives li{margin:.25em 0;}
+/* ---- end-of-chapter self-check ---- */
+.selfcheck{margin:2em 0;padding:18px 24px;border:1px solid var(--ink);background:var(--panel);}
+.selfcheck .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.selfcheck ol{margin:.4em 0 0;padding-left:1.3em;font-size:.95rem;}
+.selfcheck li{margin:.4em 0;}
+.selfcheck .ans{display:block;margin-top:.7em;font-size:.86rem;color:var(--ink-soft);font-style:italic;}
+/* ---- prominent risk warning ---- */
+.warnbox{margin:1.8em 0;padding:18px 22px;border:2px solid var(--accent);background:#fff;}
+.warnbox .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.warnbox p{margin:0 0 .5em;font-size:.95rem;}
+.warnbox p:last-child{margin-bottom:0;}
+/* ---- back-of-book index ---- */
+.bindex{columns:2;column-gap:42px;font-size:.85rem;line-height:1.5;}
+.bindex p{break-inside:avoid;margin:0 0 .3em;}
+.bindex .ent{font-weight:600;color:var(--ink);}
+/* ---- worked calculation block (the math) ---- */
+.calc{margin:1.6em 0;padding:16px 22px;border:1px solid var(--ink);background:#FCFBF7;font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:1.85;}
+.calc .ct{font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.7em;}
+.calc b{color:var(--accent);font-weight:700;}
+.calc .r{color:var(--ink-soft);font-style:italic;}
+.calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
+.fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
+
+
+/* ---- sub-chapter headings (x.y) ---- */
+.subnum{font-family:'Archivo',sans-serif;font-weight:800;color:var(--accent);font-size:.9em;margin-right:.4em;}
+/* ---- series roadmap page ---- */
+.roadmap{counter-reset:none;}
+.roadmap .stage{margin:0 0 1.4em;border-top:1px solid var(--ink);padding-top:.6em;}
+.roadmap .stage .st{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+.roadmap .bk{display:flex;justify-content:space-between;align-items:baseline;padding:.3em 0;border-bottom:1px dotted var(--hair);font-size:1.02rem;}
+.roadmap .bk .tag{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);}
+.roadmap .bk.here{font-weight:700;color:var(--accent-deep);}
+.roadmap .bk.here .tag{color:var(--accent);}
+
+
+/* ---- candlestick chart colours (up = ink, down = gold; apps use green/red) ---- */
+.up{fill:#1E1A15;stroke:#1E1A15;}
+.dn{fill:#8A6A23;stroke:#8A6A23;}
+
+</style>
+</head>
+<body>
+
+<!-- ===================== COVER ===================== -->
+<header class="cover">
+  <div class="masthead"><span>Money, Mastered · The Roadmap</span><span class="r">Book Five of Eight</span></div>
+  <div class="vol">Candlesticks · trends · chart patterns · indicators · risk · honesty</div>
+  <svg class="seal" width="116" height="116" viewBox="0 0 116 116" aria-hidden="true">
+    <circle cx="58" cy="58" r="54" fill="none" stroke="#1E1A15" stroke-width="1.5"/>
+    <circle cx="58" cy="58" r="45" fill="none" stroke="#8A6A23" stroke-width="1"/>
+    <text x="58" y="74" text-anchor="middle" font-family="Fraunces, serif" font-size="40" font-weight="900" fill="#1E1A15">5</text>
+  </svg>
+  <div class="kicker">Reading the Price Chart — Honestly</div>
+  <h1>Technical<br>Analysis</h1>
+  <p class="sub">The other half of the picture: not the business, but the price itself. Candlesticks, trends, patterns and indicators — what each really means, the actual math behind them, and a frank account of what charts can and cannot do.</p>
+  <div class="deck">Real Charts · Real Formulas · Five Parts · Eighteen Chapters · Builds on Books 1–4</div>
+</header>
+
+<!-- ===================== COPYRIGHT + RISK ===================== -->
+<section class="sheet plain">
+  <div style="font-family:'Spectral',serif;font-size:.94rem;color:var(--ink-soft);line-height:1.75;">
+    <p><strong>Technical Analysis.</strong> Book Five of <em>Money, Mastered — The Roadmap</em>. First Edition · 2026. It builds on Books 1–4 and assumes you know what a share, a market and a price chart are.</p>
+    <p style="margin-top:1.3em;"><strong>A note on the charts.</strong> The price charts in this book are <em>drawn</em> to illustrate each concept clearly — they are realistic teaching diagrams, not snapshots of any specific stock on any specific day. In them, an <strong>up</strong> candle (close above open) is shown dark and a <strong>down</strong> candle gold; your trading app will typically use green for up and red for down. Currency is shown as <strong>$</strong> as a stand-in for any currency.</p>
+    <p style="margin-top:1.3em;"><strong>Education, not advice — and an unusually important warning here.</strong> Technical analysis is widely <em>oversold</em>. This book teaches it properly <em>and</em> tells you the truth: it is a tool of probability, not prophecy, and the data on short-term trading is grim. Nothing here is investment advice, a trading system, or a promise of profit. No pattern or indicator predicts the future reliably.</p>
+    <p style="margin-top:1.3em;color:var(--faint);">Set in Fraunces, Spectral &amp; Archivo. All charts &amp; diagrams are original vector graphics; the book is self-contained and works offline.</p>
+    <div class="warnbox" style="margin-top:1.6em;">
+      <span class="htag">Read this before you trade on anything in this book</span>
+      <p><strong>The large majority of active short-term traders lose money</strong> after costs — this is one of the most consistent findings in all of finance, and regulators worldwide repeat it. Technical analysis can sharpen <em>when</em> you act on a decision you already have good reason to make; it cannot turn chart-reading into a money machine. If anyone sells you “sure-shot” signals or a “guaranteed” system, they are taking your money, not making you rich. Treat this book as a way to understand price behaviour — and to protect yourself — not as a licence to gamble.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERIES ROADMAP ===================== -->
+<nav class="sheet roadmap">
+  <div class="opener" style="margin-bottom:18px;">
+    <div class="eyebrow"><span class="cnum">The Roadmap</span><span class="cline"></span></div>
+    <h2 class="chapter-title" style="font-size:2.3rem;">Where This Book Sits</h2>
+    <p class="lead" style="font-size:1.15rem;">Book 4 judged the <em>business</em>. This one studies the <em>price chart</em>. Together they give you both lenses on a stock — what it's worth, and what its price is doing.</p>
+  </div>
+  <div class="stage">
+    <div class="st">Stage 1 · Foundations</div>
+    <div class="bk"><span>Book 1 · Money, From Zero</span><span class="tag">done</span></div>
+    <div class="bk"><span>Book 2 · Where to Put Your Money</span><span class="tag">done</span></div>
+  </div>
+  <div class="stage">
+    <div class="st">Stage 2 · The Markets</div>
+    <div class="bk"><span>Book 3 · How the Market Works</span><span class="tag">done</span></div>
+    <div class="bk"><span>Book 4 · Fundamental Analysis</span><span class="tag">done</span></div>
+    <div class="bk here"><span>Book 5 · Technical Analysis</span><span class="tag">You are here</span></div>
+    <div class="bk"><span>Book 6 · Funds, SIPs &amp; Portfolios</span><span class="tag">putting it together</span></div>
+    <div class="bk"><span>Book 7 · Derivatives, Tax, Psychology &amp; Safety</span><span class="tag">advanced &amp; protection</span></div>
+  </div>
+  <div class="stage">
+    <div class="st">Stage 3 · Wealth</div>
+    <div class="bk"><span>Book 8 · Building &amp; Protecting Wealth</span><span class="tag">the long game</span></div>
+  </div>
+  <p style="margin-top:1.4em;font-style:italic;color:var(--ink-soft);">A caution before you start: most long-term investors (Books 1–2) can succeed without ever using technical analysis. This book is for understanding price behaviour and for those who choose to time entries carefully — always on top of, never instead of, sound judgement.</p>
+</nav>
+
+<!-- ===================== TABLE OF CONTENTS ===================== -->
+<nav class="sheet toc" data-part="Contents" data-chapter="Table of Contents">
+  <div class="label">Contents · Book Five</div>
+  <h2>What's Inside</h2>
+  <p class="lead" style="font-style:normal;font-size:1.05rem;">Eighteen chapters in five parts. We build from how to read a chart, through candlesticks (with real charts of every major pattern) and chart patterns, to indicators (with the actual math), and end with risk management and an unusually honest reckoning.</p>
+
+  <div class="prow">Front Matter</div>
+  <ol><li><a href="#welcome">Welcome — How to Use This Book</a><span class="pg">i</span></li></ol>
+
+  <div class="prow">Part I · The Foundations</div>
+  <ol>
+    <li><a href="#ch1">1 · What Technical Analysis Is (and Isn't)</a><span class="pg">1</span></li>
+    <li><a href="#ch2">2 · Reading a Price Chart</a><span class="pg">2</span></li>
+    <li><a href="#ch3">3 · Trend — the Most Important Concept</a><span class="pg">3</span></li>
+    <li><a href="#ch4">4 · Support &amp; Resistance</a><span class="pg">4</span></li>
+  </ol>
+  <div class="prow">Part II · Candlesticks</div>
+  <ol>
+    <li><a href="#ch5">5 · Anatomy of a Candlestick</a><span class="pg">5</span></li>
+    <li><a href="#ch6">6 · Single-Candle Patterns</a><span class="pg">6</span></li>
+    <li><a href="#ch7">7 · Multi-Candle Patterns</a><span class="pg">7</span></li>
+    <li><a href="#ch8">8 · Reading Candles in Context</a><span class="pg">8</span></li>
+  </ol>
+  <div class="prow">Part III · Chart Patterns</div>
+  <ol>
+    <li><a href="#ch9">9 · Reversal Patterns</a><span class="pg">9</span></li>
+    <li><a href="#ch10">10 · Continuation Patterns</a><span class="pg">10</span></li>
+    <li><a href="#ch11">11 · Gaps &amp; Volume</a><span class="pg">11</span></li>
+  </ol>
+  <div class="prow">Part IV · Indicators (with the math)</div>
+  <ol>
+    <li><a href="#ch12">12 · Moving Averages</a><span class="pg">12</span></li>
+    <li><a href="#ch13">13 · Momentum — RSI &amp; MACD</a><span class="pg">13</span></li>
+    <li><a href="#ch14">14 · Volatility — Bollinger Bands &amp; ATR</a><span class="pg">14</span></li>
+    <li><a href="#ch15">15 · Using Indicators Wisely</a><span class="pg">15</span></li>
+  </ol>
+  <div class="prow">Part V · Putting It Together</div>
+  <ol>
+    <li><a href="#ch16">16 · Building a Trading Approach</a><span class="pg">16</span></li>
+    <li><a href="#ch17">17 · Risk Management — the Real Skill</a><span class="pg">17</span></li>
+    <li><a href="#ch18">18 · The Honest Truth About Trading</a><span class="pg">18</span></li>
+  </ol>
+  <div class="prow">Back Matter</div>
+  <ol>
+    <li><a href="#glossary">Glossary</a><span class="pg">A</span></li>
+    <li><a href="#bookindex">Index — concepts by chapter</a><span class="pg">B</span></li>
+    <li><a href="#resources">Resources, Sources &amp; What's Next</a><span class="pg">C</span></li>
+  </ol>
+</nav>
+
+<!-- ===================== WELCOME ===================== -->
+<section class="sheet" id="welcome" data-part="Front Matter" data-chapter="Welcome — How to Use This Book">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Welcome</span><span class="cline"></span></div>
+    <h2 class="chapter-title">How to Use This Book</h2>
+    <p class="lead">Technical analysis is the most over-promised subject in all of investing — and one of the most misunderstood. This book does something rare: it teaches the craft properly, with real charts and real math, while telling you the honest truth about its limits.</p>
+  </div>
+  <p class="drop">If Book 4 asked “what is this business worth?”, this book asks a completely different question: “what is the price actually <em>doing</em>?” Technical analysis studies the chart — the footprints left by every buyer and seller — to read the mood of the market and to time decisions. Used with discipline and humility, it's a genuine skill. Sold as a crystal ball, it's a trap that has emptied countless accounts.</p>
+  <p>We'll build carefully. <strong>Part I</strong> teaches you to read any chart — trend, support and resistance, the grammar of price. <strong>Part II</strong> is the heart: candlesticks, with a real drawn chart of every major pattern. <strong>Part III</strong> covers the larger chart patterns. <strong>Part IV</strong> tackles indicators — moving averages, RSI, MACD, Bollinger Bands — and, unlike most books, actually shows you <em>the formulas and how to compute them</em>. <strong>Part V</strong> is where the real money is made or saved: risk management, and a brutally honest chapter on what trading is really like.</p>
+
+  <div class="box callout">
+    <span class="title">How each chapter is built</span>
+    <p style="margin-bottom:0;">Every chapter opens with <strong>what you'll learn</strong>, unfolds in numbered <strong>sub-chapters</strong> with <strong>real charts</strong>, and closes with <strong>Key Takeaways</strong> and a <strong>Self-Check</strong>. Indicator chapters include <strong>Worked Calculations</strong> with the actual numbers. Watch for <strong>In Plain Terms</strong> explainers and frequent <strong>Watch Out</strong> warnings — there are more here than in any other book in the series, by design.</p>
+  </div>
+
+  <div class="pq" style="border-top:none;">A chart shows you what has happened and hints at the mood of the crowd. It does not show you the future. Hold both halves of that sentence at once and you'll use this book well.</div>
+  <p>One last framing. Nothing in this book contradicts Books 1–4: the surest path to wealth remains owning good assets cheaply and patiently. Technical analysis is a <em>supplement</em> — a way to understand price behaviour and, for those who choose to, to time entries more carefully. It is never a substitute for sound investment judgement, and it is never a shortcut.</p>
+  <div class="ornament"></div>
+  <p style="text-align:center;font-style:italic;color:var(--ink-soft);">Let's begin honestly — with what technical analysis really is, and what it can and cannot do.</p>
+</section>
+
+<!-- ===================== PART I DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">I</div>
+  <div class="ptag">Part One</div>
+  <h2>The Foundations</h2>
+  <p class="pintro">Before any pattern or indicator, you need the grammar of price: what a chart is, what a trend is, and where prices tend to pause. Master these four ideas and most of technical analysis becomes common sense.</p>
+  <div class="chips"><span class="chip">What TA is</span><span class="chip">Reading a chart</span><span class="chip">Trend</span><span class="chip">Support &amp; resistance</span></div>
+</section>
+
+<!-- ===================== CH 1 ===================== -->
+<section class="sheet" id="ch1" data-part="Part I · The Foundations" data-chapter="Chapter 1 · What Technical Analysis Is">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter One</span><span class="cline"></span></div>
+    <h2 class="chapter-title">What Technical Analysis Is (and Isn't)</h2>
+    <p class="lead">Technical analysis is the study of price itself — the chart, the volume, the rhythm of buying and selling — to gauge the mood of the market. Done honestly, it's a real skill. Sold as fortune-telling, it's the most expensive fantasy in finance. We'll be clear about which is which from page one.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The core idea behind technical analysis.</li>
+      <li>How it differs from fundamental analysis (Book 4).</li>
+      <li>The honest truth: what charts can and can't do.</li>
+      <li>The three assumptions technical analysis rests on.</li>
+    </ul>
+  </div>
+  <p class="drop">Two investors look at the same stock. One (the fundamental analyst of Book 4) studies the business — its profits, debts and moat. The other studies only the <em>chart</em> — how the price has moved and on what volume — caring little about what the company even makes. That second investor is the technical analyst, and this book is about their craft: reading the footprints that buyers and sellers leave in the price.</p>
+
+  <h3><span class="subnum">1.1</span> The Core Idea</h3>
+  <p>Technical analysis rests on a simple premise: <strong>the price chart already reflects everything</strong> — every fact, hope, fear and rumour that anyone acting on the stock currently holds. Rather than trying to dig out new information about the business, the technician studies the <em>result</em> of everyone's collective decisions: the price. And because markets are made of humans, and human emotions (greed, fear, hope) repeat, the patterns those emotions carve into a chart tend to <em>recur</em>. Technical analysis is, at heart, the study of crowd psychology written in the language of price and volume.</p>
+
+  <h3><span class="subnum">1.2</span> Technical vs. Fundamental</h3>
+  <div class="compare"><table>
+    <caption>Compare &amp; Understand · Two different questions</caption>
+    <thead><tr><th></th><th>Fundamental (Book 4)</th><th>Technical (this book)</th></tr></thead>
+    <tbody>
+      <tr><td>Studies</td><td>The business — profits, assets, moat</td><td>The price chart — trend, patterns, volume</td></tr>
+      <tr><td>Asks</td><td>“What is it worth?”</td><td>“What is the price doing?”</td></tr>
+      <tr><td>Time horizon</td><td>Usually years</td><td>Often days to months</td></tr>
+      <tr><td>Best for</td><td>Deciding <em>what</em> to own</td><td>Helping decide <em>when</em> to act</td></tr>
+      <tr><td>Core risk</td><td>Being wrong about value</td><td>Reading meaning into randomness</td></tr>
+    </tbody>
+  </table></div>
+  <p>They aren't enemies — many investors use fundamentals to choose <em>what</em> to buy and a little technical sense to time <em>when</em>. But never confuse them: a beautiful chart pattern on a terrible business is still a terrible business, and the surest long-term wealth (Books 1–2) comes from value and patience, not chart-reading.</p>
+
+  <h3><span class="subnum">1.3</span> The Honest Truth — What Charts Can and Can't Do</h3>
+  <p>Here is the candour this subject badly needs. Charts <strong>can</strong>: show you the trend and the mood, mark sensible levels to act or to cut losses, impose discipline, and occasionally flag when a crowd is getting euphoric or panicked. Charts <strong>cannot</strong>: predict the future reliably, turn a coin-flip into a sure thing, or overcome costs and human emotion to make most active traders rich — because they don't. A great deal of what looks like a “pattern” is, statistically, noise the pattern-hungry brain has connected into a story. Use technical analysis as a <em>probabilistic aid and a discipline tool</em>, never as prophecy. The honest technician speaks in odds and risk, never in certainty.</p>
+
+  <div class="box callout">
+    <span class="title">In Plain Terms · the self-fulfilling part</span>
+    <p style="margin-bottom:0;">Some technical levels “work” partly because <em>so many people watch them</em>. If thousands of traders believe a stock will bounce at $100 and all place buy orders there, their combined buying can actually <em>cause</em> the bounce — for a while. This self-fulfilling element is real and useful, but it's also fragile: when the crowd's belief breaks, the level breaks hard. Technical analysis works best where it reflects genuine human behaviour, and fails where it's just superstition dressed up in jargon.</p>
+  </div>
+
+  <h3><span class="subnum">1.4</span> The Three Assumptions</h3>
+  <p>Classical technical analysis rests on three foundational beliefs, worth stating plainly so you can judge them yourself. <strong>One: price discounts everything</strong> — all known information is already in the price, so you can focus on the price alone. <strong>Two: prices move in trends</strong> — once a direction is established, it's more likely to continue than to reverse, until clear evidence says otherwise. <strong>Three: history tends to repeat</strong> — because human psychology is constant, the patterns of the past recur in the future. None of these is an iron law; the first is debatable and the third is only a tendency. But together they explain <em>why</em> technicians do what they do — and holding them loosely, as tendencies rather than certainties, is the mark of a sensible practitioner.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">The single biggest danger in this entire book</span>
+    <p style="margin-bottom:0;">It is this: <strong>technical analysis makes you feel in control of the uncontrollable.</strong> Staring at a chart, you sense you can see the future — and that illusion fuels overtrading, overconfidence, and the steady losses that follow. The data (Chapter 18) is brutal: most active traders lose. As you learn these tools, repeat to yourself that you are reading <em>probabilities and crowd mood</em>, not destiny. The moment a chart makes you feel certain is the moment to be most careful.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Technical analysis studies the price chart</strong> — the footprints of crowd psychology — not the business.</li>
+      <li><strong>It asks “what is the price doing?”;</strong> fundamental analysis asks “what is it worth?” Use them for different jobs.</li>
+      <li><strong>Charts aid probability and discipline; they do not predict the future</strong> — much apparent “pattern” is noise.</li>
+      <li><strong>Three assumptions:</strong> price discounts everything, prices trend, history rhymes — tendencies, not laws.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>In one sentence, what does technical analysis study, and why?</li>
+      <li>How does the technical question differ from the fundamental one?</li>
+      <li>Give one thing charts can do and one thing they cannot.</li>
+      <li>State the three assumptions, and say why each is a tendency rather than a law.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 2 ===================== -->
+<section class="sheet" id="ch2" data-part="Part I · The Foundations" data-chapter="Chapter 2 · Reading a Price Chart">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Two</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Reading a Price Chart</h2>
+    <p class="lead">Before you can spot a pattern you must read the chart itself — its types, its time frames, and the volume bars beneath it. This is the alphabet of technical analysis; everything else is spelling.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The three main chart types — line, bar and candlestick.</li>
+      <li>Why the time frame you choose changes everything.</li>
+      <li>What volume is, and why it confirms (or doubts) a move.</li>
+    </ul>
+  </div>
+  <p class="drop">A price chart plots one thing — price (vertical) against time (horizontal) — but <em>how</em> it plots it, and over what period, dramatically changes what you see. Let's learn to read it before we read into it.</p>
+
+  <h3><span class="subnum">2.1</span> Line, Bar &amp; Candlestick</h3>
+  <p>Three ways to draw the same prices. A <strong>line chart</strong> simply connects each period's closing price — clean and good for seeing the big trend. A <strong>bar chart</strong> shows four prices per period (open, high, low, close) as a vertical bar with ticks. A <strong>candlestick chart</strong> shows those same four prices but as a far more readable “candle” (Part II) — and it has become the technician's default because the eye reads it instantly. Here is the same week of prices drawn as a line and as candlesticks:</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 2.1</b> &nbsp;·&nbsp; Same Prices, Two Charts (line vs. candlestick)</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Line chart vs candlestick chart">
+        <rect width="760" height="300" fill="#fff"/>
+        <text x="200" y="32" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">LINE (closes only)</text>
+        <line x1="60" y1="250" x2="360" y2="250" stroke="#1E1A15" stroke-width="1"/>
+        <polyline points="80,200 130,180 180,205 230,150 280,165 330,110" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <g fill="#1E1A15"><circle cx="80" cy="200" r="3"/><circle cx="130" cy="180" r="3"/><circle cx="180" cy="205" r="3"/><circle cx="230" cy="150" r="3"/><circle cx="280" cy="165" r="3"/><circle cx="330" cy="110" r="3"/></g>
+        <text x="570" y="32" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">CANDLESTICK (open/high/low/close)</text>
+        <line x1="420" y1="250" x2="720" y2="250" stroke="#1E1A15" stroke-width="1"/>
+        <!-- candles same closes -->
+        <g>
+          <line x1="450" y1="195" x2="450" y2="220" class="up"/><rect x="443" y="200" width="14" height="18" class="up"/>
+          <line x1="500" y1="170" x2="500" y2="205" class="up"/><rect x="493" y="178" width="14" height="20" class="up"/>
+          <line x1="550" y1="180" x2="550" y2="215" class="dn"/><rect x="543" y="190" width="14" height="18" class="dn"/>
+          <line x1="600" y1="140" x2="600" y2="178" class="up"/><rect x="593" y="148" width="14" height="22" class="up"/>
+          <line x1="650" y1="150" x2="650" y2="180" class="dn"/><rect x="643" y="158" width="14" height="14" class="dn"/>
+          <line x1="700" y1="100" x2="700" y2="135" class="up"/><rect x="693" y="108" width="14" height="22" class="up"/>
+        </g>
+        <text x="200" y="278" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">Shows direction simply</text>
+        <text x="570" y="278" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">Shows the <tspan font-style="italic">battle</tspan> inside each period too</text>
+      </svg>
+    </div>
+    <figcaption><b>Same data, more detail.</b> The line shows where price <em>closed</em>; the candles add the open, high and low — revealing how hard buyers and sellers fought within each period. That extra detail is why technicians live in candlestick charts (Part II teaches them fully). Up candles are dark here, down candles gold.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">2.2</span> Time Frames Change Everything</h3>
+  <p>One chart can tell two opposite stories depending on the <strong>time frame</strong> — the period each candle represents. On a 5-minute chart a stock might look like it's crashing; on a weekly chart that same drop is an invisible blip in a steady uptrend. Neither is “wrong”; they answer different questions. Short time frames (minutes, hours) suit short-term traders and are dominated by noise; long time frames (days, weeks, months) suit investors and reveal the durable trend. The golden rule: <strong>match your time frame to your intentions</strong>, and beware drawing long-term conclusions from a short-term chart (or vice versa). Always know which time frame you're looking at before you react to it.</p>
+
+  <h3><span class="subnum">2.3</span> Volume — the Conviction Behind the Move</h3>
+  <p>Beneath almost every price chart sits a row of bars showing <strong>volume</strong> — how many shares traded in each period. Volume is the technician's lie-detector, because it measures <em>conviction</em>. A price rise on <em>heavy</em> volume means many participants are committing real money — a believable, well-supported move. The same rise on <em>thin</em> volume means few are participating — a flimsy move that can reverse easily. The principle to remember: <strong>volume should confirm the move.</strong> A breakout or a trend backed by rising volume is far more trustworthy than one on a trickle. When price does one thing and volume disagrees, doubt the price.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">Don't react to the wrong time frame</span>
+    <p style="margin-bottom:0;">A huge share of beginner panic comes from staring at short time frames. A long-term investor checking a 1-minute chart will see terrifying squiggles that mean nothing for their decade-long plan — and may sell in fear over noise. If you're investing for years, look at weekly or monthly charts and ignore the intraday chaos. The time frame you watch quietly shapes your emotions and decisions; choose it deliberately.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Three chart types:</strong> line (closes), bar, and candlestick (open/high/low/close) — candlesticks are the technician's default.</li>
+      <li><strong>Time frame changes the story;</strong> match it to your intentions and don't mix horizons.</li>
+      <li><strong>Volume measures conviction</strong> — it should confirm the move; price up on thin volume is suspect.</li>
+      <li><strong>Watch the right time frame for your goal</strong> to avoid reacting to noise.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>What extra information does a candlestick show that a line chart doesn't?</li>
+      <li>Why can the same stock look bullish and bearish at once?</li>
+      <li>What does volume measure, and what should it do relative to a price move?</li>
+      <li>If you invest for ten years, which time frame should you mostly watch — and why?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 3 ===================== -->
+<section class="sheet" id="ch3" data-part="Part I · The Foundations" data-chapter="Chapter 3 · Trend">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Three</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Trend — the Most Important Concept</h2>
+    <p class="lead">If you learn only one thing from technical analysis, learn to identify the trend. Almost every technical idea — patterns, indicators, signals — is ultimately a way of answering one question: which way is this market really moving?</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The three directions a market can move.</li>
+      <li>How to define a trend objectively (highs and lows).</li>
+      <li>How to draw and use a trendline.</li>
+      <li>Why “the trend is your friend” — with a vital caveat.</li>
+    </ul>
+  </div>
+  <p class="drop">Markets don't move in straight lines; they move in waves that, taken together, lean in a direction. That direction is the <strong>trend</strong>, and identifying it correctly is the foundation everything else is built on. Trade with the trend and the odds tilt your way; fight it and you're swimming against the current.</p>
+
+  <h3><span class="subnum">3.1</span> Up, Down, or Sideways</h3>
+  <p>At any time, a market is doing one of three things: trending <strong>up</strong> (rising over time), trending <strong>down</strong> (falling), or moving <strong>sideways</strong> (ranging, with no clear direction). It sounds obvious, but most trading errors come from misjudging this — buying as if in an uptrend when the market has actually rolled over, or selling in fear during a healthy uptrend's normal dip. Sideways (or “ranging”) markets are their own challenge: trend-following tools work poorly, and many traders simply lose money churning in a market that's going nowhere.</p>
+
+  <h3><span class="subnum">3.2</span> Defining a Trend Objectively</h3>
+  <p>Feelings aren't enough; a trend has an objective definition. An <strong>uptrend</strong> is a series of <em>higher highs and higher lows</em> — each peak and each dip is higher than the last. A <strong>downtrend</strong> is <em>lower highs and lower lows</em>. The moment that pattern breaks — when an uptrend prints a <em>lower</em> low, say — the trend may be turning. This simple rule turns a vague impression into a checkable fact.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 3.1</b> &nbsp;·&nbsp; An Uptrend: Higher Highs, Higher Lows, &amp; a Trendline</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Uptrend with trendline">
+        <rect width="760" height="300" fill="#fff"/>
+        <line x1="60" y1="260" x2="710" y2="260" stroke="#1E1A15" stroke-width="1.5"/>
+        <line x1="60" y1="40" x2="60" y2="260" stroke="#1E1A15" stroke-width="1.5"/>
+        <!-- price wave going up -->
+        <polyline points="80,230 150,170 200,210 280,140 330,180 420,110 470,150 560,80 610,120 690,55" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <!-- highs -->
+        <g fill="#8A6A23"><circle cx="150" cy="170" r="4"/><circle cx="280" cy="140" r="4"/><circle cx="420" cy="110" r="4"/><circle cx="560" cy="80" r="4"/></g>
+        <text x="150" y="160" font-family="Archivo" font-size="9" fill="#8A6A23">HH</text><text x="280" y="130" font-family="Archivo" font-size="9" fill="#8A6A23">HH</text><text x="420" y="100" font-family="Archivo" font-size="9" fill="#8A6A23">HH</text>
+        <!-- lows + trendline -->
+        <g fill="#1E1A15"><circle cx="80" cy="230" r="4"/><circle cx="200" cy="210" r="4"/><circle cx="330" cy="180" r="4"/><circle cx="470" cy="150" r="4"/><circle cx="610" cy="120" r="4"/></g>
+        <line x1="80" y1="230" x2="690" y2="95" stroke="#8A6A23" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="120" y="248" font-family="Archivo" font-size="9" fill="#1E1A15">HL</text><text x="500" y="168" font-family="Archivo" font-size="9" fill="#1E1A15">HL</text>
+        <text x="640" y="110" font-family="Spectral" font-size="11" fill="#8A6A23">trendline (support)</text>
+        <text x="385" y="288" text-anchor="middle" font-family="Spectral" font-size="11.5" fill="#4E483D">Each high (HH) and each low (HL) is higher than the last — the signature of a healthy uptrend.</text>
+      </svg>
+    </div>
+    <figcaption><b>The staircase up.</b> A real uptrend zig-zags, but every dip bottoms higher and every rally peaks higher. The dashed <b>trendline</b> connects the rising lows; as long as price stays above it, the uptrend is intact. A decisive break below it is an early warning the trend may be ending.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">3.3</span> Trendlines</h3>
+  <p>A <strong>trendline</strong> makes the trend visible: in an uptrend, draw a straight line connecting the rising lows; in a downtrend, connect the falling highs. The line acts as a moving floor (or ceiling) that price respects again and again — bouncing off it during the trend. Trendlines do two useful jobs: they confirm the trend is intact while price holds the line, and they flag a possible reversal when price decisively breaks through it. They're among the simplest and most genuinely useful tools in technical analysis — though, like everything here, they break sometimes, and a break needs confirmation (volume, a follow-through) before you trust it.</p>
+
+  <h3><span class="subnum">3.4</span> “The Trend Is Your Friend” — With a Caveat</h3>
+  <p>The oldest maxim in technical analysis is <em>“the trend is your friend.”</em> Its wisdom: trends tend to persist, so trading <em>with</em> the prevailing direction puts probability on your side, while trying to pick tops and bottoms (fighting the trend) is a fast way to lose. But the full saying has a crucial ending often left off: <em>“…until the end, when it bends.”</em> Trends do reverse, and the trader who rides one too stubbornly gives back their gains at the turn. So: respect the trend, trade with it — but watch for the higher-high/higher-low pattern breaking, which is your signal that the friend is leaving.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">Don't try to catch the falling knife</span>
+    <p style="margin-bottom:0;">Beginners love to “buy the dip” in a downtrend, certain the bottom is in — and get cut again and again as it keeps falling (lower lows). Catching a falling knife — trying to call the exact bottom of a downtrend — is one of the most reliable ways to lose money. The trend-following discipline says: wait for the downtrend to actually <em>stop</em> making lower lows and show signs of turning <em>before</em> buying. Patience beats heroics.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Identifying the trend is the foundation</strong> of technical analysis — up, down, or sideways.</li>
+      <li><strong>Define it objectively:</strong> uptrend = higher highs &amp; higher lows; downtrend = lower highs &amp; lower lows.</li>
+      <li><strong>Trendlines</strong> connect the rising lows (or falling highs) and confirm the trend until decisively broken.</li>
+      <li><strong>Trade with the trend</strong> — but watch for the pattern breaking, and never catch a falling knife.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>What are the three things a market can be doing?</li>
+      <li>Define an uptrend and a downtrend using highs and lows.</li>
+      <li>How do you draw a trendline in an uptrend, and what does a break of it suggest?</li>
+      <li>What's the full version of “the trend is your friend,” and why does the ending matter?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 4 ===================== -->
+<section class="sheet" id="ch4" data-part="Part I · The Foundations" data-chapter="Chapter 4 · Support &amp; Resistance">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Four</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Support &amp; Resistance</h2>
+    <p class="lead">Prices don't move freely; they tend to pause, bounce and stall at certain levels — floors where buyers keep appearing, and ceilings where sellers keep emerging. These levels, called support and resistance, are the most useful map a technician can draw.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>What support and resistance are.</li>
+      <li>Why they form — the psychology beneath them.</li>
+      <li>What a breakout means, and how levels flip roles.</li>
+    </ul>
+  </div>
+  <p class="drop">If trend tells you the direction, support and resistance tell you the <em>landmarks</em> along the way — the prices where something tends to happen. They're where technicians look to buy, to sell, and to place the stop-losses that protect them.</p>
+
+  <h3><span class="subnum">4.1</span> Floors and Ceilings</h3>
+  <p><strong>Support</strong> is a price level where falling tends to stop — a “floor” where buyers have repeatedly stepped in, their demand halting the decline and pushing price back up. <strong>Resistance</strong> is the opposite — a “ceiling” where rising tends to stall, as sellers repeatedly emerge and supply overwhelms demand. Price often oscillates between a support below and a resistance above, like a ball bouncing in a room.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 4.1</b> &nbsp;·&nbsp; Support, Resistance &amp; a Breakout</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Support resistance and breakout">
+        <rect width="760" height="300" fill="#fff"/>
+        <line x1="60" y1="90" x2="640" y2="90" stroke="#8A6A23" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="64" y="82" font-family="Archivo" font-size="10" font-weight="700" fill="#8A6A23">RESISTANCE — sellers keep appearing</text>
+        <line x1="60" y1="220" x2="710" y2="220" stroke="#1E1A15" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="64" y="242" font-family="Archivo" font-size="10" font-weight="700" fill="#1E1A15">SUPPORT — buyers keep stepping in</text>
+        <!-- bouncing price then breakout -->
+        <polyline points="70,210 130,100 190,215 250,95 310,210 370,98 430,205 500,92 560,150 620,70 690,45" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <circle cx="620" cy="70" r="5" fill="#8A6A23"/><text x="600" y="58" font-family="Archivo" font-size="10" font-weight="700" fill="#8A6A23">BREAKOUT ↑</text>
+        <text x="385" y="285" text-anchor="middle" font-family="Spectral" font-size="11.5" fill="#4E483D">Price bounces between the two — until it decisively breaks through (ideally on high volume).</text>
+      </svg>
+    </div>
+    <figcaption><b>The corridor — and the escape.</b> Price ricochets between support and resistance until it finally <b>breaks out</b> through one of them. A breakout above resistance (or below support), especially on heavy volume, often signals the start of a new move — which is why breakouts draw so much attention.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">4.2</span> Why They Form — the Psychology</h3>
+  <p>Support and resistance aren't magic lines; they're <strong>memory</strong> — the residue of past decisions and emotions. Resistance forms at a level where many people previously bought and then watched the price fall; when it climbs back to their entry price, they sell to “get out even,” creating a wall of supply. Support forms where buyers previously found value and remember it, stepping back in. Round numbers ($100, $50) also act as psychological levels simply because humans fixate on them. In short, these levels work to the extent that they reflect real, repeating human behaviour — which is exactly why they sometimes hold beautifully and other times shatter.</p>
+
+  <h3><span class="subnum">4.3</span> Breakouts and Role Reversal</h3>
+  <p>When price <strong>breaks</strong> decisively through a level, two things matter. First, the break should ideally come on <em>rising volume</em> (Chapter 2) to be believable — a breakout on thin volume is often a “false breakout” that quickly reverses, trapping eager traders. Second, broken levels tend to <strong>switch roles</strong>: once price breaks above a resistance, that old ceiling often becomes a new floor (support) on any pullback — and a broken support often becomes new resistance. This “role reversal” is one of the most reliable behaviours in technical analysis, again because it mirrors how the crowd's memory works: yesterday's sellers become today's buyers once they're proven wrong.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">False breakouts are everywhere</span>
+    <p style="margin-bottom:0;">Markets are full of moves that <em>look</em> like a breakout, suck in eager traders, then snap back — sometimes deliberately, as larger players “hunt” the stop-losses clustered just beyond obvious levels. The defences: wait for <em>confirmation</em> (a close beyond the level, not just a brief poke; rising volume; a follow-through day) rather than jumping the instant price crosses a line. And never forget the broader lesson of Chapter 1 — even a confirmed breakout is a probability, not a promise.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Support is a floor (buyers step in); resistance is a ceiling (sellers appear).</strong> Price oscillates between them.</li>
+      <li><strong>They form from memory and psychology</strong> — past decisions and round numbers — not magic.</li>
+      <li><strong>Breakouts</strong> through a level (ideally on rising volume) can start new moves; thin-volume breaks often fail.</li>
+      <li><strong>Levels flip roles:</strong> broken resistance becomes support, and vice versa. Beware false breakouts — wait for confirmation.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Define support and resistance.</li>
+      <li>Why does resistance often form at a price where many people previously bought?</li>
+      <li>What makes a breakout believable versus likely to fail?</li>
+      <li>Explain “role reversal” of a broken level.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART II DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">II</div>
+  <div class="ptag">Part Two</div>
+  <h2>Candlesticks — the Heart of It</h2>
+  <p class="pintro">Candlestick charts, invented by Japanese rice traders centuries ago, are the technician's native language. Each candle is a tiny story of one period's battle between buyers and sellers; strung together, they reveal the crowd's mood. This is the most practical part of the book.</p>
+  <div class="chips"><span class="chip">Anatomy</span><span class="chip">Single-candle</span><span class="chip">Multi-candle</span><span class="chip">Context</span></div>
+</section>
+
+<!-- ===================== CH 5 ===================== -->
+<section class="sheet" id="ch5" data-part="Part II · Candlesticks" data-chapter="Chapter 5 · Anatomy of a Candlestick">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Five</span><span class="cline"></span></div>
+    <h2 class="chapter-title">The Anatomy of a Candlestick</h2>
+    <p class="lead">One candle holds four prices and an entire story of conflict. Learn to read a single candle and you can read the market's mood one heartbeat at a time.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The four prices every candle encodes — open, high, low, close.</li>
+      <li>The parts of a candle: body, wicks, and colour.</li>
+      <li>What the size of body and wick tells you about the battle.</li>
+    </ul>
+  </div>
+  <p class="drop">A candlestick is the most information-dense symbol in finance: four numbers and a colour, packed into a shape your eye reads in an instant. Master its anatomy here and every pattern in the chapters ahead becomes self-explanatory.</p>
+
+  <h3><span class="subnum">5.1</span> Four Prices, One Candle</h3>
+  <p>Each candle summarises one period — a day, an hour, a minute, whatever your time frame. It records four prices: the <strong>open</strong> (first trade of the period), the <strong>high</strong> (highest price reached), the <strong>low</strong> (lowest), and the <strong>close</strong> (last trade). From just these four numbers the candle is drawn — and from its shape you read who won the period: buyers or sellers.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 5.1</b> &nbsp;·&nbsp; The Anatomy of a Candle</div>
+      <svg viewBox="0 0 760 320" role="img" aria-label="Candle anatomy: bullish and bearish">
+        <rect width="760" height="320" fill="#fff"/>
+        <g>
+          <line x1="230" y1="40" x2="230" y2="80" class="up"/>
+          <line x1="230" y1="200" x2="230" y2="260" class="up"/>
+          <rect x="205" y="80" width="50" height="120" class="up"/>
+          <text x="280" y="45" font-family="Archivo" font-size="11" fill="#1E1A15">HIGH</text>
+          <text x="280" y="88" font-family="Archivo" font-size="11" fill="#1E1A15">CLOSE</text>
+          <text x="280" y="200" font-family="Archivo" font-size="11" fill="#1E1A15">OPEN</text>
+          <text x="280" y="262" font-family="Archivo" font-size="11" fill="#1E1A15">LOW</text>
+          <text x="230" y="290" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#1E1A15">BULLISH (up)</text>
+          <text x="230" y="308" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">close above open · buyers won</text>
+          <text x="150" y="145" text-anchor="end" font-family="Spectral" font-size="11" font-style="italic" fill="#4E483D">body</text>
+          <line x1="155" y1="140" x2="200" y2="140" stroke="#4E483D" stroke-width="0.8"/>
+          <text x="150" y="62" text-anchor="end" font-family="Spectral" font-size="11" font-style="italic" fill="#4E483D">upper wick</text>
+          <line x1="155" y1="60" x2="225" y2="60" stroke="#4E483D" stroke-width="0.8"/>
+        </g>
+        <g>
+          <line x1="540" y1="40" x2="540" y2="80" class="dn"/>
+          <line x1="540" y1="200" x2="540" y2="260" class="dn"/>
+          <rect x="515" y="80" width="50" height="120" class="dn"/>
+          <text x="590" y="45" font-family="Archivo" font-size="11" fill="#8A6A23">HIGH</text>
+          <text x="590" y="88" font-family="Archivo" font-size="11" fill="#8A6A23">OPEN</text>
+          <text x="590" y="200" font-family="Archivo" font-size="11" fill="#8A6A23">CLOSE</text>
+          <text x="590" y="262" font-family="Archivo" font-size="11" fill="#8A6A23">LOW</text>
+          <text x="540" y="290" text-anchor="middle" font-family="Archivo" font-size="12" font-weight="700" fill="#8A6A23">BEARISH (down)</text>
+          <text x="540" y="308" text-anchor="middle" font-family="Spectral" font-size="11" fill="#4E483D">close below open · sellers won</text>
+          <text x="460" y="240" text-anchor="end" font-family="Spectral" font-size="11" font-style="italic" fill="#4E483D">lower wick</text>
+          <line x1="465" y1="235" x2="535" y2="235" stroke="#4E483D" stroke-width="0.8"/>
+        </g>
+      </svg>
+    </div>
+    <figcaption><b>Read it like a thermometer of mood.</b> The thick <b>body</b> spans the open and close; the thin <b>wicks</b> (or “shadows”) reach to the high and low. In this book a <b>dark</b> candle is bullish (close above open — buyers won the period) and a <b>gold</b> candle is bearish (close below open — sellers won). Colour conventions vary by platform (often green/red); the logic never does.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">5.2</span> Body, Wick &amp; Colour</h3>
+  <p>The <strong>body</strong> is the thick rectangle between the open and the close. If price closed <em>higher</em> than it opened, it's a bullish (up) candle; if it closed <em>lower</em>, it's bearish (down). The <strong>wicks</strong> (also called shadows or tails) are the thin lines above and below the body, marking the high and low the price touched before settling. Colour tells you direction at a glance; the shape tells you the story.</p>
+
+  <h3><span class="subnum">5.3</span> What the Sizes Mean</h3>
+  <p>The proportions carry the message. A <strong>long body</strong> means the close was far from the open — one side dominated decisively (a long up-body = strong buying). A <strong>short body</strong> means open and close were close together — indecision; neither side won. A <strong>long wick</strong> shows price travelled far in that direction but was <em>rejected</em> and pushed back before the close — a long lower wick, for instance, means sellers drove price down but buyers fought it back up, a quietly bullish sign. Reading a candle, then, is reading a tug-of-war: who reached furthest, and who was holding the rope when the period ended.</p>
+
+  <div class="box callout">
+    <span class="title">In Plain Terms · the candle as a sentence</span>
+    <p style="margin-bottom:0;">Think of each candle as a one-sentence news report. “Buyers pushed hard and closed near the high” = long dark body, tiny wicks. “Sellers tried to crash it but buyers rescued it” = small body sitting atop a long lower wick. You're not memorising shapes; you're translating a battle into a sentence. Once you can narrate candles like this, the famous “patterns” of the next chapters are just two- and three-sentence stories.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Each candle encodes four prices:</strong> open, high, low, close — one period's whole story.</li>
+      <li><strong>Body = open-to-close; wicks = the high and low.</strong> Colour shows who won (here: dark up, gold down).</li>
+      <li><strong>Long body = decisive; short body = indecision; long wick = a rejected move.</strong></li>
+      <li><strong>Reading a candle is reading a tug-of-war</strong> — narrate it as a sentence and patterns become obvious.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Name the four prices a candle records.</li>
+      <li>What's the difference between the body and the wicks?</li>
+      <li>What does a long lower wick suggest about the period's battle?</li>
+      <li>You see a tiny body with long wicks on both sides — what mood does that signal?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 6 ===================== -->
+<section class="sheet" id="ch6" data-part="Part II · Candlesticks" data-chapter="Chapter 6 · Single-Candle Patterns">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Six</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Single-Candle Patterns</h2>
+    <p class="lead">Some candles are so distinctive they carry meaning on their own. The doji, the hammer, the shooting star — each is a single candle that hints the mood may be shifting. Here are the ones worth knowing.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The doji — and what indecision looks like.</li>
+      <li>The hammer and hanging man — long lower wicks.</li>
+      <li>The shooting star and inverted hammer — long upper wicks.</li>
+      <li>The marubozu — total dominance.</li>
+    </ul>
+  </div>
+  <p class="drop">A single candle rarely makes a decision for you, but a few shapes are loud enough to demand attention — especially when they appear after a long trend. Learn these four families and you'll recognise most of what single candles can say.</p>
+
+  <h3><span class="subnum">6.1</span> The Doji — Indecision</h3>
+  <p>A <strong>doji</strong> is a candle with almost <em>no body</em> — the open and close are nearly equal — leaving a cross or plus-sign shape. It means the period was a draw: buyers and sellers fought to a standstill. By itself a doji is neutral, but after a strong trend it's a warning that the trend's momentum may be fading — the crowd has lost conviction. A doji after a long rally, especially, says “the buyers are tiring.”</p>
+
+  <h3><span class="subnum">6.2</span> Hammer &amp; Hanging Man</h3>
+  <p>Both have a <strong>small body at the top and a long lower wick</strong> — price was driven sharply down, then rescued back up before the close. The same shape carries opposite meaning depending on <em>where</em> it appears (a preview of Chapter 8's great lesson). After a <em>downtrend</em>, it's a <strong>hammer</strong> — bullish, suggesting sellers tried to push lower but buyers slammed the door; the decline may be ending. After an <em>uptrend</em>, the identical shape is a <strong>hanging man</strong> — bearish, a hint that selling pressure is creeping in beneath a still-rising price.</p>
+
+  <h3><span class="subnum">6.3</span> Shooting Star &amp; Inverted Hammer</h3>
+  <p>The mirror image: a <strong>small body at the bottom and a long upper wick</strong> — price surged up but was rejected and fell back. After an <em>uptrend</em>, this is a <strong>shooting star</strong> — bearish, showing buyers pushed to new highs but sellers overwhelmed them; the rally may be exhausted. After a <em>downtrend</em>, the same shape is an <strong>inverted hammer</strong> — a tentative bullish hint.</p>
+
+  <h3><span class="subnum">6.4</span> The Marubozu — Total Control</h3>
+  <p>A <strong>marubozu</strong> is a long body with <em>no wicks</em> at all — price opened at one extreme and closed at the other, one side in complete control for the whole period. A bullish (dark) marubozu shows relentless buying; a bearish (gold) one, relentless selling. It signals strong conviction and momentum in that direction.</p>
+
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 6.1</b> &nbsp;·&nbsp; The Single-Candle Family</div>
+      <svg viewBox="0 0 760 280" role="img" aria-label="Single candle patterns: doji hammer shooting star marubozu hanging man">
+        <rect width="760" height="280" fill="#fff"/>
+        <line x1="95" y1="60" x2="95" y2="200" class="up"/><rect x="78" y="128" width="34" height="6" class="up"/>
+        <text x="95" y="225" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">DOJI</text>
+        <text x="95" y="242" text-anchor="middle" font-family="Spectral" font-size="10" fill="#4E483D">indecision</text>
+        <line x1="230" y1="70" x2="230" y2="82" class="up"/><rect x="213" y="82" width="34" height="34" class="up"/><line x1="230" y1="116" x2="230" y2="205" class="up"/>
+        <text x="230" y="225" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">HAMMER</text>
+        <text x="230" y="242" text-anchor="middle" font-family="Spectral" font-size="10" fill="#4E483D">bullish (after fall)</text>
+        <line x1="380" y1="60" x2="380" y2="150" class="dn"/><rect x="363" y="150" width="34" height="34" class="dn"/><line x1="380" y1="184" x2="380" y2="196" class="dn"/>
+        <text x="380" y="225" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">SHOOTING STAR</text>
+        <text x="380" y="242" text-anchor="middle" font-family="Spectral" font-size="10" fill="#4E483D">bearish (after rise)</text>
+        <rect x="513" y="70" width="34" height="130" class="up"/>
+        <text x="530" y="225" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">MARUBOZU</text>
+        <text x="530" y="242" text-anchor="middle" font-family="Spectral" font-size="10" fill="#4E483D">total control</text>
+        <line x1="660" y1="70" x2="660" y2="82" class="dn"/><rect x="643" y="82" width="34" height="34" class="dn"/><line x1="660" y1="116" x2="660" y2="205" class="dn"/>
+        <text x="660" y="225" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">HANGING MAN</text>
+        <text x="660" y="242" text-anchor="middle" font-family="Spectral" font-size="10" fill="#4E483D">bearish (after rise)</text>
+      </svg>
+    </div>
+    <figcaption><b>Shape plus place equals meaning.</b> Notice the hammer and hanging man are the <em>same shape</em> — only the preceding trend decides whether it's bullish or bearish. That is the single most important idea in candle reading, and Chapter 8 is devoted to it.</figcaption>
+  </figure>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">One candle is a hint, not a command</span>
+    <p style="margin-bottom:0;">Beginners memorise these shapes and then trade every doji or hammer they see — and lose. A single candle is a <em>whisper</em>, easily wrong on its own. The professional waits for <strong>confirmation</strong>: the next candle moving in the expected direction, ideally on good volume, and the pattern appearing at a sensible spot (a support level, the end of a long trend). A hammer in the middle of nowhere means little. Never act on one candle alone.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Doji</strong> = near-zero body = indecision; after a trend, a warning momentum is fading.</li>
+      <li><strong>Hammer / hanging man</strong> = small body, long lower wick — bullish after a fall, bearish after a rise.</li>
+      <li><strong>Shooting star / inverted hammer</strong> = small body, long upper wick — bearish after a rise, bullish after a fall.</li>
+      <li><strong>Marubozu</strong> = full body, no wicks = total control. And always wait for confirmation.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>What does a doji look like, and what does it mean after a long rally?</li>
+      <li>A candle has a small body on top and a long lower wick, appearing after a downtrend. Name it and its meaning.</li>
+      <li>How can the hammer and hanging man be the same shape yet mean opposite things?</li>
+      <li>Why should you never act on a single candle alone?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 7 ===================== -->
+<section class="sheet" id="ch7" data-part="Part II · Candlesticks" data-chapter="Chapter 7 · Multi-Candle Patterns">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Seven</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Multi-Candle Patterns</h2>
+    <p class="lead">When two or three candles combine, the story gets stronger. The engulfing pattern, the star, the three-soldiers — these multi-candle formations are the bread-and-butter signals technicians actually watch for.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The engulfing patterns — bullish and bearish.</li>
+      <li>The morning and evening star.</li>
+      <li>Three white soldiers and three black crows.</li>
+      <li>Harami and piercing patterns.</li>
+    </ul>
+  </div>
+  <p class="drop">A single candle whispers; a well-formed multi-candle pattern speaks. Because these patterns require two or three candles to <em>agree</em> on a story, they're more reliable than any lone candle — though, as ever, confirmation and context still rule.</p>
+
+  <h3><span class="subnum">7.1</span> Engulfing Patterns</h3>
+  <p>The <strong>bullish engulfing</strong> is two candles: a small down candle, then a large up candle whose body completely “engulfs” it. After a downtrend it's a strong reversal signal — buyers didn't just win the second period, they overwhelmed the previous selling. The <strong>bearish engulfing</strong> is the mirror: after an uptrend, a small up candle is swallowed by a large down candle, signalling sellers have seized control. Engulfing patterns are among the most watched reversal signals precisely because the second candle's dominance is so visible.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 7.1</b> &nbsp;·&nbsp; Bullish &amp; Bearish Engulfing</div>
+      <svg viewBox="0 0 760 280" role="img" aria-label="Engulfing patterns">
+        <rect width="760" height="280" fill="#fff"/>
+        <text x="200" y="35" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">BULLISH ENGULFING (after a fall)</text>
+        <line x1="150" y1="110" x2="150" y2="160" class="dn"/><rect x="135" y="120" width="30" height="30" class="dn"/>
+        <line x1="240" y1="80" x2="240" y2="200" class="up"/><rect x="220" y="100" width="40" height="90" class="up"/>
+        <text x="200" y="240" text-anchor="middle" font-family="Spectral" font-size="10.5" fill="#4E483D">big up candle swallows the small down candle</text>
+        <text x="560" y="35" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">BEARISH ENGULFING (after a rise)</text>
+        <line x1="510" y1="120" x2="510" y2="170" class="up"/><rect x="495" y="130" width="30" height="30" class="up"/>
+        <line x1="600" y1="90" x2="600" y2="210" class="dn"/><rect x="580" y="110" width="40" height="90" class="dn"/>
+        <text x="560" y="240" text-anchor="middle" font-family="Spectral" font-size="10.5" fill="#4E483D">big down candle swallows the small up candle</text>
+      </svg>
+    </div>
+    <figcaption><b>Engulfing = a takeover.</b> The large second candle entirely covers the first, showing one side has decisively seized control. Strongest when it appears after a clear trend and on heavy volume.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">7.2</span> Morning &amp; Evening Star</h3>
+  <p>These three-candle patterns are classic reversals. The <strong>morning star</strong> (bullish) appears at the bottom of a downtrend: a big down candle, then a small indecisive candle (a “star”, often a doji) that gaps lower, then a big up candle — like dawn after a dark night, the mood turns from selling to buying. The <strong>evening star</strong> is the mirror at a top: big up candle, small star, then a big down candle — dusk falling on a rally. The middle “star” is the hinge: it marks the moment of indecision where control changed hands.</p>
+
+  <h3><span class="subnum">7.3</span> Three Soldiers &amp; Three Crows</h3>
+  <p><strong>Three white soldiers</strong> are three strong up candles in a row, each closing higher — a powerful sign of sustained buying, often marking the start of an uptrend after a bottom. <strong>Three black crows</strong> are the bearish mirror: three strong down candles in a row, warning of sustained selling. Both gain their force from <em>persistence</em> — three periods of one side winning is hard to dismiss as noise.</p>
+
+  <h3><span class="subnum">7.4</span> Harami &amp; Piercing</h3>
+  <p>The <strong>harami</strong> (“pregnant” in Japanese) is engulfing in reverse: a large candle followed by a <em>small</em> candle held within the first's body — a sign the prevailing trend is losing steam, momentum suddenly contracting. The <strong>piercing pattern</strong> (bullish) and its mirror the <strong>dark cloud cover</strong> (bearish) are two-candle reversals where the second candle pushes more than halfway into the first's body — a partial engulfing that hints the tide is turning. You needn't memorise every name; what matters is reading the <em>story</em> each tells about shifting control.</p>
+
+  <div class="box callout">
+    <span class="title">In Plain Terms · don't drown in names</span>
+    <p style="margin-bottom:0;">There are dozens of named candle patterns, and beginners often try to memorise them all like flashcards. Don't. Every one of them is just a small story about <em>who is winning and whether that's changing</em>. If you understand the anatomy (Chapter 5) and can narrate a candle as a sentence, you can <em>derive</em> the meaning of any pattern on sight — engulfing is “a takeover,” a star is “a turning point,” three soldiers is “relentless buying.” Understand the logic; the vocabulary follows.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Engulfing:</strong> a large candle swallows the prior one — a visible takeover; reversal signal after a trend.</li>
+      <li><strong>Morning/evening star:</strong> three candles with an indecisive “star” hinge marking the turn.</li>
+      <li><strong>Three soldiers / three crows:</strong> three candles in a row showing persistent buying or selling.</li>
+      <li><strong>Read the story, don't memorise names</strong> — every pattern is about who's winning and whether it's changing.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Describe a bullish engulfing pattern and where it's meaningful.</li>
+      <li>What are the three candles of a morning star, and what does the middle one represent?</li>
+      <li>Why are three white soldiers considered a strong signal?</li>
+      <li>How is a harami the “opposite” of an engulfing pattern in meaning?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 8 ===================== -->
+<section class="sheet" id="ch8" data-part="Part II · Candlesticks" data-chapter="Chapter 8 · Reading Candles in Context">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Eight</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Reading Candles in Context</h2>
+    <p class="lead">The single most important lesson in candlestick analysis is also the most ignored: a candle means nothing by itself. The same shape is bullish in one place and bearish in another. Context is everything.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>Why location changes a candle's meaning entirely.</li>
+      <li>How to combine candles with trend, support/resistance and volume.</li>
+      <li>What “confirmation” really means in practice.</li>
+    </ul>
+  </div>
+  <p class="drop">You now know the candle shapes. This chapter is the antidote to the most common way they're misused — treating a shape as a magic signal regardless of where it appears. Get this chapter right and you'll avoid most beginner candle mistakes.</p>
+
+  <h3><span class="subnum">8.1</span> Location Is Meaning</h3>
+  <p>Recall the hammer and hanging man (Chapter 6): identical shapes, opposite meanings, decided entirely by the trend that preceded them. This generalises to <em>every</em> pattern. A doji in the middle of a quiet range is noise; the same doji at the top of a euphoric rally is a serious warning. A bullish engulfing is powerful at a major support level after a long decline; the same pattern mid-trend is barely worth noting. <strong>The candle gives you a shape; the location gives you the meaning.</strong> Always ask first: <em>where are we?</em> — what's the trend, and are we at a significant level?</p>
+
+  <h3><span class="subnum">8.2</span> Combine With Trend, Levels &amp; Volume</h3>
+  <p>The strongest signals occur when several pieces of evidence <em>align</em>. A bullish reversal candle is most trustworthy when it appears (a) after a clear downtrend, (b) right at a known support level (Chapter 4), and (c) on heavy volume (Chapter 2). That confluence — pattern + trend context + level + volume — is what professionals actually wait for, and it's far rarer (and far better) than the constant stream of isolated shapes a beginner trades. One weak signal is noise; three signals agreeing is a setup.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 8.1</b> &nbsp;·&nbsp; The Same Hammer, Two Meanings</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Same hammer in different contexts">
+        <rect width="760" height="300" fill="#fff"/>
+        <polyline points="60,70 110,110 160,100 210,150 260,140 310,185" fill="none" stroke="#1E1A15" stroke-width="2.2"/>
+        <line x1="345" y1="180" x2="345" y2="192" class="up"/><rect x="332" y="192" width="26" height="22" class="up"/><line x1="345" y1="214" x2="345" y2="255" class="up"/>
+        <line x1="60" y1="270" x2="370" y2="270" stroke="#1E1A15" stroke-width="1"/>
+        <text x="200" y="292" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">after a DOWNTREND → HAMMER (bullish)</text>
+        <polyline points="420,230 470,190 520,200 570,150 620,160 670,115" fill="none" stroke="#1E1A15" stroke-width="2.2"/>
+        <line x1="705" y1="110" x2="705" y2="122" class="dn"/><rect x="692" y="122" width="26" height="22" class="dn"/><line x1="705" y1="144" x2="705" y2="185" class="dn"/>
+        <line x1="420" y1="270" x2="730" y2="270" stroke="#1E1A15" stroke-width="1"/>
+        <text x="575" y="292" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#8A6A23">after an UPTREND → HANGING MAN (bearish)</text>
+      </svg>
+    </div>
+    <figcaption><b>Identical candle, opposite message.</b> The long-lower-wick candle is a bullish hammer when it ends a downtrend, and a bearish hanging man when it tops an uptrend. The shape is the same; only the context differs. This is why “read the candle” always means “read the candle <em>in its place</em>.”</figcaption>
+  </figure>
+
+  <h3><span class="subnum">8.3</span> What Confirmation Really Means</h3>
+  <p>Throughout these chapters we've said “wait for confirmation.” Concretely, it means not acting on a pattern until <em>subsequent</em> price action agrees with it. A bullish engulfing isn't confirmed until the <em>next</em> candle also closes higher; a breakout isn't confirmed until price <em>closes</em> beyond the level (not just pokes through intraday) and holds. Confirmation costs you a little — you enter slightly later, at a slightly worse price — but it filters out a huge share of false signals. That trade-off, accepting a worse entry to avoid being faked out, is one of the quiet disciplines that separates those who survive from those who churn their accounts to zero.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">The pattern-spotting trap</span>
+    <p style="margin-bottom:0;">Your brain is a pattern-detection machine — so good at it that it sees patterns in pure randomness (clouds, coffee stains, and yes, price charts). A great deal of what beginners “see” in charts is their own mind imposing a story on noise. The defences in this chapter — demanding context, confluence and confirmation — exist precisely to discipline that instinct. If a setup requires you to squint and tell yourself a story to see it, it isn't there. The best setups are obvious; if you have to talk yourself into it, walk away.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>A candle means nothing alone</strong> — the same shape is bullish or bearish depending on location.</li>
+      <li><strong>Always ask “where are we?”</strong> — trend and level decide a pattern's meaning.</li>
+      <li><strong>The best signals show confluence:</strong> pattern + trend context + key level + volume agreeing.</li>
+      <li><strong>Confirmation</strong> = waiting for later price action to agree; it costs a little and saves a lot.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Why does the location of a candle change its meaning? Give an example.</li>
+      <li>What four things, when they align, make a reversal signal strongest?</li>
+      <li>What does it mean, concretely, to wait for confirmation of a bullish engulfing?</li>
+      <li>Why is the human tendency to see patterns a danger in chart-reading?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART III DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">III</div>
+  <div class="ptag">Part Three</div>
+  <h2>Chart Patterns</h2>
+  <p class="pintro">Zoom out from individual candles and larger shapes emerge across weeks and months — heads and shoulders, triangles, flags. These chart patterns are the macro-version of candle reading: the crowd's psychology drawn on a bigger canvas.</p>
+  <div class="chips"><span class="chip">Reversals</span><span class="chip">Continuations</span><span class="chip">Gaps &amp; volume</span></div>
+</section>
+
+<!-- ===================== CH 9 ===================== -->
+<section class="sheet" id="ch9" data-part="Part III · Chart Patterns" data-chapter="Chapter 9 · Reversal Patterns">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Nine</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Reversal Patterns</h2>
+    <p class="lead">Some chart shapes tend to appear when a trend is exhausting itself and about to turn. The head-and-shoulders, the double top and bottom — these reversal patterns are among the most famous (and most over-claimed) ideas in technical analysis.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The head-and-shoulders top (and its inverse).</li>
+      <li>Double tops and double bottoms.</li>
+      <li>The role of the neckline and volume.</li>
+      <li>An honest word on how reliable these really are.</li>
+    </ul>
+  </div>
+  <p class="drop">A reversal pattern is a shape that forms as a trend runs out of energy and prepares to change direction. They're seductive because they seem to call the top or bottom — but they only “work” a fraction of the time, and only with confirmation. Learn them, and learn their limits.</p>
+
+  <h3><span class="subnum">9.1</span> Head and Shoulders</h3>
+  <p>The <strong>head-and-shoulders top</strong> is the most famous reversal pattern. After an uptrend, price makes a peak (left shoulder), a higher peak (the head), then a lower peak (right shoulder) — three humps, the middle tallest. A line connecting the lows between them is the <strong>neckline</strong>. When price breaks <em>below</em> the neckline, the pattern is considered complete and a downtrend may begin. The <strong>inverse head-and-shoulders</strong> is the mirror at a market bottom, signalling a possible move up. The logic: each failed push to a new high shows buyers weakening, until they finally give way.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 9.1</b> &nbsp;·&nbsp; Head &amp; Shoulders Top</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Head and shoulders pattern">
+        <rect width="760" height="300" fill="#fff"/>
+        <polyline points="50,230 130,150 180,200 280,80 380,200 470,140 560,235" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <line x1="160" y1="205" x2="560" y2="205" stroke="#8A6A23" stroke-width="2" stroke-dasharray="6 4"/>
+        <text x="120" y="140" font-family="Archivo" font-size="10" fill="#4E483D">left shoulder</text>
+        <text x="250" y="70" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">HEAD</text>
+        <text x="430" y="130" font-family="Archivo" font-size="10" fill="#4E483D">right shoulder</text>
+        <text x="565" y="200" font-family="Archivo" font-size="10" font-weight="700" fill="#8A6A23">neckline</text>
+        <polyline points="560,235 620,265 660,255" fill="none" stroke="#8A6A23" stroke-width="2.5"/>
+        <text x="585" y="285" font-family="Archivo" font-size="10" font-weight="700" fill="#8A6A23">break ↓ = sell signal</text>
+      </svg>
+    </div>
+    <figcaption><b>Three peaks, then the break.</b> The neckline is the trigger: as long as price holds above it the pattern is only forming; a decisive close <em>below</em> it (ideally on rising volume) is what technicians treat as the reversal signal. Until then, there is no pattern — only a shape that might become one.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">9.2</span> Double Tops &amp; Bottoms</h3>
+  <p>A <strong>double top</strong> looks like the letter “M”: price rises to a peak, pulls back, rises to roughly the <em>same</em> peak again, then fails and falls — twice rejected at the same level (a resistance, Chapter 4), the buyers give up. A <strong>double bottom</strong> is the “W” mirror at a market low: price tests the same support twice, holds, and turns up. Like head-and-shoulders, the pattern isn't “confirmed” until price breaks the level between the two humps (the middle of the M or W).</p>
+
+  <h3><span class="subnum">9.3</span> The Role of the Neckline &amp; Volume</h3>
+  <p>Across all reversal patterns, two features matter most. The <strong>break of the key level</strong> (neckline, or the midpoint of a double top) is the actual signal — the pattern shape alone is just a setup. And <strong>volume</strong> should ideally confirm: a genuine head-and-shoulders often shows declining volume on the head and right shoulder (waning enthusiasm) and a surge of volume on the neckline break. Without that volume confirmation, treat the pattern with extra suspicion.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out · the honest truth about these patterns</span>
+    <span class="title">They fail far more often than the books admit</span>
+    <p style="margin-bottom:0;">Reversal patterns are presented in many courses as near-magical predictors. The reality, from serious studies of pattern performance, is humbler: they work only somewhat better than chance, frequently fail (the “textbook” head-and-shoulders that simply keeps going up), and are easy to <em>see in hindsight</em> but hard to trade in real time. Treat them as one piece of probabilistic evidence — never as a guarantee — and always pair them with confirmation, a stop-loss (Chapter 17), and the humility of Chapter 1. Anyone selling them as certainties is selling you something.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Head-and-shoulders:</strong> three peaks (middle highest); a break below the neckline signals a possible top.</li>
+      <li><strong>Double top (M) / double bottom (W):</strong> a level tested twice and rejected, signalling reversal on the break.</li>
+      <li><strong>The break of the key level is the signal,</strong> not the shape; volume should confirm it.</li>
+      <li><strong>Be honest:</strong> these patterns fail often and are clearer in hindsight — evidence, not prophecy.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Describe the three peaks of a head-and-shoulders top and what completes the pattern.</li>
+      <li>What does a double top look like, and what crowd behaviour does it reflect?</li>
+      <li>What is the neckline, and why is its break the real signal?</li>
+      <li>Give one honest limitation of reversal patterns.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 10 ===================== -->
+<section class="sheet" id="ch10" data-part="Part III · Chart Patterns" data-chapter="Chapter 10 · Continuation Patterns">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Ten</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Continuation Patterns</h2>
+    <p class="lead">Not every pattern means a turn. Some are pauses — moments where a trend catches its breath before continuing. Triangles, flags and pennants are the market resting, not reversing.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>Triangles — ascending, descending, symmetrical.</li>
+      <li>Flags and pennants — the brief pause.</li>
+      <li>How to tell a pause from a reversal.</li>
+    </ul>
+  </div>
+  <p class="drop">A continuation pattern is a consolidation — a sideways breather within a larger trend. After it, the trend usually resumes in its original direction. Recognising these helps you stay in a good trend instead of bailing out during a normal pause.</p>
+
+  <h3><span class="subnum">10.1</span> Triangles</h3>
+  <p>A <strong>triangle</strong> forms as price swings narrow into a point, like a coiling spring. An <strong>ascending triangle</strong> has a flat top (resistance) and rising lows — buyers growing more eager, usually breaking out upward. A <strong>descending triangle</strong> has a flat bottom and falling highs — typically breaking down. A <strong>symmetrical triangle</strong> narrows from both sides and can break either way (so wait for the break to show direction). The squeeze reflects tension building between buyers and sellers until one side wins.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 10.1</b> &nbsp;·&nbsp; Triangle &amp; Bull Flag</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Triangle and flag continuation patterns">
+        <rect width="760" height="300" fill="#fff"/>
+        <text x="190" y="35" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">SYMMETRICAL TRIANGLE</text>
+        <polyline points="50,80 110,200 170,110 230,180 290,140 330,160" fill="none" stroke="#1E1A15" stroke-width="2.2"/>
+        <line x1="50" y1="80" x2="340" y2="155" stroke="#8A6A23" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <line x1="110" y1="200" x2="340" y2="158" stroke="#8A6A23" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <polyline points="330,160 380,90 400,80" fill="none" stroke="#8A6A23" stroke-width="2.5"/>
+        <text x="350" y="78" font-family="Archivo" font-size="9" font-weight="700" fill="#8A6A23">breakout</text>
+        <text x="570" y="35" text-anchor="middle" font-family="Archivo" font-size="11" font-weight="700" fill="#1E1A15">BULL FLAG</text>
+        <polyline points="450,230 510,90" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <text x="450" y="160" font-family="Archivo" font-size="9" fill="#4E483D">strong rise</text>
+        <polyline points="510,90 545,130 580,100 615,140 650,110" fill="none" stroke="#1E1A15" stroke-width="2.2"/>
+        <line x1="510" y1="90" x2="650" y2="110" stroke="#8A6A23" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <line x1="545" y1="130" x2="660" y2="150" stroke="#8A6A23" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <text x="560" y="175" font-family="Archivo" font-size="9" fill="#4E483D">brief pause (flag)</text>
+        <polyline points="650,110 700,55" fill="none" stroke="#8A6A23" stroke-width="2.5"/>
+        <text x="660" y="50" font-family="Archivo" font-size="9" font-weight="700" fill="#8A6A23">resume ↑</text>
+      </svg>
+    </div>
+    <figcaption><b>Coil and rest.</b> The triangle coils until it breaks (here, upward). The bull flag is a sharp rise (“the pole”), a brief downward-drifting pause (“the flag”), then a resumption of the climb. Both are the trend pausing, not turning — though the symmetrical triangle's direction must be confirmed by the actual break.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">10.2</span> Flags &amp; Pennants</h3>
+  <p>A <strong>flag</strong> appears after a sharp move (“the flagpole”): price drifts sideways or slightly against the trend in a small rectangle, then resumes in the original direction. A <strong>pennant</strong> is similar but the pause forms a tiny triangle. Both represent a brief consolidation — traders catching their breath, some taking profits — before the dominant trend reasserts itself. They're typically short-lived (a few periods) and, when they resolve, often do so quickly.</p>
+
+  <h3><span class="subnum">10.3</span> Pause vs. Reversal</h3>
+  <p>The practical challenge is telling a continuation (pause) from a reversal (turn) — they can look similar while forming. Three clues help: the <em>prior trend</em> (continuations happen <em>within</em> a strong trend; reversals at its <em>end</em>), the <em>direction of the eventual break</em> (a continuation breaks <em>with</em> the trend), and <em>volume</em> (continuations often see volume dry up during the pause, then surge on the resumption). When unsure — and you often will be — the disciplined answer is to wait for the break and let price tell you, rather than guessing.</p>
+
+  <div class="box callout">
+    <span class="title">In Plain Terms · why pauses happen</span>
+    <p style="margin-bottom:0;">A strong move makes some holders nervous — they take profits, creating a little selling that stalls the advance. Meanwhile new buyers, who missed the first move, wait for a dip. For a while these two groups balance out and price goes sideways: the flag or triangle. Once the profit-takers are done and the trend's believers remain, the move resumes. The pattern is just the visible shape of that brief tug-of-war within an ongoing trend.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Continuation patterns are pauses,</strong> after which the prior trend usually resumes.</li>
+      <li><strong>Triangles</strong> coil into a point: ascending (bullish), descending (bearish), symmetrical (wait for the break).</li>
+      <li><strong>Flags and pennants</strong> are brief consolidations after a sharp move (the “flagpole”).</li>
+      <li><strong>Distinguish pause from reversal</strong> via prior trend, break direction, and volume — or just wait for the break.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>What does a continuation pattern signal, versus a reversal pattern?</li>
+      <li>How do ascending and descending triangles typically resolve?</li>
+      <li>Describe a bull flag and what each part represents.</li>
+      <li>Name two clues that help you tell a pause from a reversal.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 11 ===================== -->
+<section class="sheet" id="ch11" data-part="Part III · Chart Patterns" data-chapter="Chapter 11 · Gaps &amp; Volume">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Eleven</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Gaps &amp; Volume</h2>
+    <p class="lead">Two raw forces underlie every pattern: the gaps where price leaps with no trades in between, and the volume that reveals how much conviction is behind a move. Master these and you read the energy of the market, not just its shape.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>What a gap is and why it forms.</li>
+      <li>The main types of gap and what they suggest.</li>
+      <li>How volume confirms (or contradicts) price.</li>
+    </ul>
+  </div>
+  <p class="drop">We met volume in Chapter 2 as the technician's lie-detector; here we deepen it and add its dramatic cousin, the gap. Both are about <em>energy</em> — the force behind a move — and both are among the more genuinely informative things on a chart.</p>
+
+  <h3><span class="subnum">11.1</span> What a Gap Is</h3>
+  <p>A <strong>gap</strong> is an empty space on the chart where price jumps from one period's close to the next period's open with no trading in between. It happens most often between sessions: news breaks overnight — an earnings surprise, a takeover, a shock — and when the market reopens, price simply leaps to a new level, leaving a visible gap. A gap is a burst of pent-up information hitting the price all at once; its size hints at how significant the news was.</p>
+
+  <h3><span class="subnum">11.2</span> Types of Gap</h3>
+  <div class="compare"><table>
+    <caption>Compare &amp; Understand · Reading the gaps</caption>
+    <thead><tr><th>Gap type</th><th>Where it appears</th><th>What it suggests</th></tr></thead>
+    <tbody>
+      <tr><td><b>Breakaway</b></td><td>At the start of a new move, out of a range</td><td>A powerful new trend is beginning</td></tr>
+      <tr><td><b>Runaway / measuring</b></td><td>In the middle of a strong trend</td><td>The trend is healthy and accelerating</td></tr>
+      <tr><td><b>Exhaustion</b></td><td>Near the end of an extended trend</td><td>A last gasp; the trend may be ending</td></tr>
+      <tr><td><b>Common</b></td><td>In quiet, range-bound markets</td><td>Little meaning; often “fills” quickly</td></tr>
+    </tbody>
+  </table></div>
+  <p>A famous piece of market lore is that “gaps get filled” — price often returns later to trade through the empty space. It's frequently true for common and exhaustion gaps, but breakaway and runaway gaps in strong trends can stay open for a long time. As always, context (where the gap appears, and on what volume) decides the meaning.</p>
+
+  <h3><span class="subnum">11.3</span> Volume Confirms Price</h3>
+  <p>The single most useful volume principle bears repeating and expanding: <strong>volume should expand in the direction of the trend.</strong> In a healthy uptrend, volume rises on up-days and fades on pullbacks. A breakout (Chapter 4), a reversal pattern's neckline break (Chapter 9), or a gap is far more trustworthy <em>on heavy volume</em>. The most powerful warning sign is <strong>divergence</strong> — price making new highs while volume shrinks, meaning fewer and fewer participants support the advance. That quiet fade in volume often precedes a reversal: the move is running on fumes.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 11.1</b> &nbsp;·&nbsp; A Breakaway Gap on Heavy Volume</div>
+      <svg viewBox="0 0 760 320" role="img" aria-label="Gap with volume bars">
+        <rect width="760" height="320" fill="#fff"/>
+        <!-- price -->
+        <g>
+          <line x1="80" y1="150" x2="80" y2="190" class="dn"/><rect x="70" y="160" width="20" height="22" class="dn"/>
+          <line x1="130" y1="155" x2="130" y2="195" class="up"/><rect x="120" y="165" width="20" height="20" class="up"/>
+          <line x1="180" y1="150" x2="180" y2="190" class="dn"/><rect x="170" y="160" width="20" height="22" class="dn"/>
+          <line x1="230" y1="158" x2="230" y2="192" class="up"/><rect x="220" y="165" width="20" height="20" class="up"/>
+          <!-- GAP up -->
+          <line x1="300" y1="70" x2="300" y2="120" class="up"/><rect x="288" y="80" width="24" height="35" class="up"/>
+          <line x1="350" y1="60" x2="350" y2="100" class="up"/><rect x="338" y="68" width="24" height="28" class="up"/>
+          <line x1="400" y1="50" x2="400" y2="85" class="up"/><rect x="388" y="56" width="24" height="24" class="up"/>
+        </g>
+        <rect x="255" y="115" width="40" height="50" fill="none" stroke="#8A6A23" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <text x="275" y="200" text-anchor="middle" font-family="Archivo" font-size="9" font-weight="700" fill="#8A6A23">GAP</text>
+        <!-- volume bars -->
+        <line x1="60" y1="300" x2="430" y2="300" stroke="#1E1A15" stroke-width="1"/>
+        <g fill="#4E483D">
+          <rect x="70" y="280" width="20" height="20"/><rect x="120" y="278" width="20" height="22"/><rect x="170" y="282" width="20" height="18"/><rect x="220" y="280" width="20" height="20"/>
+        </g>
+        <g fill="#8A6A23"><rect x="288" y="245" width="24" height="55"/><rect x="338" y="255" width="24" height="45"/><rect x="388" y="262" width="24" height="38"/></g>
+        <text x="350" y="240" text-anchor="middle" font-family="Archivo" font-size="9" font-weight="700" fill="#8A6A23">volume surges on the gap</text>
+        <text x="160" y="270" text-anchor="middle" font-family="Spectral" font-size="10" fill="#4E483D">quiet range</text>
+      </svg>
+    </div>
+    <figcaption><b>Energy made visible.</b> Price gaps up out of a quiet range while volume surges — a breakaway gap with conviction behind it, far more trustworthy than the same gap on thin volume. The empty box marks the gap; the tall gold bars show the burst of participation confirming the move.</figcaption>
+  </figure>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">Don't chase the gap</span>
+    <p style="margin-bottom:0;">A big morning gap is exciting, and beginners often pile in at the open — right as early buyers take profits, causing the price to drop back (sometimes filling the gap) and handing the latecomer an instant loss. Gaps are highly volatile and emotionally charged; jumping in at the open is one of the faster ways to lose money. Let the dust settle, watch whether the gap holds, and remember Chapter 17's stop-losses exist precisely for moments like these.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>A gap</strong> is an empty space where price leaps with no trades between — usually driven by news.</li>
+      <li><strong>Gap types</strong> (breakaway, runaway, exhaustion, common) suggest different things by their location.</li>
+      <li><strong>Volume should expand with the trend;</strong> a move on heavy volume is far more trustworthy.</li>
+      <li><strong>Volume divergence</strong> (price up, volume shrinking) warns a move is running out of energy.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>What is a gap, and what typically causes one?</li>
+      <li>Distinguish a breakaway gap from an exhaustion gap.</li>
+      <li>What should volume do in a healthy uptrend?</li>
+      <li>What is volume divergence, and why is it a warning?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART IV DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">IV</div>
+  <div class="ptag">Part Four</div>
+  <h2>Indicators — with the Math</h2>
+  <p class="pintro">Indicators are formulas applied to price and volume to distil them into a single, easier-to-read line. Here we don't just name them — we show the actual equations and work real numbers through them, so you understand exactly what each one computes and where it lies to you.</p>
+  <div class="chips"><span class="chip">Moving averages</span><span class="chip">RSI &amp; MACD</span><span class="chip">Bollinger &amp; ATR</span><span class="chip">Using them wisely</span></div>
+</section>
+
+<!-- ===================== CH 12 ===================== -->
+<section class="sheet" id="ch12" data-part="Part IV · Indicators" data-chapter="Chapter 12 · Moving Averages">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Twelve</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Moving Averages</h2>
+    <p class="lead">The moving average is the most-used indicator in all of technical analysis — a smoothed line that cuts through the noise to show the underlying trend. Here is exactly how it's calculated, by hand, twice.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The simple moving average (SMA) — the formula and a worked calculation.</li>
+      <li>The exponential moving average (EMA) — and why it reacts faster.</li>
+      <li>How crossovers generate signals (the golden &amp; death cross).</li>
+      <li>The fatal weakness all moving averages share.</li>
+    </ul>
+  </div>
+  <p class="drop">Price is jagged and noisy; a moving average is the same price, smoothed. By averaging the last <em>N</em> closing prices and re-computing every period, it produces a flowing line that makes the trend obvious. It is the foundation on which countless other indicators are built — so let's build it ourselves.</p>
+
+  <h3><span class="subnum">12.1</span> The Simple Moving Average (SMA)</h3>
+  <p>The <strong>simple moving average</strong> is exactly what it sounds like: the average of the last <em>N</em> closing prices. Each period you drop the oldest price and add the newest, so the average “moves” along.</p>
+  <div class="fml">SMA<sub>N</sub> = (P<sub>1</sub> + P<sub>2</sub> + … + P<sub>N</sub>) &divide; N</div>
+  <p>Let's compute a 5-day SMA on a real little series of closing prices. Suppose a stock closed at <b>$20, $22, $21, $24, $23</b> over five days, then <b>$25</b> on day 6:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · 5-day SMA</span>
+    Day 1–5 closes: 20, 22, 21, 24, 23<br>
+    Sum = 20 + 22 + 21 + 24 + 23 = <b>110</b><br>
+    SMA (day 5) = 110 &divide; 5 = <b>$22.00</b>
+    <hr>
+    <span class="r">Now day 6 closes at 25 — drop the oldest (20), add the newest (25):</span><br>
+    New window: 22, 21, 24, 23, 25<br>
+    Sum = 22 + 21 + 24 + 23 + 25 = <b>115</b><br>
+    SMA (day 6) = 115 &divide; 5 = <b>$23.00</b>
+    <hr>
+    <span class="r">The average rose from $22.00 to $23.00 — the line “moves” up, smoothly tracking the rising prices without the day-to-day jitter.</span>
+  </div>
+  <p>Common settings are the 50-day and 200-day SMA for long-term trends, and the 20-day for shorter ones. When price is above its rising moving average, the trend is generally up; below a falling average, generally down.</p>
+
+  <h3><span class="subnum">12.2</span> The Exponential Moving Average (EMA)</h3>
+  <p>The SMA treats a price from <em>N</em> days ago as equally important as yesterday's — which feels wrong, since recent prices matter more. The <strong>exponential moving average</strong> fixes this by weighting recent prices more heavily. It uses a smoothing multiplier:</p>
+  <div class="fml">multiplier <i>k</i> = 2 &divide; (N + 1)<br>EMA<sub>today</sub> = (Price<sub>today</sub> &minus; EMA<sub>yesterday</sub>) &times; <i>k</i> + EMA<sub>yesterday</sub></div>
+  <p>Let's work a 10-day EMA. First the multiplier, then one update step. Say yesterday's 10-day EMA was <b>$22.00</b> and today's close is <b>$25.00</b>:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · 10-day EMA step</span>
+    <i>k</i> = 2 &divide; (10 + 1) = 2 &divide; 11 = <b>0.1818</b>
+    <hr>
+    EMA<sub>today</sub> = (25.00 &minus; 22.00) &times; 0.1818 + 22.00<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = (3.00 &times; 0.1818) + 22.00<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 0.545 + 22.00 = <b>$22.55</b>
+    <hr>
+    <span class="r">A 5-day SMA above jumped straight to $23.00; this EMA moved to $22.55 — it responds to the new $25 close but in proportion to its weight (0.1818), giving recent data more pull than old data. Larger N → smaller k → smoother, slower line.</span>
+  </div>
+  <p>Because it reacts faster, the EMA is preferred by shorter-term traders; the SMA, being smoother, by longer-term ones. Neither is “better” — they're different trade-offs between responsiveness and noise.</p>
+
+  <h3><span class="subnum">12.3</span> Crossovers — Golden &amp; Death Cross</h3>
+  <p>A popular signal comes from <em>two</em> moving averages of different lengths. When a faster (shorter) average crosses <em>above</em> a slower (longer) one, momentum is turning up — a bullish <strong>crossover</strong>. The most famous: the <strong>golden cross</strong>, when the 50-day SMA crosses above the 200-day, taken as a long-term bullish signal; and its opposite, the <strong>death cross</strong> (50-day below 200-day), taken as bearish. These are widely watched — which gives them some self-fulfilling power (Chapter 1) — but they are also <em>late</em>, as the next section explains.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 12.1</b> &nbsp;·&nbsp; Price, a Smoothing Average, &amp; a Crossover</div>
+      <svg viewBox="0 0 760 300" role="img" aria-label="Price with moving averages crossover">
+        <rect width="760" height="300" fill="#fff"/>
+        <line x1="60" y1="260" x2="710" y2="260" stroke="#1E1A15" stroke-width="1"/>
+        <!-- jagged price -->
+        <polyline points="70,210 110,180 150,215 190,160 230,200 270,150 310,175 350,120 390,150 430,110 470,135 510,95 550,120 590,80 630,100 680,60" fill="none" stroke="#C9BFA8" stroke-width="1.6"/>
+        <!-- fast MA -->
+        <polyline points="70,205 150,195 230,180 310,160 390,140 470,120 550,100 680,72" fill="none" stroke="#1E1A15" stroke-width="2.2"/>
+        <!-- slow MA -->
+        <polyline points="70,215 150,210 230,205 310,195 390,182 470,165 550,148 680,110" fill="none" stroke="#8A6A23" stroke-width="2.2" stroke-dasharray="6 4"/>
+        <circle cx="300" cy="168" r="6" fill="none" stroke="#8A6A23" stroke-width="2"/>
+        <text x="250" y="100" font-family="Archivo" font-size="9" font-weight="700" fill="#8A6A23">golden cross ↑</text>
+        <line x1="295" y1="110" x2="300" y2="162" stroke="#8A6A23" stroke-width="0.8"/>
+        <text x="690" y="55" font-family="Spectral" font-size="9" fill="#1E1A15">fast</text>
+        <text x="690" y="108" font-family="Spectral" font-size="9" fill="#8A6A23">slow</text>
+        <text x="120" y="250" font-family="Spectral" font-size="9" fill="#9a9080">jagged price (grey)</text>
+      </svg>
+    </div>
+    <figcaption><b>Smoothing in action.</b> The faint grey line is the noisy price; the solid dark line is a fast moving average and the dashed gold one a slow average. Where the fast crosses above the slow (circled) is a bullish crossover. Notice both averages <em>lag</em> the price — they turn well after price does.</figcaption>
+  </figure>
+
+  <h3><span class="subnum">12.4</span> The Fatal Weakness — Lag</h3>
+  <p>Every moving average shares one unavoidable flaw: it <strong>lags</strong>. Because it's an average of <em>past</em> prices, it always turns <em>after</em> the price has already moved. By the time a golden cross appears, a large part of the up-move may be over. This is the central trade-off of all smoothing: a longer average is smoother and more reliable but slower (more lag); a shorter one is faster but noisier (more false signals). There is no setting that escapes this — anyone promising a moving average that predicts turns in advance misunderstands the math. Moving averages describe the trend you're already in; they do not foresee the next one.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">Whipsaws in a sideways market</span>
+    <p style="margin-bottom:0;">Moving-average crossovers work reasonably in strong trends and <em>terribly</em> in sideways, choppy markets — where price keeps crossing back and forth, generating a stream of false buy/sell signals (“whipsaws”) that bleed you through fees and small losses. Before trusting any moving-average signal, ask whether the market is actually trending (Chapter 3). In a range, these tools are worse than useless.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>SMA</strong> = average of the last N closes; recomputed each period. (Worked: 5-day SMA went 22.00 → 23.00.)</li>
+      <li><strong>EMA</strong> weights recent prices more, via <i>k</i> = 2/(N+1); it reacts faster than the SMA.</li>
+      <li><strong>Crossovers</strong> (golden/death cross) signal momentum shifts but are widely watched and <em>late</em>.</li>
+      <li><strong>All moving averages lag</strong> and whipsaw in sideways markets — they describe the trend, not the future.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Compute the 4-day SMA of closes 10, 12, 14, 16. Then the new value if the next close is 18.</li>
+      <li>What is the EMA multiplier for N = 9? Why does the EMA react faster than the SMA?</li>
+      <li>What is a golden cross, and why is it a <em>lagging</em> signal?</li>
+      <li>In what kind of market do moving-average crossovers fail badly, and why?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 13 ===================== -->
+<section class="sheet" id="ch13" data-part="Part IV · Indicators" data-chapter="Chapter 13 · RSI &amp; MACD">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Thirteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">RSI &amp; MACD</h2>
+    <p class="lead">Two of the most popular momentum indicators, demystified with their actual formulas. The RSI measures how overbought or oversold a stock is; the MACD measures the momentum between two moving averages. We'll compute both by hand.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The RSI formula — and a full worked calculation.</li>
+      <li>What “overbought” and “oversold” really mean (and don't).</li>
+      <li>The MACD — how it's built from EMAs.</li>
+      <li>Divergence — the most useful signal these give.</li>
+    </ul>
+  </div>
+  <p class="drop">Where moving averages smooth price, momentum indicators measure its <em>speed</em> — how fast and forcefully price is moving. The two giants of this family are the RSI and the MACD, and both are far less mysterious once you see the arithmetic.</p>
+
+  <h3><span class="subnum">13.1</span> The RSI — Formula &amp; Worked Calculation</h3>
+  <p>The <strong>Relative Strength Index</strong> (RSI), created by J. Welles Wilder, measures the magnitude of recent gains against recent losses, on a scale of 0 to 100. The formula:</p>
+  <div class="fml">RS = (average gain) &divide; (average loss)<br>RSI = 100 &minus; [ 100 &divide; (1 + RS) ]</div>
+  <p>It's usually computed over 14 periods. Let's work a simplified example. Suppose over 14 days the up-days and down-days summed to an <b>average gain of $1.00</b> and an <b>average loss of $0.50</b> per day:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · 14-day RSI</span>
+    average gain = 1.00 &nbsp;·&nbsp; average loss = 0.50<br>
+    RS = 1.00 &divide; 0.50 = <b>2.0</b>
+    <hr>
+    RSI = 100 &minus; [ 100 &divide; (1 + 2.0) ]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; = 100 &minus; [ 100 &divide; 3 ]<br>
+    &nbsp;&nbsp;&nbsp;&nbsp; = 100 &minus; 33.33 = <b>66.7</b>
+    <hr>
+    <span class="r">An RSI of 66.7 — gains have outweighed losses 2-to-1, so momentum is firmly up but not yet at the “overbought” 70 line. If average gain equalled average loss, RS = 1 and RSI = 50 (perfect balance).</span>
+  </div>
+
+  <h3><span class="subnum">13.2</span> Overbought &amp; Oversold — and the Catch</h3>
+  <p>By convention, an RSI <strong>above 70</strong> is called “overbought” (price has risen fast, perhaps due a pullback) and <strong>below 30</strong> “oversold” (fallen fast, perhaps due a bounce). The naïve reading — “sell at 70, buy at 30” — is dangerous, and here's the catch every beginner learns painfully: <strong>in a strong trend, RSI can stay overbought or oversold for a very long time.</strong> A roaring stock can sit above 70 for weeks while it keeps climbing; selling the first time it hit 70 would have cost you the whole run. Overbought is not “sell”; it's “momentum is strong and stretched.” Context (the trend, Chapter 3) decides what to do with that.</p>
+
+  <h3><span class="subnum">13.3</span> The MACD</h3>
+  <p>The <strong>MACD</strong> (Moving Average Convergence Divergence), built by Gerald Appel, measures the relationship between two EMAs. It has three parts:</p>
+  <div class="fml">MACD line = EMA<sub>12</sub> &minus; EMA<sub>26</sub><br>Signal line = EMA<sub>9</sub> of the MACD line<br>Histogram = MACD line &minus; Signal line</div>
+  <p>The MACD line is just the difference between a fast (12-period) and slow (26-period) EMA — so it's positive when the fast average is above the slow (upward momentum) and negative when below. Let's compute the MACD line from two EMAs: say the 12-EMA is <b>$51.20</b> and the 26-EMA is <b>$49.80</b>:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · MACD line</span>
+    MACD line = EMA<sub>12</sub> &minus; EMA<sub>26</sub><br>
+    &nbsp;&nbsp;&nbsp;&nbsp; = 51.20 &minus; 49.80 = <b>+1.40</b>
+    <hr>
+    <span class="r">Positive (+1.40) → the fast average is above the slow → upward momentum. When the MACD line crosses above its signal line (the 9-EMA of itself), it's a bullish trigger; crossing below, bearish. The histogram (their difference) shows the momentum growing or shrinking.</span>
+  </div>
+
+  <h3><span class="subnum">13.4</span> Divergence — the Real Prize</h3>
+  <p>The most genuinely useful signal both indicators give is <strong>divergence</strong> — when the indicator disagrees with price. <em>Bearish divergence</em>: price makes a higher high, but RSI (or MACD) makes a <em>lower</em> high — the new price peak came with <em>less</em> momentum, a warning the uptrend is tiring. <em>Bullish divergence</em> is the mirror: price makes a lower low but the indicator makes a higher low, hinting the downtrend is losing force. Divergence is the closest these indicators come to an early warning — because it reveals weakening momentum <em>beneath</em> a price that still looks healthy. Even so, like everything in this book, it fails often and needs confirmation.</p>
+  <figure>
+    <div class="figframe">
+      <div class="figtab"><b>Figure 13.1</b> &nbsp;·&nbsp; Bearish Divergence (price up, momentum down)</div>
+      <svg viewBox="0 0 760 290" role="img" aria-label="Bearish divergence between price and RSI">
+        <rect width="760" height="290" fill="#fff"/>
+        <text x="60" y="30" font-family="Archivo" font-size="10" font-weight="700" fill="#1E1A15">PRICE — higher high</text>
+        <polyline points="60,120 150,70 240,110 340,45" fill="none" stroke="#1E1A15" stroke-width="2.5"/>
+        <circle cx="150" cy="70" r="4" fill="#1E1A15"/><circle cx="340" cy="45" r="4" fill="#1E1A15"/>
+        <line x1="150" y1="70" x2="340" y2="45" stroke="#1E1A15" stroke-width="0.8" stroke-dasharray="3 3"/>
+        <line x1="60" y1="150" x2="700" y2="150" stroke="#C9BFA8" stroke-width="1"/>
+        <text x="60" y="185" font-family="Archivo" font-size="10" font-weight="700" fill="#8A6A23">RSI — lower high (divergence!)</text>
+        <polyline points="60,240 150,195 240,235 340,215" fill="none" stroke="#8A6A23" stroke-width="2.5"/>
+        <circle cx="150" cy="195" r="4" fill="#8A6A23"/><circle cx="340" cy="215" r="4" fill="#8A6A23"/>
+        <line x1="150" y1="195" x2="340" y2="215" stroke="#8A6A23" stroke-width="0.8" stroke-dasharray="3 3"/>
+        <text x="420" y="90" font-family="Spectral" font-size="11" fill="#4E483D">Price climbs to a new high…</text>
+        <text x="420" y="225" font-family="Spectral" font-size="11" fill="#4E483D">…but momentum is fading. A warning.</text>
+      </svg>
+    </div>
+    <figcaption><b>The tell beneath the surface.</b> Price prints a higher high while the RSI prints a <em>lower</em> high — the rally is rising on weakening momentum. This “bearish divergence” often precedes a reversal, and it's the single most prized signal these momentum tools provide. It is still only a probability.</figcaption>
+  </figure>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">“Overbought” is not a sell signal</span>
+    <p style="margin-bottom:0;">The most expensive RSI mistake is reflexively shorting or selling every time RSI crosses 70. In a powerful bull move, RSI can remain pinned above 70 for weeks while the stock doubles — and the trader who “sold the overbought signal” watches the rocket leave without them, or worse, shorts it and gets crushed. Strong momentum <em>stays</em> strong longer than feels reasonable. Use these levels as information about momentum, never as automatic commands.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>RSI = 100 − 100/(1+RS),</strong> RS = avg gain / avg loss; 0–100 scale. (Worked: RS 2.0 → RSI 66.7.)</li>
+      <li><strong>Above 70 = overbought, below 30 = oversold</strong> — but in strong trends these persist; not auto buy/sell.</li>
+      <li><strong>MACD</strong> = EMA₁₂ − EMA₂₆, with a 9-EMA signal line and a histogram of their difference.</li>
+      <li><strong>Divergence</strong> (price and indicator disagree) is the most useful early warning — still only probabilistic.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>If average gain = $2 and average loss = $1, compute RS and the RSI.</li>
+      <li>Why is selling the instant RSI hits 70 a costly habit in a strong uptrend?</li>
+      <li>What three components make up the MACD, and what does a positive MACD line mean?</li>
+      <li>Describe bearish divergence and why it's a warning.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 14 ===================== -->
+<section class="sheet" id="ch14" data-part="Part IV · Indicators" data-chapter="Chapter 14 · Bollinger Bands &amp; ATR">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Fourteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Bollinger Bands &amp; ATR — Measuring Volatility</h2>
+    <p class="lead">The indicators so far measured trend and momentum. These two measure <em>volatility</em> — how much price is bouncing around — which is the key to setting sensible targets and, above all, sensible stop-losses. Again, with the real math.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>Bollinger Bands — built from a moving average and standard deviation.</li>
+      <li>The “squeeze” and what band-width tells you.</li>
+      <li>The Average True Range (ATR) — and a worked calculation.</li>
+      <li>Why volatility, not prediction, is what these are for.</li>
+    </ul>
+  </div>
+  <p class="drop">Volatility is how much price moves, regardless of direction. It matters enormously: the same $1 move is huge for a calm stock and trivial for a wild one. These two indicators put a number on it.</p>
+
+  <h3><span class="subnum">14.1</span> Bollinger Bands</h3>
+  <p><strong>Bollinger Bands</strong>, devised by John Bollinger, wrap price in a channel built from a moving average and <em>standard deviation</em> (a statistical measure of spread). Three lines:</p>
+  <div class="fml">Middle band = 20-period SMA<br>Upper band = SMA + (2 &times; standard deviation)<br>Lower band = SMA &minus; (2 &times; standard deviation)</div>
+  <p>Because the bands are set two standard deviations from the average, price stays <em>inside</em> them most of the time (statistically, about 95% for normally-distributed data). Let's compute the bands given a 20-day SMA of <b>$100</b> and a standard deviation of <b>$4</b>:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Bollinger Bands</span>
+    Middle band = <b>$100.00</b> &nbsp;<span class="r">(the 20-day SMA)</span><br>
+    2 &times; std dev = 2 &times; 4 = <b>8</b>
+    <hr>
+    Upper band = 100 + 8 = <b>$108.00</b><br>
+    Lower band = 100 &minus; 8 = <b>$92.00</b>
+    <hr>
+    <span class="r">Price will spend most of its time between $92 and $108. The bands automatically widen when volatility (std dev) rises and pinch in when it falls — so the channel itself is a volatility gauge.</span>
+  </div>
+  <p>Two common readings: when price tags the upper band it's <em>relatively</em> high (and vice versa) — but, exactly like RSI, “riding the band” can persist in a strong trend, so this is not an automatic sell. More useful is the <strong>squeeze</strong>: when the bands pinch very tight, volatility has collapsed — and periods of low volatility tend to be followed by a sharp expansion (a big move). The squeeze doesn't tell you <em>which way</em>, only that a move is likely coming.</p>
+
+  <h3><span class="subnum">14.2</span> The Average True Range (ATR)</h3>
+  <p>The <strong>Average True Range</strong>, another Wilder creation, measures volatility directly as the average size of a period's price range. First the “true range” (TR) of one period — the greatest of three distances, so that gaps are counted:</p>
+  <div class="fml">TR = max of: (High &minus; Low), |High &minus; prev Close|, |Low &minus; prev Close|<br>ATR = average of TR over N periods (usually 14)</div>
+  <p>Let's compute one period's TR. Today's high is <b>$53</b>, low <b>$50</b>, and yesterday's close was <b>$49</b>:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · True Range, then ATR</span>
+    High &minus; Low = 53 &minus; 50 = <b>3</b><br>
+    |High &minus; prevClose| = |53 &minus; 49| = <b>4</b><br>
+    |Low &minus; prevClose| = |50 &minus; 49| = <b>1</b>
+    <hr>
+    TR = max(3, 4, 1) = <b>$4.00</b> &nbsp;<span class="r">(the gap up from 49 made the true range bigger than the simple high−low)</span>
+    <hr>
+    <span class="r">Do this each day and average over 14 days → the ATR. If the 14-day ATR is, say, $2.50, this stock typically moves about $2.50 per day. That single number is gold for stop-losses (next).</span>
+  </div>
+
+  <h3><span class="subnum">14.3</span> Volatility, Not Prediction</h3>
+  <p>Crucially, neither of these predicts <em>direction</em> — they measure <em>magnitude</em>. That's exactly why they're so practical for <strong>risk management</strong> (Chapter 17). If a stock's ATR is $2.50, placing your stop-loss only $0.50 away is foolish — normal daily noise will stop you out for no reason. Sizing your stop relative to ATR (say, 1.5× or 2× ATR away) means you're giving the trade room to breathe through normal volatility while still capping your loss. Used this way — to <em>measure risk</em> rather than to <em>predict price</em> — volatility indicators are among the most genuinely useful tools in this entire book.</p>
+
+  <div class="box callout">
+    <span class="title">In Plain Terms · why volatility beats prediction</span>
+    <p style="margin-bottom:0;">Most of this book has warned that prediction is unreliable. Volatility indicators are refreshing because they don't pretend to predict — they measure something real and current (how much this thing moves) and let you <em>size your risk to it</em>. A trader who can't forecast direction at all can still survive and even thrive by managing volatility well: small positions in wild instruments, stops set beyond the noise, never risking more than a sliver on any one bet. That's the quiet secret of the pros — risk control, not crystal balls.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Bollinger Bands</strong> = 20-SMA ± 2 standard deviations; price stays inside most of the time. (Worked: $92–$108.)</li>
+      <li><strong>A “squeeze”</strong> (tight bands) signals low volatility, often before a big move — direction unknown.</li>
+      <li><strong>ATR</strong> averages the “true range” (which counts gaps) to measure how much price moves per period.</li>
+      <li><strong>These measure magnitude, not direction</strong> — their best use is sizing stop-losses to a stock's volatility.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Given a 20-SMA of $50 and a standard deviation of $3, compute the upper and lower Bollinger Bands.</li>
+      <li>What does a Bollinger “squeeze” tell you — and what does it <em>not</em> tell you?</li>
+      <li>Compute the true range if today's high is $30, low is $27, and yesterday's close was $25.</li>
+      <li>Why is ATR so useful for setting a stop-loss?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 15 ===================== -->
+<section class="sheet" id="ch15" data-part="Part IV · Indicators" data-chapter="Chapter 15 · Using Indicators Wisely">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Fifteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Using Indicators Wisely</h2>
+    <p class="lead">Now you know how the main indicators are built. This short, vital chapter is about not fooling yourself with them — the discipline that separates a useful toolkit from a cluttered dashboard of self-deception.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>Why all indicators are derived from price (and what that implies).</li>
+      <li>The danger of “indicator overload.”</li>
+      <li>The trap of curve-fitting and optimisation.</li>
+      <li>How to choose a small, complementary set.</li>
+    </ul>
+  </div>
+  <p class="drop">Indicators are tools, and like any tool they can build or harm depending on the hand. The errors in this chapter are subtle, common, and quietly ruinous — and avoiding them matters more than knowing ten more indicators.</p>
+
+  <h3><span class="subnum">15.1</span> They All Come From Price</h3>
+  <p>Here is a truth that reframes everything: <strong>every indicator is just a mathematical transformation of price (and sometimes volume).</strong> RSI, MACD, moving averages, Bollinger Bands — they all take the same raw price data and re-package it. This means no indicator contains <em>new</em> information; it only makes some aspect of price easier to see. It also means indicators inevitably <em>lag</em> (they're computed from prices that already happened) and that stacking many of them gives a false sense of confirmation — they're all echoing the same price, like asking five translations of one sentence and mistaking the agreement for independent evidence.</p>
+
+  <h3><span class="subnum">15.2</span> Indicator Overload</h3>
+  <p>Beginners, hungry for certainty, pile indicator upon indicator until the chart is a tangle of coloured lines — and then freeze, because the indicators inevitably contradict each other (one says buy, another sell). This <strong>indicator overload</strong> (or “analysis paralysis”) is one of the most common ways traders sabotage themselves. Since all indicators derive from price, ten of them tell you barely more than two well-chosen ones. Less is genuinely more. The seasoned trader's chart is usually <em>clean</em>.</p>
+
+  <h3><span class="subnum">15.3</span> The Curve-Fitting Trap</h3>
+  <p>The most insidious error is <strong>curve-fitting</strong> (over-optimisation). It's tempting to tweak an indicator's settings until it would have produced perfect signals on <em>past</em> data — a 13.5-day RSI with a 68.3 threshold that nailed every turn last year. But a setting tuned to fit the past almost always fails on the future, because it was fitted to that period's <em>noise</em>, not to any real, repeating behaviour. The market's randomness guarantees that with enough tweaking you can “explain” any history; that explanation has zero predictive power. Beware any system, or any seller of systems, that looks flawless in backtest. Robust beats optimal: a simple setting that works <em>okay</em> across many conditions is worth more than a perfect one fitted to one stretch of history.</p>
+
+  <h3><span class="subnum">15.4</span> Choosing a Small, Complementary Set</h3>
+  <p>The wise approach: pick a <em>few</em> indicators that measure <em>different</em> things, so each adds something the others don't. A sensible minimal kit might be one for trend (a moving average), one for momentum (RSI or MACD), and one for volatility (ATR or Bollinger Bands) — three tools answering three different questions: <em>which way, how strongly, and how wildly?</em> Adding a second momentum indicator to that set adds clutter, not insight. Combine indicators with the price-action skills of Parts I–III, keep the chart clean, and remember that the indicator is the servant of your judgement, never its replacement.</p>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">The seductive backtest</span>
+    <p style="margin-bottom:0;">Somewhere online, someone is selling an indicator or “system” with a backtest showing it turned $1,000 into $1,000,000. Assume it is curve-fitted, cherry-picked, or ignoring costs and slippage — because it almost always is. If such a system truly worked, its owner would quietly use it, not sell it to you for $99. The existence of a perfect-looking backtest is, paradoxically, evidence <em>against</em> a system, not for it. Real edges are small, fragile, and hard-won — never the stuff of miracle equity curves.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>All indicators derive from price</strong> — they add no new information and inevitably lag.</li>
+      <li><strong>Indicator overload</strong> causes contradiction and paralysis; a clean chart with a few tools beats many.</li>
+      <li><strong>Curve-fitting</strong> (tuning settings to past data) produces flawless backtests and worthless predictions.</li>
+      <li><strong>Choose a small, complementary set</strong> — trend, momentum, volatility — answering different questions.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Why does stacking many indicators give a false sense of confirmation?</li>
+      <li>What is indicator overload, and why is a clean chart usually better?</li>
+      <li>Explain curve-fitting and why a perfect backtest is a red flag.</li>
+      <li>Name a sensible three-indicator kit and the question each one answers.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== PART V DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">V</div>
+  <div class="ptag">Part Five</div>
+  <h2>Putting It Together</h2>
+  <p class="pintro">Tools are useless without a framework and a conscience. This final part turns technique into a disciplined approach, makes risk management the centre of everything, and ends with the honest truth about trading that almost no course will tell you.</p>
+  <div class="chips"><span class="chip">An approach</span><span class="chip">Risk management</span><span class="chip">The honest truth</span></div>
+</section>
+
+<!-- ===================== CH 16 ===================== -->
+<section class="sheet" id="ch16" data-part="Part V · Putting It Together" data-chapter="Chapter 16 · Building a Trading Approach">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Sixteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Building a Trading Approach</h2>
+    <p class="lead">A pile of patterns and indicators is not a plan. This chapter turns the tools of this book into a coherent, repeatable approach — and explains why having any consistent plan beats jumping between a hundred clever ideas.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>The elements of a written trading plan.</li>
+      <li>Why a defined edge and consistency matter more than any single signal.</li>
+      <li>The role of backtesting — and its honest limits.</li>
+      <li>Matching your approach to your temperament and time.</li>
+    </ul>
+  </div>
+  <p class="drop">Most people who lose at trading don't lose for lack of a good signal; they lose for lack of a plan — acting on impulse, changing strategy after every loss, risking too much on a hunch. A written, tested approach is the antidote, and building one is what separates a trader from a gambler.</p>
+
+  <h3><span class="subnum">16.1</span> A Written Trading Plan</h3>
+  <p>A trading plan is a written document answering, in advance, every decision you'll face — so you decide with a calm mind, not in the heat of a moving market. At minimum it specifies: <strong>what</strong> you trade (which markets/instruments), <strong>your edge</strong> (the specific, repeatable setup you wait for — e.g. “a bullish engulfing at a major support level on rising volume in an uptrend”), <strong>entry</strong> (exactly when you buy), <strong>exit</strong> (both your profit target <em>and</em> your stop-loss, decided before you enter), <strong>position size</strong> (how much you risk per trade — Chapter 17), and <strong>your rules</strong> (what you will and won't do). Writing it down is not bureaucracy; it's the only way to keep your future, emotional self honest.</p>
+
+  <h3><span class="subnum">16.2</span> Edge &amp; Consistency</h3>
+  <p>An <strong>edge</strong> is a setup that, over many trades, makes money <em>on average</em> — not every time, but with positive expectancy across the whole series. You don't need to be right often; you need your winners to outweigh your losers (Chapter 17's math shows how a trader right only 40% of the time can still profit handsomely). The key is <strong>consistency</strong>: applying the <em>same</em> tested edge again and again, so the law of averages can work in your favour. The trader who hops from strategy to strategy never gives any edge the sample size it needs to pay off, and never learns whether anything works.</p>
+
+  <h3><span class="subnum">16.3</span> Backtesting — and Its Limits</h3>
+  <p>Before risking money, you can <strong>backtest</strong> a plan: apply its rules to historical data and see how it would have performed. Done honestly, this builds confidence and reveals flaws cheaply. But heed Chapter 15's warning about curve-fitting, and add these traps: a backtest that ignores <em>costs</em> (commissions, the bid-ask spread, slippage) flatters itself badly; one tested on too few trades proves nothing; and the past is not the future — a strategy that worked in a calm bull market may die in a crash. Backtesting tells you a plan <em>wasn't obviously broken in the past</em>; it cannot promise the future. Treat a good backtest as a green light to test small with real money, never as a guarantee.</p>
+
+  <h3><span class="subnum">16.4</span> Match the Approach to Yourself</h3>
+  <p>There is no single “best” style; there's only what fits <em>you</em>. <strong>Day trading</strong> (in and out within a day) demands hours of screen time, fast reflexes, and an iron stomach — and has the worst odds of all (Chapter 18). <strong>Swing trading</strong> (holding days to weeks) suits those with a job and patience. <strong>Position trading</strong> and long-term <strong>investing</strong> (Books 1–4) demand the least time and have, by far, the best odds of building real wealth. Be brutally honest about your temperament, your free time, and your tolerance for stress and loss. The approach you can actually follow calmly beats the “optimal” one that makes you anxious and impulsive.</p>
+
+  <div class="box callout">
+    <span class="title">In Plain Terms · the plan is for the future you</span>
+    <p style="margin-bottom:0;">When you write your plan, you are calm and rational. When the market is crashing or rocketing, you will <em>not</em> be — fear and greed hijack the clearest mind. The written plan is a letter from your rational self to your panicking future self, saying “we already decided this; follow the rules.” Discretionary, in-the-moment decisions are where most accounts go to die. The whole point of a plan is to remove yourself from the decision at the exact moment you're least fit to make it.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>A written plan</strong> defines what you trade, your edge, entry, exit (target + stop), size, and rules — in advance.</li>
+      <li><strong>An edge plus consistency</strong> beats any single signal; you needn't be right often, just profitable on average.</li>
+      <li><strong>Backtest honestly</strong> (include costs, enough trades) — it shows a plan wasn't broken, not that it'll work.</li>
+      <li><strong>Match the style to your temperament and time</strong> — the plan you can follow calmly is the right one.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>List the core elements every trading plan should specify.</li>
+      <li>What is an “edge,” and why does consistency matter so much?</li>
+      <li>Give two ways a backtest can mislead you.</li>
+      <li>Why does the best trading style depend on the person, not the strategy alone?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 17 ===================== -->
+<section class="sheet" id="ch17" data-part="Part V · Putting It Together" data-chapter="Chapter 17 · Risk Management">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Seventeen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Risk Management — the Real Secret</h2>
+    <p class="lead">If you remember only one chapter from this book, make it this one. Professionals will tell you the truth that beginners refuse to hear: success in trading comes far more from managing risk than from predicting price. Here is the math that proves it.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>Why risk management — not prediction — is the real edge.</li>
+      <li>The stop-loss, and how to place it sensibly.</li>
+      <li>Position sizing: the 1% (or 2%) rule, worked with numbers.</li>
+      <li>Risk-reward ratio and why you can be wrong most of the time and still win.</li>
+    </ul>
+  </div>
+  <p class="drop">Every chapter so far has hedged its tools with “this is only a probability.” This is the chapter that makes peace with that uncertainty — by showing that you don't need to predict well if you manage risk well. Survival first; profit follows.</p>
+
+  <h3><span class="subnum">17.1</span> Why Risk Management Is the Edge</h3>
+  <p>Here is the counter-intuitive heart of trading: <strong>you cannot control whether any trade wins, but you can completely control how much you lose when it doesn't.</strong> A trader with mediocre signals but excellent risk control will outlast and outperform a brilliant forecaster who occasionally bets too big and blows up. The single fastest way to fail is the catastrophic loss — the one oversized position that wipes out months of gains. Risk management exists to make that impossible by design. Prediction is the part you can't control; risk is the part you can — so that's where the real edge lives.</p>
+
+  <h3><span class="subnum">17.2</span> The Stop-Loss</h3>
+  <p>A <strong>stop-loss</strong> is a predefined price at which you will exit a losing trade, no questions asked — the seatbelt of trading. Set <em>before</em> you enter, it caps your loss and removes the most dangerous moment in trading: deciding whether to sell while watching money evaporate (when fear and hope will lie to you). Place it where your trade idea is <em>proven wrong</em> — e.g. just below the support level you bought at, or beyond normal volatility using ATR (Chapter 14), not at an arbitrary round number. And once set, <strong>honour it</strong>; the deadliest habit in trading is moving a stop-loss further away to avoid taking the loss, turning a small, planned loss into an account-destroying one.</p>
+
+  <h3><span class="subnum">17.3</span> Position Sizing — the 1% Rule (Worked)</h3>
+  <p>Position sizing answers: <em>how many shares should I buy?</em> The professional's answer flows from a rule — risk only a small fixed fraction of your account on any single trade, commonly <strong>1%</strong> (conservative) or 2%. This caps the damage of any one loss and makes a losing streak survivable. The formula ties together your account, your risk rule, and your stop-loss:</p>
+  <div class="fml">Risk per trade = Account &times; risk %<br>Position size (shares) = Risk per trade &divide; (Entry price &minus; Stop price)</div>
+  <p>Let's work it fully. Account = <b>$10,000</b>; risk rule = <b>1%</b>; you buy a stock at <b>$50</b> and set your stop at <b>$48</b> (a $2 risk per share):</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Position Sizing (1% rule)</span>
+    Risk per trade = 10,000 &times; 1% = <b>$100</b> &nbsp;<span class="r">(the most you'll lose if stopped out)</span><br>
+    Risk per share = entry &minus; stop = 50 &minus; 48 = <b>$2</b>
+    <hr>
+    Position size = 100 &divide; 2 = <b>50 shares</b><br>
+    Capital deployed = 50 &times; $50 = <b>$2,500</b>
+    <hr>
+    <span class="r">You buy 50 shares ($2,500 of stock). If the stop hits at $48, you lose 50 × $2 = $100 — exactly 1% of your account, as planned. Even ten losing trades in a row would cost only ~10%, leaving you very much alive to trade on.</span>
+  </div>
+  <p>Notice what this does: it makes your loss a <em>decision</em>, not an accident. The wider your stop, the <em>fewer</em> shares you buy — so risk per trade stays fixed regardless of the stock's volatility. This one discipline, applied without exception, is what keeps professionals in the game for decades.</p>
+
+  <h3><span class="subnum">17.4</span> Risk-Reward &amp; Why You Can Be Wrong a Lot</h3>
+  <p>The <strong>risk-reward ratio</strong> compares what you're risking to what you aim to gain. If you risk $2 per share (entry $50, stop $48) to make $6 (target $56), that's a <strong>1:3</strong> risk-reward. Here's why this is liberating: with a 1:3 ratio you can be <em>wrong most of the time and still profit.</em> The math:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · Wrong 60% of the time, still winning</span>
+    Setup: risk $1 to make $3 (1:3) on each trade, over 10 trades.<br>
+    Win rate: only <b>40%</b> → 4 wins, 6 losses.
+    <hr>
+    Wins:&nbsp; 4 &times; (+$3) = <b>+$12</b><br>
+    Losses: 6 &times; (&minus;$1) = <b>&minus;$6</b>
+    <hr>
+    Net = +12 &minus; 6 = <b>+$6 profit</b> &nbsp;<span class="r">— despite losing 60% of trades!</span>
+    <hr>
+    <span class="r">This is the whole game. Cut losses short, let winners run, keep risk-reward favourable — and you don't need to be a good forecaster at all. Most beginners do the exact opposite: small wins, huge losses, and a desperate need to “be right.”</span>
+  </div>
+
+  <div class="box err">
+    <span class="htag">Watch Out</span>
+    <span class="title">The two account-killers</span>
+    <p style="margin-bottom:0;">Almost every blown-up trading account dies from one of two sins, both violations of this chapter. <strong>One: moving the stop-loss</strong> — refusing to take a small planned loss, letting it grow until it's catastrophic (the “it'll come back” lie). <strong>Two: oversizing</strong> — betting big on a “sure thing,” so a single loss does damage that dozens of wins can't repair. Neither has anything to do with chart-reading skill; both are failures of discipline. You can be the world's worst chart analyst and survive with good risk management — and the world's best and still die without it.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Risk management, not prediction, is the real edge</strong> — you control your losses, not your wins.</li>
+      <li><strong>A stop-loss</strong> set in advance (where your idea is proven wrong) caps the loss; never move it away.</li>
+      <li><strong>Position sizing (1% rule):</strong> shares = (account × 1%) ÷ (entry − stop). (Worked: 50 shares, $100 at risk.)</li>
+      <li><strong>With a 1:3 risk-reward you can be right 40% of the time and still profit</strong> — cut losses, let winners run.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>Why is risk something you can control while prediction isn't?</li>
+      <li>Where should a stop-loss be placed, and what's the deadliest thing to do with one?</li>
+      <li>Account $20,000, 2% rule, entry $100, stop $96 — how many shares, and what's the dollar risk?</li>
+      <li>Show, with numbers, how a 30% win rate can still be profitable at a 1:4 risk-reward.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 18 ===================== -->
+<section class="sheet" id="ch18" data-part="Part V · Putting It Together" data-chapter="Chapter 18 · The Honest Truth About Trading">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Eighteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">The Honest Truth About Trading</h2>
+    <p class="lead">We end where most books won't go. You've learned the tools; now you deserve the truth about what they can realistically do for you — the truth that the industry selling courses, signals and brokerage commissions has every reason to hide.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>What the evidence really says about active trader returns.</li>
+      <li>Why the odds are stacked against the short-term trader.</li>
+      <li>The psychology that beats most people.</li>
+      <li>How to use technical analysis sanely — and what most people should do instead.</li>
+    </ul>
+  </div>
+  <p class="drop">This is the most important chapter in the book, and the one I'd most want a beginner to read. Everything before it was technique; this is wisdom. Read it twice.</p>
+
+  <h3><span class="subnum">18.1</span> What the Evidence Says</h3>
+  <p>The research on active trading is remarkably consistent and remarkably grim. Across study after study, in market after market, <strong>the large majority of active day traders lose money</strong>, and only a tiny fraction are reliably profitable over the long run. Regulators in several countries now <em>require</em> brokers to display warnings that a majority of retail accounts lose money trading leveraged products — often 70–85% of them. This isn't pessimism; it's the documented base rate. The honest framing: short-term active trading is one of the hardest ways to make money that exists, and most who attempt it would have done better doing far less.</p>
+
+  <h3><span class="subnum">18.2</span> Why the Odds Are Stacked</h3>
+  <p>The deck is stacked for structural reasons, not just skill. <strong>Costs:</strong> every trade pays a spread and often a commission; trade often and these compound into a serious drag — you must beat the market by enough to cover them just to break even. <strong>Competition:</strong> on the other side of your trade are professionals with faster data, lower costs, vast resources and, increasingly, algorithms reacting in microseconds. <strong>Taxes:</strong> short-term gains are often taxed more heavily than long-term holdings. <strong>Randomness:</strong> as Chapter 1 warned, much of what looks tradeable is noise. And <strong>leverage</strong> (trading with borrowed money), heavily marketed, magnifies losses as much as gains and is the single fastest route to ruin. The amateur trades against all of this at once.</p>
+
+  <h3><span class="subnum">18.3</span> The Psychology That Beats Most People</h3>
+  <p>Even with good tools and good risk rules, the final boss is your own mind. <strong>Fear</strong> makes you cut winners too early and freeze when you should act. <strong>Greed</strong> makes you oversize, chase, and ignore your plan. <strong>Hope</strong> makes you hold losers, moving the stop you swore you'd honour. <strong>Revenge trading</strong> — trying to win back a loss immediately — turns one bad trade into ten. The market is an engine perfectly designed to exploit these instincts, and self-control under real financial pressure is far rarer and harder than any chart skill. Most people who fail at trading don't fail at analysis; they fail at managing themselves. This is why the disciplines of Chapters 16–17 matter more than every pattern in Parts II–III combined.</p>
+
+  <h3><span class="subnum">18.4</span> How to Use This Book Sanely</h3>
+  <p>So what should you actually <em>do</em> with everything you've learned? An honest set of conclusions:</p>
+  <ul>
+    <li><strong>For most people, the path to wealth is not trading at all</strong> — it's the patient, diversified, long-term investing of Books 1–4: buy good assets or low-cost index funds, keep costs and taxes low, and let compounding work over decades. The evidence overwhelmingly favours this over active trading.</li>
+    <li><strong>Technical analysis is still genuinely useful</strong> — as a way to understand market behaviour, to time entries and exits a little better, to impose discipline, and (above all) to manage risk. Used as a <em>supplement</em> to sound investing, with humility, it earns its place.</li>
+    <li><strong>If you do choose to trade, do it honestly:</strong> start with money you can truly afford to lose, paper-trade or trade tiny first, treat it partly as paid education, obey your risk rules religiously, and measure yourself against simply having bought an index fund. Many who do the honest comparison quietly go back to indexing — and are richer for it.</li>
+    <li><strong>Be deeply sceptical of anyone selling certainty</strong> — guru signals, miracle systems, “secret” patterns, get-rich-quick courses. The people who consistently make money from retail trading are mostly the ones <em>selling to</em> traders, not trading themselves.</li>
+  </ul>
+
+  <div class="box dyk">
+    <span class="htag">The Bottom Line</span>
+    <span class="title">A craft worth knowing, a humility worth keeping</span>
+    <p style="margin-bottom:0;">Technical analysis is a real craft — a useful language for reading market mood, timing, and risk. It is not a money machine, a crystal ball, or a substitute for patient investing, and anyone who tells you otherwise is selling something. Learn it for what it honestly is: a set of probabilistic tools and, most of all, a framework for managing risk. Hold it with humility, pair it with the long-term wisdom of the earlier books, protect your capital above all — and you'll be far ahead of the crowd who came chasing certainty and left poorer. That humility, more than any pattern or indicator, is the real lesson of this book.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>The evidence is clear:</strong> most active/day traders lose money; only a small minority profit over the long run.</li>
+      <li><strong>The odds are stacked</strong> by costs, professional competition, taxes, randomness and (worst) leverage.</li>
+      <li><strong>Psychology — fear, greed, hope, revenge — beats most people,</strong> which is why discipline outranks analysis.</li>
+      <li><strong>For most, patient long-term investing wins;</strong> use technical analysis as a humble supplement and protect capital first.</li>
+    </ol>
+  </div>
+  <div class="selfcheck">
+    <span class="htag">Self-Check</span>
+    <ol>
+      <li>What does the broad evidence say about the profitability of active day trading?</li>
+      <li>Name three structural reasons the odds are stacked against short-term traders.</li>
+      <li>Which four emotions most often sabotage traders, and how?</li>
+      <li>What is the sanest way for most people to build wealth, and what role should technical analysis play?</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== GLOSSARY ===================== -->
+<section class="sheet" id="glossary" data-part="Reference" data-chapter="Glossary">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Reference</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Glossary</h2>
+    <p class="lead">The working vocabulary of technical analysis, in plain language.</p>
+  </div>
+  <div class="glos">
+    <p><b>ATR (Average True Range)</b> — a volatility indicator: the average size of a period's price range (counting gaps). Used to size stop-losses.</p>
+    <p><b>Bollinger Bands</b> — a channel of a 20-period SMA ± 2 standard deviations; widens with volatility, pinches in a “squeeze.”</p>
+    <p><b>Breakout</b> — when price moves decisively through a support or resistance level; more trustworthy on heavy volume.</p>
+    <p><b>Candlestick</b> — a chart symbol showing one period's open, high, low and close; body = open-to-close, wicks = the extremes.</p>
+    <p><b>Continuation pattern</b> — a consolidation (triangle, flag, pennant) after which the prior trend usually resumes.</p>
+    <p><b>Curve-fitting</b> — over-tuning a strategy's settings to past data; produces great backtests and poor real results.</p>
+    <p><b>Divergence</b> — when an indicator disagrees with price (e.g. price higher high, RSI lower high); an early warning of fading momentum.</p>
+    <p><b>Doji</b> — a candle with almost no body (open ≈ close); signals indecision.</p>
+    <p><b>EMA (Exponential Moving Average)</b> — a moving average weighting recent prices more heavily; multiplier k = 2/(N+1).</p>
+    <p><b>Engulfing</b> — a two-candle reversal where a large candle's body swallows the previous one.</p>
+    <p><b>Gap</b> — an empty space where price leaps from one close to the next open with no trades between; usually news-driven.</p>
+    <p><b>Golden / death cross</b> — when the 50-day SMA crosses above (golden) or below (death) the 200-day SMA.</p>
+    <p><b>Hammer / hanging man</b> — same shape (small body, long lower wick): bullish after a fall, bearish after a rise.</p>
+    <p><b>Head and shoulders</b> — a reversal pattern of three peaks (middle highest); confirmed on a break of the neckline.</p>
+    <p><b>MACD</b> — momentum indicator: EMA₁₂ − EMA₂₆, with a 9-EMA signal line and a histogram of their difference.</p>
+    <p><b>Marubozu</b> — a long candle with no wicks; one side controlled the whole period.</p>
+    <p><b>Moving average</b> — a smoothed line of the last N prices, revealing the trend; inherently lags.</p>
+    <p><b>Overbought / oversold</b> — RSI above 70 / below 30; indicates stretched momentum, <em>not</em> an automatic sell/buy.</p>
+    <p><b>Position sizing</b> — deciding how many shares to buy so that a loss equals a fixed small % of the account.</p>
+    <p><b>Resistance</b> — a price “ceiling” where selling repeatedly halts a rise.</p>
+    <p><b>Risk-reward ratio</b> — the amount risked versus the amount targeted (e.g. 1:3); favourable ratios let you profit while often wrong.</p>
+    <p><b>RSI (Relative Strength Index)</b> — momentum oscillator (0–100): 100 − 100/(1+RS), RS = avg gain / avg loss.</p>
+    <p><b>SMA (Simple Moving Average)</b> — the plain average of the last N closing prices.</p>
+    <p><b>Stop-loss</b> — a predetermined exit price that caps a trade's loss; should never be moved further away.</p>
+    <p><b>Support</b> — a price “floor” where buying repeatedly halts a decline.</p>
+    <p><b>Trend</b> — the prevailing direction: uptrend (higher highs &amp; lows), downtrend (lower highs &amp; lows), or sideways.</p>
+    <p><b>Trendline</b> — a straight line connecting rising lows (uptrend) or falling highs (downtrend).</p>
+    <p><b>Volume</b> — the number of shares traded in a period; measures conviction and should confirm a move.</p>
+    <p><b>Whipsaw</b> — a false signal in a choppy market that reverses immediately, causing repeated small losses.</p>
+  </div>
+</section>
+
+<!-- ===================== SOURCES ===================== -->
+<section class="sheet" id="sources" data-part="Reference" data-chapter="Sources &amp; Further Reading">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Reference</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Sources &amp; Further Reading</h2>
+    <p class="lead">Where to verify the formulas, the conventions, and the sobering evidence — and where to go deeper.</p>
+  </div>
+
+  <h3><span class="subnum">·</span> Foundational texts</h3>
+  <div class="glos">
+    <p><b>Murphy, John J.</b> — <i>Technical Analysis of the Financial Markets.</i> The standard comprehensive reference; covers trend, patterns and indicators in depth.</p>
+    <p><b>Nison, Steve</b> — <i>Japanese Candlestick Charting Techniques.</i> The book that introduced candlesticks to Western traders; definitive on the patterns of Part II.</p>
+    <p><b>Edwards &amp; Magee</b> — <i>Technical Analysis of Stock Trends.</i> The classic origin of chart-pattern analysis (Part III).</p>
+    <p><b>Wilder, J. Welles</b> — <i>New Concepts in Technical Trading Systems.</i> The original source for the RSI and ATR formulas (Chapters 13–14).</p>
+    <p><b>Bollinger, John</b> — <i>Bollinger on Bollinger Bands.</i> The creator's own account (Chapter 14).</p>
+  </div>
+
+  <h3><span class="subnum">·</span> On the honest odds (Chapter 18)</h3>
+  <div class="glos">
+    <p><b>Barber &amp; Odean</b> — “Trading Is Hazardous to Your Wealth” and related studies, showing active individual traders underperform.</p>
+    <p><b>Barber, Lee, Liu &amp; Odean</b> — studies of Taiwanese day traders finding the large majority lose money over time.</p>
+    <p><b>Regulatory disclosures</b> — under rules such as the EU's ESMA, brokers must publish the percentage of retail accounts that lose money on leveraged products (commonly 70–85%); check any broker's own figure.</p>
+    <p><b>Malkiel, Burton</b> — <i>A Random Walk Down Wall Street.</i> The classic case for low-cost index investing over active trading.</p>
+  </div>
+
+  <h3><span class="subnum">·</span> Verifying the math</h3>
+  <div class="glos">
+    <p>Every formula in Part IV — SMA, EMA (k = 2/(N+1)), RSI, MACD, Bollinger Bands, ATR — is standard and can be cross-checked against the original sources above or any reputable financial-education reference. The worked numbers in this book were computed by hand; redo them yourself as the self-checks ask, and confirm they match. Understanding beats trusting.</p>
+    <p><b>A note on data:</b> to practise, pull free historical price data from your brokerage or public sources and recompute these indicators on a spreadsheet. Seeing an indicator built from raw prices — exactly as Chapter 12 did by hand — is the fastest way to truly understand (and stop over-trusting) it.</p>
+  </div>
+
+  <div class="box dyk" style="margin-top:1.8em;">
+    <span class="htag">Where this sits in the series</span>
+    <p style="margin-bottom:0;">This is <b>Book 5</b> of <i>Money, Mastered — The Roadmap.</i> It builds on the foundations of <b>Book 1 (Money, From Zero)</b> and <b>Book 2 (Where to Put Your Money)</b>, complements the business-analysis craft of <b>Book 4 (Fundamental Analysis)</b>, and — as Chapter 18 stresses — should always be read alongside, never instead of, the patient long-term investing those books teach. Next in the roadmap: funds, SIPs and portfolios; then derivatives, tax, psychology and safety; then building and protecting wealth.</p>
+  </div>
+</section>
+
+<!-- ::APPEND:: -->
+
+</body>
+</html>
