@@ -13,7 +13,7 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 | Stage | Book | File | Status |
 |------|------|------|--------|
 | **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | [`book1-money-from-zero.html`](book1-money-from-zero.html) · [PDF](Book1-Money-From-Zero.pdf) | ✅ Done |
-| 1 · Foundations | Book 2 — Where to Put Your Money | — | Planned |
+| **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | [`book2-where-to-put-your-money.html`](book2-where-to-put-your-money.html) · [PDF](Book2-Where-to-Put-Your-Money.pdf) | ✅ Done |
 | **2 · The Markets** | **How the Market Works** *(India, Vol. I)* | [`vol1-how-the-market-works.html`](vol1-how-the-market-works.html) · [PDF](Vol1-How-the-Market-Works.pdf) | ✅ Done |
 | 2 · The Markets | Vol. II–V (Fundamental, Technical, Funds/SIP, Derivatives/Tax) | — | Planned |
 | **3 · Wealth** | Book — Building & Protecting Wealth | — | Planned |
