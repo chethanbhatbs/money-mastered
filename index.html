@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Money, Mastered — a finance book series</title>
+<meta name="description" content="Premium, illustrated, deeply-researched finance books — self-contained HTML + print-ready PDF, every chart from real market data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F6F0E2; --ink:#1E1A15; --ink-soft:#4E483D; --faint:#8F8676;
+  --accent:#8A6A23; --accent-deep:#5E4818; --hair:#C9BFA8;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);
+  font-family:'Spectral',Georgia,serif;line-height:1.55;}
+a{color:var(--ink);}
+.wrap{max-width:1120px;margin:0 auto;padding:48px 28px 80px;}
+header.masthead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;
+  font-size:.74rem;color:var(--accent);font-weight:700;display:flex;justify-content:space-between;
+  border-bottom:1px solid var(--ink);padding-bottom:14px;margin-bottom:32px;}
+h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(2.6rem,7vw,4.6rem);
+  letter-spacing:-0.01em;line-height:1.04;margin:0 0 .25em;}
+h1 em{font-style:italic;font-weight:500;color:var(--accent-deep);}
+.lede{font-size:1.18rem;font-style:italic;color:var(--ink-soft);max-width:780px;margin:0 0 36px;}
+.hero{margin:32px 0 48px;border:1px solid var(--ink);background:#fff;padding:8px;}
+.hero img{display:block;width:100%;height:auto;}
+.disclaimer{border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 18px;
+  font-size:.95rem;color:var(--ink-soft);margin:0 0 48px;}
+.disclaimer b{color:var(--ink);}
+h2.section{font-family:'Fraunces',serif;font-weight:700;font-size:2.1rem;
+  margin:48px 0 8px;letter-spacing:-0.01em;}
+.kicker{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.18em;
+  font-size:.7rem;font-weight:700;color:var(--accent);margin:0 0 6px;}
+hr.rule{border:none;border-top:1px solid var(--ink);margin:8px 0 20px;}
+.books{display:grid;grid-template-columns:1fr;gap:18px;margin:18px 0;}
+@media(min-width:780px){.books{grid-template-columns:1fr 1fr;}}
+.book{border:1px solid var(--ink);background:#fff;padding:22px 24px;display:flex;
+  flex-direction:column;}
+.book .stage{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--accent);font-weight:700;}
+.book h3{font-family:'Fraunces',serif;font-weight:700;font-size:1.45rem;margin:.25em 0 .15em;
+  letter-spacing:-0.005em;}
+.book .blurb{font-size:.98rem;color:var(--ink-soft);flex-grow:1;margin:.3em 0 1em;}
+.book .meta{font-family:'Archivo',sans-serif;font-size:.72rem;color:var(--faint);
+  letter-spacing:.06em;margin-bottom:14px;}
+.book .actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn{font-family:'Archivo',sans-serif;font-size:.74rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;text-decoration:none;padding:9px 14px;border:1px solid var(--ink);
+  display:inline-flex;align-items:center;gap:6px;background:#fff;color:var(--ink);
+  transition:background .15s,color .15s;}
+.btn:hover{background:var(--ink);color:#fff;}
+.btn.primary{background:var(--ink);color:#fff;}
+.btn.primary:hover{background:var(--accent);border-color:var(--accent);}
+.btn.muted{color:var(--faint);border-color:var(--hair);background:transparent;cursor:default;}
+.btn.muted:hover{background:transparent;color:var(--faint);}
+.notes{margin-top:48px;font-size:.95rem;color:var(--ink-soft);}
+.notes p{margin:.4em 0;}
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--ink);
+  font-family:'Archivo',sans-serif;font-size:.7rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--faint);display:flex;justify-content:space-between;}
+.pill{display:inline-block;background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px;
+  font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.14em;font-weight:700;
+  text-transform:uppercase;vertical-align:middle;margin-left:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <span>Money, Mastered · The Roadmap</span>
+  <span>A finance book series · 5 books · 600+ pages</span>
+</header>
+
+<h1>Money, <em>Mastered</em></h1>
+<p class="lede">Premium, illustrated, deeply-researched finance books. Each is a single self-contained HTML file with a matching print-ready PDF. Every chart is real market data. Every formula has a worked calculation. Every chapter has objectives and a self-check.</p>
+
+<div class="hero">
+  <img src="docs/images/hero.png" alt="Sample pages — Book 5 cover, Book 1's real S&amp;P 500 hockey-stick, the 2020 golden cross on real SPY data, and Book 4's cover.">
+</div>
+
+<div class="disclaimer">
+  <b>⚠️ Education, not advice.</b> These books teach how money, markets and investing work in principle. They are <b>not</b> investment advice and recommend no specific security or product. Markets carry real risk including loss of capital; no return is guaranteed. Figures are illustrative. Verify current rules/figures for your country and situation, and consult a licensed/fiduciary professional before acting.
+</div>
+
+<p class="kicker">The Roadmap</p>
+<h2 class="section">The Series</h2>
+<hr class="rule"/>
+<p style="color:var(--ink-soft);font-size:.98rem;max-width:780px;">Read in order; each book stands on the one before it. Click <b>Read in browser</b> for the rich HTML edition (recommended), or <b>Download PDF</b> for print and offline.</p>
+
+<div class="books">
+
+  <div class="book">
+    <span class="stage">Stage 1 · Foundations · Global</span>
+    <h3>Book 1 — Money, From Zero</h3>
+    <div class="meta">66 pages · ~17,400 words · 11 figures</div>
+    <p class="blurb">What money is, why fiat works, inflation as a silent tax, savings vs investing, compounding (with a real 95-year S&amp;P 500 chart and the actual FV formula), risk &amp; reward, the order of operations.</p>
+    <div class="actions">
+      <a class="btn primary" href="book1-money-from-zero.html">Read in browser</a>
+      <a class="btn" href="Book1-Money-From-Zero.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="book">
+    <span class="stage">Stage 1 · Foundations · Global</span>
+    <h3>Book 2 — Where to Put Your Money</h3>
+    <div class="meta">63 pages · ~20,000 words · 14 figures</div>
+    <p class="blurb">Cash, bonds (with see-saw math), stocks, funds (a 1% fee costs ~22% of a 30-year pot — worked), property, gold, diversification, dollar-cost averaging (worked).</p>
+    <div class="actions">
+      <a class="btn primary" href="book2-where-to-put-your-money.html">Read in browser</a>
+      <a class="btn" href="Book2-Where-to-Put-Your-Money.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="book">
+    <span class="stage">Stage 2 · The Markets · India edition (₹)</span>
+    <h3>Book 3 — How the Market Works</h3>
+    <div class="meta">121 pages · ~35,000 words · 33 figures · real Nifty &amp; Reliance charts</div>
+    <p class="blurb">The company, the share, IPOs, exchanges, the order book, SEBI, depositories, clearing &amp; settlement (T+1), brokers, indices (with worked free-float calc), the itemised true cost of a ₹50,000 trade.</p>
+    <div class="actions">
+      <a class="btn primary" href="vol1-how-the-market-works.html">Read in browser</a>
+      <a class="btn" href="Vol1-How-the-Market-Works.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="book">
+    <span class="stage">Stage 2 · The Markets · Global</span>
+    <h3>Book 4 — Fundamental Analysis</h3>
+    <div class="meta">94 pages · ~25,000 words · 18 figures · real Apple FY2023 case</div>
+    <p class="blurb">Income statement, balance sheet, cash flow, P/E and DCF, DuPont, moats, margin of safety, and a real worked Apple FY2023 analysis using actual SEC data.</p>
+    <div class="actions">
+      <a class="btn primary" href="book4-fundamental-analysis.html">Read in browser</a>
+      <a class="btn" href="Book4-Fundamental-Analysis.pdf">Download PDF</a>
+    </div>
+  </div>
+
+  <div class="book" style="grid-column:1/-1;border-width:2px;">
+    <span class="stage">Stage 2 · The Markets · Global <span class="pill">Newest</span></span>
+    <h3>Book 5 — Technical Analysis</h3>
+    <div class="meta">250 pages · 42 chapters · ~53,300 words · 32 real charts · Python companion · 60+ exercises</div>
+    <p class="blurb">The encyclopedic volume. Foundations · candlesticks (every pattern on real scanned market data) · chart patterns · indicators with the full math · risk management · six historical case studies (1929/1987/2000/2008/2020/2022) · the deep schools (Dow/Wyckoff/Elliott/Ichimoku/P&amp;F) · harmonic patterns · volume profile · alternative chart types · backtesting done properly · a 60+ exercise workbook with full answer keys · a Python companion with code for every indicator.</p>
+    <div class="actions">
+      <a class="btn primary" href="book5-technical-analysis.html">Read in browser</a>
+      <a class="btn" href="Book5-Technical-Analysis.pdf">Download PDF (5.7 MB)</a>
+    </div>
+  </div>
+
+  <div class="book">
+    <span class="stage">Stage 2 · Planned</span>
+    <h3>Book 6 — Funds, SIPs &amp; Portfolios</h3>
+    <div class="meta">Planned</div>
+    <p class="blurb">Portfolio construction, asset allocation, the rebalancing discipline, factor investing, fund selection, SIPs.</p>
+    <div class="actions"><a class="btn muted">Coming soon</a></div>
+  </div>
+
+  <div class="book">
+    <span class="stage">Stage 2 · Planned</span>
+    <h3>Book 7 — Derivatives, Tax, Psychology &amp; Safety</h3>
+    <div class="meta">Planned</div>
+    <p class="blurb">Futures, options, hedging, the behavioural traps that bleed accounts, taxes, fraud and scam recognition.</p>
+    <div class="actions"><a class="btn muted">Coming soon</a></div>
+  </div>
+
+  <div class="book">
+    <span class="stage">Stage 3 · Planned</span>
+    <h3>Book 8 — Building &amp; Protecting Wealth</h3>
+    <div class="meta">Planned</div>
+    <p class="blurb">The long-term wealth playbook: net worth, estate planning, insurance, taxes, generational thinking.</p>
+    <div class="actions"><a class="btn muted">Coming soon</a></div>
+  </div>
+
+</div>
+
+<p class="kicker">Companion Volumes</p>
+<h2 class="section">Big-Picture Reads</h2>
+<hr class="rule"/>
+
+<div class="books">
+  <div class="book">
+    <span class="stage">Global · Encyclopedia</span>
+    <h3>The Complete Money</h3>
+    <div class="meta">143 pages · panoramic overview</div>
+    <p class="blurb">A visual encyclopedia of finance, wealth and economics — history, money, banking, markets, crises, investing, behavioural finance, all in one panoramic volume.</p>
+    <div class="actions">
+      <a class="btn primary" href="the-complete-money.html">Read in browser</a>
+      <a class="btn" href="The-Complete-Money.pdf">Download PDF</a>
+    </div>
+  </div>
+  <div class="book">
+    <span class="stage">India · Overview</span>
+    <h3>The Stock Market, From Scratch</h3>
+    <div class="meta">88 pages · single-volume overview (₹)</div>
+    <p class="blurb">An express tour of the Indian stock market in one book — exchanges, regulators, the trading day, basic analysis, and how the system fits together.</p>
+    <div class="actions">
+      <a class="btn primary" href="stock-market-india.html">Read in browser</a>
+      <a class="btn" href="The-Stock-Market-From-Scratch.pdf">Download PDF</a>
+    </div>
+  </div>
+</div>
+
+<p class="kicker">About</p>
+<h2 class="section">The Design</h2>
+<hr class="rule"/>
+<div class="notes">
+  <p><b>Broadsheet editorial style.</b> Fraunces (display) + Spectral (text) + Archivo (small-caps furniture); ink-on-warm-paper with a single gold accent. No drop-shadows, no rounded "cards", no generic SaaS look — the visual language of a serious printed broadsheet, on screen.</p>
+  <p><b>Real charts.</b> Every market chart in Book 5 is built from real OHLC data — S&amp;P 500, AAPL, NFLX, META, TSLA, Nifty 50, Reliance — rendered through <code>mplfinance</code> against the data. Every figure is independently verifiable; the back of Book 5 lists every chart with instrument and date range.</p>
+  <p><b>Real math.</b> Every formula is followed by a worked numeric calculation. Compound growth, real return (Fisher), expense-ratio drag, position-sizing (1% rule), Bollinger Bands, ATR, RSI, MACD, Ichimoku — all computed by hand and shown.</p>
+  <p><b>Real depth.</b> Book 5 alone is 42 chapters in 10 parts, with case studies of the 1929, 1987, 2000, 2008, 2020 and 2022 episodes on actual price data, a 60+ exercise workbook with full answer keys, and a Python companion shipping code for every indicator.</p>
+</div>
+
+<footer>
+  <span>Money, Mastered · The Roadmap</span>
+  <span>Education, not advice.</span>
+</footer>
+
+</div>
+</body>
+</html>

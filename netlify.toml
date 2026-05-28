@@ -1,0 +1,26 @@
+# Netlify configuration for Money, Mastered
+# Static-site deploy — no build step needed; the HTML files are already self-contained.
+
+[build]
+  publish = "."
+  command = ""
+
+# Send the right cache headers so re-deploys reflect quickly while the
+# big PDFs stay cached for repeat readers.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=300, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/pdf"
+
+[[headers]]
+  for = "/docs/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

@@ -69,11 +69,20 @@ Each HTML book becomes one-click previewable in any browser via either:
   `https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html`
 
 ### If you want a permanent public URL while keeping the repo private
-Two ways:
-- **GitHub Pages on a paid plan.** Pages can serve private repos on the **Pro / Team / Enterprise** tiers. Settings → Pages → Source = `main` / root. Files then live at `https://chethanbhatbs.github.io/money-mastered/book5-technical-analysis.html`.
-- **Deploy to Netlify, Vercel or Cloudflare Pages** (all have free tiers, all support deploying from a private repo). Each gives you a public URL like `https://money-mastered.netlify.app/book5-technical-analysis.html`.
 
-A simple Netlify/Cloudflare deploy is the cleanest path if you want public read-only browser links without changing repo visibility.
+**Everything is already configured.** This repo contains `index.html` (a styled landing page listing every book), plus `netlify.toml`, `_headers`, and `_redirects` that both Netlify and Cloudflare Pages auto-detect. You just need to click through one deploy flow:
+
+→ **[See DEPLOY.md for step-by-step instructions](DEPLOY.md)** (Cloudflare Pages, Netlify, GitHub Pages, or just make it public — all four options documented).
+
+The recommended path — **Cloudflare Pages** — takes about three minutes and gives you a permanent URL like:
+
+```
+https://money-mastered.pages.dev/
+https://money-mastered.pages.dev/book5             (short alias)
+https://money-mastered.pages.dev/Book5-Technical-Analysis.pdf
+```
+
+Every `git push` to `main` auto-redeploys.
 
 ---
 

@@ -1,0 +1,13 @@
+# Headers for Cloudflare Pages / Netlify static deployment
+
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/*.pdf
+  Cache-Control: public, max-age=86400
+  Content-Type: application/pdf
+
+/docs/images/*
+  Cache-Control: public, max-age=604800
