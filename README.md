@@ -18,23 +18,23 @@
 
 The flagship effort is a progressive, beginner-to-confident series. Read in order; each book stands on the one before it. The series is published as **HTML (best reading experience)** and **PDF (print/offline)**.
 
-| Stage | Book | Pages | View HTML | Download PDF | Status |
-|---|---|---:|---|---|---|
-| **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | 66 | [Open](book1-money-from-zero.html) | [Book1-Money-From-Zero.pdf](Book1-Money-From-Zero.pdf) | ✅ Done |
-| **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | 63 | [Open](book2-where-to-put-your-money.html) | [Book2-Where-to-Put-Your-Money.pdf](Book2-Where-to-Put-Your-Money.pdf) | ✅ Done |
-| **2 · The Markets** | **Book 3 — How the Market Works** *(India edition)* | 121 | [Open](vol1-how-the-market-works.html) | [Vol1-How-the-Market-Works.pdf](Vol1-How-the-Market-Works.pdf) | ✅ Done |
-| **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | 94 | [Open](book4-fundamental-analysis.html) | [Book4-Fundamental-Analysis.pdf](Book4-Fundamental-Analysis.pdf) | ✅ Done |
-| **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **250** | [Open](book5-technical-analysis.html) | [Book5-Technical-Analysis.pdf](Book5-Technical-Analysis.pdf) | ✅ Done |
-| 2 · The Markets | Book 6 — Funds, SIPs & Portfolios | — | — | — | Planned |
-| 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | — | — | Planned |
-| **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | — | — | Planned |
+|  | Stage | Book | Pages | View HTML | Download PDF |
+|---|---|---|---:|---|---|
+| <img src="docs/images/book1-cover.png" width="80"/> | **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | 66 | [Open](book1-money-from-zero.html) | [PDF](Book1-Money-From-Zero.pdf) |
+| <img src="docs/images/book2-cover.png" width="80"/> | **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | 63 | [Open](book2-where-to-put-your-money.html) | [PDF](Book2-Where-to-Put-Your-Money.pdf) |
+| <img src="docs/images/book3-cover.png" width="80"/> | **2 · The Markets** | **Book 3 — How the Market Works** *(India edition)* | 121 | [Open](vol1-how-the-market-works.html) | [PDF](Vol1-How-the-Market-Works.pdf) |
+| <img src="docs/images/book4-cover.png" width="80"/> | **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | 94 | [Open](book4-fundamental-analysis.html) | [PDF](Book4-Fundamental-Analysis.pdf) |
+| <img src="docs/images/book5-cover.png" width="80"/> | **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **264** | [Open](book5-technical-analysis.html) | [PDF](Book5-Technical-Analysis.pdf) |
+| — | 2 · The Markets | Book 6 — Funds, SIPs & Portfolios | — | *Planned* | — |
+| — | 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | *Planned* | — |
+| — | **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | *Planned* | — |
 
 ### Companion volumes
 
-| Book | Pages | View HTML | Download PDF | Notes |
-|---|---:|---|---|---|
-| **The Complete Money** — A Visual Encyclopedia of Finance, Wealth & Economics *(global)* | 143 | [Open](the-complete-money.html) | [The-Complete-Money.pdf](The-Complete-Money.pdf) | Big-picture panorama: history, economics, crises, investing, psychology |
-| **The Stock Market, From Scratch** *(India, one-book overview)* | 88 | [Open](stock-market-india.html) | [The-Stock-Market-From-Scratch.pdf](The-Stock-Market-From-Scratch.pdf) | Express overview of the Indian market |
+|  | Book | Pages | View HTML | Download PDF | Notes |
+|---|---|---:|---|---|---|
+| <img src="docs/images/complete-money-cover.png" width="80"/> | **The Complete Money** — A Visual Encyclopedia of Finance, Wealth & Economics *(global)* | 143 | [Open](the-complete-money.html) | [PDF](The-Complete-Money.pdf) | Big-picture panorama: history, economics, crises, investing, psychology |
+| <img src="docs/images/stock-market-india-cover.png" width="80"/> | **The Stock Market, From Scratch** *(India, one-book overview)* | 88 | [Open](stock-market-india.html) | [PDF](The-Stock-Market-From-Scratch.pdf) | Express overview of the Indian market |
 
 ---
 
@@ -92,7 +92,7 @@ Every `git push` to `main` auto-redeploys.
 
 Broadsheet editorial style — Fraunces (display), Spectral (text), Archivo (furniture); ink-on-warm-paper with a single gold accent; original vector diagrams **plus** real rendered charts (using `mplfinance` against real market data); photographs used under free licences (Wikimedia Commons), embedded as base64. Each chapter carries learning objectives and a self-check; each book includes a glossary and concept index.
 
-**Book 5 (Technical Analysis)** is the largest in the series at **250 pages, 42 chapters in 10 parts, ~53,300 words, 32 real charts** built from real market data (S&P 500, AAPL, NFLX, META, TSLA, Nifty 50, Reliance Industries). Every figure is independently verifiable (the back of the book lists every chart, instrument and date range) and the Python code to reproduce every indicator is included in a Companion chapter.
+**Book 5 (Technical Analysis)** is the largest in the series at **264 pages, 45 chapters across 10 parts + 3 reference appendices, ~56,100 words, 38 real charts** built from real market data (S&P 500, AAPL, NFLX, META, TSLA, Nifty 50, Reliance Industries). Every figure is independently verifiable (the Charts Index back-matter lists every chart, instrument and date range). The book ships a Python companion (Ch 38) with code for every indicator, a 60+ exercise workbook (Ch 37) with full answer keys, a Common Mistakes appendix (Ch 43), and a Quick Reference Card (Ch 44) distilling every formula and rule onto a single chapter.
 
 ---
 
