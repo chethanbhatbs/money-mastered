@@ -35,3 +35,6 @@ insert_images.py
 .chartenv/
 chartdata/
 charts/
+!docs/
+!docs/images/
+!docs/images/*.png
