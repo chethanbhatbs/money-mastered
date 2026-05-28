@@ -393,6 +393,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <li><a href="#ch10">10 · Goal-Based Investing &amp; Steady Investing</a><span class="pg">10</span></li>
     <li><a href="#ch11">11 · How to Actually Start</a><span class="pg">11</span></li>
   </ol>
+  <div class="prow">Part V · Going Deeper</div>
+  <ol>
+    <li><a href="#ch12">12 · Bonds, in Depth</a><span class="pg">12</span></li>
+    <li><a href="#ch13">13 · Alternative Assets, in Depth</a><span class="pg">13</span></li>
+    <li><a href="#ch14">14 · The Empirical Case for Indexing</a><span class="pg">14</span></li>
+  </ol>
   <div class="prow">Back Matter</div>
   <ol>
     <li><a href="#glossary">Glossary</a><span class="pg">A</span></li>
@@ -1390,6 +1396,232 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     </ol>
   </div>
 </section>
+
+
+<!-- ===================== PART V DIVIDER ===================== -->
+<section class="divider">
+  <div class="big">V</div>
+  <div class="ptag">Part Five</div>
+  <h2>Going Deeper — Bonds, Alternatives, and the Case for Indexing</h2>
+  <p class="pintro">The first four parts of this book introduced every major asset class at a beginner-friendly level. This part goes deeper on three topics that reward extra study: how bonds actually price (the math of duration and credit spreads); what the alternative-asset world looks like beyond the basics (REITs, hedge funds, private equity, commodities); and the empirical case for low-cost index investing — the strongest evidence in personal finance.</p>
+  <div class="chips"><span class="chip">Bonds in depth</span><span class="chip">Alternatives</span><span class="chip">Indexing evidence</span></div>
+</section>
+
+<!-- ===================== CH 12 — BONDS IN DEPTH ===================== -->
+<section class="sheet" id="ch12" data-part="Part V · Going Deeper" data-chapter="Chapter 12 · Bonds, in Depth">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Twelve</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Bonds, in Depth</h2>
+    <p class="lead">Chapter 4 introduced bonds — fixed-income loans you make to a government or company. This chapter goes deeper into the math that determines bond prices, the duration concept that explains how sensitive a bond is to interest-rate moves, credit spreads, and the yield curve. The numbers matter; once you can read them, you'll understand what bond markets are actually telling you.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>How bond prices respond to interest-rate changes — the duration concept.</li>
+      <li>Convexity — why the response isn't linear.</li>
+      <li>Credit spreads — the extra yield for credit risk.</li>
+      <li>The yield curve and what its shape means.</li>
+    </ul>
+  </div>
+
+  <h3><span class="subnum">12.1</span> Duration — the Sensitivity Measure</h3>
+  <p>Recall Chapter 4's bond see-saw: when interest rates rise, bond prices fall, and vice versa. But by <em>how much</em>? The answer depends on <strong>duration</strong> — a measure of a bond's interest-rate sensitivity, expressed in years.</p>
+  <p>The rough rule: <strong>for each 1% (100 basis-point) move in interest rates, a bond's price moves by approximately its duration in percent, in the opposite direction.</strong> A 10-year duration bond loses about 10% if rates rise 1%; a 2-year duration bond loses about 2%. Long bonds are much more rate-sensitive than short bonds.</p>
+  <div class="fml">Approximate % price change &asymp; − Duration &times; ΔInterest rate</div>
+  <div class="calc">
+    <span class="ct">Worked Calculation · duration in practice</span>
+    A 10-year Treasury bond with a duration of ~9 years.<br>
+    Rates rise 100 basis points (1.0%).
+    <hr>
+    Approximate price change = −9 &times; 1.0% = <b>−9%</b>
+    <hr>
+    <span class="r">This is why long bonds got crushed in 2022 — the rate rise from ~1.5% to ~4.5% on the 10-year (300 bp) produced bond-fund losses of around 25–30% on the long end. The same calc: −9 × 3.0% = −27%.</span>
+  </div>
+
+  <h3><span class="subnum">12.2</span> Convexity — the Curve in the Line</h3>
+  <p>The duration rule is approximate because the relationship isn't perfectly linear — it's slightly curved (convex). When rates fall, bond prices rise <em>more</em> than the linear approximation predicts; when rates rise, prices fall <em>less</em> than predicted. The curvature is the bond's <strong>convexity</strong>. For most retail investors, the convexity correction is small enough to ignore (the duration approximation is good to within a percent or two for moves of less than ~100 bp). For institutional bond traders managing leveraged positions, convexity matters and is measured carefully.</p>
+
+  <h3><span class="subnum">12.3</span> Credit Spreads — the Extra Yield for Risk</h3>
+  <p>A US Treasury 10-year bond yields, say, 4.2%. A 10-year corporate bond from a solid investment-grade company yields, say, 5.4%. A 10-year high-yield ("junk") corporate bond yields, say, 7.8%. The differences — 120 basis points (corporate spread) and 360 basis points (high-yield spread) — are the <strong>credit spreads</strong>. They compensate the bond buyer for the additional risk that the corporate issuer might default.</p>
+  <p>Credit spreads move with the economic cycle. In good times, spreads compress (investors take more risk for less compensation). In crises, spreads blow out — during the 2008 financial crisis, high-yield spreads peaked above 1,800 basis points. Watching credit spreads is one of the best ways to gauge financial-system stress in real time.</p>
+
+  <h3><span class="subnum">12.4</span> The Yield Curve</h3>
+  <p>Plot the yields of US Treasury bonds across different maturities — 3-month, 2-year, 5-year, 10-year, 30-year — and connect them. You get the <strong>yield curve</strong>. Three shapes are typical:</p>
+  <ul>
+    <li><strong>Normal (upward-sloping).</strong> Long rates higher than short rates. Reflects compensation for time and inflation. The most common shape, observed roughly 85% of the time.</li>
+    <li><strong>Flat.</strong> Long and short rates similar. Often a transition shape between normal and inverted.</li>
+    <li><strong>Inverted (downward-sloping).</strong> Short rates higher than long rates. Implies markets expect short rates to fall — usually because they expect a recession. Every US recession since the 1960s has been preceded by an inversion (typically the 10y/2y or 10y/3m spread), usually 6–24 months ahead.</li>
+  </ul>
+  <p>The yield curve is among the most-studied leading indicators in macroeconomics. The Federal Reserve Bank of New York publishes a recession-probability model based on the 10y/3m spread; it has called every recession in living memory.</p>
+
+  <h3><span class="subnum">12.5</span> Bond Strategies for Individual Investors</h3>
+  <p>For most individual investors, the path of least resistance is a <strong>broad bond index fund</strong> — typically tracking the Bloomberg US Aggregate Bond Index or its equivalent. These hold thousands of bonds across maturities and credit quality; the diversification reduces single-issuer risk to essentially zero. Expense ratios for these funds are typically 0.03–0.10% — extremely low.</p>
+  <p>For those who want more control, a <strong>bond ladder</strong> (buying bonds with maturities at regular intervals — say, 1, 2, 3, 4, 5 years out, then reinvesting each maturing bond at the long end) provides predictable income and lower interest-rate sensitivity than a single long bond.</p>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Duration</strong> measures interest-rate sensitivity. Approximate price change ≈ −duration × rate change.</li>
+      <li><strong>Convexity</strong> is the second-order correction; small for retail purposes.</li>
+      <li><strong>Credit spreads</strong> compensate for default risk; they expand in crises and are a real-time stress gauge.</li>
+      <li><strong>The yield curve</strong>'s shape reveals expectations; inversions have preceded every modern US recession.</li>
+      <li><strong>For most retail investors</strong>, a broad bond index fund is the easiest exposure.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 13 — ALTERNATIVE ASSETS ===================== -->
+<section class="sheet" id="ch13" data-part="Part V · Going Deeper" data-chapter="Chapter 13 · Alternative Assets, in Depth">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Thirteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Alternative Assets, in Depth</h2>
+    <p class="lead">Chapter 8 introduced "alternatives" briefly. This chapter goes deeper into REITs, commodities, hedge funds, and private equity — what they actually are, when they make sense, and (importantly) when they don't.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>REITs — real-estate investing without owning property directly.</li>
+      <li>Commodities — gold, oil, agricultural; what role they actually play.</li>
+      <li>Hedge funds — what they actually do, what they actually cost.</li>
+      <li>Private equity — the institutional asset class most retail investors can't access.</li>
+    </ul>
+  </div>
+
+  <h3><span class="subnum">13.1</span> REITs — Real Estate Without the Mortgage</h3>
+  <p>A <strong>REIT</strong> (Real Estate Investment Trust) is a company that owns and operates income-producing real estate. Buying a REIT share is like owning a slice of a diversified property portfolio — apartments, malls, office buildings, data centres, warehouses, hospitals — without the burdens of being a landlord. By law, REITs must distribute at least 90% of taxable income as dividends, which makes them income-heavy investments with yields typically 3–6%.</p>
+  <p>REITs combine some characteristics of stocks (they trade on exchanges; their prices move daily) and some of real estate (their returns depend on rents and property values over the long run). For an individual investor with neither the capital nor the inclination to buy investment property, a broad REIT index fund (e.g., VNQ in the US) is the simplest exposure.</p>
+
+  <h3><span class="subnum">13.2</span> Commodities</h3>
+  <p>Commodities are physical raw materials — gold, silver, oil, natural gas, copper, agricultural products. Their long-term real return is roughly zero: they don't generate cash flows like stocks or interest like bonds; their nominal price tends to track inflation, no more. <em>So why hold them?</em></p>
+  <ul>
+    <li><strong>Inflation hedge.</strong> Commodities tend to outperform during inflationary periods (1970s, briefly 2021–22). They can diversify away from financial-asset declines during stagflation.</li>
+    <li><strong>Portfolio diversification.</strong> Commodities often have low correlation with stocks; adding a small commodity sleeve can reduce overall portfolio volatility.</li>
+    <li><strong>Specific shocks.</strong> Geopolitical disruptions (Middle East wars, Russia-Ukraine 2022) spike oil prices; commodities are the most direct exposure to these.</li>
+  </ul>
+  <p>The most practical commodity exposure for retail is a <strong>broad commodity ETF</strong> (e.g., DBC, GSG) or — more narrowly — a gold ETF (GLD, IAU). Beware: most commodity ETFs hold futures contracts, not the physical commodity, so they suffer from contango (Book 5 Ch 41) — the chronic underperformance of the futures roll. Read the prospectus.</p>
+
+  <h3><span class="subnum">13.3</span> Hedge Funds — the Reality vs. the Reputation</h3>
+  <p>"Hedge fund" is a loose term covering a vast range of investment strategies: long-short equity, global macro, event-driven, distressed debt, quantitative arbitrage, and many more. What unites them is the legal structure: lightly-regulated private investment vehicles open only to accredited investors (typically requiring $1m+ net worth or $200k+ income).</p>
+  <p>Two empirical facts everyone considering hedge funds should know:</p>
+  <ol>
+    <li><strong>Most hedge funds underperform a simple index after fees.</strong> The classic fee structure — "2 and 20" (2% management fee plus 20% of profits) — is brutally expensive. Studies by economists (Ilia Dichev, Gwen Yu, Simon Lack) show the average hedge-fund investor's <em>realised</em> return — accounting for entry timing, fund failures, and survivorship bias — has been roughly equivalent to a simple bond portfolio.</li>
+    <li><strong>The performance dispersion is enormous.</strong> The best hedge funds (Renaissance Medallion, Citadel, Millennium) deliver extraordinary returns. The worst go to zero. Picking the winners in advance is essentially impossible for retail; even institutional allocators with massive due-diligence resources frequently fail.</li>
+  </ol>
+  <p>The honest practical takeaway: hedge funds are mostly not worth it for retail investors. The accredited-investor minimums exclude most people anyway; for those above the line, the average expected outcome is worse than just buying VTI or a 60/40 portfolio.</p>
+
+  <h3><span class="subnum">13.4</span> Private Equity</h3>
+  <p>Private equity (PE) funds buy whole companies (or significant stakes), hold them privately for 5–10 years, restructure or grow them, then exit via sale or IPO. The headline returns of top PE funds (Blackstone, KKR, Carlyle, etc.) often look impressive — high teens to low twenties annualised — and the asset class is enormous (~$10 trillion in commitments).</p>
+  <p>For retail investors there are two problems. First, <strong>access</strong>: PE funds typically have $10m+ minimums and 10-year lockups. Second, <strong>the reported returns are misleading</strong>: PE valuations are infrequent and smoothed (you don't see your fund's NAV bounce around like a public stock), which makes the reported volatility artificially low and the reported Sharpe artificially high. Adjusted for the illiquidity premium and the actual mark-to-market, PE's risk-adjusted returns have been only modestly above the public-equity market, and the recent vintage (2019–2022 deals) face headwinds from rising rates.</p>
+  <p>Retail PE access has grown via "interval funds" and PE ETFs, but these typically wrap secondary-market holdings of PE securities (and the underlying liquidity problem doesn't go away — it just gets repackaged). The honest verdict: PE is mostly an institutional asset class. For retail, public-equity exposure remains the more reliable path.</p>
+
+  <h3><span class="subnum">13.5</span> When Alternatives Make Sense</h3>
+  <p>For most retail investors, the answer is "in modest doses, if at all." A reasonable maximum allocation to <em>all</em> alternatives combined might be 10-20% of the portfolio. Within that:</p>
+  <ul>
+    <li><strong>REITs:</strong> sensible inclusion for the income exposure and the diversification away from pure equity beta. 5-10% is normal.</li>
+    <li><strong>Gold:</strong> a small allocation (5%) as an inflation hedge and crisis insurance is defensible.</li>
+    <li><strong>Broad commodities:</strong> 5% if you want explicit inflation-hedging exposure; can be skipped.</li>
+    <li><strong>Hedge funds, private equity:</strong> only if you're an accredited investor with specific reasons; even then, modest sizing.</li>
+  </ul>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>REITs</strong> give you real-estate exposure without being a landlord; income-heavy with 3-6% yields.</li>
+      <li><strong>Commodities</strong> have zero real return long-term; their use is inflation-hedge and diversification.</li>
+      <li><strong>Hedge funds</strong> mostly underperform indices after fees; performance dispersion is huge and unpredictable.</li>
+      <li><strong>Private equity</strong> has smoothed valuations that exaggerate Sharpe; access is institutional.</li>
+      <li><strong>For most retail investors</strong>, modest REIT + small gold allocation is the sensible alternative exposure.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== CH 14 — INDEXING CASE ===================== -->
+<section class="sheet" id="ch14" data-part="Part V · Going Deeper" data-chapter="Chapter 14 · The Empirical Case for Indexing">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter Fourteen</span><span class="cline"></span></div>
+    <h2 class="chapter-title">The Empirical Case for Indexing</h2>
+    <p class="lead">The strongest evidence-based recommendation in personal finance is this: most retail investors should hold low-cost broad-market index funds and almost nothing else. The data behind this recommendation is overwhelming and has only become more so over time. This chapter lays it out.</p>
+  </div>
+  <div class="objectives">
+    <span class="htag">In this chapter you will learn</span>
+    <ul>
+      <li>What an index fund is and how it differs from active management.</li>
+      <li>The SPIVA evidence on active vs. passive over 5/10/20 years.</li>
+      <li>The math of fees compounding.</li>
+      <li>The persistent-skill problem — past performance does not predict.</li>
+      <li>The remaining honest case for some active management.</li>
+    </ul>
+  </div>
+
+  <h3><span class="subnum">14.1</span> What Index Funds Are</h3>
+  <p>An <strong>index fund</strong> mechanically holds the constituents of a published index — for example, the S&amp;P 500 (the 500 largest US companies), MSCI World (~1,500 developed-market large/mid caps), or the FTSE All-World (~4,000 global companies). The fund doesn't try to pick winners; it owns everything in the index, in proportion. Its only job is to track the index faithfully and minimise costs.</p>
+  <p><strong>Active funds</strong>, by contrast, try to beat the index by picking the stocks the manager believes will outperform. Active management requires research, analysts, traders — and therefore higher fees. Typical expense ratios: active mutual funds 0.6–1.5% per year; broad index funds 0.03–0.10%.</p>
+
+  <h3><span class="subnum">14.2</span> The SPIVA Evidence</h3>
+  <p>S&amp;P Dow Jones Indices publishes a twice-yearly study called <strong>SPIVA</strong> (S&amp;P Indices Versus Active) that compares active mutual funds against their benchmark indices. The data is consistent and remarkable. Across recent SPIVA reports:</p>
+  <ul>
+    <li>Over a <strong>1-year</strong> period, roughly 60% of large-cap US active funds underperform the S&amp;P 500.</li>
+    <li>Over <strong>5 years</strong>, roughly 80% underperform.</li>
+    <li>Over <strong>10 years</strong>, roughly 85% underperform.</li>
+    <li>Over <strong>20 years</strong>, roughly 90% underperform.</li>
+  </ul>
+  <p>The pattern is universal: the longer the time horizon, the higher the fraction that lose. The same pattern holds across small-cap, mid-cap, international, and emerging-market funds. It holds across countries; SPIVA publishes equivalent studies for Europe, Latin America, and India, with similar results.</p>
+
+  <h3><span class="subnum">14.3</span> The Math of Fees</h3>
+  <p>Why do active funds lose to indices so consistently? The dominant reason is simple: <strong>active management has positive-sum gross returns but negative-sum net returns</strong>. Before fees, the average dollar invested earns the market return (by construction). After fees, the average dollar earns less than the market, because fees subtract.</p>
+  <p>The compounding effect is stark. We worked this in Chapter 6:</p>
+  <div class="calc">
+    <span class="ct">Worked Calculation · 30 years, 1% vs 0.05% fees</span>
+    Both funds earn 8% gross. Starting amount $10,000.<br>
+    Net returns: 7.0% (active) vs 7.95% (index).
+    <hr>
+    Active value after 30 years: 10,000 × (1.07)<sup>30</sup> = <b>$76,123</b><br>
+    Index value after 30 years: 10,000 × (1.0795)<sup>30</sup> = <b>$98,860</b>
+    <hr>
+    Difference = <b>$22,737</b>, or about 23% of the index value, transferred from investor to fund.
+    <hr>
+    <span class="r">And this is before assuming the active fund underperforms gross — which on average it does. The combined drag is typically 1.5–2% per year.</span>
+  </div>
+
+  <h3><span class="subnum">14.4</span> Persistent Skill — the Holy Grail</h3>
+  <p>"But surely some managers <em>do</em> have skill?" Empirically, yes — but identifying them in advance is essentially impossible. SPIVA's <strong>persistence studies</strong> show that fund managers who are in the top quartile in one 5-year period are no more likely to be in the top quartile in the next 5-year period than a random fund. Specifically, the persistence is approximately 25% — the rate you'd expect from chance.</p>
+  <p>Some research (Fama-French, Cremers-Petajisto) identifies subtle conditions under which active management has a higher chance of success — concentrated portfolios with high active share, lower-fee structures, manager-owned strategies. But even within those filters, the average outcome is mediocre and the dispersion is wide. The realistic statement is: <em>a small minority of managers genuinely have skill, but you can't reliably identify them in advance and even if you could, fees and capacity constraints often erode the alpha.</em></p>
+
+  <h3><span class="subnum">14.5</span> The Three-Fund Portfolio</h3>
+  <p>What does the empirical evidence imply for a portfolio? The Bogleheads movement, drawing on Jack Bogle's lifelong work, proposes the <strong>three-fund portfolio</strong>:</p>
+  <ul>
+    <li><strong>US total stock market</strong> (e.g., VTI, Schwab Total Stock, equivalent).</li>
+    <li><strong>International total stock market</strong> (e.g., VXUS).</li>
+    <li><strong>Total bond market</strong> (e.g., BND).</li>
+  </ul>
+  <p>The allocation depends on age and risk tolerance — a 30-year-old might hold 70/20/10 (stocks-heavy), while a 65-year-old might hold 40/15/45 (bonds-heavy). Rebalance annually. Total expense ratio: under 0.05%. Total time required: roughly two hours a year.</p>
+  <p>The empirical data is that this simple approach has beaten the vast majority of actively managed portfolios — including most professional ones — over every 30-year period in modern market history.</p>
+
+  <h3><span class="subnum">14.6</span> The Honest Case for Some Active Management</h3>
+  <p>The case for indexing is overwhelming for the <em>bulk</em> of a portfolio. But three reasonable arguments remain for some active allocation:</p>
+  <ol>
+    <li><strong>Specific tax situations.</strong> Tax-loss harvesting via direct indexing can produce $500-2,000/year of value for high-income investors with large taxable portfolios.</li>
+    <li><strong>Specific market structures.</strong> Some smaller markets (emerging-market small-caps, frontier markets) may have less efficient pricing where active research has more value. Even here, the empirical edge is modest.</li>
+    <li><strong>Behavioural support.</strong> Some investors who couldn't tolerate the volatility of a pure index fund <em>can</em> tolerate the same allocation through an actively managed fund where they trust the manager. The "feel" matters; if it keeps you invested through downturns, it's worth a modest fee.</li>
+  </ol>
+
+  <div class="box callout">
+    <span class="title">The strongest evidence-based recommendation in personal finance</span>
+    <p style="margin-bottom:0;">If you take one piece of evidence from this book and apply it to your money, take this: <b>buy a low-cost, broad-market index fund; hold it for decades; add to it on a schedule; minimise costs and taxes; and ignore the noise.</b> The empirical record of this strategy is better than 80–90% of all alternatives, including most professional management. The remaining 10–20% might be your share of skill — but you cannot identify it in advance, and waiting to confirm it costs you the compounding of decades.</p>
+  </div>
+
+  <div class="takeaways">
+    <span class="htag">Key Takeaways</span>
+    <ol>
+      <li><strong>Active funds underperform indices</strong> 60–90% of the time across 1- to 20-year horizons.</li>
+      <li><strong>Fees compound brutally:</strong> a 1% drag over 30 years costs ~23% of the final pot.</li>
+      <li><strong>Past performance does not predict</strong> future outperformance among active managers — persistence is at chance levels.</li>
+      <li><strong>The three-fund portfolio</strong> (total US, total international, total bonds) has beaten most professionals over every 30-year window.</li>
+      <li><strong>Some active management is defensible</strong> for tax reasons, niche markets, or behavioural support — but not as the core.</li>
+    </ol>
+  </div>
+</section>
+
 
 <!-- ===================== GLOSSARY ===================== -->
 <section class="sheet" id="glossary" data-part="Back Matter" data-chapter="Glossary">
