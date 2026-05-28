@@ -3,10 +3,12 @@
 > Premium, illustrated, deeply-researched finance books. Each is a single self-contained HTML file (broadsheet editorial design, embedded fonts and base64 images, works fully offline) with a matching print-ready PDF. Every chart is real market data; every formula has a worked calculation; every chapter has learning objectives and a self-check.
 
 <p align="center">
-  <img src="docs/images/hero.png" alt="Sample pages from the series" width="900"/>
+  <img src="docs/images/feature-compounding.png" alt="A page from Book 1 — real growth of $1 in the S&amp;P 500 from 1927 to today" width="640"/>
   <br/>
-  <em>Sample pages — Book 5 cover, Book 1's real S&amp;P 500 hockey-stick chart (1927→today), the 2020 golden cross on real SPY data, and Book 4's cover.</em>
+  <em>From Book 1 — the real growth of $1 in the S&amp;P 500 from 1927 to today, with the future-value formula and a worked numeric calculation alongside.</em>
 </p>
+
+> **There's also a landing page.** Open [`index.html`](index.html) for a styled overview with covers and one-click links to every book.
 
 > ⚠️ **Education, not advice.** These books teach how money, markets and investing work in principle. They are **not** investment advice and recommend no specific security or product. Markets carry real risk including loss of capital; no return is guaranteed. Figures are illustrative. Verify current rules/figures for your country and situation, and consult a licensed/fiduciary professional before acting.
 
