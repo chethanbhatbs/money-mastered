@@ -1,46 +1,133 @@
 # Money, Mastered — a finance book series
 
-Premium, illustrated, self-contained finance books — each a single HTML file (broadsheet editorial design, embedded fonts/images, works offline) with a matching print-ready PDF.
+> Premium, illustrated, deeply-researched finance books. Each is a single self-contained HTML file (broadsheet editorial design, embedded fonts and base64 images, works fully offline) with a matching print-ready PDF. Every chart is real market data; every formula has a worked calculation; every chapter has learning objectives and a self-check.
 
-> **Education, not advice.** These books teach how money, markets and investing work in principle. They are **not** investment advice and recommend no specific security or product. Markets carry real risk, including loss of capital; no return is guaranteed. Figures are illustrative. Verify current rules/figures for your country and situation, and consult a licensed/fiduciary professional before acting.
+<p align="center">
+  <img src="docs/images/hero.png" alt="Sample pages from the series" width="900"/>
+  <br/>
+  <em>Sample pages — Book 5 cover, Book 1's real S&amp;P 500 hockey-stick chart (1927→today), the 2020 golden cross on real SPY data, and Book 4's cover.</em>
+</p>
+
+> ⚠️ **Education, not advice.** These books teach how money, markets and investing work in principle. They are **not** investment advice and recommend no specific security or product. Markets carry real risk including loss of capital; no return is guaranteed. Figures are illustrative. Verify current rules/figures for your country and situation, and consult a licensed/fiduciary professional before acting.
 
 ---
 
 ## The roadmap
 
-The flagship effort is a progressive, beginner-to-confident series. Read in order; each book stands on the one before it.
+The flagship effort is a progressive, beginner-to-confident series. Read in order; each book stands on the one before it. The series is published as **HTML (best reading experience)** and **PDF (print/offline)**.
 
-| Stage | Book | File | Status |
-|------|------|------|--------|
-| **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | [`book1-money-from-zero.html`](book1-money-from-zero.html) · [PDF](Book1-Money-From-Zero.pdf) | ✅ Done |
-| **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | [`book2-where-to-put-your-money.html`](book2-where-to-put-your-money.html) · [PDF](Book2-Where-to-Put-Your-Money.pdf) | ✅ Done |
-| **2 · The Markets** | **Book 3 — How the Market Works** *(India edition, Vol. I)* | [`vol1-how-the-market-works.html`](vol1-how-the-market-works.html) · [PDF](Vol1-How-the-Market-Works.pdf) | ✅ Done |
-| **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | [`book4-fundamental-analysis.html`](book4-fundamental-analysis.html) · [PDF](Book4-Fundamental-Analysis.pdf) | ✅ Done |
-| **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | [`book5-technical-analysis.html`](book5-technical-analysis.html) · [PDF](Book5-Technical-Analysis.pdf) | ✅ Done |
-| 2 · The Markets | Book 6 — Funds, SIPs & Portfolios | — | Planned |
-| 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | Planned |
-| **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | Planned |
+| Stage | Book | Pages | View HTML | Download PDF | Status |
+|---|---|---:|---|---|---|
+| **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | 66 | [Open](book1-money-from-zero.html) | [Book1-Money-From-Zero.pdf](Book1-Money-From-Zero.pdf) | ✅ Done |
+| **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | 63 | [Open](book2-where-to-put-your-money.html) | [Book2-Where-to-Put-Your-Money.pdf](Book2-Where-to-Put-Your-Money.pdf) | ✅ Done |
+| **2 · The Markets** | **Book 3 — How the Market Works** *(India edition)* | 121 | [Open](vol1-how-the-market-works.html) | [Vol1-How-the-Market-Works.pdf](Vol1-How-the-Market-Works.pdf) | ✅ Done |
+| **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | 94 | [Open](book4-fundamental-analysis.html) | [Book4-Fundamental-Analysis.pdf](Book4-Fundamental-Analysis.pdf) | ✅ Done |
+| **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **250** | [Open](book5-technical-analysis.html) | [Book5-Technical-Analysis.pdf](Book5-Technical-Analysis.pdf) | ✅ Done |
+| 2 · The Markets | Book 6 — Funds, SIPs & Portfolios | — | — | — | Planned |
+| 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | — | — | Planned |
+| **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | — | — | Planned |
 
 ### Companion volumes
 
-| Book | File | Notes |
-|------|------|-------|
-| **The Complete Money** — A Visual Encyclopedia of Finance, Wealth & Economics *(global)* | [`the-complete-money.html`](the-complete-money.html) · [PDF](The-Complete-Money.pdf) | Big-picture panorama: history, economics, crises, investing, psychology |
-| **The Stock Market, From Scratch** *(India, one-book overview)* | [`stock-market-india.html`](stock-market-india.html) · [PDF](The-Stock-Market-From-Scratch.pdf) | Express overview of the Indian market |
+| Book | Pages | View HTML | Download PDF | Notes |
+|---|---:|---|---|---|
+| **The Complete Money** — A Visual Encyclopedia of Finance, Wealth & Economics *(global)* | 143 | [Open](the-complete-money.html) | [The-Complete-Money.pdf](The-Complete-Money.pdf) | Big-picture panorama: history, economics, crises, investing, psychology |
+| **The Stock Market, From Scratch** *(India, one-book overview)* | 88 | [Open](stock-market-india.html) | [The-Stock-Market-From-Scratch.pdf](The-Stock-Market-From-Scratch.pdf) | Express overview of the Indian market |
 
 ---
 
-## How to read
+## How to read (three options)
 
-- **In a browser:** open any `.html` file — it's fully self-contained (fonts + images embedded; works offline).
-- **As a book/PDF:** open the matching `.pdf`, or in the browser use **Print → Save as PDF**.
+### 1 · Read in your browser (the best experience)
+Click any **Open** link in the tables above while signed in to GitHub. GitHub shows the source by default; to actually render the HTML, see *“Browser preview”* below — or download the file and open it locally (it’s a single self-contained HTML file with fonts and images embedded, no network needed).
+
+### 2 · As a PDF (print or offline)
+Click any **Download PDF** link. The PDFs are print-ready (broadsheet margins, running headers/footers, page numbers). They open in any PDF reader, on any device.
+
+### 3 · Mobile
+The HTML files are responsive — they re-flow for phone screens. Download the file and open in your phone’s browser. PDFs work on every mobile PDF reader; the HTML often reads more comfortably.
+
+---
+
+## Browser preview (rendering HTML, not source)
+
+GitHub natively shows HTML as **source code**, not rendered. To preview the HTML books in a real browser, you have a few options depending on your visibility setting:
+
+### If this repo is **private** (current state)
+Direct browser preview through third-party services (`htmlpreview.github.io`, `raw.githack.com`) **does not work** for private repos — they can’t see your files.
+
+The practical options while private:
+- **Clone the repo and double-click the HTML file locally.** Each file is fully self-contained (offline-capable, fonts and images embedded as base64).
+- **Use the GitHub web UI**: open the file, click the **Raw** button, then **Save Page As…** to download the HTML.
+
+### If you make this repo **public**
+Each HTML book becomes one-click previewable in any browser via either:
+
+- **htmlpreview.github.io** (free, third-party, public repos only)
+  `https://htmlpreview.github.io/?https://github.com/chethanbhatbs/money-mastered/blob/main/book5-technical-analysis.html`
+- **raw.githack.com** (similar)
+  `https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html`
+
+### If you want a permanent public URL while keeping the repo private
+Two ways:
+- **GitHub Pages on a paid plan.** Pages can serve private repos on the **Pro / Team / Enterprise** tiers. Settings → Pages → Source = `main` / root. Files then live at `https://chethanbhatbs.github.io/money-mastered/book5-technical-analysis.html`.
+- **Deploy to Netlify, Vercel or Cloudflare Pages** (all have free tiers, all support deploying from a private repo). Each gives you a public URL like `https://money-mastered.netlify.app/book5-technical-analysis.html`.
+
+A simple Netlify/Cloudflare deploy is the cleanest path if you want public read-only browser links without changing repo visibility.
+
+---
 
 ## Design
 
-Broadsheet editorial style — Fraunces (display), Spectral (text), Archivo (furniture); ink-on-warm-paper with a single accent; original vector diagrams; photographs used under free licences (Wikimedia Commons) and embedded. Each chapter carries learning objectives and a self-check; books include a glossary and concept index.
+Broadsheet editorial style — Fraunces (display), Spectral (text), Archivo (furniture); ink-on-warm-paper with a single gold accent; original vector diagrams **plus** real rendered charts (using `mplfinance` against real market data); photographs used under free licences (Wikimedia Commons), embedded as base64. Each chapter carries learning objectives and a self-check; each book includes a glossary and concept index.
+
+**Book 5 (Technical Analysis)** is the largest in the series at **250 pages, 42 chapters in 10 parts, ~53,300 words, 32 real charts** built from real market data (S&P 500, AAPL, NFLX, META, TSLA, Nifty 50, Reliance Industries). Every figure is independently verifiable (the back of the book lists every chart, instrument and date range) and the Python code to reproduce every indicator is included in a Companion chapter.
+
+---
+
+## What’s in each book
+
+**Book 1 — Money, From Zero** *(global)*
+What money is, why fiat works, inflation as a silent tax, savings vs investing, compounding (with the FV formula and a real 95-year S&P 500 chart), risk vs reward, the order of operations.
+
+**Book 2 — Where to Put Your Money** *(global)*
+Cash · bonds (with see-saw math) · stocks (with total-return calc) · funds (with a worked expense-ratio drag calc showing how a 1% fee costs ~22% of a 30-year portfolio) · property · gold/alternatives · diversification · dollar-cost averaging (worked calc).
+
+**Book 3 — How the Market Works** *(India edition, in ₹)*
+The company, the share, IPOs, exchanges, the order book, SEBI, depositories, clearing & settlement (T+1), brokers, indices (with worked free-float calc), market cap, corporate actions, surveillance, contract-note costs (worked itemised cost of a ₹50,000 trade), and real Nifty/Reliance charts.
+
+**Book 4 — Fundamental Analysis** *(global)*
+Income statement · balance sheet · cash flow · valuation (P/E, P/B, DCF, DuPont) · moats and competitive advantage · margin of safety · a real worked Apple FY2023 analysis appendix using actual SEC data.
+
+**Book 5 — Technical Analysis** *(global)*
+The encyclopedic volume. Foundations, candlesticks (every pattern on real scanned data), chart patterns, indicators with the full math and Python code, risk management, six historical case studies (1929/1987/2000/2008/2020/2022), the deep schools (Dow/Wyckoff/Elliott/Ichimoku/P&F), specialised techniques (harmonic patterns/volume profile/Heikin-Ashi/Renko), backtesting done properly, a 60+ exercise workbook with full answers, and the Python companion with code for every indicator.
+
+---
+
+## How to reproduce the charts
+
+Every chart in Book 5 is generated from real data. To re-fetch and re-render:
+
+```bash
+# Create a virtualenv with the charting stack
+python3 -m venv .chartenv
+.chartenv/bin/pip install pandas numpy matplotlib mplfinance yfinance pdf2image
+
+# The scripts that generate the charts live in charts/
+# Data is fetched from Nasdaq's chart API and yfinance, saved to chartdata/
+.chartenv/bin/python charts/gen_book5_a.py   # golden cross, gap, S/R, uptrend
+.chartenv/bin/python charts/gen_book5_b.py   # candlestick pattern scans
+.chartenv/bin/python charts/gen_book5_c.py   # anatomy, RSI div, MACD, Bollinger
+# ... see the charts/ directory for the full set
+```
+
+Every formula in Book 5 has a copy-paste Python implementation in Chapter 38 (the Python Companion).
+
+---
 
 ## Notes
 
-- *Money, From Zero* is **global** (uses `$` as a stand-in for any currency).
-- The *Mastering the Indian Stock Market* volumes use ₹ and Indian institutions (NSE/BSE/SEBI), grounded in SEBI/NSE/BSE/RBI sources.
-- All prose is original; only freely-licensed photographs are third-party (credited in-book).
+- *Money, From Zero* and *Where to Put Your Money* are **global** (use `$` as a stand-in for any currency).
+- The **Indian-edition** volumes (Book 3, *The Stock Market From Scratch*) use ₹ and Indian institutions (NSE/BSE/SEBI), grounded in SEBI/NSE/BSE/RBI sources.
+- All prose is original; freely-licensed photographs (Wikimedia Commons) are the only third-party content and are credited in-book.
+- Charts are built from publicly available historical data via Nasdaq's chart API and yfinance; the chart-rendering code in `charts/` and the Python Companion in Book 5 Chapter 38 reproduce every figure.
