@@ -24,8 +24,8 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 | <img src="docs/images/book2-cover.png" width="80"/> | **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | 63 | [Open](book2-where-to-put-your-money.html) | [PDF](Book2-Where-to-Put-Your-Money.pdf) |
 | <img src="docs/images/book3-cover.png" width="80"/> | **2 · The Markets** | **Book 3 — How the Market Works** *(India edition)* | 121 | [Open](vol1-how-the-market-works.html) | [PDF](Vol1-How-the-Market-Works.pdf) |
 | <img src="docs/images/book4-cover.png" width="80"/> | **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | 94 | [Open](book4-fundamental-analysis.html) | [PDF](Book4-Fundamental-Analysis.pdf) |
-| <img src="docs/images/book5-cover.png" width="80"/> | **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **264** | [Open](book5-technical-analysis.html) | [PDF](Book5-Technical-Analysis.pdf) |
-| — | 2 · The Markets | Book 6 — Funds, SIPs & Portfolios | — | *Planned* | — |
+| <img src="docs/images/book5-cover.png" width="80"/> | **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **273** | [Open](book5-technical-analysis.html) | [PDF](Book5-Technical-Analysis.pdf) |
+| <img src="docs/images/book6-cover.png" width="80"/> | **2 · The Markets** | **Book 6 — Funds, SIPs &amp; Portfolios** *(global)* | **93** | [Open](book6-funds-sips-portfolios.html) | [PDF](Book6-Funds-SIPs-Portfolios.pdf) |
 | — | 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | *Planned* | — |
 | — | **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | *Planned* | — |
 

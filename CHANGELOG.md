@@ -68,3 +68,15 @@ The single-session growth of Book 5, captured for the record. Each entry below w
 ---
 
 *Updated at the end of each major commit batch. For the full commit log see `git log --oneline`.*
+
+## 2026 — Book 6 first release
+
+| Milestone | Pages | Chapters | Words | Real charts |
+|---|---:|---:|---:|---:|
+| Book 6 — Funds, SIPs & Portfolios initial release | 93 | 18 + appendices | ~17,500 | 4 |
+
+**Coverage**: Portfolio Foundations (MPT, risk-adjusted return) · Asset Allocation (three-fund, glide paths, international) · Implementation (ETFs, factor investing, SIPs, rebalancing) · Tax-Efficient Investing (asset location, tax-loss harvesting) · Decumulation (4% rule, dynamic withdrawal, sequence-of-returns risk) · A Complete Worked Retirement Plan.
+
+**Real charts**: real IBM-vs-S&P concentration risk, computed efficient frontier from real US data, sequence-of-returns simulation (Retiree A vs Retiree B), savings trajectory of the worked plan.
+
+**Cross-references** to Books 1-5 throughout: compound math in Book 1 Ch 8, indexing evidence in Book 2 Ch 14, intermarket regime in Book 5 Ch 32, risk management in Book 5 Ch 17.
