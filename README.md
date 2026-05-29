@@ -51,32 +51,33 @@ The HTML files are responsive — they re-flow for phone screens. Download the f
 
 ---
 
-## Browser preview (rendering HTML, not source)
+## Read the books online
 
-This repo is **public** — every HTML book is one-click readable in any browser without downloading. Three options:
+The site is live at **[chethanbhatbs.github.io/money-mastered](https://chethanbhatbs.github.io/money-mastered/)** (served via GitHub Pages, with proper `text/html` content-types and PDF inline preview).
 
-### 1. `cdn.jsdelivr.net` (recommended — fastest, most reliable)
+| Book | Read in browser | Download PDF |
+|---|---|---|
+| **Landing page** (all books) | <https://chethanbhatbs.github.io/money-mastered/> | — |
+| 1 — Money, From Zero | [Read](https://chethanbhatbs.github.io/money-mastered/book1-money-from-zero.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book1-Money-From-Zero.pdf) |
+| 2 — Where to Put Your Money | [Read](https://chethanbhatbs.github.io/money-mastered/book2-where-to-put-your-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book2-Where-to-Put-Your-Money.pdf) |
+| 3 — How the Market Works (India) | [Read](https://chethanbhatbs.github.io/money-mastered/vol1-how-the-market-works.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Vol1-How-the-Market-Works.pdf) |
+| 4 — Fundamental Analysis | [Read](https://chethanbhatbs.github.io/money-mastered/book4-fundamental-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book4-Fundamental-Analysis.pdf) |
+| 5 — Technical Analysis | [Read](https://chethanbhatbs.github.io/money-mastered/book5-technical-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book5-Technical-Analysis.pdf) |
+| 6 — Funds, SIPs & Portfolios | [Read](https://chethanbhatbs.github.io/money-mastered/book6-funds-sips-portfolios.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book6-Funds-SIPs-Portfolios.pdf) |
+| Complete Money (companion) | [Read](https://chethanbhatbs.github.io/money-mastered/the-complete-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Complete-Money.pdf) |
+| Stock Market From Scratch (India) | [Read](https://chethanbhatbs.github.io/money-mastered/stock-market-india.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Stock-Market-From-Scratch.pdf) |
 
-Drop-in CDN URLs that render every HTML book directly in the browser. Verified working as of publication. Best for sharing a single book with someone:
+Every `git push` to `main` auto-redeploys.
 
-| Book | Click-to-read |
-|---|---|
-| **Landing page** (all books) | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/index.html> |
-| 1 — Money, From Zero | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book1-money-from-zero.html> |
-| 2 — Where to Put Your Money | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book2-where-to-put-your-money.html> |
-| 3 — How the Market Works (India) | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/vol1-how-the-market-works.html> |
-| 4 — Fundamental Analysis | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book4-fundamental-analysis.html> |
-| 5 — Technical Analysis | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book5-technical-analysis.html> |
-| 6 — Funds, SIPs & Portfolios | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book6-funds-sips-portfolios.html> |
+### Alternative URLs (if needed)
 
-### 2. `raw.githack.com` and `htmlpreview.github.io` (alternatives)
+If GitHub Pages is ever unavailable, the same files render via:
 
-Same idea, different free services. Useful if jsDelivr is ever blocked:
+- **htmlpreview.github.io** — `https://htmlpreview.github.io/?https://github.com/chethanbhatbs/money-mastered/blob/main/book5-technical-analysis.html`
+- **raw.githack.com** — `https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html`
+- **Cloudflare Pages / Netlify** — deploy configs are already in `netlify.toml`, `_headers`, and `_redirects` for a custom domain. See [DEPLOY.md](DEPLOY.md).
 
-```
-https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html
-https://htmlpreview.github.io/?https://github.com/chethanbhatbs/money-mastered/blob/main/book5-technical-analysis.html
-```
+> *(Avoid `cdn.jsdelivr.net` for HTML — they serve it as `text/plain`, which makes browsers show the source instead of rendering.)*
 
 ### 3. Permanent custom URL via Cloudflare Pages or Netlify
 
