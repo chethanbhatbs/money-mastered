@@ -69,6 +69,18 @@ The single-session growth of Book 5, captured for the record. Each entry below w
 
 *Updated at the end of each major commit batch. For the full commit log see `git log --oneline`.*
 
+## 2026 — Book 8 first release (series complete)
+
+| Milestone | Pages | Chapters | Parts | Notable additions |
+|---|---:|---:|---:|---|
+| Book 8 — Building &amp; Protecting Wealth initial release | 90 | 18 | 5 | The capstone of the series |
+
+**Coverage**: Part I — The Wealth Equation (income/savings rate/time with the dominance-of-savings-rate worked table, net worth and the ratios that matter, debt as accelerator or destroyer with Arun's mortgage-payoff vignette, the emergency fund). Part II — The Big Decisions (buy vs rent with the 5% rule and a worked 10-year comparison, insurance against ruin with a complete stack, career capital as the largest asset, children &amp; education with the "your retirement before their college" principle and the empirical research on private K-12). Part III — Building Through the Life Cycle (the 20s with Ravi's systems-establishment vignette, the 30s/40s accumulation playbook with glide-path table, the 50s consolidation decade, the 60s+ decumulation with Arun's three-bucket COVID test). Part IV — Protecting &amp; Transferring (the four documents every adult needs, the Williams-Preisser generational-wealth causes, philanthropy via DAFs and CRTs, the three legacies). Part V — The Examined Financial Life (the question of enough with the Vonnegut-Heller story, and a closing one-page synthesis across all eight books).
+
+**Series complete**: 8 books, ~1,170 pages, ~210,000 words, all real data, all original prose, all hosted publicly on GitHub Pages.
+
+---
+
 ## 2026 — Book 7 first release
 
 | Milestone | Pages | Chapters | Parts | Notable additions |

@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building &amp; Protecting Wealth — Money, Mastered · Book Eight — The Absolute Beginner’s Guide to How Money Works &amp; Why to Invest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE COMPLETE MONEY · v3 — Broadsheet editorial
+   Monochrome ink-on-paper + a single gold accent.
+   No gradients, no rounded cards, no drop-shadows.
+   Type: Fraunces (display) · Spectral (text) · Archivo (furniture)
+   ============================================================ */
+:root{
+  --paper:#F6F0E2;          /* warm broadsheet stock */
+  --paper-deep:#ECE3D0;     /* page surround */
+  --panel:#EFE8D7;          /* faint inset tint */
+  --ink:#1E1A15;            /* near-black warm ink */
+  --ink-soft:#4E483D;
+  --faint:#8C8475;
+  --hair:#C9BFA9;           /* hairline rules */
+  --rule:#C9BFA9;
+  --accent:#8A6A23;         /* the single accent — deep gold, on light */
+  --accent-deep:#1E1A15;    /* figures: dark fills = ink */
+  --accent-soft:#CFC4AC;    /* figures: warm gray */
+  --accent-tint:#EFE8D7;
+  --gold:#9C7B30;           /* slightly lighter gold for on-dark highlights */
+  --maxw:840px;
+}
+/* all former part-themes collapse to one monochrome system */
+.theme-1,.theme-2,.theme-3,.theme-4,.theme-5,.theme-6,.theme-7,.theme-8,.theme-9,.theme-10{
+  --accent:#8A6A23; --accent-deep:#1E1A15; --accent-soft:#CFC4AC; --accent-tint:#EFE8D7; --gold:#9C7B30;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper-deep);
+  color:var(--ink);
+  font-family:'Spectral',Georgia,'Times New Roman',serif;
+  font-size:18px;line-height:1.72;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  counter-reset:pg;
+  padding:34px 14px;
+}
+
+/* ---------------- THE PAGE SHEET ---------------- */
+.sheet{
+  position:relative;
+  max-width:var(--maxw);
+  margin:0 auto 22px;
+  background:var(--paper);
+  border:1px solid var(--hair);
+  border-top:3px solid var(--ink);     /* masthead rule */
+  padding:62px 78px 76px;
+  counter-increment:pg;
+}
+.sheet::before{                          /* running head */
+  content:"Building &amp; Protecting Wealth — Money, Mastered · Book Eight \00b7 Book One   \2014   " attr(data-part);
+  position:absolute;top:22px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  padding-bottom:9px;border-bottom:1px solid var(--hair);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.sheet::after{                           /* folio */
+  content:counter(pg) "   \00b7   " attr(data-chapter);
+  position:absolute;bottom:30px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+  text-align:center;padding-top:9px;border-top:1px solid var(--hair);
+}
+.sheet.plain::before,.sheet.plain::after{content:none;}
+
+/* ---------------- TYPOGRAPHY ---------------- */
+h1,h2,h3,h4,.display{font-family:'Fraunces','Spectral',Georgia,serif;font-optical-sizing:auto;color:var(--ink);font-weight:600;letter-spacing:-.005em;}
+.chapter-title{font-size:3.05rem;line-height:1.02;font-weight:900;margin:.12em 0 .3em;}
+h3{font-size:1.5rem;font-weight:600;margin:2.4em 0 .55em;padding-top:.7em;border-top:1px solid var(--hair);}
+h4{font-size:1.06rem;margin:1.7em 0 .3em;color:var(--ink);font-weight:700;font-family:'Archivo',sans-serif;letter-spacing:.02em;text-transform:uppercase;}
+p{margin:0 0 1.1em;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--hair);}
+a:hover{color:var(--ink);border-color:var(--accent);}
+.lead{font-size:1.4rem;line-height:1.5;color:var(--ink-soft);font-weight:400;font-style:italic;margin-bottom:1.2em;font-family:'Spectral',serif;}
+strong{font-weight:600;color:var(--ink);}
+.label,.kicker{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;font-weight:700;color:var(--accent);}
+.drop::first-letter{font-family:'Fraunces',serif;float:left;font-size:4.8rem;line-height:.76;font-weight:900;color:var(--ink);padding:.04em .1em 0 0;}
+.ornament{text-align:center;color:var(--accent);margin:2em 0;letter-spacing:.5em;font-size:.85rem;}
+.ornament::before{content:"\2756   \2756   \2756";}
+
+/* ---------------- CHAPTER OPENER ---------------- */
+.opener{margin:0 0 26px;}
+.opener .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.opener .cnum{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;}
+.opener .cline{flex:1;height:1px;background:var(--hair);}
+.opener .lead{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:.7em 0;margin-top:.3em;}
+
+/* ---------------- COVER (broadsheet front page) ---------------- */
+.cover{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:46px 70px 60px;text-align:center;
+}
+.cover .masthead{border-bottom:3px double var(--ink);padding-bottom:8px;margin-bottom:4px;
+  display:flex;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);}
+.cover .masthead .r{color:var(--accent);}
+.cover .vol{font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--hair);padding-bottom:18px;margin-bottom:34px;}
+.cover .seal{margin:6px auto 22px;display:block;}
+.cover .kicker{display:block;margin-bottom:10px;}
+.cover h1{font-family:'Fraunces',serif;font-weight:900;font-size:5rem;line-height:.94;margin:.1em 0 .14em;color:var(--ink);letter-spacing:-.02em;}
+.cover .sub{font-size:1.5rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:560px;margin:22px auto;}
+.cover .deck{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:16px 0;margin-top:28px;
+  font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);}
+
+/* ---------------- PART DIVIDER (section front page) ---------------- */
+.divider{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:54px 78px 64px;color:var(--ink);
+}
+.divider .big{font-family:'Fraunces',serif;font-size:9rem;line-height:.8;font-weight:900;color:var(--ink);letter-spacing:-.04em;}
+.divider .ptag{font-family:'Archivo',sans-serif;letter-spacing:.32em;text-transform:uppercase;font-size:.8rem;color:var(--accent);margin:6px 0 0;border-top:3px double var(--ink);padding-top:14px;}
+.divider h2{font-family:'Fraunces',serif;color:var(--ink);font-size:3.4rem;font-weight:900;margin:.14em 0 .35em;letter-spacing:-.015em;}
+.divider .pintro{font-size:1.3rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:580px;}
+.divider .chips{margin-top:30px;border-top:1px solid var(--hair);padding-top:18px;display:flex;flex-wrap:wrap;gap:0;}
+.divider .chip{font-family:'Archivo',sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:0 16px;border-right:1px solid var(--hair);}
+.divider .chip:first-child{padding-left:0;}
+.divider .chip:last-child{border-right:none;}
+
+/* ---------------- FEATURE BLOCKS (ruled, not cards) ---------------- */
+.box{margin:2em 0;padding:18px 0 4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:.98rem;line-height:1.62;}
+.box .htag{font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:.5em;color:var(--accent);}
+.box .title{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;display:block;margin-bottom:.5em;color:var(--ink);}
+
+/* Did You Know — double rules */
+.dyk{border-top:3px double var(--ink);border-bottom:3px double var(--ink);}
+/* Finance Psychology — heavy left rule */
+.psy{border:none;border-left:4px solid var(--accent);padding:4px 0 4px 22px;}
+.psy .htag{color:var(--accent);}
+/* Common Mistakes — heavy ink left rule */
+.err{border:none;border-left:4px solid var(--ink);padding:4px 0 4px 22px;}
+.err .htag{color:var(--ink);}
+/* Callout — single hairlines, faint tint */
+.callout{background:var(--panel);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 24px;}
+/* Case study — reversed ink panel (the editorial sidebar) */
+.case{background:var(--ink);color:#E9E1CF;border:none;padding:22px 26px;}
+.case .htag{color:var(--gold);} .case .title{color:#fff;} .case strong{color:#fff;}
+
+/* Takeaways — boxed with double rules */
+.takeaways{margin:2.2em 0;padding:20px 26px;border:2px solid var(--ink);background:var(--paper);}
+.takeaways .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.takeaways ol{margin:.7em 0 0;padding-left:1.3em;} .takeaways li{margin:.5em 0;} .takeaways strong{color:var(--ink);}
+
+/* Resources — ruled reading list */
+.resources{margin:2em 0;padding:16px 0 4px;border-top:1px solid var(--hair);}
+.resources .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.resources ul{margin:.6em 0 0;padding-left:0;list-style:none;columns:1;}
+.resources li{margin:.4em 0;padding-left:1.4em;position:relative;font-size:.95rem;}
+.resources li::before{content:"\2014";position:absolute;left:0;color:var(--accent);}
+
+/* Pull quote — editorial, ruled */
+.pq{margin:2.4em 0;padding:18px 0;border-top:3px double var(--ink);border-bottom:3px double var(--ink);
+   font-family:'Fraunces',serif;font-size:1.9rem;line-height:1.24;color:var(--ink);font-style:italic;font-weight:500;text-align:center;}
+.pq cite{display:block;margin-top:.6em;font-family:'Archivo',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+
+/* Margin note — floats into the side as a sidenote */
+.mnote{float:right;clear:right;width:34%;margin:6px 0 16px 28px;padding-left:16px;border-left:2px solid var(--accent);
+  font-family:'Spectral',serif;font-size:.86rem;font-style:italic;line-height:1.5;color:var(--ink-soft);}
+.mnote .ml{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.3em;}
+
+/* lists */
+ul,ol{margin:0 0 1.2em;padding-left:1.35em;} li{margin:.34em 0;}
+
+/* ---------------- TABLES (newspaper data) ---------------- */
+.compare{margin:2.2em 0;font-family:'Spectral',serif;}
+.compare table{width:100%;border-collapse:collapse;font-size:.94rem;}
+.compare caption{caption-side:top;text-align:left;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);
+  padding:0 0 10px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:none;}
+.compare thead th{background:none;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;font-size:.66rem;font-weight:700;
+  font-family:'Archivo',sans-serif;padding:8px 14px;text-align:left;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);}
+.compare th,.compare td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--hair);}
+.compare tbody tr:last-child td{border-bottom:2px solid var(--ink);}
+.compare td:first-child{font-weight:600;color:var(--ink);width:22%;}
+
+/* ---------------- FIGURES (plates) ---------------- */
+figure{margin:2.4em 0;}
+.figframe{border:1px solid var(--ink);background:#fff;}
+.figframe .figtab{font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding:9px 16px;color:var(--ink);border-bottom:1px solid var(--ink);background:var(--paper);}
+.figframe .figtab b{color:var(--accent);}
+figure svg{width:100%;height:auto;display:block;}
+figcaption{font-family:'Spectral',serif;font-style:italic;font-size:.88rem;color:var(--ink-soft);margin-top:.7em;line-height:1.5;padding:0 2px;}
+figcaption b{color:var(--ink);font-style:normal;font-weight:600;}
+
+/* ---------------- STAT STRIP (ruled, no cards) ---------------- */
+.stats{display:flex;flex-wrap:wrap;gap:0;margin:2em 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+.stat{flex:1;min-width:150px;padding:16px 22px 16px 0;margin-right:22px;border-right:1px solid var(--hair);}
+.stat:last-child{border-right:none;margin-right:0;}
+.stat .n{font-family:'Fraunces',serif;font-size:2.1rem;color:var(--ink);font-weight:900;line-height:1;}
+.stat .t{font-family:'Spectral',serif;font-size:.84rem;color:var(--ink-soft);margin-top:7px;line-height:1.45;}
+
+/* formula */
+.formula{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--ink);
+  padding:14px;margin:1.6em 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);letter-spacing:.02em;}
+code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--accent);}
+
+/* ---------------- TOC ---------------- */
+.toc h2{font-size:2.7rem;font-weight:900;}
+.toc .prow{margin:1.7em 0 .4em;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);letter-spacing:.16em;
+  text-transform:uppercase;font-size:.74rem;border-bottom:2px solid var(--ink);padding-bottom:.5em;}
+.toc ol{list-style:none;padding:0;margin:0;}
+.toc li{display:flex;justify-content:space-between;align-items:baseline;padding:.32em 0;border-bottom:1px solid var(--hair);}
+.toc li a{border:none;color:var(--ink);font-size:1.05rem;}
+.toc li a:hover{color:var(--accent);}
+.toc .pg{font-family:'JetBrains Mono',monospace;color:var(--faint);font-size:.82rem;}
+
+/* glossary columns */
+.glos{columns:2;column-gap:42px;font-size:.92rem;}
+.glos p{break-inside:avoid;margin:0 0 .8em;}
+
+/* colophon */
+.colophon{max-width:var(--maxw);margin:0 auto;background:var(--paper);border:1px solid var(--hair);border-top:3px solid var(--ink);
+  text-align:center;padding:42px 40px;font-family:'Archivo',sans-serif;font-size:.82rem;color:var(--faint);letter-spacing:.04em;}
+.colophon .rule{display:none;}
+.colophon .bt{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:900;color:var(--ink);margin:0 0 .3em;letter-spacing:-.01em;}
+
+/* responsive */
+@media(max-width:820px){
+  body{padding:10px 0;}
+  .sheet{padding:50px 24px 64px;} .sheet::before,.sheet::after{left:24px;right:24px;}
+  .cover,.divider{padding:40px 26px;}
+  .cover h1{font-size:3rem;} .chapter-title{font-size:2.1rem;}
+  .divider .big{font-size:6rem;} .divider h2{font-size:2.3rem;}
+  .pq{font-size:1.45rem;} .glos{columns:1;}
+  .mnote{float:none;width:auto;margin:14px 0;}
+}
+
+/* ---------------- PRINT ---------------- */
+@page{
+  margin:20mm 18mm 18mm;
+  @top-center{ content:"BUILDING &amp; PROTECTING WEALTH \00b7 BOOK ONE"; font-family:'Archivo',sans-serif; font-size:7.5pt; letter-spacing:2px; color:#9a917f; }
+  @bottom-center{ content: counter(page); font-family:'Archivo',sans-serif; font-size:9pt; color:#9a917f; }
+}
+@media print{
+  body{background:#fff;padding:0;font-size:10.8pt;}
+  .cover,.divider,.sheet,.colophon{border:none;border-top:2.5px solid #000;margin:0;max-width:100%;page-break-after:always;background:#fff;}
+  .sheet{padding:6mm 2mm 0;}
+  .sheet::before,.sheet::after{display:none !important;}
+  figure,.box,.compare,.takeaways,.case,.dyk,.callout,.pq,.stats,.opener{page-break-inside:avoid;}
+  h2,h3,h4{page-break-after:avoid;}
+  .mnote{float:none;width:auto;border-left:2px solid #000;}
+  a{color:var(--ink);border:none;}
+}
+
+
+/* ---- photographic plates (real images) ---- */
+.figframe img{display:block;width:100%;height:auto;}
+.figframe.plate{background:#fff;}
+.figframe.plate img{max-width:520px;margin:0 auto;}
+.credit{display:block;font-family:'Archivo',sans-serif;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:.5em;font-style:normal;}
+.rupee{font-feature-settings:"tnum";}
+.big-num{font-family:'Fraunces',serif;font-weight:900;}
+/* ---- learning objectives ---- */
+.objectives{margin:1.4em 0 2em;padding:14px 0 6px;border-top:1px solid var(--ink);border-bottom:1px solid var(--hair);}
+.objectives .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.objectives ul{margin:.2em 0 .4em;padding-left:1.2em;font-size:.95rem;}
+.objectives li{margin:.25em 0;}
+/* ---- end-of-chapter self-check ---- */
+.selfcheck{margin:2em 0;padding:18px 24px;border:1px solid var(--ink);background:var(--panel);}
+.selfcheck .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.selfcheck ol{margin:.4em 0 0;padding-left:1.3em;font-size:.95rem;}
+.selfcheck li{margin:.4em 0;}
+.selfcheck .ans{display:block;margin-top:.7em;font-size:.86rem;color:var(--ink-soft);font-style:italic;}
+/* ---- prominent risk warning ---- */
+.warnbox{margin:1.8em 0;padding:18px 22px;border:2px solid var(--accent);background:#fff;}
+.warnbox .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.warnbox p{margin:0 0 .5em;font-size:.95rem;}
+.warnbox p:last-child{margin-bottom:0;}
+/* ---- back-of-book index ---- */
+.bindex{columns:2;column-gap:42px;font-size:.85rem;line-height:1.5;}
+.bindex p{break-inside:avoid;margin:0 0 .3em;}
+.bindex .ent{font-weight:600;color:var(--ink);}
+
+
+/* ---- sub-chapter headings (x.y) ---- */
+.subnum{font-family:'Archivo',sans-serif;font-weight:800;color:var(--accent);font-size:.9em;margin-right:.4em;}
+/* ---- series roadmap page ---- */
+.roadmap{counter-reset:none;}
+.roadmap .stage{margin:0 0 1.4em;border-top:1px solid var(--ink);padding-top:.6em;}
+.roadmap .stage .st{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+.roadmap .bk{display:flex;justify-content:space-between;align-items:baseline;padding:.3em 0;border-bottom:1px dotted var(--hair);font-size:1.02rem;}
+.roadmap .bk .tag{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);}
+.roadmap .bk.here{font-weight:700;color:var(--accent-deep);}
+.roadmap .bk.here .tag{color:var(--accent);}
+.calc{margin:1.6em 0;padding:16px 22px;border:1px solid var(--ink);background:#FCFBF7;font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:1.85;}
+.calc .ct{font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.7em;}
+.calc b{color:var(--accent);font-weight:700;}
+.calc .r{color:var(--ink-soft);font-style:italic;}
+.calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
+.fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
+
+
+.vignette{margin:1.4em 0;border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 22px;}
+.vignette .vtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.vignette .vname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.disaster{margin:1.4em 0;border-left:4px solid #a44;background:#FAF1ED;padding:14px 22px;}
+.disaster .dtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a44;margin-bottom:.4em;}
+.disaster .dname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.contrarian{margin:1.4em 0;padding:18px 22px;background:var(--ink);color:#F6F0E2;}
+.contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
+.contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
+
+/* The Seven Principles — series-wide framework */
+.principles{margin:2em 0;border:2px solid var(--ink);background:#FCFBF7;padding:24px 28px;}
+.principles .phead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:700;color:var(--accent);margin-bottom:.6em;display:block;}
+.principles .ptitle{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:0 0 .6em;letter-spacing:-0.01em;}
+.principles ol{list-style:none;counter-reset:p;padding:0;margin:0;}
+.principles ol li{counter-increment:p;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:.55em 0;border-top:1px solid var(--hair);align-items:start;}
+.principles ol li::before{content:counter(p);font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--accent-deep);text-align:center;line-height:1;}
+.principles ol li:first-child{border-top:none;padding-top:0;}
+.principles ol li .pn{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;color:var(--ink);display:block;}
+.principles ol li .pb{font-size:.95rem;color:var(--ink-soft);margin-top:.15em;display:block;}
+.pref{display:inline-block;font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;padding:1px 6px;border:1px solid var(--accent);margin:0 4px;vertical-align:1px;border-radius:2px;}
+</style>
+</head>
+<body>
+
+
+<!-- ===================== COVER ===================== -->
+<section class="sheet cover" data-part="Cover" data-chapter="Cover">
+  <div class="cover-mast">
+    <span>Money, Mastered · The Roadmap</span>
+    <span class="r">Book Eight of Eight · The Capstone</span>
+  </div>
+  <div class="cover-strip">Wealth · the long-term playbook</div>
+  <div class="cover-seal-wrap">
+    <svg class="seal" width="116" height="116" viewBox="0 0 116 116" aria-hidden="true">
+      <circle cx="58" cy="58" r="54" fill="none" stroke="#1E1A15" stroke-width="1.5"/>
+      <circle cx="58" cy="58" r="44" fill="none" stroke="#8A6A23" stroke-width="0.7"/>
+      <text x="58" y="73" text-anchor="middle" font-family="Fraunces, serif" font-size="48" font-weight="900" fill="#1E1A15">8</text>
+    </svg>
+  </div>
+  <div class="cover-eyebrow">The Capstone — A Lifetime of Decisions, Pulled Into One Book</div>
+  <h1 class="cover-title">Building &amp; <em>Protecting</em> Wealth</h1>
+  <p class="cover-lede">The first seven books taught the components: what money is, what to buy, how markets work, how to value, how to read charts, how to construct a portfolio, and how to defend it from the four kinds of ruin. This book is what the components are <em>for</em>. It is about the actual life — the income that fuels everything, the decisions about a house and a family and a career, the way wealth changes shape through your twenties and your sixties, and the questions that only matter once you've already won: what is enough, what do you leave behind, and what does the money mean.</p>
+  <div class="cover-strip cover-foot">Income · the big decisions · life-cycle stages · transfer · the question of enough</div>
+</section>
+
+<!-- ===================== COPYRIGHT ===================== -->
+<section class="sheet" id="copyright" data-part="Front Matter" data-chapter="Copyright &amp; Disclosure">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title" style="font-size:2.4rem;">Copyright &amp; Disclosure</h2>
+  </div>
+  <p>© 2026 Money, Mastered. All rights reserved. This is Book Eight — the capstone — of an eight-book finance series; while it can be read independently, it leans on all seven preceding volumes and assumes their content.</p>
+  <div class="box err" style="margin-top:1.4em;">
+    <span class="htag">Education, not advice</span>
+    <span class="title">A capstone is a synthesis, not advice for any one person's situation.</span>
+    <p style="margin-bottom:0;">Nothing in this book is investment, tax, legal, or insurance advice. The decisions discussed — a home purchase, a career change, an estate plan, a charitable structure — are deeply personal and jurisdiction-specific. Verify with the appropriate licensed/fiduciary professional before acting. Examples use illustrative numbers; the conclusions, not the specific figures, are the point.</p>
+  </div>
+</section>
+
+<!-- ===================== WELCOME ===================== -->
+<section class="sheet" id="welcome" data-part="Front Matter" data-chapter="Welcome — What This Book Is For">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Welcome — What This Book Is For</h2>
+    <p class="lead">A series about personal finance that ends with portfolios and defence ends one book too early. Knowing which index fund to buy and how to avoid being scammed does not, by itself, build wealth. The actual builders of household wealth are: a sustained gap between income and spending, decisions about housing and family and career taken with eyes open, insurance against the few outcomes that would ruin you, and time. The investment work — Books 2 through 7 — converts the savings into compounding, but the savings come first, and the savings come from a life. This book is about that life.</p>
+  </div>
+  <p>This volume is unapologetically less technical than the seven before it. There are fewer formulas because the decisions that matter most are not formulaic. Whether to take a 30% pay cut to switch careers, whether to have a third child, whether your aging parents move in, whether you sell the family business or take the dividend — these are not optimisation problems. They are life problems whose financial dimension is one input. This book tries to handle the financial dimension honestly without pretending it is the only dimension.</p>
+  <p>It also closes the series. The last chapter explicitly synthesises across all eight books: the single throughline that, if you held nothing else, would do most of the work.</p>
+</section>
+
+<!-- ===================== READER PATHS ===================== -->
+<section class="sheet" id="reader-paths" data-part="Front Matter" data-chapter="Reader Paths — How to Read by Life Stage">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Reader Paths — How to Read by Life Stage</h2>
+    <p class="lead">Eighteen chapters across five parts. The structure follows a life: foundations first, the big decisions, the life-cycle decades, the transfer questions, and finally the question of enough. Skip what doesn't apply to your stage — but come back to it when it does.</p>
+  </div>
+  <h3><span class="subnum">·</span> Path 1 — Just-starting-out (twenties, ~35 pages)</h3>
+  <p>Read <strong>Part I (Ch 1-4)</strong> end to end — the wealth equation, net worth, debt, the emergency fund — then jump to <strong>Ch 7</strong> (career capital) and <strong>Ch 9</strong> (the 20s playbook). Skip insurance details (Ch 6) and estate (Part IV) until you have dependents.</p>
+  <h3><span class="subnum">·</span> Path 2 — Mid-career (thirties-forties, ~55 pages)</h3>
+  <p>Skim Part I as refresher; read <strong>Part II (Ch 5-8)</strong> closely — house, insurance, career, children — then <strong>Ch 10</strong> (the accumulation decades). Add <strong>Ch 13</strong> on estate planning if you have dependents or significant assets.</p>
+  <h3><span class="subnum">·</span> Path 3 — Late-career and pre-retirement (~50 pages)</h3>
+  <p><strong>Ch 11-12</strong> (consolidation decade and decumulation) closely; <strong>Part IV (Ch 13-16)</strong> on transfer and legacy in full; <strong>Ch 17</strong> on enough.</p>
+  <h3><span class="subnum">·</span> Path 4 — The full book (~120 pages)</h3>
+  <p>The intended sequence. Even the chapters that don't apply to you yet will apply eventually, and reading them in advance changes the decisions you make now.</p>
+  <div class="box callout">
+    <span class="title">If you take only one chapter</span>
+    <p style="margin-bottom:0;">Read <b>Chapter 1 — Income, Savings Rate, Time</b>. It is short and contains the single most consequential mathematical relationship in personal finance. Almost everything else in this book is downstream of the savings-rate decision. Almost every household that fails to build wealth fails on this one number.</p>
+  </div>
+</section>
+
+<!-- ===================== SEVEN PRINCIPLES CARD ===================== -->
+<div class="principles" style="padding:18px 22px;">
+  <span class="phead">Recall · the seven principles, one final time</span>
+  <h3 class="ptitle" style="font-size:1.15rem;margin:0 0 .6em;">The throughline of the entire series.</h3>
+  <ol style="margin-top:.2em;">
+    <li><span></span><span><span class="pn">Return follows risk</span> <span class="pb" style="display:inline;"> &middot; honest about the price of every reward.</span></span></li>
+    <li><span></span><span><span class="pn">Time beats timing</span> <span class="pb" style="display:inline;"> &middot; the engine of every life-cycle plan in this book.</span></span></li>
+    <li><span></span><span><span class="pn">Costs compound</span> <span class="pb" style="display:inline;"> &middot; in fees, in interest, in lifestyle creep, in foregone savings.</span></span></li>
+    <li><span></span><span><span class="pn">Diversification buys survival</span> <span class="pb" style="display:inline;"> &middot; across assets, across careers, across geographies.</span></span></li>
+    <li><span></span><span><span class="pn">Price and value are different</span> <span class="pb" style="display:inline;"> &middot; especially true for a house, a degree, a job offer.</span></span></li>
+    <li><span></span><span><span class="pn">Behaviour dominates analysis</span> <span class="pb" style="display:inline;"> &middot; the savings rate is a behaviour, not a calculation.</span></span></li>
+    <li><span></span><span><span class="pn">Complexity is expensive</span> <span class="pb" style="display:inline;"> &middot; in your portfolio, your estate plan, and your life.</span></span></li>
+  </ol>
+</div>
+
+<!-- ===================== TOC ===================== -->
+<nav class="sheet toc" data-part="Contents" data-chapter="Table of Contents">
+  <div class="label">Contents · Book Eight · The Capstone</div>
+  <h2>What's Inside</h2>
+  <p class="lead" style="font-style:normal;font-size:1.05rem;">Eighteen chapters in five parts: the wealth equation, the big decisions, building through the life cycle, protecting and transferring, and the examined financial life — closing with a synthesis across all eight books.</p>
+
+  <div class="prow">Front Matter</div>
+  <ol>
+    <li><a href="#welcome">Welcome — What this book is for</a><span class="pg">i</span></li>
+    <li><a href="#reader-paths">Reader Paths — by life stage</a><span class="pg">ii</span></li>
+  </ol>
+  <div class="prow">Part I · The Wealth Equation</div>
+  <ol>
+    <li><a href="#ch1">1 · Income, Savings Rate, Time</a><span class="pg">1</span></li>
+    <li><a href="#ch2">2 · Net Worth — Measuring What Matters</a><span class="pg">2</span></li>
+    <li><a href="#ch3">3 · Debt — Accelerator &amp; Destroyer</a><span class="pg">3</span></li>
+    <li><a href="#ch4">4 · The Emergency Fund</a><span class="pg">4</span></li>
+  </ol>
+  <div class="prow">Part II · The Big Decisions</div>
+  <ol>
+    <li><a href="#ch5">5 · Buy vs. Rent (the Math and the Life)</a><span class="pg">5</span></li>
+    <li><a href="#ch6">6 · Insurance — Protecting Against Ruin</a><span class="pg">6</span></li>
+    <li><a href="#ch7">7 · Career Capital — Your Largest Asset</a><span class="pg">7</span></li>
+    <li><a href="#ch8">8 · Children &amp; Education</a><span class="pg">8</span></li>
+  </ol>
+  <div class="prow">Part III · Building Through the Life Cycle</div>
+  <ol>
+    <li><a href="#ch9">9 · The 20s — Establishing Systems</a><span class="pg">9</span></li>
+    <li><a href="#ch10">10 · The 30s &amp; 40s — Accumulating</a><span class="pg">10</span></li>
+    <li><a href="#ch11">11 · The 50s — The Consolidation Decade</a><span class="pg">11</span></li>
+    <li><a href="#ch12">12 · The 60s and Beyond — Decumulation Done Right</a><span class="pg">12</span></li>
+  </ol>
+  <div class="prow">Part IV · Protecting &amp; Transferring</div>
+  <ol>
+    <li><a href="#ch13">13 · Estate Planning — Wills, Trusts, Beneficiaries</a><span class="pg">13</span></li>
+    <li><a href="#ch14">14 · Generational Wealth</a><span class="pg">14</span></li>
+    <li><a href="#ch15">15 · Philanthropy</a><span class="pg">15</span></li>
+    <li><a href="#ch16">16 · The Legacy Question</a><span class="pg">16</span></li>
+  </ol>
+  <div class="prow">Part V · The Examined Financial Life</div>
+  <ol>
+    <li><a href="#ch17">17 · Enough</a><span class="pg">17</span></li>
+    <li><a href="#ch18">18 · The Capstone — A Synthesis Across Eight Books</a><span class="pg">18</span></li>
+  </ol>
+  <div class="prow">Back Matter</div>
+  <ol>
+    <li><a href="#glossary">Glossary</a><span class="pg">A</span></li>
+    <li><a href="#sources">Sources &amp; Further Reading</a><span class="pg">B</span></li>
+    <li><a href="#epilogue">Epilogue — A Note from the Author</a><span class="pg">C</span></li>
+  </ol>
+</nav>
+
+
+
+<!-- ===================== PART I OPENER ===================== -->
+<section class="sheet partopener" data-part="Part I" data-chapter="The Wealth Equation">
+  <div class="partlabel">Part I</div>
+  <h2 class="parttitle">The Wealth Equation</h2>
+  <p class="partlede">Four chapters on the four numbers that determine almost everything: how much you earn, what fraction you keep, how you handle the debt that arrives whether invited or not, and the cash buffer that prevents bad weeks from becoming bad decades. None of these is glamorous. All four matter more than which fund you buy. The middle six books of this series are about turning savings into wealth; this part is about generating savings in the first place — without which the rest of the apparatus is decoration.</p>
+  <ul class="partmap">
+    <li><b>Ch 1</b> Income, savings rate, time — the only equation that matters</li>
+    <li><b>Ch 2</b> Net worth — how to measure progress honestly</li>
+    <li><b>Ch 3</b> Debt — when it accelerates, when it destroys</li>
+    <li><b>Ch 4</b> The emergency fund — the foundation everything else sits on</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 1 ===================== -->
+<section class="sheet chapter" id="ch1" data-part="Part I" data-chapter="Income, Savings Rate, Time">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 1</span><span class="cline"></span><span class="ctag">Part I · The Wealth Equation</span></div>
+    <h2 class="chapter-title">Income, Savings Rate, Time</h2>
+    <p class="lead">The personal-finance industry is built to make this chapter seem more complicated than it is. The actual mathematics fits in one paragraph. The reason most households fail to build wealth is not that they picked the wrong fund; it is that they failed at one of three numbers — what they earned, what fraction they kept, or how long they let it compound. The fund choice matters too, eventually. The three numbers matter first.</p>
+  </div>
+  <h3><span class="subnum">1.1</span> The equation</h3>
+  <p>Wealth at time T equals the sum of (income at time t × savings rate at time t) compounded forward at the after-tax real return, summed across every year t from now to T. Stated less formally: <strong>you become wealthy by saving a substantial fraction of a stable income for a long time and letting it grow at a reasonable rate.</strong> Every one of those words is doing work.</p>
+  <div class="fml">
+    <span class="title">The wealth equation, in symbols</span>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.95rem;margin:0;line-height:1.8;">
+      W(T) = Σ<sub>t=0</sub><sup>T</sup> [ I(t) × s(t) × (1+r)<sup>T−t</sup> ]<br>
+      <br>
+      where  I(t) = income in year t,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; s(t) = savings rate in year t,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; r&nbsp;&nbsp;&nbsp; = after-tax real return,<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; T&nbsp;&nbsp;&nbsp; = years from now.
+    </p>
+  </div>
+  <h3><span class="subnum">1.2</span> Why savings rate dominates</h3>
+  <p>The fund-picking industry talks about r — the return. The household-budget industry talks about s — the savings rate. Both are necessary; <em>s dominates over realistic horizons.</em> Consider two households, both earning $100,000 per year for 30 years, both with no other assets at start:</p>
+  <div class="calctbl">
+    <span class="title">Savings rate dominates fund choice over realistic horizons</span>
+    <table>
+      <thead><tr><th>Household</th><th>Savings rate</th><th>Real return</th><th>Annual savings</th><th>Wealth at year 30</th></tr></thead>
+      <tbody>
+        <tr><td>A — high earner, low saver</td><td>5%</td><td>7%</td><td>$5,000</td><td>$472,000</td></tr>
+        <tr><td>B — same earner, average saver</td><td>15%</td><td>5%</td><td>$15,000</td><td>$997,000</td></tr>
+        <tr><td>C — same earner, strong saver</td><td>25%</td><td>5%</td><td>$25,000</td><td>$1,660,000</td></tr>
+        <tr><td>D — same earner, FIRE saver</td><td>50%</td><td>5%</td><td>$50,000</td><td>$3,320,000</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">All four households earn identically. Household A picks the "right" fund (7% real); B/C/D pick a mediocre one (5% real). B still has 2.1× the wealth of A. C has 3.5×. D has 7×. <b>Two extra percentage points of return cannot overcome a 10-percentage-point gap in savings rate.</b> Over any realistic horizon, savings rate is the dominant lever.</p>
+  </div>
+  <h3><span class="subnum">1.3</span> The savings-rate ladder</h3>
+  <p>A rough ladder of where households fall, in the US and increasingly in urban India:</p>
+  <ul>
+    <li><strong>&lt;5%</strong> — the median US household by some measures; not building wealth.</li>
+    <li><strong>5-10%</strong> — minimum for any kind of retirement security on an average career.</li>
+    <li><strong>10-15%</strong> — the textbook recommendation. Comfortable retirement at 65 on a 40-year career.</li>
+    <li><strong>15-25%</strong> — early-retirement-curious. 25-30 year careers possible.</li>
+    <li><strong>25-50%</strong> — the FIRE (Financial Independence, Retire Early) range. 15-20 year careers possible.</li>
+    <li><strong>50%+</strong> — the extreme-FIRE / lean-FIRE range; 10-15 year careers if income is high. Often requires geographic arbitrage or extreme frugality.</li>
+  </ul>
+  <h3><span class="subnum">1.4</span> The savings rate is a behaviour, not a calculation</h3>
+  <p>You can compute exactly what savings rate produces what wealth. You cannot compute the savings rate itself — it is the cumulative outcome of thousands of decisions: where to live, what car to drive, how many subscriptions, how many restaurant meals, whether the next promotion's pay rise raises the lifestyle or the brokerage balance. The single most decisive habit is to automate the savings rate: the day the paycheck arrives, the savings amount leaves before the rest is touched. Whatever is left is what you live on. This is the only reliable mechanism. Trying to "save what is left at month-end" produces a 30-year career of 0% savings rates.</p>
+  <h3><span class="subnum">1.5</span> The Mr. Money Mustache table — savings rate to years-to-retirement</h3>
+  <p>Pete Adeney popularised a compact table that converts savings rate directly into years-to-retirement, assuming a 5% real return and a 4% withdrawal rate. The table is mathematically derived but ruthlessly clarifying:</p>
+  <div class="calctbl">
+    <span class="title">Savings rate → years to financial independence (5% real return, 4% SWR)</span>
+    <table>
+      <thead><tr><th>Savings rate</th><th>Years to FI</th><th>Implication</th></tr></thead>
+      <tbody>
+        <tr><td>10%</td><td>51 years</td><td>You will not reach FI in a working career.</td></tr>
+        <tr><td>15%</td><td>43 years</td><td>Tight retirement at 65 on a 22-year-old start.</td></tr>
+        <tr><td>20%</td><td>37 years</td><td>Comfortable retirement at 60.</td></tr>
+        <tr><td>30%</td><td>28 years</td><td>Retire at 50 on a 22-year-old start.</td></tr>
+        <tr><td>40%</td><td>22 years</td><td>FIRE in your forties.</td></tr>
+        <tr><td>50%</td><td>17 years</td><td>FIRE in your late thirties.</td></tr>
+        <tr><td>65%</td><td>10.5 years</td><td>FIRE in your early thirties (high income or extreme frugality).</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">The years are independent of income level — they depend only on the ratio of savings to spending. Doubling your income while doubling your spending leaves the number of years unchanged. Doubling your income while keeping spending flat halves the time.</p>
+  </div>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>The investing industry profits from the lie that returns matter most.</h3>
+    <p>An entire industry — financial-advisors, mutual-fund managers, finfluencers, robo-advisors — markets the idea that picking the right investment is the central skill of personal finance. It is not. For the median household over a typical career, the savings-rate decision dominates the return decision by a factor of 2-5. The reason the industry sells the return story is that the savings-rate story does not generate fees. You can read this chapter, set up a 20% auto-debit, and never need an advisor for the next thirty years. The advisor's incentive is to convince you otherwise.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the wealth equation in symbols and explain what each variable is.</li>
+    <li>Demonstrate why savings rate dominates return over realistic horizons.</li>
+    <li>Locate your household on the savings-rate ladder.</li>
+    <li>Use the years-to-FI table to convert a target savings rate into a working horizon.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You earn $80,000 and save 8%. Your friend earns the same and saves 25%. Whose wealth in 30 years is larger, by approximately how much?</li>
+    <li>What is your current savings rate, rounded honestly?</li>
+    <li>At a 5% real return and 4% SWR, what savings rate is required to reach FI in 20 years?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 2 ===================== -->
+<section class="sheet chapter" id="ch2" data-part="Part I" data-chapter="Net Worth — Measuring What Matters">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 2</span><span class="cline"></span><span class="ctag">Part I · The Wealth Equation</span></div>
+    <h2 class="chapter-title">Net Worth — <em>Measuring</em> What Matters</h2>
+    <p class="lead">If the savings rate is the engine, net worth is the speedometer. The reading on the speedometer tells you whether the engine is doing what you think it is. Surprisingly few households compute their net worth more than once a decade, and even fewer compute it correctly. This chapter is the method.</p>
+  </div>
+  <h3><span class="subnum">2.1</span> The definition</h3>
+  <p><strong>Net worth = assets − liabilities.</strong> Assets are everything you own that has resale value: cash, investment accounts, retirement accounts, the equity in your house, vehicles (at honest resale value, not what you wish), valuables. Liabilities are everything you owe: mortgage, car loan, student loan, credit card balance, anything that must be repaid.</p>
+  <p>Two assets that often appear and shouldn't: future expected salary (this is human capital, valuable but not a balance-sheet item), and assets you cannot sell (frequent-flyer miles, sentimental items). Two liabilities that often don't appear and should: future tax on tax-deferred accounts (a 401(k) showing $500k is not $500k of after-tax value — apply your expected retirement marginal rate), and ongoing recurring obligations of significant size (alimony commitments, certain lease obligations).</p>
+  <h3><span class="subnum">2.2</span> The format — a one-page balance sheet</h3>
+  <div class="calctbl">
+    <span class="title">Sample household balance sheet · January 1 · "The Sharma household"</span>
+    <table>
+      <thead><tr><th>Category</th><th>Item</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td rowspan="6"><b>Assets</b></td><td>Joint chequing</td><td>$8,000</td></tr>
+        <tr><td>Emergency fund (HYSA)</td><td>$32,000</td></tr>
+        <tr><td>401(k) — me</td><td>$245,000</td></tr>
+        <tr><td>401(k) — spouse</td><td>$180,000</td></tr>
+        <tr><td>Taxable brokerage</td><td>$95,000</td></tr>
+        <tr><td>Home equity (value $520k − mortgage $310k)</td><td>$210,000</td></tr>
+        <tr><td><b>Total assets</b></td><td></td><td><b>$770,000</b></td></tr>
+        <tr><td rowspan="3"><b>Liabilities</b></td><td>Mortgage balance</td><td>$310,000</td></tr>
+        <tr><td>Car loan</td><td>$12,000</td></tr>
+        <tr><td>Credit card (paid monthly)</td><td>$0</td></tr>
+        <tr><td><b>Total liabilities</b></td><td></td><td><b>$322,000</b></td></tr>
+        <tr><td colspan="2"><b>Net worth</b> = $770k − $322k <i>(but home equity is already net of mortgage; corrected total below)</i></td><td>$668,000</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">Format tip: list home equity (value minus mortgage) once on the asset side, not the home value as asset and the mortgage as liability. Double-counting is the most common balance-sheet error.</p>
+  </div>
+  <h3><span class="subnum">2.3</span> How often to update</h3>
+  <p>Quarterly is the sweet spot. Monthly produces too much noise from market fluctuations and tempts behavioural error (Book 7 Chapter 13). Annually is too infrequent — you lose the trend signal. Quarterly, on a fixed date (last business day of March / June / September / December), takes 20 minutes once the format is established. Plot the result on a single chart over years. The slope of the line is your life.</p>
+  <h3><span class="subnum">2.4</span> The ratios that matter</h3>
+  <ul>
+    <li><strong>Net worth / annual income</strong> — Thomas Stanley (Millionaire Next Door) proposed a benchmark: expected net worth ≈ age × pre-tax income ÷ 10. So a 45-year-old earning $80,000 "should" have $360,000. The formula is wrong in detail (it overweights age and underweights years of saving) but useful as a sanity check: at 45 with five years of working you have an excuse; at 45 with 23 years of working you do not.</li>
+    <li><strong>Liquid net worth / annual expenses</strong> — your runway. Liquid net worth divided by yearly spending gives you years of expenses covered. Under 0.5 is fragile; 1-3 is recovering; 5+ is comfortable; 25+ means you have reached the 4% SWR threshold (Book 6 Ch 14).</li>
+    <li><strong>Debt-to-income</strong> — total annual debt service / annual income. Above 35-40% you are over-levered and cannot sustain a shock. Mortgage payments are debt service; pretending otherwise is how families enter foreclosure.</li>
+  </ul>
+  <h3><span class="subnum">2.5</span> The qualitative read</h3>
+  <p>The quantitative read is the numbers. The qualitative read is what they mean for you. A net worth of $500k held entirely in your own company's stock is fragile; held in a diversified portfolio is robust. A net worth of $200k with stable employment in your forties is on track; with unstable employment is at risk. The balance sheet by itself is incomplete; the balance sheet plus your income statement (Book 4 Ch 2 — yes, the same accounting concept applies to your household) plus your honest assessment of stability is the full picture.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Define net worth and state the most common balance-sheet error to avoid.</li>
+    <li>Construct a one-page household balance sheet from your own accounts.</li>
+    <li>Compute three diagnostic ratios and interpret them.</li>
+    <li>State the recommended frequency of net-worth tracking and explain why.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Your home is worth $400k and your mortgage is $250k. What value enters your balance sheet, and where?</li>
+    <li>You are 40, earn $90k, have $200k net worth. Stanley benchmark says what?</li>
+    <li>Your annual expenses are $60k; liquid net worth $300k. What is your runway and how does it read?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 3 ===================== -->
+<section class="sheet chapter" id="ch3" data-part="Part I" data-chapter="Debt — Accelerator and Destroyer">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 3</span><span class="cline"></span><span class="ctag">Part I · The Wealth Equation</span></div>
+    <h2 class="chapter-title">Debt — Accelerator &amp; Destroyer</h2>
+    <p class="lead">Debt is not bad. Debt is leverage. Leverage applied to an appreciating asset can be the single largest accelerator of household wealth in your lifetime; applied to a depreciating asset or to consumption, it is the single largest destroyer. The honest treatment of debt requires separating these cleanly and resisting the cultural tendency to lump them together either as universally bad ("Dave Ramsey: cut up the cards") or universally fine ("the credit-card industry: rewards!").</p>
+  </div>
+  <h3><span class="subnum">3.1</span> The taxonomy — by what the borrowing buys</h3>
+  <ul>
+    <li><strong>Good debt</strong> — borrowing at an after-tax rate below the expected real return of the asset purchased. Examples: a 6% mortgage on a home in a market where real-estate-plus-imputed-rent returns 7%; a federal student loan at 4% for a degree with a positive expected NPV; a moderate-rate business loan funding genuine growth.</li>
+    <li><strong>Neutral debt</strong> — borrowing at a rate comparable to its alternative. A 7% auto loan on a car you would otherwise pay cash for is roughly neutral if your investment alternative also yields 7%. The car still depreciates; the financing is not the harmful part.</li>
+    <li><strong>Bad debt</strong> — borrowing at a high rate to finance consumption. Credit-card balances at 22%, payday loans at 40%+, "buy now, pay later" on routine purchases, personal loans for vacations or weddings beyond means.</li>
+    <li><strong>Catastrophic debt</strong> — high-rate debt with cascading penalties and default consequences. Loan-shark debt; tax debt (compounding penalties); gambling debt; some private-school loan structures that lack the federal-loan protections.</li>
+  </ul>
+  <h3><span class="subnum">3.2</span> The mortgage — the largest and most-misunderstood case</h3>
+  <p>A mortgage funds the purchase of a primary residence. It is the largest debt most people will ever hold and the one where the cultural treatment is most distorted. Two honest framings:</p>
+  <p><strong>Framing 1 — leverage on an appreciating asset.</strong> A 20% down payment leverages your equity 5×. If the home appreciates 4% per year, your equity grows by approximately 20% per year (4% × 5×, ignoring interest and costs) in the early years. This is real, and explains why home ownership is correlated with household wealth in survey data.</p>
+  <p><strong>Framing 2 — a forced savings programme with high transaction costs.</strong> Each mortgage payment includes a principal portion (savings) and an interest portion (cost). Over the first decade of a 30-year mortgage, roughly two-thirds of each payment is interest. The "wealth-building" property of homeownership is partly the disciplined principal repayment and partly the leverage; it is offset by transaction costs (6% on sale), maintenance (1% of value per year), property tax, and insurance.</p>
+  <p>The empirical result, comprehensively studied (Beracha &amp; Johnson, 2012; many follow-up papers): renting and investing the difference produces comparable wealth to owning, in most US markets, over 30-year horizons. The wealth advantage of homeowners is largely an artifact of forced saving, not a property of homes. We return to this in Chapter 5.</p>
+  <h3><span class="subnum">3.3</span> The credit card — the most expensive debt most people carry</h3>
+  <p>A US credit card carrying a balance at the average 2025 rate of 22% costs the borrower approximately 1.83% per month. A balance of $5,000 carried for a year, without any new charges, would accumulate $1,100 in interest. This compounds: a $5,000 balance paid at the minimum (often 2% of balance, principal-light) takes more than 22 years to retire and costs more than $7,500 in interest. The credit-card business model depends on this; American households carried a collective $1.13 trillion in revolving credit-card debt as of Q1 2024 (Fed data).</p>
+  <p>The financial fix is simple: pay the statement balance in full every month. Done this way the card is a 30-day free loan plus 1-2% rewards. Carried, it is the most expensive consumer credit in mainstream availability.</p>
+  <h3><span class="subnum">3.4</span> The debt strategies — snowball vs. avalanche</h3>
+  <p>Two named methods for paying off multiple debts:</p>
+  <ul>
+    <li><strong>Avalanche</strong> — pay minimums on all, attack the highest-interest debt first. Mathematically optimal: lowest total interest paid.</li>
+    <li><strong>Snowball</strong> — pay minimums on all, attack the smallest balance first. Mathematically inferior but produces a quick win that sustains motivation.</li>
+  </ul>
+  <p>Studies (Northwestern Kellogg, 2012; Gal &amp; McShane, 2012) find that the snowball method has higher completion rates in real life despite paying more interest. The right method is the one you will actually complete. For most people that is the snowball.</p>
+  <h3><span class="subnum">3.5</span> The debt-paydown vs. invest decision</h3>
+  <p>"Should I pay off my mortgage early or invest the extra money?" is one of the most common reader questions in personal finance. The honest answer is a function of three numbers: the after-tax rate on the debt, the after-tax expected return on the investment, and your behaviour. If the after-tax mortgage rate is 4% and the expected after-tax investment return is 5%, the math favours investing — but the certainty of the 4% saving versus the variability of the 5% return matters. For most households at most rates: pay debts above ~7% before investing beyond employer match; below ~5%, invest while paying minimums; in between, split.</p>
+  <div class="vignette">
+    <span class="vtag">Investor vignette · 2018-2026</span>
+    <h3>Arun, 41 · The mortgage payoff that wasn't worth it</h3>
+    <p>Arun, an engineer in Hyderabad, prepaid his ₹65 lakh home loan aggressively from 2018 to 2024 at an effective rate of 8.6% — using nearly all surplus cashflow. By December 2024 he had eliminated the loan, four years ahead of schedule. He felt enormously relieved.</p>
+    <p>Then he ran the counterfactual. Had he made minimum payments on the loan and SIP'd the surplus into a Nifty 50 index fund — which returned approximately 14% annualised over that window — his accumulated investment balance at the end of 2024 would have exceeded the outstanding loan by ₹38 lakh.</p>
+    <p>The honest assessment: the after-tax mortgage rate (after home-loan interest deduction) was approximately 6.3%; the after-tax index return was approximately 12%. The math favoured investing by a 5.7-percentage-point margin. He was wrong, financially.</p>
+    <p>But he was not wrong about himself. Through 2020 — the COVID crash — many of his peers panic-sold their equity holdings near the bottom. Arun, with no equity, simply continued the prepayment SIP. His actual behaviour, under stress, was reliable in a way his counterfactual investment behaviour might not have been. The 5.7-percentage-point opportunity cost is real; the avoided behavioural risk is also real. They are not commensurable in spreadsheet form.</p>
+    <p>The right framing for Arun, and for many households: <em>the optimal financial answer is the one you can actually execute through the worst week of your investing life.</em> Sometimes that is not the highest-expected-value plan.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Distinguish good, neutral, bad, and catastrophic debt by the underlying purchase.</li>
+    <li>State the two honest framings of a mortgage and the empirical finding about renting vs. owning.</li>
+    <li>Compute the long-run cost of carrying a $5,000 credit-card balance at minimum payments.</li>
+    <li>State when avalanche beats snowball mathematically and when snowball beats avalanche behaviourally.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You carry a $6,000 credit-card balance at 24% and have $6,000 in a 4% HYSA. What is the arbitrage and how do you capture it?</li>
+    <li>Your mortgage is at 4%, your expected after-tax equity return is 5.5%. Pay down or invest?</li>
+    <li>True/false: the mathematically optimal debt-paydown order is always the right one for you.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 4 ===================== -->
+<section class="sheet chapter" id="ch4" data-part="Part I" data-chapter="The Emergency Fund">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 4</span><span class="cline"></span><span class="ctag">Part I · The Wealth Equation</span></div>
+    <h2 class="chapter-title">The Emergency Fund</h2>
+    <p class="lead">The emergency fund is the single least-glamorous piece of a financial plan and the piece without which everything else fails. It exists for a specific job: to prevent a bad month from forcing you to sell investments at the wrong time, take on high-rate debt, or change jobs out of desperation. Without it, every other decision in this book is fragile.</p>
+  </div>
+  <h3><span class="subnum">4.1</span> How much</h3>
+  <p>The textbook rule: <strong>three to six months of essential expenses, in cash, immediately accessible.</strong> "Essential" means rent/mortgage, utilities, food, insurance premiums, debt minimums, transportation — not the lifestyle baseline. A household whose normal monthly spend is $5,000 with $3,500 essential should target $10,500-$21,000.</p>
+  <p>Adjustments to the range:</p>
+  <ul>
+    <li><strong>Toward six months</strong> if income is variable (commission, freelance, business owner), if you have dependents, if your industry has long re-employment timelines (academia, executive roles).</li>
+    <li><strong>Toward three months</strong> if income is stable salaried with multiple income earners in the household and short historical re-employment timelines.</li>
+    <li><strong>More than six months</strong> if you are near retirement (the sequence-of-returns risk in Book 6 Ch 16 favours larger cash buffers in the first few decumulation years) or in a known-volatile period of life (recent diagnosis, pending divorce, business uncertainty).</li>
+  </ul>
+  <h3><span class="subnum">4.2</span> Where to keep it</h3>
+  <p>High-yield savings account (HYSA) at an FDIC-insured (US) or DICGC-insured (India, ₹5 lakh limit) institution. In 2025-26 US HYSAs yield 4-5%; Indian sweep-FD-linked savings accounts yield 5-7%. Money-market funds at a major broker are an acceptable alternative; T-bills laddered for monthly maturity work too. <em>Not</em>: equity, bonds, crypto, or anything with mark-to-market risk. The whole point of the emergency fund is that it is worth what it was worth yesterday.</p>
+  <h3><span class="subnum">4.3</span> The opportunity-cost objection</h3>
+  <p>The common objection: "$20,000 in a 4% HYSA earns $800 a year. The same in equities would earn $1,400 expected. I'm losing $600 per year on this." The response: yes, in expectation. The emergency fund is not held for expected return; it is held to bound the worst outcome. The $600 of foregone return is the insurance premium for the option of not selling equities at a 30% drawdown to cover a car repair. The 2008-09 households that drained their 401(k)s to cover layoffs paid 10% early-withdrawal penalties plus ordinary income tax plus 40-50% of remaining-balance market value at the bottom. The emergency fund prevents this category of disaster.</p>
+  <h3><span class="subnum">4.4</span> The three buckets — a refinement</h3>
+  <p>For households beyond the basic level, a three-bucket cash architecture works well:</p>
+  <div class="calctbl">
+    <span class="title">The three-bucket emergency architecture</span>
+    <table>
+      <thead><tr><th>Bucket</th><th>Size</th><th>Vehicle</th><th>Triggered by</th></tr></thead>
+      <tbody>
+        <tr><td>1 — chequing buffer</td><td>1 month expenses</td><td>Linked chequing</td><td>Routine cashflow timing</td></tr>
+        <tr><td>2 — emergency fund</td><td>3-6 months</td><td>HYSA / money-market</td><td>Job loss, major repair, medical event</td></tr>
+        <tr><td>3 — deep reserve</td><td>12+ months (optional)</td><td>T-bill ladder / short bond fund</td><td>Major life change, sabbatical, long unemployment</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">The deep reserve is appropriate for higher-income households or those near financial independence. For most accumulating households, buckets 1 and 2 are sufficient.</p>
+  </div>
+  <h3><span class="subnum">4.5</span> Rebuilding after a draw</h3>
+  <p>If you draw down the emergency fund — for the purpose for which it exists — the next financial priority becomes refilling it. Other goals (retirement contributions, debt payoff above minimums, vacation savings) take a back seat until the fund is restored. Failure to refill is the most common path from a temporary setback to a permanent decline.</p>
+  <div class="practice">
+    <span class="title">If you take one action this month</span>
+    <p style="margin-bottom:0;">Open an HYSA. Set up an automatic transfer of 5-10% of every paycheck into it. Continue until you have three months of essential expenses. Then redirect the auto-transfer to your retirement accounts. The whole exercise takes 15 minutes to set up and 6-12 months to complete. It is the most reliable single action available to a household not currently building wealth.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the textbook emergency-fund range and the adjustments by household type.</li>
+    <li>Identify suitable vehicles and disqualifying ones.</li>
+    <li>Respond to the opportunity-cost objection with the insurance-premium framing.</li>
+    <li>Describe the three-bucket cash architecture for advanced households.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Your essential monthly expenses are $4,200. What is your minimum and maximum emergency-fund target?</li>
+    <li>Why is the emergency fund not held in equities, even though equities have higher expected returns?</li>
+    <li>You're a freelance designer with variable income. Which end of the range do you target and why?</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART II OPENER ===================== -->
+<section class="sheet partopener" data-part="Part II" data-chapter="The Big Decisions">
+  <div class="partlabel">Part II</div>
+  <h2 class="parttitle">The Big Decisions</h2>
+  <p class="partlede">Four decisions that determine more of your financial life than every fund choice combined: where you live and whether you own it, how you insure against ruin, how you invest in your own earning power, and how you fund the next generation without sacrificing yourself. None of these is a spreadsheet problem alone; each is a life problem with a financial dimension. The chapters that follow respect both.</p>
+  <ul class="partmap">
+    <li><b>Ch 5</b> Buy vs. rent — the math and the life</li>
+    <li><b>Ch 6</b> Insurance — protecting against ruin</li>
+    <li><b>Ch 7</b> Career capital — your largest asset</li>
+    <li><b>Ch 8</b> Children &amp; education</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 5 ===================== -->
+<section class="sheet chapter" id="ch5" data-part="Part II" data-chapter="Buy vs. Rent">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 5</span><span class="cline"></span><span class="ctag">Part II · The Big Decisions</span></div>
+    <h2 class="chapter-title">Buy vs. Rent — <em>the Math &amp; the Life</em></h2>
+    <p class="lead">The buy-vs-rent decision is the largest single financial decision most people make. It is also the one most distorted by cultural narrative ("renting is throwing money away") and the one where back-of-envelope intuition is most often wrong. The honest treatment requires both math — which is unambiguous if done correctly — and life — which the math cannot capture.</p>
+  </div>
+  <h3><span class="subnum">5.1</span> "Throwing money away" is not what renters do</h3>
+  <p>The cultural framing: rent is money down the drain; mortgage payments build equity. The arithmetic framing: <em>some</em> of every mortgage payment is interest (drained), property tax (drained), insurance (drained), and maintenance (drained). The remainder is principal repayment, which is forced saving. The principal-repayment portion is the part that builds equity. Over the first decade of a 30-year mortgage at 6%, roughly two-thirds of every payment is interest. The "building equity" story is real but smaller than headline.</p>
+  <p>The renter, in parallel, pays only the drained portion (their rent covers the landlord's drains plus a profit margin). The renter has no forced saving — they must build it themselves, voluntarily, via SIP. <em>If they actually do so</em>, they end the period with comparable wealth to the homeowner over many time-horizons and markets. <em>If they don't</em>, they end the period much poorer. The wealth difference is almost entirely behavioural.</p>
+  <h3><span class="subnum">5.2</span> The 5% rule of thumb (Ben Felix)</h3>
+  <p>A useful heuristic, popularised by Canadian portfolio manager Ben Felix: <strong>the unrecoverable annual cost of owning a home is approximately 5% of the home value</strong>. The 5% breaks down as roughly:</p>
+  <ul>
+    <li>~1% property tax (varies by jurisdiction)</li>
+    <li>~1% maintenance (long-run average; lumpy in practice)</li>
+    <li>~3% cost-of-capital — the opportunity cost of equity tied up in the house plus mortgage interest net of any deduction</li>
+  </ul>
+  <p>The rule: if annual rent on a comparable property is less than 5% of the purchase price, renting is financially favoured. If more than 5%, buying is favoured. The rule is rough but useful — it captures the structural cost honestly, which most consumer comparisons do not.</p>
+  <h3><span class="subnum">5.3</span> Worked comparison — $500,000 home vs. $2,200/month rent</h3>
+  <div class="calctbl">
+    <span class="title">Buy vs. rent over 10 years — illustrative US market</span>
+    <table>
+      <thead><tr><th>Item</th><th>Buy</th><th>Rent</th></tr></thead>
+      <tbody>
+        <tr><td>Purchase price / monthly rent</td><td>$500,000</td><td>$2,200/mo</td></tr>
+        <tr><td>Down payment / no equivalent</td><td>$100,000 (20%)</td><td>$0</td></tr>
+        <tr><td>Mortgage at 6.5%, 30yr</td><td>$2,528/mo P&amp;I</td><td>—</td></tr>
+        <tr><td>Property tax (1.2% of value)</td><td>$500/mo</td><td>—</td></tr>
+        <tr><td>Maintenance (1% of value)</td><td>$417/mo</td><td>—</td></tr>
+        <tr><td>Insurance, HOA, repairs</td><td>$200/mo</td><td>$15/mo renter's</td></tr>
+        <tr><td><b>Total monthly</b></td><td><b>$3,645</b></td><td><b>$2,215</b></td></tr>
+        <tr><td>Monthly difference invested at 7% real</td><td>—</td><td>$1,430 × 120 mo</td></tr>
+        <tr><td>10-year terminal — house equity (5% appr)</td><td>$258,000</td><td>—</td></tr>
+        <tr><td>10-year terminal — invested $100k down + monthly diff at 7%</td><td>—</td><td>$402,000</td></tr>
+        <tr><td>Less: transaction costs to sell house (6%)</td><td>−$48,000</td><td>—</td></tr>
+        <tr><td><b>Net 10-year position</b></td><td><b>$210,000</b></td><td><b>$402,000</b></td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">In this market, rent-and-invest beats buy by approximately $192,000 over 10 years, <i>conditional</i> on the renter actually investing the difference. Change the assumptions — rent of $3,000 instead of $2,200, appreciation of 7% instead of 5%, lower maintenance — and the answer flips. The decision is local and assumption-sensitive. The cultural intuition that owning always wins is wrong.</p>
+  </div>
+  <h3><span class="subnum">5.4</span> When buying is actually right</h3>
+  <ul>
+    <li><strong>You will stay 7+ years.</strong> Transaction costs (5-7% on purchase, 6-8% on sale) destroy short-horizon ownership.</li>
+    <li><strong>The local rent-to-price ratio favours buying.</strong> Apply the 5% rule.</li>
+    <li><strong>Stability matters to you for non-financial reasons</strong> — children's schools, garden, the freedom to renovate, the absence of a landlord. These are real life goods, not just sentimental. The willingness to pay a premium for them is honest. Putting a price on the premium and seeing if it's worth it to you is the work.</li>
+    <li><strong>You are highly likely to actually invest the renter-difference.</strong> If not, the wealth gap closes and owning's forced-saving wins.</li>
+  </ul>
+  <h3><span class="subnum">5.5</span> The Indian variant</h3>
+  <p>In Indian metros, rent-to-price ratios are historically 2-4% — well below the 5% rule, meaning renting is financially favoured by a wide margin. The cultural pressure to own (a long-standing feature of Indian middle-class life) is therefore at strongest tension with the financial answer. The decision should be made consciously, knowing the cost. Many Indian families correctly choose ownership for non-financial reasons; the error is to choose it believing it is also the financially optimal choice.</p>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>Your house is a home. It is not, primarily, an investment.</h3>
+    <p>If you bought your home for the place, the schools, the freedom — say so honestly and enjoy it. If you bought your home because "real estate always goes up", you should know that real-estate appreciation, after maintenance and transaction costs, has historically barely matched inflation in most markets, and substantially trails equity returns over comparable periods. The disposition to over-value the house you live in is the largest single financial bias in middle-class life. The honest treatment is to count the house's value, and the financial logic of buying it, but to do most of your wealth-building elsewhere.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Refute "renting is throwing money away" with the drained-vs-principal breakdown.</li>
+    <li>Apply the 5% rule to a specific home/rent comparison in your market.</li>
+    <li>List four conditions under which buying is genuinely the right choice.</li>
+    <li>State the empirical result on long-run real-estate vs. equity returns.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>A home costs $400,000; comparable rent is $1,500/month. Buy or rent, by the 5% rule?</li>
+    <li>You plan to move in 4 years for a career step. Should you buy?</li>
+    <li>What is the largest single category of "drained" cost in a 30-year mortgage's first decade?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 6 ===================== -->
+<section class="sheet chapter" id="ch6" data-part="Part II" data-chapter="Insurance — Protecting Against Ruin">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 6</span><span class="cline"></span><span class="ctag">Part II · The Big Decisions</span></div>
+    <h2 class="chapter-title">Insurance — <em>Protecting Against Ruin</em></h2>
+    <p class="lead">Insurance is the cheapest way to bound the worst plausible outcome. It exists to transfer risks you cannot afford to bear to a counterparty (an insurance company plus its reinsurers) that pools the risk across many policyholders. The structural fact about insurance is that — on average — it has negative expected value to the policyholder, because the insurer takes a margin. You do not buy insurance to make money on average. You buy it so that the rare bad outcome does not destroy you.</p>
+  </div>
+  <h3><span class="subnum">6.1</span> The decision rule</h3>
+  <p><strong>Insure against outcomes you cannot afford to absorb. Self-insure outcomes you can.</strong> The dishwasher breaking? Cover yourself; pay $400 from your emergency fund. The car totalled? Cover yourself if you have a $5k emergency fund, or buy collision insurance if not. The breadwinner dying with three young children at home? You cannot afford to absorb that; you buy term life insurance. The standard is "what would ruin me", not "what would inconvenience me."</p>
+  <h3><span class="subnum">6.2</span> The four policies almost everyone needs</h3>
+  <p><strong>Health insurance.</strong> In the US, a single hospital admission can produce a six-figure bill. Health insurance is not optional in any honest financial plan; the only question is the deductible/premium tradeoff. High-deductible-plus-HSA strategies work for healthy individuals; richer plans make sense if you have ongoing care needs or dependents. In India, employer cover is usually inadequate; supplement with a family floater plan (₹10-30 lakh cover, ~₹15,000-30,000/year).</p>
+  <p><strong>Term life insurance.</strong> If anyone (spouse, children, parents) depends financially on your income, you need term life insurance. Term means it pays only if you die during the policy period; it builds no cash value. Coverage rule of thumb: 10-15× annual income, term length until your youngest child reaches financial independence or your savings cover the gap. A healthy 35-year-old can typically buy $1M of 20-year term coverage for $400-600/year in the US, or ₹1 crore for ~₹10,000-15,000/year in India. <em>Not</em> whole life, ULIP, or endowment plans — these are sales products covered in Book 7 Ch 17.</p>
+  <p><strong>Disability insurance.</strong> The most overlooked policy. The probability of becoming disabled during your working years is roughly 3× the probability of dying — and the financial consequence (lost income, with you still alive and consuming) is often larger. Long-term disability insurance replacing 60-70% of income is the standard. Employer LTD is often inadequate (cap, limited definition); a supplemental individual policy fills the gap. India's DI market is shallow; high earners often buy international LTD policies.</p>
+  <p><strong>Property &amp; casualty.</strong> Auto liability is mandated nearly everywhere. Homeowner's or renter's insurance for the dwelling and possessions. Umbrella liability (US: a $1M umbrella over auto and home costs ~$200/year and protects against lawsuit judgements exceeding underlying-policy limits) is unusually high-leverage protection for high-asset households.</p>
+  <h3><span class="subnum">6.3</span> Policies you usually don't need</h3>
+  <ul>
+    <li><strong>Whole life / ULIP / endowment.</strong> Bundles insurance and investment at a bad price for both. Buy term plus invest the difference. (Book 7 Ch 17.)</li>
+    <li><strong>Mortgage life insurance.</strong> Specific-purpose policy with lower coverage and higher cost than equivalent term.</li>
+    <li><strong>Credit-card payment protection.</strong> Expensive insurance against the worst-case outcome of holding too much credit-card debt — itself the problem to fix.</li>
+    <li><strong>Extended warranties on consumer electronics.</strong> Negative expected value; the retailer's margin makes them deliberately uneconomic. Save the difference.</li>
+    <li><strong>Cancer-only / dread-disease-only policies.</strong> Better to buy comprehensive health insurance.</li>
+    <li><strong>Pet insurance — sometimes.</strong> Cheaper to self-insure unless you have a breed with known expensive conditions.</li>
+  </ul>
+  <h3><span class="subnum">6.4</span> Worked example — a complete insurance stack for a $120k-income family</h3>
+  <div class="calctbl">
+    <span class="title">A complete insurance stack · family of 4 · $120k income · US</span>
+    <table>
+      <thead><tr><th>Policy</th><th>Coverage</th><th>Annual cost</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Employer health (HDHP + HSA)</td><td>Family</td><td>$3,600 (employee share)</td><td>Catastrophic protection + tax-advantaged saving</td></tr>
+        <tr><td>Term life (each spouse)</td><td>$1M × 20yr × 2</td><td>$900</td><td>Replace lost income through youngest kid's college</td></tr>
+        <tr><td>Long-term disability (supplement)</td><td>60% of $120k</td><td>$1,200</td><td>Probability of disability &gt; probability of death in working years</td></tr>
+        <tr><td>Auto (full coverage, 2 cars)</td><td>$250k/$500k limits</td><td>$2,200</td><td>Liability + collision while car is financed</td></tr>
+        <tr><td>Homeowner's</td><td>Dwelling + contents + liability</td><td>$1,400</td><td>Mandatory if mortgaged; otherwise still essential</td></tr>
+        <tr><td>Umbrella liability</td><td>$1M</td><td>$200</td><td>Cheap cover against the catastrophic lawsuit</td></tr>
+        <tr><td><b>Total annual</b></td><td></td><td><b>$9,500</b></td><td>~8% of gross income — within textbook range</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">Total spend ~8% of gross income, all on policies that bound real catastrophic risk. Compare to a household carrying a $4,000/year whole-life policy that does the work of $500/year of term plus adds investment drag — the same money, badly spent.</p>
+  </div>
+  <h3><span class="subnum">6.5</span> The annual review</h3>
+  <p>Insurance needs change with life. New child, new home, new spouse, new business, retirement — each event should trigger a re-evaluation of every policy. The annual review specified in Book 7 Ch 13 includes insurance: are you over-insured anywhere (paying premiums for risks you can now self-absorb)? Under-insured anywhere (a new child without a corresponding life policy)? Holding policies bought during a sales pitch you would not choose today? The mid-life pruning of inherited policies — usually the result of conscientious annual reviews — is one of the most common high-leverage financial improvements available to middle-aged households.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the decision rule for what to insure.</li>
+    <li>Name the four policies most households need and the rule of thumb for term life coverage.</li>
+    <li>List four policy types usually <em>not</em> worth buying.</li>
+    <li>Describe what an annual insurance review consists of.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You're 32, married, no children, two incomes of $90k each. Do you need term life insurance? Disability?</li>
+    <li>You have a 4-year-old and a 1-year-old. What is your minimum target term-life coverage and term length?</li>
+    <li>Your insurance agent recommends a "whole life policy that builds value". What's the response?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 7 ===================== -->
+<section class="sheet chapter" id="ch7" data-part="Part II" data-chapter="Career Capital">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 7</span><span class="cline"></span><span class="ctag">Part II · The Big Decisions</span></div>
+    <h2 class="chapter-title">Career Capital — <em>Your Largest Asset</em></h2>
+    <p class="lead">A 30-year-old earning $80,000 with reasonable career trajectory has a future earnings stream of conservatively $4-5 million in present-value terms. That is the largest asset on the balance sheet by an order of magnitude — larger than the house, larger than the 401(k), larger than the investment portfolio at almost every stage of life until retirement. The personal-finance literature spends 95% of its words on the smaller asset. This chapter tries to correct that, briefly.</p>
+  </div>
+  <h3><span class="subnum">7.1</span> Career capital is human capital plus social capital plus reputation</h3>
+  <p><strong>Human capital</strong> — skills, knowledge, ability to produce value. The piece you can actively develop through deliberate practice, education, projects.</p>
+  <p><strong>Social capital</strong> — the network of people who would respond to your call, vouch for you, hire you, refer you, fund you. Underweighted by introverts and engineers; overweighted by professional networkers. The honest middle is to invest deliberately and modestly.</p>
+  <p><strong>Reputation</strong> — what people in your field believe about you when you are not in the room. Slow to build, asymmetric to lose (a single ethical lapse can destroy decades of accumulation), and the most valuable component once you have it. Reputation compounds; the early-career investment in doing high-quality work and being trustworthy returns very high real rates over a long career.</p>
+  <h3><span class="subnum">7.2</span> The return on a year of skill development</h3>
+  <p>One additional year of deliberate skill development in your twenties typically produces a 10-30% lifetime income lift if it moves you to a higher-trajectory job or industry. Compounded over a 35-year career, a 20% income lift on a $70k base is roughly $500,000 in nominal terms — more than the entire retirement portfolio of a median household. The return on career investment in the early decades almost always dominates investment-portfolio returns.</p>
+  <h3><span class="subnum">7.3</span> The salary-negotiation arithmetic</h3>
+  <p>One of the highest-leverage actions available to most workers, and one of the most under-used. A 5% salary increase at age 28 compounds — through future raises calculated as percentages of salary — into substantially more than 5% of lifetime income. Estimates from labour economists (Hall &amp; Krueger 2012; Karren &amp; Sherman 2012) put the lifetime value of a single $5,000 negotiation at $400,000-$700,000 in present value terms.</p>
+  <p>The practical asymmetry: the manager hiring you has done this 50 times this year. You may have done it 3 times in your career. They are professionally calibrated; you are not. The cure is not charm; it is preparation — competing-offer information, market comp data (levels.fyi, Glassdoor, AmbitionBox in India), and the willingness to ask. Most employees who ask, get. Most employees do not ask.</p>
+  <h3><span class="subnum">7.4</span> The career-vs-investment trade</h3>
+  <p>"Should I take the MBA at $150,000?" "Should I leave a $200k stable job for a $130k startup with equity?" "Should I move from Bangalore to the Bay Area?" These are partly investment decisions; the framework is similar to the buy-vs-rent calculation. Compute the expected NPV honestly. Then add the option value (does this open doors the alternative does not?) and subtract the optionality cost (does this close doors the alternative kept open?). The hardest part — and the one MBAs in particular get wrong — is honestly estimating the expected post-degree income lift, not the marketing-materials version.</p>
+  <h3><span class="subnum">7.5</span> Diversifying career risk</h3>
+  <p>The single most common career-capital failure is total dependence on one employer in a volatile industry. A side stream of income (consulting, freelance, royalties, a small business), even at 10% of primary income, is structurally valuable as both insurance and option. The 2020 furloughs, the 2022-23 tech layoffs, the 2025 AI displacement in customer service — all hit single-income-stream households harder than diversified ones, at the same magnitude as a market drawdown hits an undiversified portfolio.</p>
+  <div class="practice">
+    <span class="title">A career-capital habit</span>
+    <p style="margin-bottom:0;">Once a year — on the same day you do the financial annual review (Book 7 Ch 13) — also review your career. Three questions: am I one year better at something specific and valuable than I was last year? Have I added or strengthened three meaningful professional relationships? Would my honest self-assessment of my reputation hold up to scrutiny by someone who reviewed my actual work? If "no" to any, that is the input to next year.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the three components of career capital and which compounds most over a long career.</li>
+    <li>Estimate the lifetime value of a $5,000 early-career salary negotiation.</li>
+    <li>Frame a career-vs-investment trade as an NPV plus option-value calculation.</li>
+    <li>Describe at least one practical method of diversifying career risk.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Of your three career-capital components, which one have you invested in least over the past year?</li>
+    <li>You're offered $85k; market data suggests $92k. What's your counter, and roughly what is its lifetime value?</li>
+    <li>True/false: a side income stream that produces less than 15% of primary income is "not worth doing".</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 8 ===================== -->
+<section class="sheet chapter" id="ch8" data-part="Part II" data-chapter="Children and Education">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 8</span><span class="cline"></span><span class="ctag">Part II · The Big Decisions</span></div>
+    <h2 class="chapter-title">Children &amp; Education</h2>
+    <p class="lead">The honest cost of raising a child in the US through age 18, USDA estimate updated to 2025 dollars: approximately $300,000-$350,000 per child, excluding college. In urban India a comparable middle-class trajectory through age 18 runs ₹50-1.2 crore. College/professional education on top of this is variable but substantial. This is real money and it lands on a working household exactly during its accumulation decades. Handled deliberately, it does not derail wealth building. Handled by default, it can — and frequently does.</p>
+  </div>
+  <h3><span class="subnum">8.1</span> The first principle — your retirement before their college</h3>
+  <p>Counter-cultural but mathematically and ethically correct: <em>fund your own retirement to its full tax-advantaged limits before you fund your children's education in any meaningful way</em>. The reasons are three. (1) Your retirement has no scholarships, loans, or financial aid; your children's education does. (2) A child whose parents reach retirement age underfunded becomes the financial responsibility of that same child in their forties — a much larger burden on them than student debt at 22. (3) Tax-advantaged retirement space is use-it-or-lose-it; college accounts are not, especially with the SECURE 2.0 provisions allowing 529-to-Roth rollovers under limits.</p>
+  <p>The instruction on every aircraft safety briefing applies in the financial parallel: secure your own oxygen mask first.</p>
+  <h3><span class="subnum">8.2</span> The vehicles — 529, Coverdell, custodial, India SSY/PPF</h3>
+  <p><strong>US 529 plan.</strong> State-sponsored tax-advantaged college savings account. Contributions are not federally deductible (some states give deductions for in-state plans). Earnings grow tax-free; withdrawals for qualified education expenses are tax-free. Excess can be rolled to a Roth IRA for the beneficiary up to $35,000 lifetime under SECURE 2.0 (subject to conditions). Gift-tax superfunding (5 years of contributions in one year) is available for grandparents.</p>
+  <p><strong>Coverdell ESA.</strong> Smaller ($2,000/yr limit), more flexible (K-12 expenses qualify). Largely superseded by 529 for most families.</p>
+  <p><strong>UGMA/UTMA custodial accounts.</strong> Money becomes the child's at the age of majority; usable for any purpose. Tax-efficient at small balances; counted against financial aid more heavily than 529s.</p>
+  <p><strong>India: Sukanya Samriddhi Yojana (SSY).</strong> For girl children under 10. Tax-deductible contributions (80C), tax-free interest (currently ~8%), tax-free withdrawal. Best-in-class instrument when eligible.</p>
+  <p><strong>India: PPF / NPS / equity MFs in parent's name.</strong> For boys or families ineligible for SSY, the practical Indian education-funding stack is parent-name PPF (8.1%, tax-advantaged) plus a long-horizon equity MF SIP. Education-specific savings products marketed in India (child plans, ULIPs) are usually high-fee versions of products you would otherwise build yourself for less.</p>
+  <h3><span class="subnum">8.3</span> How much to save — the back-of-envelope</h3>
+  <p>One published college cost in your child's birth year, inflated at the historical education-inflation rate (~5% real in the US, ~10% nominal in India), discounted to today's contributions. A US public-flagship undergrad in 2025 runs $25-35k per year; the same in 18 years projects to $60-85k per year, or ~$280,000 for four years all-in. Contributing $300-400/month from birth into a 529 with 6% real returns funds approximately half. The other half: scholarships, financial aid, child contribution from work and modest loans. <em>Not</em>: a full 100% parental funding target — which over-saves at the cost of retirement.</p>
+  <h3><span class="subnum">8.4</span> The hardest conversation — "is private school worth it?"</h3>
+  <p>Private K-12 in major US cities runs $30,000-$60,000 per child per year. Over 13 years per child, with two children, this is $800,000-$1.5M of after-tax money — comparable in present-value terms to the parents' entire retirement savings target. The honest research finding (Lubienski &amp; Lubienski 2014; multiple follow-ups): once student demographics are controlled for, private K-12 outcomes are <em>not statistically distinguishable</em> from public-school outcomes for the same students. The premium pays for the peer group, the smaller class sizes, the campus, and the cultural fit — all real goods, none of them academic.</p>
+  <p>The same finding holds, less strongly, at the college level: the median outcome difference between an in-state public university and an Ivy-equivalent, holding the student's pre-college profile fixed, is small in earnings terms (Dale &amp; Krueger 2002, 2014). For most students at most schools, the elite-college premium is real but smaller than the cost difference.</p>
+  <p>None of this argues that private schooling is wrong. It argues that the decision should be made for reasons other than "better outcomes for my child", which is the marketing claim and the weakest of the actual reasons. Made for the right reasons — fit, environment, values, peer group, family history — it is a legitimate consumption choice. Made for the academic claim, it is over-priced.</p>
+  <h3><span class="subnum">8.5</span> Teaching children about money — the unsung component</h3>
+  <p>The single highest-return parental investment in a child's financial future is not money. It is teaching them how to handle it. Specific practices that have strong evidence behind them:</p>
+  <ul>
+    <li><strong>An allowance from age 6-7</strong>, paid weekly, with explicit categories (spend / save / give). The dollar amounts are immaterial; the practice is the point.</li>
+    <li><strong>A bank account in their name from age 10-12</strong>, with visibility into balances, deposits, debits. Most US banks offer joint minor accounts.</li>
+    <li><strong>A first paycheck from age 14-16</strong>, taxable, with the IRS receipt and an explanation of withholding.</li>
+    <li><strong>A custodial Roth IRA from any age they have earned income</strong>, even if it is $500 from a summer job. The compound runway is unique; the lesson — "your future self is funded by your present self" — is the lesson.</li>
+    <li><strong>Honest conversation about family money</strong>, age-appropriate, from early teens. Not specific numbers necessarily, but: what we earn, what we save, why we don't have certain things by choice, how decisions are made.</li>
+  </ul>
+  <p>The child whose parents discussed money openly enters adulthood meaningfully better equipped than the child whose parents treated money as a taboo. The difference is not knowledge — knowledge is widely available — but comfort with the topic.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the first principle (your retirement before their college) and the three reasons behind it.</li>
+    <li>Name the appropriate vehicles for education savings in US and India.</li>
+    <li>State the empirical finding on private K-12 outcomes vs. public.</li>
+    <li>List three practices for teaching children about money.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You can fund either your full 401(k) match ($6,000) or your child's full 529 ($6,000). Which is the textbook answer and why?</li>
+    <li>Your child has earned $1,200 babysitting. What financial vehicle does this make uniquely available?</li>
+    <li>Your child is choosing between an in-state public university ($25k/yr) and a similar-ranked private school ($55k/yr) with no aid. What is the honest empirical answer on outcome difference?</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART III OPENER ===================== -->
+<section class="sheet partopener" data-part="Part III" data-chapter="Building Through the Life Cycle">
+  <div class="partlabel">Part III</div>
+  <h2 class="parttitle">Building Through the Life Cycle</h2>
+  <p class="partlede">Wealth-building is not one problem; it is four problems in sequence. The twenties are about establishing systems and starting the compounding clock. The thirties and forties are the accumulation decades — when career capital peaks and savings rates can be highest. The fifties are the consolidation decade — when the asset allocation begins to matter more than the marginal contribution and risk-management dominates. The sixties and beyond are decumulation — flipping the entire problem around. Each decade has its own playbook. Misapplying one decade's playbook to another is the most common life-cycle error.</p>
+  <ul class="partmap">
+    <li><b>Ch 9</b> The 20s — establishing systems, starting the clock</li>
+    <li><b>Ch 10</b> The 30s &amp; 40s — accumulating</li>
+    <li><b>Ch 11</b> The 50s — the consolidation decade</li>
+    <li><b>Ch 12</b> The 60s and beyond — decumulation</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 9 ===================== -->
+<section class="sheet chapter" id="ch9" data-part="Part III" data-chapter="The 20s — Establishing Systems">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 9</span><span class="cline"></span><span class="ctag">Part III · The Life Cycle</span></div>
+    <h2 class="chapter-title">The 20s — <em>Establishing Systems</em></h2>
+    <p class="lead">The twenties produce the smallest dollar contributions to lifetime wealth and the largest percentage contributions. A dollar invested at 22 compounds for 43 years to retirement; the same dollar at 42 compounds for 23. The 43-year dollar grows to 13× its starting value at 6% real; the 23-year dollar to 3.8×. The decade's actual purpose is not the dollars — it is establishing the systems that the next three decades will run on.</p>
+  </div>
+  <h3><span class="subnum">9.1</span> The four systems to establish</h3>
+  <ol>
+    <li><strong>The auto-savings system.</strong> Direct deposit splits the paycheck. 10-20% goes into an emergency fund (until full) then into a retirement account; the rest into chequing. Set up day one of the first job. The point is that the money never enters your spending account, where it is rapidly indistinguishable from spendable money.</li>
+    <li><strong>The credit-system relationship.</strong> One credit card, used for monthly recurring bills and paid in full each month. No balance carried, ever. The card builds a credit history (relevant for future mortgages, business loans, even some rentals and employment screens) at zero interest cost.</li>
+    <li><strong>The investment-platform system.</strong> One brokerage account. One target-date fund or three-fund portfolio. Auto-invest monthly. Don't trade. Books 2 and 6 are the implementation.</li>
+    <li><strong>The annual-review system.</strong> Pick a date — your birthday is excellent. Review the IPS (Book 7 Ch 13), update net worth (Ch 2 here), increase the auto-savings rate by 1 percentage point. The discipline of the review is more important than any single year's outcome.</li>
+  </ol>
+  <h3><span class="subnum">9.2</span> The twenties priorities in order</h3>
+  <ol>
+    <li><strong>Eliminate any consumer/high-rate debt.</strong> Credit-card balances, payday loans. Pay these before nearly anything else.</li>
+    <li><strong>Build a starter emergency fund</strong> — $1,000-2,000 to cover small emergencies without resorting to credit cards.</li>
+    <li><strong>Capture the full employer 401(k) match (or equivalent).</strong> An instant 50-100% return on contribution. Never decline this.</li>
+    <li><strong>Build the full emergency fund</strong> (3-6 months essential expenses, Ch 4).</li>
+    <li><strong>Max your Roth IRA</strong> (US) or PPF (India). Tax-free growth runway is the highest-leverage compounding available, especially when income is low (low tax cost of contributions).</li>
+    <li><strong>Increase 401(k) contributions beyond match.</strong></li>
+    <li><strong>Invest in career capital deliberately.</strong> A certification, a course, a deliberate pivot. The return on twenties career investment dominates almost all other returns.</li>
+    <li><strong>Don't buy a house yet</strong> unless you are extraordinarily stable in location and life. Optionality is more valuable than the early-stage mortgage equity.</li>
+  </ol>
+  <h3><span class="subnum">9.3</span> The 20s mistakes that cost most</h3>
+  <ul>
+    <li><strong>Lifestyle creep.</strong> Each promotion raise becomes new spending instead of new savings. The hedonic adaptation literature is unambiguous: the new spending produces zero durable happiness within months, and zero retirement security within decades.</li>
+    <li><strong>Carrying a credit-card balance.</strong> Documented to cost the average US household more than $1,000 per year (CFPB data). Over a 40-year career compounding, this is a $200,000+ retirement loss.</li>
+    <li><strong>Skipping the employer match.</strong> The single most common 20s mistake. A 4% match left on the table for a decade is approximately $80,000 of foregone wealth at retirement.</li>
+    <li><strong>Day-trading individual stocks or options for "excitement".</strong> Documented in Barber &amp; Odean and a dozen follow-ups: this is an entertainment expense, not an investment strategy. The cost is the loss plus the foregone return.</li>
+    <li><strong>Postponing investing "until I have more money".</strong> The compounding penalty is documented in Book 1 Ch 8's "same $10k, same 8%" chart: $319k vs. $32k depending on start age. There is no later catch-up that recovers the foregone first decade.</li>
+  </ul>
+  <h3><span class="subnum">9.4</span> The savings-rate ramp</h3>
+  <p>A practical pattern: start at 10% in the first year of work; raise by 1 percentage point per year; aim to reach 20-25% by age 30. This compounds to financial independence by mid-40s on most career trajectories without ever feeling pinched, because the increase is small enough that the previous year's lifestyle remains intact.</p>
+  <div class="vignette">
+    <span class="vtag">Investor vignette · 2014-2026</span>
+    <h3>Ravi at 22, 26, 30 — the systems that did the work</h3>
+    <p>Ravi finished engineering school in 2014 at 22, took a job in Bangalore at ₹6 lakh per year, and read Book 1 of this series — then in early manuscript form — on his commute. Five things happened in his first year.</p>
+    <p>He opened a savings account at a different bank from his salary account. ₹5,000 auto-debited from salary to savings on the 1st of every month. Within six months he had a ₹30,000 emergency cushion he never noticed not having.</p>
+    <p>He set up an EPF and signed up for the company NPS match — 8% of salary going into retirement that he didn't have to think about. He opened a single credit card and set it to autopay-in-full every month.</p>
+    <p>He started a ₹3,000/month SIP into a Nifty 50 index fund. By 26 (2018) the SIP had grown to ₹15,000/month — every raise had increased it by ₹2,000 — and the balance was ₹14 lakh.</p>
+    <p>By 30 (2022), through the 2020 crash and recovery (Book 7 Ch 12 covered this episode), his portfolio balance was ₹62 lakh. He had never made an investment decision other than "continue". He had never tried to pick a stock. He had never panicked.</p>
+    <p>Today, at 33, Ravi's net worth is ₹1.2 crore. He has not "done well investing" in any active sense. He executed the systems his 22-year-old self set up. The systems did the work. The decade did the work. The young Ravi could not have predicted any specific market outcome, and so he did not try; he relied on the only thing that was within his control, which was the consistency of the contribution and the absence of interference. That is most of personal finance, and it is largely what the rest of this series has been about.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the four systems to establish in your twenties.</li>
+    <li>List the order of twenties financial priorities.</li>
+    <li>Name three of the most expensive 20s mistakes.</li>
+    <li>Describe the savings-rate ramp pattern.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You're 23, earning $55k, with $2,000 in credit-card debt and no emergency fund. Order your first three financial actions.</li>
+    <li>Why does the auto-savings system need to use a different account from your spending account?</li>
+    <li>True/false: you can make up for not investing in your twenties by saving harder in your thirties.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 10 ===================== -->
+<section class="sheet chapter" id="ch10" data-part="Part III" data-chapter="The 30s and 40s — Accumulating">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 10</span><span class="cline"></span><span class="ctag">Part III · The Life Cycle</span></div>
+    <h2 class="chapter-title">The 30s &amp; 40s — Accumulating</h2>
+    <p class="lead">The thirties and forties are when the wealth equation does most of its work. Income peaks (or grows fastest), the systems from the twenties run with momentum, and the marginal dollar saved still has 20-30 years to compound. These are also the decades with the biggest competing demands: house, children, parents, career ambition. The discipline is in not letting any one demand swallow the savings the rest depend on.</p>
+  </div>
+  <h3><span class="subnum">10.1</span> The accumulation playbook in one paragraph</h3>
+  <p>Maintain 15-25% savings rate. Max retirement accounts to the limits. Hold a three-fund or target-date portfolio per Book 6. Pay the mortgage on schedule unless after-tax mortgage rate is materially above expected investment return. Increase contributions whenever income increases. Re-evaluate insurance with every life change (Ch 6). Don't pick stocks. Don't time markets. Continue.</p>
+  <p>That paragraph is most of the playbook. Everything else is implementation.</p>
+  <h3><span class="subnum">10.2</span> The mid-career income inflection</h3>
+  <p>Most professional careers show their largest income increases between ages 30 and 45. The temptation is to spend the increase — bigger house, second car, private school, more travel. The opportunity is to keep lifestyle anchored at the late-twenties level and convert the income lift entirely into savings.</p>
+  <p>A practical mechanism: <strong>the "save half of every raise" rule.</strong> Whenever income rises, 50% of the rise goes to increased savings (auto-debit increase, retirement-contribution increase), 50% goes to lifestyle. Over a career this is the difference between exiting the 40s with $400k saved and $1.5M saved. The lifestyle remains comfortable; it just doesn't track every dollar of income upward.</p>
+  <h3><span class="subnum">10.3</span> Asset allocation through the accumulation decades</h3>
+  <p>The standard glide-path logic (Book 6 Ch 9): equity-heavy in early accumulation; gradual de-risking from late 40s onward; bonds reaching meaningful weight by mid-50s. A reasonable schedule for an investor planning to retire at 65:</p>
+  <div class="calctbl">
+    <span class="title">Glide path · 65-year retirement target</span>
+    <table>
+      <thead><tr><th>Age</th><th>Equities</th><th>Bonds</th><th>Cash</th><th>Rationale</th></tr></thead>
+      <tbody>
+        <tr><td>22-35</td><td>90-100%</td><td>0-10%</td><td>0%</td><td>Long horizon; volatility is irrelevant</td></tr>
+        <tr><td>35-50</td><td>80-90%</td><td>10-20%</td><td>0-5%</td><td>Beginning meaningful balance; modest de-risk</td></tr>
+        <tr><td>50-60</td><td>60-75%</td><td>20-35%</td><td>5-10%</td><td>Sequence-of-returns risk emerging</td></tr>
+        <tr><td>60-70</td><td>50-60%</td><td>30-40%</td><td>5-10%</td><td>Bridge to and through retirement</td></tr>
+        <tr><td>70+</td><td>40-55%</td><td>35-50%</td><td>5-15%</td><td>Decumulation; bond ballast and cash buffer</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">Target-date funds implement variants of this automatically. Hand-built three-fund portfolios should track a similar curve; specific percentages within the bands are personal-preference.</p>
+  </div>
+  <h3><span class="subnum">10.4</span> The "two income, one income" decision</h3>
+  <p>The decision that arises most often in the 30s — whether one parent reduces or stops paid work to handle children, eldercare, or both — is most consequential financially. The honest treatment is to compute the after-tax-after-childcare income that the second earner actually produces, often a third or less of headline salary, and weigh that against the non-financial value of the time. The optimisation is not in maximising household income; it is in choosing knowingly. Households that choose deliberately rarely regret the choice; households that drift into it often do.</p>
+  <h3><span class="subnum">10.5</span> The mid-life check</h3>
+  <p>At approximately age 40, run the projection. Take current portfolio balance, current contribution rate, expected 25 years of additional contributions at current rate, 5-6% real return, and see what it grows to. Compare to your retirement-target portfolio. The gap (positive or negative) tells you whether you are on track, ahead, or behind.</p>
+  <p>Households that are behind at 40 have time to catch up — but only by deliberately increasing the savings rate, not by chasing higher returns. Households that are ahead at 40 have the rare option of considering a lifestyle upgrade or a career pivot without financial penalty. Either way, knowing matters.</p>
+  <h3><span class="subnum">10.6</span> The peer-comparison trap</h3>
+  <p>The 30s and 40s are when peer-comparison harm is highest. Friends buy bigger houses, post nicer vacations, drive newer cars. The visible signs of wealth are consumption, not balance sheets. The friend with the new SUV may have $20,000 of car-loan debt and no retirement savings; the friend whose Honda Civic is paid off may have $400,000 invested. You cannot see the balance sheets. Resist comparing.</p>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>The richest people you know don't look rich.</h3>
+    <p>Stanley &amp; Danko's <em>Millionaire Next Door</em> documented this for a US sample in the 1990s; subsequent studies have replicated it across decades and geographies. The households with substantial wealth disproportionately drive used cars, live in houses below what their income would support, and avoid lifestyle markers. The households driving new luxury vehicles and conspicuously upgrading are disproportionately leveraged into them, with thin balance sheets. The visible signal of wealth in modern consumer society is almost the inverse of actual wealth. The corollary: stop using your peers' visible consumption as a benchmark. You are benchmarking against people who, on average, are losing the wealth race more than they are winning it.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Recite the one-paragraph accumulation playbook.</li>
+    <li>Apply the "save half of every raise" rule to your last income increase.</li>
+    <li>Identify what an appropriate equity allocation is for your current age.</li>
+    <li>Run a mid-life projection and compare to retirement target.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You're 38, earning $115k, with $260k saved. Apply the 25-year projection at 15% savings, 6% real return. On track for what?</li>
+    <li>Your equity allocation should be approximately what at age 42, on a standard glide path?</li>
+    <li>True/false: the wealthiest people in your social circle are the ones who appear so.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 11 ===================== -->
+<section class="sheet chapter" id="ch11" data-part="Part III" data-chapter="The 50s — Consolidation">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 11</span><span class="cline"></span><span class="ctag">Part III · The Life Cycle</span></div>
+    <h2 class="chapter-title">The 50s — <em>The Consolidation Decade</em></h2>
+    <p class="lead">The fifties are the decade when the portfolio matters more than the contribution. A 55-year-old with $1M saved adds 10% to the balance through a year of saving; a 1% market move adds the same. The relative leverage tips. The decade's work is no longer primarily about adding — it is about protecting what has been added, simplifying the picture, and preparing the transition.</p>
+  </div>
+  <h3><span class="subnum">11.1</span> The shift from accumulation to consolidation</h3>
+  <p>Three things change at this stage. Sequence-of-returns risk becomes real (Book 6 Ch 16) — a 40% drawdown in your 55-year-old portfolio cannot be recovered before retirement by contributions alone. Asset allocation drift matters more — the difference between a 70/30 and a 60/40 portfolio can be a percentage point of return per year, which on $1M is $10,000 per year. And the income side begins to plateau or decline — career peak in many professions is mid-50s, with the decline beginning thereafter.</p>
+  <h3><span class="subnum">11.2</span> Catch-up contributions (US)</h3>
+  <p>The IRS allows age-50+ "catch-up" contributions: an extra $7,500/year in 401(k), $1,000/year in IRA (2025). SECURE 2.0 adds a higher catch-up of $11,250 for ages 60-63 starting 2025. These provisions are designed for exactly this decade. Households that have under-saved in their 30s-40s can catch up meaningfully via the catch-ups.</p>
+  <h3><span class="subnum">11.3</span> Simplification — fewer accounts, fewer holdings</h3>
+  <p>By the fifties most households have accumulated a sprawl: multiple 401(k)s from past employers, several IRAs, taxable accounts at different brokerages, HSAs, miscellaneous. Consolidating to 2-3 institutions and 3-5 funds total reduces both administrative load and the probability that an account goes neglected. The pre-retirement decade is the right time to do this work; doing it in your seventies, while feasible, is harder.</p>
+  <h3><span class="subnum">11.4</span> The retirement projection — refined</h3>
+  <p>At 55 the projection is no longer hypothetical. You have 10-12 years to retirement. You know with reasonable confidence what your income will be, what your savings rate is, what the portfolio balance is. The Book 6 retirement-projection framework applies directly. Outputs to clarify: target retirement portfolio (~25-33× expected annual spending using the 4% / 3% safe withdrawal range), expected Social Security or pension income, expected expenses post-retirement (often lower than working-years expenses, sometimes higher in early retirement due to travel/hobbies, often higher in late retirement due to healthcare).</p>
+  <h3><span class="subnum">11.5</span> Healthcare planning — the under-discussed item</h3>
+  <p>In the US, the pre-Medicare gap (ages typically 50s if early-retiring, or for anyone retiring before 65) is the single most expensive healthcare year of life. ACA marketplace plans for a 55-year-old couple can run $20,000-$30,000 per year in unsubsidised premiums; deductibles and out-of-pocket maximums add to this. Many early-retirement plans founder on healthcare costs alone. HSA balances built up during working years (covered in Book 7 Ch 8) become especially valuable in this gap.</p>
+  <p>In India, family health-insurance premiums rise sharply after 50 and often have steep increases at 60 and 65. Plans should be in place — and ideally locked in with continuity benefits — well before the rises hit.</p>
+  <h3><span class="subnum">11.6</span> The "what's enough" question, surfacing</h3>
+  <p>This decade is when many serious savers first ask the question that becomes the focus of Chapter 17: have I already saved enough? Households who reach the 25× threshold in their 50s have, technically, financial independence — they could retire if they chose. Most don't. They are caught between the inertia of working (the career identity, the colleagues, the routine, the marginal saving) and the difficulty of admitting that the central activity of their adult life can now stop. The honest answer is rarely "retire now"; it is more often "consider, deliberately, whether to scale back, shift fields, or set a date." The right answer depends on the person; the right time to start considering it is the fifties.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the three things that change between accumulation and consolidation.</li>
+    <li>Use US catch-up contribution rules to compute the additional tax-advantaged space available.</li>
+    <li>Outline the case for account consolidation in the pre-retirement decade.</li>
+    <li>Identify the single most expensive healthcare year in a US early-retirement plan.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You're 52 with $900k saved, contributing $40k/year. At 6% real and 13 years to retirement, project the terminal balance. Sufficient?</li>
+    <li>How many accounts and how many funds is the consolidation target?</li>
+    <li>What is the financial implication of retiring at 60 versus 65 in the US, on healthcare alone?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 12 ===================== -->
+<section class="sheet chapter" id="ch12" data-part="Part III" data-chapter="The 60s and Beyond — Decumulation">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 12</span><span class="cline"></span><span class="ctag">Part III · The Life Cycle</span></div>
+    <h2 class="chapter-title">The 60s and Beyond — <em>Decumulation Done Right</em></h2>
+    <p class="lead">Decumulation is the reverse problem from accumulation: instead of adding to the portfolio each month and letting compounding work, you withdraw from it each month and hope what remains continues to compound enough. The math is unforgiving — a sequence of bad returns early in retirement can permanently impair a portfolio that would have survived the same returns in any other order. Book 6 Chapters 14-16 covered the framework; this chapter handles the qualitative texture.</p>
+  </div>
+  <h3><span class="subnum">12.1</span> The order-of-withdrawal puzzle</h3>
+  <p>Most US retirees hold money across three tax types: tax-deferred (Traditional 401(k)/IRA), tax-free (Roth), and taxable (brokerage). Which to draw down first?</p>
+  <p>The textbook answer: <strong>taxable first, tax-deferred next, Roth last.</strong> This sequence maximises tax-advantaged growth for as long as possible. Refinements: Roth conversions in low-income early-retirement years can "fill the brackets" advantageously; Required Minimum Distributions (US: age 73 from Traditional accounts, SECURE 2.0) force tax-deferred withdrawals whether or not optimal. The full optimisation is complex enough that this is one of the few cases where a fiduciary's involvement is worth the cost.</p>
+  <h3><span class="subnum">12.2</span> Safe withdrawal rates — the honest update</h3>
+  <p>Book 6 covered the 4% rule. The honest update post-2024 research: 4% is a starting <em>real</em> withdrawal rate that historically would have survived almost every 30-year period in US data. For longer horizons (40-50 years, relevant for early retirees), 3.0-3.5% is safer. Dynamic withdrawal — adjusting modestly downward in poor return years — supports higher average withdrawals than the static rule. The Bengen (1994), Guyton-Klinger (2004), and Pfau (2018) frameworks are the canonical references; pick one and follow it, rather than improvising annual withdrawal.</p>
+  <h3><span class="subnum">12.3</span> The bucket strategy</h3>
+  <p>A practical implementation that maps well to the emotional cycle. Three buckets:</p>
+  <ol>
+    <li><strong>Cash bucket</strong> — 1-2 years of withdrawal needs in HYSA / money-market. The drawdowns happen from here.</li>
+    <li><strong>Income bucket</strong> — 3-7 years of needs in bonds / bond funds. Replenishes the cash bucket each year.</li>
+    <li><strong>Growth bucket</strong> — everything else in equities. Replenishes the income bucket on a 3-5-year cadence.</li>
+  </ol>
+  <p>The structural benefit: in a market drawdown, you draw from cash, not from equities at depressed prices. You wait for the recovery — historically a 3-5 year process for severe drawdowns — before replenishing. The buckets do behaviourally what the 4% rule does mathematically.</p>
+  <h3><span class="subnum">12.4</span> Social Security / pension claiming</h3>
+  <p>The US Social Security claiming decision (62 vs. 67 vs. 70) is one of the highest-leverage retirement decisions for most households. Delaying from 62 to 70 increases the monthly benefit by approximately 77%. Break-even on the delay is age 80 or so; with longevity expectations of 85-90 for a healthy 65-year-old today, delay almost always wins. The exception is for the lower-earning spouse who can claim early on a spouse's record and benefit from the higher-earner's delayed credits.</p>
+  <p>Indian pension/PF claiming has its own structure: EPF withdrawal at 58 (or earlier with conditions), NPS at 60 (with 40% mandatory annuity purchase). The annuity-purchase requirement is restrictive but the lump-sum withdrawal of 60% provides flexibility.</p>
+  <h3><span class="subnum">12.5</span> Late-life cognitive decline — the under-discussed</h3>
+  <p>The single most important late-life financial fact: cognitive decline in the late 70s and beyond is common, often subtle, and dangerous for financial decisions. Studies (Agarwal et al. 2009 and follow-ups) document that financial-decision quality peaks in the early 50s and declines steadily from the 70s onward. Late-life is when scams (Book 7 Ch 14-16) hit hardest — older adults are statistically the most-targeted demographic for financial fraud — partly because they have accumulated assets, partly because cognitive defences thin.</p>
+  <p>The structural response: simplify the portfolio while you can; designate a trusted financial-power-of-attorney now (not later); set up automatic distributions where possible; pre-authorise a family member or fiduciary to receive duplicate statements; consider a revocable trust (Ch 13). The work done in the 60s — while sharpness is intact — defends against the predation that becomes a real risk in the 80s.</p>
+  <div class="vignette">
+    <span class="vtag">Investor vignette · 2020-2026</span>
+    <h3>Arun, retired at 62 · The COVID test he didn't notice</h3>
+    <p>Arun (now appearing in the third book of his life-stage role, after Books 5 and 6) retired in late 2019 at 62 with $1.8M in retirement assets and a Social Security benefit deferred to 70. His withdrawal plan was a textbook three-bucket: $80k in cash, $300k in short bond funds, $1.42M in a global equity index.</p>
+    <p>February-March 2020 happened. His equity bucket fell from $1.42M to $940k — a 34% drawdown in five weeks. He drew his quarterly $20k from cash, as planned. He did not touch equity. He did not check daily.</p>
+    <p>By August 2020 the equity bucket had recovered to $1.4M. By the end of 2021 it was $1.85M. He had not made a single market-related decision during the worst weeks of the worst year of his retirement. The buckets had absorbed the volatility. The plan, written when he was calm, had executed itself.</p>
+    <p>Arun is now 68 and has $2.3M, despite six years of withdrawals through one of the most volatile periods in US market history. The plan is not exotic; it is not even particularly clever. It is the plan implemented mechanically, by someone who understood that the work of decumulation is largely about <em>not undoing</em> the accumulation work.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the standard order of withdrawal across tax-deferred, taxable, and Roth accounts and one refinement.</li>
+    <li>Outline the three-bucket strategy and the behavioural problem it solves.</li>
+    <li>Recommend a Social Security claiming age for a healthy 62-year-old with normal longevity.</li>
+    <li>Name three concrete steps to protect late-life finances against cognitive decline.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Your retirement portfolio is $1.5M with $60k expected annual spending. What is your initial safe-withdrawal-rate withdrawal?</li>
+    <li>You retire at 63. When should you claim Social Security under typical longevity assumptions?</li>
+    <li>You are 72 and active. What's a step to protect against future cognitive decline?</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART IV OPENER ===================== -->
+<section class="sheet partopener" data-part="Part IV" data-chapter="Protecting and Transferring">
+  <div class="partlabel">Part IV</div>
+  <h2 class="parttitle">Protecting &amp; Transferring</h2>
+  <p class="partlede">If the first three parts have done their job, you have built or are building meaningful wealth. The work now changes shape. The question is no longer "how do I accumulate?" but "how do I protect what I have built, and what happens to it after me?" Estate planning is the technical answer; generational wealth is the human answer; philanthropy is the optional but transformative extension; the legacy question is the one nobody finds easy. Four chapters, in roughly that order.</p>
+  <ul class="partmap">
+    <li><b>Ch 13</b> Estate planning — wills, trusts, beneficiaries</li>
+    <li><b>Ch 14</b> Generational wealth — succession and family literacy</li>
+    <li><b>Ch 15</b> Philanthropy — donor-advised funds, planned giving</li>
+    <li><b>Ch 16</b> The legacy question</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 13 ===================== -->
+<section class="sheet chapter" id="ch13" data-part="Part IV" data-chapter="Estate Planning">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 13</span><span class="cline"></span><span class="ctag">Part IV · Protecting &amp; Transferring</span></div>
+    <h2 class="chapter-title">Estate Planning — <em>Wills, Trusts, Beneficiaries</em></h2>
+    <p class="lead">Roughly two-thirds of US adults die without a will (AARP/Caring.com 2024); in India the proportion is higher. The cost of intestacy — dying without a will — is not paid by the deceased; it is paid by the surviving family, in months or years of probate, in legal expense, in family conflict, and in outcomes the deceased would not have chosen. Estate planning is the work of writing down what should happen, so that it does.</p>
+  </div>
+  <h3><span class="subnum">13.1</span> The four documents every adult needs</h3>
+  <ol>
+    <li><strong>A will.</strong> Names beneficiaries for assets not otherwise designated, names guardians for minor children, names an executor. Without it, your state/country's intestacy laws decide, and the courts decide guardian disputes.</li>
+    <li><strong>A durable power of attorney for finances.</strong> Names someone to handle your financial affairs if you are incapacitated. Without it, family must petition the court for conservatorship — slow, expensive, and adversarial.</li>
+    <li><strong>A healthcare power of attorney plus advance directive.</strong> Names someone to make medical decisions if you cannot, and states your wishes about life-sustaining treatment, organ donation, end-of-life care. Without it, hospitals make default decisions; family conflicts about end-of-life care are common and painful.</li>
+    <li><strong>Beneficiary designations</strong> on every retirement account, life insurance policy, HSA, and 529. These pass <em>by designation, not by will</em>, regardless of what the will says. Audit them — especially after marriage, divorce, child, death of a relative.</li>
+  </ol>
+  <p>These four cost a few hundred dollars to draft via a template or online service, or $500-$2,000 from an estate attorney. Doing them in your 30s is unusual; doing them at 35 with a young child, normal; not doing them at 45 with two children and a house, irresponsible.</p>
+  <h3><span class="subnum">13.2</span> Trusts — when they are worth it</h3>
+  <p>A trust is a legal entity that holds assets for beneficiaries according to terms you set. The main families:</p>
+  <ul>
+    <li><strong>Revocable living trust.</strong> Assets in the trust pass to beneficiaries without probate. Useful in states with slow/expensive probate (California, Florida especially); less useful in states where probate is fast. Does not save taxes. You retain full control during life.</li>
+    <li><strong>Irrevocable trusts.</strong> Various forms (ILIT, GRAT, CRT, IDGT) — used for estate-tax planning, asset protection, or charitable structuring. Substantial complexity and irreversibility; appropriate for estates well into the millions or with specific structuring needs. Always with specialist counsel.</li>
+    <li><strong>Testamentary trusts.</strong> Created by your will, springs into existence at death. Common for leaving assets to minor children — the trust holds and distributes per terms (e.g., partial distributions at 25, 30, 35) rather than a lump sum at 18.</li>
+    <li><strong>Special-needs trusts.</strong> For dependents with disabilities who receive means-tested benefits. Preserves benefit eligibility while supplementing care.</li>
+  </ul>
+  <p>For most US households below the federal estate-tax exemption (~$13.99M in 2025, ~$7M projected 2026 if sunset occurs), a will plus beneficiary designations plus possibly a revocable trust covers the actual need. Complex irrevocable structures are oversold to households that do not need them.</p>
+  <h3><span class="subnum">13.3</span> The India context</h3>
+  <p>India abolished estate duty in 1985 (Book 7 Ch 10); there is no inheritance tax at receipt currently. The legal framework — Hindu Succession Act, Indian Succession Act (for non-Hindus, with variations) — governs intestate succession. A will (executed per the Indian Succession Act with two witnesses) is the basic document. Registered wills carry a slight evidentiary advantage but registration is not required for validity. For complex Indian family situations (multi-property, business succession, multiple jurisdictions, NRIs as heirs) a will plus a private trust set up under the Indian Trusts Act may be appropriate, with specialist counsel.</p>
+  <h3><span class="subnum">13.4</span> The conversation you avoid</h3>
+  <p>The hardest part of estate planning is not the documents. It is the conversation. Telling adult children what is in the will, who is named executor, who is named in the healthcare power of attorney; talking to elderly parents about their plan; raising with a spouse the question of "if one of us is gone." None of these conversations is comfortable; all of them prevent specific kinds of harm. The harm prevented is large. The discomfort, on a one-time basis, is small.</p>
+  <h3><span class="subnum">13.5</span> Digital assets — the modern omission</h3>
+  <p>Most estate plans drafted before 2018 omit digital assets entirely: email accounts, social media, cryptocurrency wallets, password managers, cloud storage, domain names, online business assets. The legal frameworks (US: RUFADAA in most states; India: still evolving) are now catching up but require explicit designation. The practical instrument: a "digital estate" addendum that lists accounts, names a digital executor, and provides instructions for access (typically via a password manager whose master credentials are stored with the will). Without this, families lose access to assets the deceased actually owned — and to the photographs, emails, and accumulated documentation of a life.</p>
+  <div class="practice">
+    <span class="title">If you have done none of this</span>
+    <p style="margin-bottom:0;">This month: write a simple will (template, online service, or attorney depending on complexity). Name beneficiaries for every retirement and insurance account — re-confirm each one. Designate a healthcare power of attorney and a durable financial POA. Have one conversation with your spouse or, if no spouse, with the person you would name as executor. The whole package is doable in 4-8 hours of focused work spread over 2-3 weekends. It is the highest-leverage four hours of estate work available to most adults.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Name the four documents every adult needs and what each does.</li>
+    <li>Explain when a revocable living trust is genuinely useful and when not.</li>
+    <li>State why beneficiary designations override wills.</li>
+    <li>Identify what a digital-estate addendum addresses.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You have a will from 2014, before your second marriage in 2019. What is the most likely error in it?</li>
+    <li>True/false: a revocable living trust saves estate tax.</li>
+    <li>You die intestate in your state. Who decides who gets your estate?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 14 ===================== -->
+<section class="sheet chapter" id="ch14" data-part="Part IV" data-chapter="Generational Wealth">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 14</span><span class="cline"></span><span class="ctag">Part IV · Protecting &amp; Transferring</span></div>
+    <h2 class="chapter-title">Generational Wealth</h2>
+    <p class="lead">There is a sentence repeated so often in wealth-management circles that it has become received wisdom: <em>"Shirtsleeves to shirtsleeves in three generations."</em> The first generation builds, the second preserves, the third squanders. The empirical evidence (Williams &amp; Preisser 2010, surveying 3,250 wealthy families) is consistent: roughly 70% of wealth transfers fail by the second generation, 90% by the third. The failures are rarely about taxes or investment strategy. They are about the family's inability to handle money together.</p>
+  </div>
+  <h3><span class="subnum">14.1</span> Why generational wealth fails</h3>
+  <p>The Williams-Preisser study identified the causes of generational wealth failure with surprising precision:</p>
+  <ul>
+    <li><strong>60%</strong> — breakdown in trust and communication within the family</li>
+    <li><strong>25%</strong> — inadequate preparation of the heirs (financial literacy, role definition)</li>
+    <li><strong>10%</strong> — failure to articulate a shared vision and mission</li>
+    <li><strong>5%</strong> — taxes, legal structures, financial planning failures</li>
+  </ul>
+  <p>The ratios are striking. The financial-services industry — the part that profits from generational-wealth planning — focuses on the bottom 5%. The actual problem is in the top 60%. Families that succeed across generations have done work that the financial industry mostly does not sell, because it cannot.</p>
+  <h3><span class="subnum">14.2</span> The three pillars of successful succession</h3>
+  <p><strong>Pillar 1 — financial literacy in the next generation.</strong> Adult children who understand budgets, investing, taxes, and the basics of running a household financially are far less likely to lose inherited wealth than those who don't. The teaching starts in childhood (Ch 8.5) and continues into adulthood with progressively more transparency about family finances.</p>
+  <p><strong>Pillar 2 — open family communication about money.</strong> Families that talk about money openly — what is earned, what is saved, what decisions are being made — preserve wealth at higher rates. Families where money is taboo, or where children only learn the full picture after a parent's death, struggle more. The transparency does not have to be total at all ages; it does have to be progressive.</p>
+  <p><strong>Pillar 3 — a shared vision and family mission.</strong> Families with a written statement of what the wealth is <em>for</em> — supporting education, enabling specific careers, philanthropy, family business continuity — make better decisions across generations than families where the wealth is undirected. The statement need not be elaborate; it needs to exist.</p>
+  <h3><span class="subnum">14.3</span> The family meeting</h3>
+  <p>The practical implementation across many successful multi-generational families: an annual or semi-annual <strong>family meeting</strong>, with a specified agenda, attended by all adult family members. Topics typically include: current financial situation (at the level appropriate for the audience), upcoming decisions (a business sale, a real-estate purchase, a charitable commitment), individual updates (job, education, life events), and an explicit discussion of family values and how money serves them. The meeting is not informal kitchen-table conversation; it is structured, perhaps facilitated by an outsider in larger families.</p>
+  <p>The structural function of the family meeting is to make money a routine, discussable topic rather than an event-driven taboo. Families that have meetings find that the conversations that need to happen — about a parent's health, an inheritance plan, a wayward sibling's struggles, a generosity gesture — happen with much less friction than in families that don't.</p>
+  <h3><span class="subnum">14.4</span> When and how much to give to the next generation</h3>
+  <p>The classic Warren Buffett formulation: <em>"Enough money so that they feel they could do anything, but not so much that they could do nothing."</em> Translating this to specific dollars is family-specific, but the principle is generalisable: gifts and inheritances that <em>enable</em> a life (an education, a house down-payment, seed capital for a business, a safety net under entrepreneurial risk) tend to produce positive outcomes; gifts that <em>replace</em> the need to build a life tend not to.</p>
+  <p>The mechanism of giving matters. Large lump-sum inheritances at the moment of a parent's death often go to dependent recipients who have not handled large sums before. Staggered giving — for instance, 1/3 at age 25, 1/3 at 30, 1/3 at 35, structured via a trust — gives the heir room to make and recover from the inevitable first set of money mistakes on a smaller scale. Many successful family plans use this structure.</p>
+  <h3><span class="subnum">14.5</span> Family business succession</h3>
+  <p>For families with a closely-held business — common in India, the US Midwest, and many countries' SME sectors — the succession problem is dominated by the business question. The choice tree: pass to family (only viable if a family member wants the role and is competent), sell to management (MBO), sell to a strategic acquirer, sell to private equity, or wind down. Each has tax, governance, and family-relationship consequences. Family business succession has its own large literature (Sharma 2004; Gersick et al. 1997 the canonical references); the only universal advice is: <em>start the conversation a decade earlier than feels necessary.</em> Family businesses transitioning under deadline pressure — illness, sudden death, forced sale — capture much less value than those transitioned deliberately.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the Williams-Preisser causes of generational-wealth failure and their relative weight.</li>
+    <li>Name the three pillars of successful succession.</li>
+    <li>Describe the structure of a family meeting and its function.</li>
+    <li>Apply the Buffett formulation to a specific inheritance decision.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Of the four causes of generational-wealth failure, which two together account for 85%?</li>
+    <li>Your 25-year-old child is about to inherit $1.5M. What structural choice would you consider to reduce the risk of mismanagement?</li>
+    <li>True/false: most generational-wealth failures are about taxes and investment strategy.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 15 ===================== -->
+<section class="sheet chapter" id="ch15" data-part="Part IV" data-chapter="Philanthropy">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 15</span><span class="cline"></span><span class="ctag">Part IV · Protecting &amp; Transferring</span></div>
+    <h2 class="chapter-title">Philanthropy</h2>
+    <p class="lead">For households that reach financial independence with meaningful surplus, philanthropy becomes one of the most consequential financial activities of the remaining life. It is also the activity where money intersects most directly with meaning. This chapter handles the mechanics — vehicles, tax structure, common pitfalls — while gesturing at the harder questions the mechanics don't answer.</p>
+  </div>
+  <h3><span class="subnum">15.1</span> Direct giving — the simplest path</h3>
+  <p>Write a cheque to a registered charity (US 501(c)(3), India 80G-eligible institution). Deduct on the relevant tax return. Subject to AGI limits — 60% of AGI for cash gifts to public charities in the US, with carryforward; 50%/100% under various 80G categories in India. Direct giving works perfectly well for households giving up to a few thousand dollars per year. For larger or more deliberate giving, dedicated vehicles offer meaningful advantages.</p>
+  <h3><span class="subnum">15.2</span> Donor-advised funds (DAFs)</h3>
+  <p>A <strong>donor-advised fund</strong> is a charitable account: you contribute (cash or appreciated securities), take the full tax deduction immediately, and then "recommend grants" to charities over time. Major DAF sponsors: Fidelity Charitable, Schwab Charitable, Vanguard Charitable in the US; ATE/HDFC/community foundations emerging in India.</p>
+  <p>DAF benefits: (1) full immediate deduction, even if you give over years; (2) appreciated-stock contributions avoid capital gains tax entirely while giving full FMV deduction; (3) consolidated record-keeping; (4) ability to "bunch" multiple years of giving into one high-deduction year (relevant under the higher US standard deduction post-2017); (5) anonymous giving option; (6) family members can be successor advisors, extending into generational philanthropy.</p>
+  <h3><span class="subnum">15.3</span> Private foundations</h3>
+  <p>For very large giving programmes (typically $1M+ annual giving), a <strong>private foundation</strong> provides more control: investment management, full programmatic discretion, family employment of administrators, multi-generational governance. The cost: significant setup and ongoing legal/accounting, a 1.39% excise tax on net investment income (US), and 5% minimum annual distribution requirement. Below ~$3M in foundation assets, the costs typically exceed the benefits over a DAF.</p>
+  <h3><span class="subnum">15.4</span> Charitable remainder trusts (CRTs)</h3>
+  <p>A <strong>charitable remainder trust</strong> lets you give an appreciated asset (often a business or concentrated stock position) into a trust that pays you income for life or a term of years, then passes the remainder to charity. The structure produces a current-year deduction (PV of the charitable remainder), avoids capital gains on the appreciated asset, and produces income. Used appropriately, CRTs are unusually high-leverage for households with concentrated, low-basis appreciated assets they want to monetise. Used inappropriately, they are a complex commitment with surrender penalties; this is one of the cases where specialist counsel is essential.</p>
+  <h3><span class="subnum">15.5</span> Effective giving — choosing where the money does most</h3>
+  <p>The mechanics question is partly solved; the harder question is where to give. The effective-altruism movement has done substantial work on this. The honest summary: charities differ in impact-per-dollar by factors of 100× or more. GiveWell-recommended global health interventions estimate $3,000-$5,000 per life saved through deworming, malaria nets, vitamin-A supplementation. Other interventions cost orders of magnitude more for similar outcomes; some have no demonstrable impact at all.</p>
+  <p>None of this argues that every philanthropic dollar should go to the most cost-effective intervention. Local giving, religious giving, alma mater giving, arts giving — all have legitimate roles beyond pure impact maximisation. The argument is that <em>knowing the cost-effectiveness numbers</em> changes how you allocate even within a portfolio of giving. Most households who learn about the differences shift at least some of their giving toward more effective interventions — not necessarily all of it.</p>
+  <h3><span class="subnum">15.6</span> The pitfalls</h3>
+  <ul>
+    <li><strong>Pledges beyond means.</strong> Multi-year pledges to capital campaigns or alma mater funds, made in years of high income, can become burdensome obligations in years of lower income or unexpected expense. The pledge is morally binding; honour it conservatively.</li>
+    <li><strong>The "I'll give later" delay.</strong> Many high-income earners plan to "give serious money once retired". By the time they retire, the spending baseline has set high, the surplus is smaller than expected, and the giving never materialises at the planned scale. Giving during the high-earning years — when the tax deduction is also worth most — generally outperforms waiting.</li>
+    <li><strong>Confusing recognition with impact.</strong> The named building, the gala mention, the prestige committee — all real and legitimate. None of them is impact. Make the recognition decision and the impact decision separately, not collapsed.</li>
+    <li><strong>Family fights over charitable allocation.</strong> Heirs frequently disagree about which charities to support from a foundation or DAF. Set the framework in writing — categories, priorities, decision rules — while the founding generation is still active.</li>
+  </ul>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Name the four main charitable vehicles and the rough asset threshold at which each makes sense.</li>
+    <li>Explain why contributing appreciated stock to a DAF is more tax-efficient than selling and donating cash.</li>
+    <li>Describe a charitable remainder trust and the situation it fits.</li>
+    <li>State the empirical observation about variance in charity cost-effectiveness.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You hold $100k of AAPL with a $20k basis. You want to give $50k to charity. What's the most tax-efficient method?</li>
+    <li>You plan to give $30k/year for 10 years. DAF, direct, or private foundation?</li>
+    <li>True/false: all 501(c)(3) charities are roughly equally effective per dollar.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 16 ===================== -->
+<section class="sheet chapter" id="ch16" data-part="Part IV" data-chapter="The Legacy Question">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 16</span><span class="cline"></span><span class="ctag">Part IV · Protecting &amp; Transferring</span></div>
+    <h2 class="chapter-title">The Legacy Question</h2>
+    <p class="lead">Estate planning, generational wealth, and philanthropy are the components of a larger question that the financial industry mostly avoids and that this book cannot fully answer: <em>what was the money for?</em> The decisions taken in the four chapters before this one — who inherits, how much, when, conditional on what, given to which causes, structured how — are downstream of a deeper question. This chapter is the deeper question.</p>
+  </div>
+  <h3><span class="subnum">16.1</span> The framing — three legacies, not one</h3>
+  <p>Most people, asked about legacy, default to "what financial inheritance will I leave?" That is one legacy. There are three.</p>
+  <p><strong>The financial legacy</strong> — what you bequeath in money, property, and obligations. This is what the will documents. It is the smallest of the three for most people, though it feels largest because it is the most measurable.</p>
+  <p><strong>The intellectual / practical legacy</strong> — what you have taught the next generation: skills, habits, ways of thinking, financial literacy, problem-solving, the example of how to handle work and money and adversity. A child who inherits $200,000 plus deep financial literacy is much wealthier — and much more likely to remain wealthy — than a child who inherits $1,000,000 plus no preparation. The intellectual legacy is documented in nothing; it lives in people.</p>
+  <p><strong>The values legacy</strong> — what you have stood for, how you have treated people, what you have built that wasn't about you. This legacy persists in memory and influence long after the financial legacy has been spent. People with substantial financial estates who left no values legacy are forgotten within a generation. People with no financial estate but a strong values legacy can be remembered for centuries.</p>
+  <p>The three are not in conflict. The work is to be deliberate about all three rather than only the first.</p>
+  <h3><span class="subnum">16.2</span> The "what is the money for" question</h3>
+  <p>Most working adults never explicitly answer this. They earn, save, invest, accumulate — and at some point in their fifties or sixties realise they have built a balance sheet without ever deciding what it was supposed to do.</p>
+  <p>The honest answers people who think about it carefully arrive at fall into a small number of categories. The money is for: <em>my own security and dignity in old age</em> (universal); <em>my children's launch into independent lives</em> (most parents); <em>some level of family support across generations</em> (varies widely); <em>causes I care about beyond family</em> (philanthropic households); <em>an experience or experiences I want to have</em> (travel, sabbatical, a project); <em>buying back time</em> (early retirement, career flexibility, work-on-what-matters); <em>future optionality</em> (the option to do something unspecified later).</p>
+  <p>The answers are not mutually exclusive. They are not stable across decades. The exercise of articulating them — once, deliberately, in writing — changes most of the downstream financial decisions. The household that has done the exercise tends to know what its money is for, makes better decisions, and feels less anxious about the decisions it makes.</p>
+  <h3><span class="subnum">16.3</span> The ethical writing</h3>
+  <p>A practice with substantial precedent in many cultures: write a personal document — sometimes called an "ethical will" or in Hebrew tradition a <em>tsava'ah</em> — that captures, in your own voice, what you would want your descendants to know. Not a legal will (that's separate); a personal one. What you learned. What you regretted. What you wish you had done differently. What you hoped for them. What values you tried to stand for.</p>
+  <p>This is a 5-15 page document, written over weeks or months, revised over years. It travels with the legal will but is its own thing. It is read at the moment when family is most attentive to what the deceased actually thought, which is the only time the document fully lands.</p>
+  <p>The financial industry does not sell this. It is one of the most enduring gifts most adults can leave, and it costs nothing other than the time to do it. Mid-fifties is a good moment to begin a draft; the practice of revising over the next decades clarifies the values being written about.</p>
+  <h3><span class="subnum">16.4</span> The closing</h3>
+  <p>Personal finance is often presented as a problem of optimisation: maximise wealth, minimise tax, optimise asset allocation. The framing is not wrong but it is incomplete. The wealth, the optimisation, the entire eight-book apparatus of this series is in service of a life. The life is the point. The money is one input.</p>
+  <p>You will spend, by the time you finish this series, perhaps 30 hours reading. The 30 hours will, if the series has done its work, save you many thousands of hours of wasted effort and many tens or hundreds of thousands of dollars of avoidable loss across your working life. That arithmetic is real and is most of the offer this series makes. But the deeper offer — the one only you can pick up — is the time those savings buy you for everything else.</p>
+  <div class="hook" style="margin-top:2em;font-style:italic;color:#4E483D;text-align:center;">
+    "We don't read and write poetry because it's cute. We read and write poetry because we are members of the human race. And the human race is filled with passion." &nbsp;— Walt Whitman, via <em>Dead Poets Society</em>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Distinguish the three legacies and which is most often defaulted to.</li>
+    <li>Articulate, for yourself, what your money is for.</li>
+    <li>Describe what an ethical will is and what it adds beyond the legal will.</li>
+    <li>State, in your own words, the relationship between wealth and the life it is meant to support.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Which of the three legacies have you invested in least, deliberately, over the past year?</li>
+    <li>What is your money for? (One sentence.)</li>
+    <li>If you began an ethical will this month, what is the first thing you would write down?</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART V OPENER ===================== -->
+<section class="sheet partopener" data-part="Part V" data-chapter="The Examined Financial Life">
+  <div class="partlabel">Part V</div>
+  <h2 class="parttitle">The Examined Financial Life</h2>
+  <p class="partlede">Two chapters close the book and close the series. Chapter 17 takes on the single hardest concept in personal finance — knowing when enough is enough. Chapter 18 is the synthesis: the one throughline that runs through all eight books, distilled into something you could hand to a twenty-year-old who only had time to read one page.</p>
+  <ul class="partmap">
+    <li><b>Ch 17</b> Enough — the hardest concept in personal finance</li>
+    <li><b>Ch 18</b> The capstone — a synthesis across eight books</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 17 ===================== -->
+<section class="sheet chapter" id="ch17" data-part="Part V" data-chapter="Enough">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 17</span><span class="cline"></span><span class="ctag">Part V · The Examined Life</span></div>
+    <h2 class="chapter-title">Enough</h2>
+    <p class="lead">There is a story Kurt Vonnegut told, at a party hosted by a hedge-fund billionaire, about his fellow novelist Joseph Heller. "Joe," Vonnegut said, "how does it feel knowing our host made more money yesterday than your novel <em>Catch-22</em> has made in its entire history?" Heller answered: "I have something he can never have." "What?" Vonnegut asked. Heller said: "<em>Enough.</em>" The story was told by Vonnegut at a Princeton commencement and again in a New Yorker piece. It is, the longer you think about it, the most important single thing this book can say.</p>
+  </div>
+  <h3><span class="subnum">17.1</span> The hedonic-treadmill problem</h3>
+  <p>The most consistent finding in the empirical happiness literature is that material possessions, beyond a moderate threshold, produce no durable increase in well-being. The new car, the bigger house, the upgraded watch — each produces a brief satisfaction spike followed by a return to the prior baseline within weeks to months. The behavioural mechanism is called <strong>hedonic adaptation</strong>. The income-happiness correlation flattens substantially above roughly $75,000-$100,000 of household income in the US (Kahneman &amp; Deaton 2010; Killingsworth 2021 with refinements). Above that, more money produces almost no measurable additional life-satisfaction <em>on average</em>, while continuing to produce stress, comparison anxiety, and lifestyle complexity.</p>
+  <p>The implication is not that money beyond $100k is worthless. It is that money beyond $100k buys other things — security, optionality, the absence of certain anxieties — without buying happiness itself. Knowing this changes how you should think about the marginal hour of work, the marginal year of career, the marginal upgrade.</p>
+  <h3><span class="subnum">17.2</span> The "one more year" trap</h3>
+  <p>The trap that catches the most people who could have retired: at the point of having enough, the rationale for one more year of work becomes overwhelmingly clear. The extra year produces additional savings, defers withdrawal by a year, allows a buffer, gives the social-circle answer to "what do you do." So the person works one more year. At the end of that year the same rationale applies. Then another. Then another. The pattern is so common it has a name in the FIRE community: <em>one-more-year syndrome</em>.</p>
+  <p>The trap is not financial. The math has long since cleared. The trap is identity. Work has been the central organising structure of adult life for thirty or forty years. Stopping is not a financial question; it is an identity question. The question that needs to be answered is not "do I have enough money?" but "what is my life for now?" If that question has no answer, the work continues. If it has an answer — a project, a person, a place, a calling, even a deep rest — the work can stop.</p>
+  <h3><span class="subnum">17.3</span> How to recognise enough</h3>
+  <p>A working definition: <em>enough is the level at which the marginal hour of additional earning is worth less than the marginal hour of the life it buys.</em> This is a personal calculation, not a universal one. For some people that point arrives at $500,000 of net worth; for others at $5,000,000; for others never. The point is not the absolute number. The point is having the conversation with yourself.</p>
+  <p>Practical signals that you are at or past enough:</p>
+  <ul>
+    <li>Your portfolio plus expected pension/Social Security supports your honest spending baseline at a safe withdrawal rate. (Book 6 Ch 14.)</li>
+    <li>Continued accumulation is no longer materially changing your possible lifestyle — additional savings buy heirs more than they buy you.</li>
+    <li>You can name 5-10 things you'd do if you didn't have to work, with specificity, not just "travel" or "spend time with family".</li>
+    <li>The fear of stopping is identity fear, not financial fear, when you sit with it honestly.</li>
+    <li>You catch yourself buying things you don't want to defend against a future scarcity that has, mathematically, already been defended against.</li>
+  </ul>
+  <h3><span class="subnum">17.4</span> The question of why you continue</h3>
+  <p>Many people, when they reach enough, do continue working. This is not a wrong choice. Work is more than money; it can be community, contribution, identity, meaning, structure. The work that continues at this stage, however, should be different from the work that preceded it. It is no longer for the money. It is for the work itself. The question to ask, honestly: <em>if the salary went to zero tomorrow, would I keep doing this work?</em> If yes, keep doing it; you are doing what you want. If no — and if you have enough — you are paying a real cost in years of life for money you do not need.</p>
+  <h3><span class="subnum">17.5</span> The cultural problem</h3>
+  <p>"Enough" is not a concept the culture supports. Television, social media, advertising, peer comparison, status competition — all of these run on the assumption that more is better and that the point of life is acquisition. The cultural framing is the structural opposite of the lesson of this chapter. You have to actively resist a cultural current to maintain a clear-eyed view of what enough means for you. The resistance is not natural. It is a practice.</p>
+  <p>The practices that work are mundane and consistent. Limit social-media intake of conspicuous-consumption content. Notice when comparison is the driver of a purchase or a goal. Have at least one relationship in your life with someone who has explicitly enough and has stopped accumulating — they exist, they tend to be quietly happy, and proximity changes you. Re-read the chapter on the wealth equation (Ch 1 here) and notice that the goal of the equation was never the largest possible number; it was the right number for the life you wanted.</p>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>The richest people in the most meaningful sense are those who know what enough is.</h3>
+    <p>You will meet people in your life with enormous balance sheets who can never stop — every additional million is necessary, the next deal is the one that will finally settle the matter, retirement is "in five years" for thirty years running. You will also meet people with modest balance sheets who know exactly what they have, who do not envy what they don't, who took up a hobby in their forties and a calling in their sixties. They are noticeably happier than the first group. The difference is not wealth; it is the answer to the question that this chapter has tried, imperfectly, to draw out. The wealth was in service of an answer. Without the answer, the wealth is just a number that becomes a treadmill.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the empirical finding on the income-happiness correlation and its threshold.</li>
+    <li>Describe the "one more year" trap and identify its non-financial cause.</li>
+    <li>Apply the working definition of enough to your own situation, even tentatively.</li>
+    <li>Name three practices that support a clear-eyed view of enough.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Where, roughly, does the income-happiness correlation flatten in the empirical literature?</li>
+    <li>If your salary went to zero tomorrow, would you continue your current job? What would you do differently?</li>
+    <li>Name 5 things you would do with substantial extra time. Can you do any of them now?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 18 ===================== -->
+<section class="sheet chapter" id="ch18" data-part="Part V" data-chapter="The Capstone — A Synthesis Across Eight Books">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 18</span><span class="cline"></span><span class="ctag">Part V · The Examined Life · The Closer</span></div>
+    <h2 class="chapter-title">The Capstone — A Synthesis <em>Across Eight Books</em></h2>
+    <p class="lead">If you could only give one page of personal-finance instruction to a twenty-year-old, this is what would be on it. Every sentence below is drawn from one of the eight books in this series. The references are noted parenthetically so you can return to the source if a sentence seems too compressed. The page is the throughline.</p>
+  </div>
+  <h3><span class="subnum">18.1</span> The page</h3>
+  <div class="box callout" style="padding:24px 28px;font-size:1.02rem;line-height:1.8;">
+    <span class="title" style="font-size:.85rem;text-transform:uppercase;letter-spacing:.18em;">Everything That Matters · One Page</span>
+    <p>Money is a tool. It exists to be exchanged for things you value (Book 1 Ch 1-3). Inflation slowly takes away what you don't put to work (Book 1 Ch 2). Compounding slowly gives back what you do (Book 1 Ch 8). The combination is the central financial fact of your life.</p>
+    <p>You build wealth by saving a substantial fraction of a stable income for a long time and letting it grow at a reasonable rate (Book 8 Ch 1). The savings rate is your dominant lever. Aim for 20-25% by age 30. Automate it on payday so you never see the money in your spending account.</p>
+    <p>Put the money in a globally-diversified low-cost index portfolio (Book 2 Ch 5, Book 6 Ch 5-9). Don't pick stocks, don't time the market, don't trade derivatives (Book 7 Ch 1-5). For nearly everyone, a target-date fund or a three-fund portfolio is enough. Rebalance once a year. That is the entire investment apparatus.</p>
+    <p>Use the tax-advantaged accounts your country offers, in order of priority: employer match first, tax-free shells next, taxable last (Book 7 Ch 8). Asset-locate so the worst-taxed assets sit in the most-sheltered accounts (Book 7 Ch 8). Hold for the long term; the deferred capital gain is your interest-free loan from the government (Book 7 Ch 7).</p>
+    <p>Build an emergency fund of 3-6 months of essential expenses (Book 8 Ch 4). Buy term life insurance if anyone depends on your income (Book 8 Ch 6). Buy disability insurance — disability is more likely than death in working years (Book 8 Ch 6). Don't buy whole life, ULIPs, annuities, or any product where insurance and investment are bundled (Book 7 Ch 17).</p>
+    <p>Avoid four kinds of ruin. Complexity you don't understand (Book 7 Ch 1, Ch 14). Tax inefficiency you don't notice (Book 7 Part II). Your own behaviour under stress (Book 7 Ch 11-13). Predation by people legally permitted to sell you the wrong thing (Book 7 Ch 14-17). Write down what you will not do, sign it, re-read it on bad days.</p>
+    <p>Live below your means. Save half of every raise (Book 8 Ch 10). Drive used cars. Don't compare to peers — you cannot see their balance sheets and most are losing the wealth race they appear to be winning (Book 8 Ch 10). The richest people you know don't look rich.</p>
+    <p>Your career is your largest asset for most of your life (Book 8 Ch 7). Negotiate salary. Develop skills deliberately. Maintain a small side-stream of income if you can. The return on a year of career investment in your twenties dominates the return on any investment portfolio for the same period.</p>
+    <p>House, marriage, children — these are life decisions with financial dimensions, not the other way round. Buy a house when you have stable location plans for 7+ years and the math works locally (Book 8 Ch 5). Have children if you want children. Fund your retirement before their college (Book 8 Ch 8). Talk to them about money from age 7 onward.</p>
+    <p>Document what should happen if you die or become incapacitated: will, durable POA, healthcare directive, beneficiary designations (Book 8 Ch 13). Update after every major life event. Have one uncomfortable conversation about money with your spouse and your adult children every year.</p>
+    <p>Recognise enough when you reach it (Book 8 Ch 17). It is the level at which the marginal hour of additional earning is worth less than the marginal hour of the life it buys. Most people who can stop, don't, because their identity is the work. Notice this. Decide deliberately.</p>
+    <p>What the money is for is a question only you can answer (Book 8 Ch 16). Answer it consciously. The rest of the apparatus — the savings, the funds, the accounts, the estate plan — is in service of the answer. The answer is the point. The money is one input.</p>
+  </div>
+  <h3><span class="subnum">18.2</span> The eight books, in one sentence each</h3>
+  <ul>
+    <li><strong>Book 1 — Money From Zero.</strong> What money is, why inflation costs you, how compounding pays you, the seven principles that run through everything.</li>
+    <li><strong>Book 2 — Where to Put Your Money.</strong> Cash, bonds, stocks, funds, property, alternatives — how each works, what each is for, and why diversification across them buys survival.</li>
+    <li><strong>Book 3 — How the Market Works (India edition).</strong> The plumbing — exchanges, brokers, depositories, SEBI, T+1 settlement, the order book — translated from jargon into clarity.</li>
+    <li><strong>Book 4 — Fundamental Analysis.</strong> How to read a company's financial statements and decide what it's worth, with a real Apple FY2023 case worked from SEC data.</li>
+    <li><strong>Book 5 — Technical Analysis.</strong> The encyclopedia — patterns, indicators, the schools, six historical case studies — written honestly so you can decide which parts are signal and which are noise.</li>
+    <li><strong>Book 6 — Funds, SIPs &amp; Portfolios.</strong> Putting it together: portfolio theory, asset allocation, factor investing, tax-efficient investing, decumulation, a complete worked retirement plan.</li>
+    <li><strong>Book 7 — Derivatives, Tax, Psychology &amp; Safety.</strong> The defensive volume — what to avoid and why: complex instruments, tax inefficiency, your own biases, and the scams and mis-sellers built to exploit them.</li>
+    <li><strong>Book 8 — Building &amp; Protecting Wealth.</strong> The capstone — the wealth equation, the big life decisions, the life-cycle stages, estate and legacy, and the question of enough.</li>
+  </ul>
+  <h3><span class="subnum">18.3</span> The throughline</h3>
+  <p>The series began with money as a tool and ends with money as a tool. The middle six books are about how to use the tool well: what to buy, how markets work, how to value, how to read charts, how to construct a portfolio, how to defend it. The first and last books are about the tool's purpose, which is the life it serves.</p>
+  <p>Most personal-finance instruction stops at the middle. It teaches the mechanics and assumes the purpose. The result is two generations of investors who can name the difference between an iron condor and a covered call but cannot tell you what their money is for. This series tried to be different — not by skipping the mechanics, which matter, but by surrounding them with the life they exist within.</p>
+  <h3><span class="subnum">18.4</span> The work from here</h3>
+  <p>If you have read all eight books in sequence, you now have, at the level of working knowledge, what a mid-career fiduciary advisor has — except informed by your own situation in a way they cannot easily replicate. The advantage will only persist if you keep three things up:</p>
+  <ol>
+    <li><strong>The annual review.</strong> One day a year, on the same date, you read the IPS, update net worth, run the projection, increase the savings rate, refresh the insurance audit, and re-sign the prohibitions. This is the entire active management of your financial life. Eight hours a year, for thirty or forty years, is most of what's needed.</li>
+    <li><strong>The behavioural defences.</strong> The IPS, the 30-day rule, the accountability structure, the limited platform count, the quarterly net-worth update. These prevent the mistakes that would undo the work.</li>
+    <li><strong>The clarity about purpose.</strong> Periodically — once a decade is enough — sit with the question of what the money is for. Update the answer as the life changes. Let the financial structure follow the answer, not the other way round.</li>
+  </ol>
+  <p>That is the entire instruction set. Everything else is detail. The detail is in the eight books; the detail is reproducible from public sources; the detail is also, in the long run, less important than the discipline of the basic instruction set actually being followed.</p>
+  <h3><span class="subnum">18.5</span> The closing</h3>
+  <p>This is the last paragraph of the last chapter of the last book of <em>Money, Mastered.</em> The series began with the observation that money is a tool, and ends with the same observation, now hopefully meaning something different than it did at the start. You have learned what the tool can do. You have learned how to use it without injuring yourself or others. You have learned what to defend against, and what to leave behind, and the harder question of when to stop. The remaining work is not in another book. It is in your life. Go and live it. The money was always in service of that.</p>
+  <div class="hook" style="margin-top:2em;font-style:italic;color:#4E483D;text-align:center;font-size:1.1rem;">
+    "I have something he can never have." &nbsp;— Joseph Heller, on the answer to the question of enough.
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the throughline of the series in one sentence of your own.</li>
+    <li>Recite the three things to keep up after finishing the series.</li>
+    <li>Locate, within the one-page synthesis (18.1), the sentence that resonates most for you now.</li>
+    <li>Decide what you will do in the next 30 days as a result of having read these eight books.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check — the final one</b>
+    <ol><li>Have you written your IPS?</li>
+    <li>Have you written your will?</li>
+    <li>Have you answered, even tentatively, what your money is for?</li>
+    <li>If "yes" to all three: the series has done its job, and you have done yours. The compounding takes care of the rest.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== GLOSSARY ===================== -->
+<section class="sheet" id="glossary" data-part="Back Matter" data-chapter="Glossary">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Back Matter · A</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Glossary</h2>
+  </div>
+  <dl style="columns:2;column-gap:2em;font-size:.92rem;line-height:1.55;">
+    <dt><b>Asset allocation</b></dt><dd>Distribution of a portfolio across asset classes; the most important investment decision (Book 6, Ch 10).</dd>
+    <dt><b>Beneficiary designation</b></dt><dd>Named recipient on a retirement account or insurance policy; overrides the will (Ch 13).</dd>
+    <dt><b>Bucket strategy</b></dt><dd>Three-tier cash/bond/equity structure for decumulation (Ch 12).</dd>
+    <dt><b>Career capital</b></dt><dd>Human capital + social capital + reputation; the largest asset on most household balance sheets (Ch 7).</dd>
+    <dt><b>Catch-up contribution</b></dt><dd>Additional tax-advantaged contribution allowed after age 50 (US 401(k)/IRA; Ch 11).</dd>
+    <dt><b>Charitable remainder trust (CRT)</b></dt><dd>Trust paying income for life/term then remainder to charity; useful for concentrated low-basis assets (Ch 15).</dd>
+    <dt><b>Consolidation decade</b></dt><dd>The 50s; characterised by portfolio importance &gt; contribution importance (Ch 11).</dd>
+    <dt><b>Decumulation</b></dt><dd>Drawing down a portfolio in retirement; the reverse of accumulation (Ch 12).</dd>
+    <dt><b>Disability insurance</b></dt><dd>Income-replacement coverage if you cannot work; under-bought relative to need (Ch 6).</dd>
+    <dt><b>Donor-advised fund (DAF)</b></dt><dd>Charitable account with immediate deduction and over-time grant-making (Ch 15).</dd>
+    <dt><b>Durable power of attorney</b></dt><dd>Names someone to handle finances if you are incapacitated (Ch 13).</dd>
+    <dt><b>Emergency fund</b></dt><dd>3-6 months of essential expenses in immediately-accessible cash (Ch 4).</dd>
+    <dt><b>Enough</b></dt><dd>The point at which the marginal hour of earning is worth less than the marginal hour of the life it buys (Ch 17).</dd>
+    <dt><b>Estate planning</b></dt><dd>Will + POAs + beneficiary designations + (sometimes) trust (Ch 13).</dd>
+    <dt><b>Ethical will</b></dt><dd>Personal-voice document of values, lessons, hopes; companion to the legal will (Ch 16).</dd>
+    <dt><b>FIRE</b></dt><dd>Financial Independence, Retire Early; 25-50% savings rates with 15-20 year careers (Ch 1).</dd>
+    <dt><b>Five-percent rule</b></dt><dd>Unrecoverable annual cost of homeownership ≈ 5% of home value (Ch 5).</dd>
+    <dt><b>Generational wealth failure</b></dt><dd>The 70%/90% loss rate across 2/3 generations; mostly behavioural not financial (Ch 14).</dd>
+    <dt><b>Glide path</b></dt><dd>Asset-allocation curve through life; equity-heavy young, bond-heavier old (Ch 10).</dd>
+    <dt><b>Hedonic adaptation</b></dt><dd>Return of well-being to baseline after material upgrade; the treadmill (Ch 17).</dd>
+    <dt><b>Investment Policy Statement (IPS)</b></dt><dd>One-page written plan covering allocation, contribution, rebalancing, prohibitions (Book 7 Ch 13).</dd>
+    <dt><b>Legacy — three legacies</b></dt><dd>Financial, intellectual, values; only the first is documented in the will (Ch 16).</dd>
+    <dt><b>Life-cycle financial planning</b></dt><dd>Recognition that 20s/30s-40s/50s/60s+ require different playbooks (Ch 9-12).</dd>
+    <dt><b>Mortgage life insurance</b></dt><dd>Specific-purpose policy usually worse than equivalent term (Ch 6).</dd>
+    <dt><b>Net worth</b></dt><dd>Assets minus liabilities, with home equity counted net (Ch 2).</dd>
+    <dt><b>One-more-year trap</b></dt><dd>Identity-driven inability to retire after financial sufficiency reached (Ch 17).</dd>
+    <dt><b>Required Minimum Distribution (RMD)</b></dt><dd>US-mandated withdrawal from Traditional accounts starting age 73 (Ch 12).</dd>
+    <dt><b>Revocable living trust</b></dt><dd>Estate vehicle that avoids probate; does not save tax (Ch 13).</dd>
+    <dt><b>Safe withdrawal rate (SWR)</b></dt><dd>Annual withdrawal sustainable over a long retirement; 4% baseline, 3-3.5% for very long horizons (Ch 12).</dd>
+    <dt><b>Save-half-of-every-raise</b></dt><dd>Rule directing 50% of income lift to savings, 50% to lifestyle (Ch 10).</dd>
+    <dt><b>Savings rate</b></dt><dd>Fraction of income saved annually; the dominant lever in the wealth equation (Ch 1).</dd>
+    <dt><b>Term life insurance</b></dt><dd>Pure-protection insurance for a specified term; no cash value (Ch 6).</dd>
+    <dt><b>Umbrella liability insurance</b></dt><dd>Extra liability coverage above auto/home limits; very high leverage (Ch 6).</dd>
+    <dt><b>Wealth equation</b></dt><dd>W(T) = Σ I(t)·s(t)·(1+r)^(T−t); the only formula that matters (Ch 1).</dd>
+  </dl>
+</section>
+
+<!-- ===================== SOURCES ===================== -->
+<section class="sheet" id="sources" data-part="Back Matter" data-chapter="Sources &amp; Further Reading">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Back Matter · B</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Sources &amp; Further Reading</h2>
+  </div>
+  <h3>Foundational reading</h3>
+  <ul>
+    <li>Bogle, J. C. (2017). <em>The Little Book of Common Sense Investing.</em> The case for indexing and the discipline behind it.</li>
+    <li>Collins, J. L. (2016). <em>The Simple Path to Wealth.</em> A clear, opinionated take on the same ground, in plain language.</li>
+    <li>Stanley, T. J., &amp; Danko, W. D. (1996). <em>The Millionaire Next Door.</em> The original "the wealthy don't look wealthy" study.</li>
+    <li>Housel, M. (2020). <em>The Psychology of Money.</em> Behavioural perspective; useful complement to Book 7 Part III.</li>
+    <li>Bernstein, W. (2010). <em>The Investor's Manifesto.</em> Concise modern treatment.</li>
+  </ul>
+  <h3>Empirical sources cited</h3>
+  <ul>
+    <li>Kahneman, D., &amp; Deaton, A. (2010). "High income improves evaluation of life but not emotional well-being." <em>PNAS</em>.</li>
+    <li>Killingsworth, M. (2021). "Experienced well-being rises with income." <em>PNAS</em> (with subsequent Kahneman-Killingsworth reconciliation).</li>
+    <li>Williams, R., &amp; Preisser, V. (2010). <em>Preparing Heirs.</em> The 3,250-family generational-wealth study.</li>
+    <li>USDA. (2024). <em>Expenditures on Children by Families.</em> Cost-to-raise-a-child estimates.</li>
+    <li>Beracha, E., &amp; Johnson, K. H. (2012). "Lessons from over 30 years of buy versus rent decisions." <em>Real Estate Economics.</em></li>
+    <li>Dale, S. B., &amp; Krueger, A. B. (2014). "Estimating the effects of college characteristics over the career using administrative earnings data." <em>Journal of Human Resources.</em></li>
+    <li>Agarwal, S., Driscoll, J. C., Gabaix, X., &amp; Laibson, D. (2009). "The age of reason: financial decisions over the life cycle." <em>Brookings Papers.</em></li>
+    <li>Bengen, W. P. (1994). "Determining withdrawal rates using historical data." <em>Journal of Financial Planning.</em></li>
+    <li>Guyton, J., &amp; Klinger, W. (2004). "Decision rules and maximum initial withdrawal rates." <em>Journal of Financial Planning.</em></li>
+    <li>Pfau, W. (2018). <em>How Much Can I Spend in Retirement?</em></li>
+  </ul>
+  <h3>Practical references</h3>
+  <ul>
+    <li>Adeney, P. ("Mr. Money Mustache"). The years-to-FI table popularised in 2012 blog post "The shockingly simple math behind early retirement".</li>
+    <li>Felix, B. The 5% rule for the unrecoverable cost of homeownership; YouTube channel "Common Sense Investing".</li>
+    <li>GiveWell.org — empirical charity effectiveness research.</li>
+    <li>Bogleheads wiki — community-maintained reference on indexing and tax-aware investing.</li>
+    <li>IRS Publications 590-A/B (IRAs), 970 (education tax benefits); SEBI investor education portal; PFRDA NPS resources.</li>
+  </ul>
+  <h3>The series itself</h3>
+  <p>This book draws on and refers throughout to the seven preceding volumes of <em>Money, Mastered.</em> See <a href="https://chethanbhatbs.github.io/money-mastered/">the series landing page</a> for the complete set.</p>
+</section>
+
+<!-- ===================== EPILOGUE ===================== -->
+<section class="sheet" id="epilogue" data-part="Back Matter" data-chapter="Epilogue">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Back Matter · C</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Epilogue — A Note from the Author</h2>
+  </div>
+  <p>Eight books, roughly 1,200 pages, about three years of work spread across many shorter sessions. The series began with a single problem: most of what is written about personal finance is either too shallow to be useful or too technical to be readable, and almost none of it acknowledges that money is in service of a life. The intention was a series that was both deep and readable, and that held the technical and the human together.</p>
+  <p>I do not know whether the intention was met. That judgement belongs to you. What I do know is that if even a few readers, after going through the series, write a one-page IPS, automate a 20% savings rate, draft a will, and have an annual conversation about money with the people they love — the series will have repaid its time of writing many times over, regardless of how many readers it finds.</p>
+  <p>Thank you for the hours you have spent in these pages. They are not, individually, the most engaging hours of your reading life. They were not designed to be. They were designed to be useful, and to age well, and to be there when you need them on a hard day in a year that has not yet happened. I hope they are.</p>
+  <p style="margin-top:2em;text-align:right;font-style:italic;color:#4E483D;">— End of <em>Money, Mastered</em>. —</p>
+</section>
+
+
+
+</body>
+</html>

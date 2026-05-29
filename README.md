@@ -27,7 +27,7 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 | <img src="docs/images/book5-cover.png" width="80"/> | **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **273** | [Open](https://chethanbhatbs.github.io/money-mastered/book5-technical-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book5-Technical-Analysis.pdf) |
 | <img src="docs/images/book6-cover.png" width="80"/> | **2 · The Markets** | **Book 6 — Funds, SIPs &amp; Portfolios** *(global)* | **93** | [Open](https://chethanbhatbs.github.io/money-mastered/book6-funds-sips-portfolios.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book6-Funds-SIPs-Portfolios.pdf) |
 | <img src="docs/images/book7-cover.png" width="80"/> | **2 · The Markets** | **Book 7 — Derivatives, Tax, Psychology &amp; Safety** *(global)* | **89** | [Open](https://chethanbhatbs.github.io/money-mastered/book7-derivatives-tax-psychology-safety.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book7-Derivatives-Tax-Psychology-Safety.pdf) |
-| — | **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | *Planned* | — |
+| <img src="docs/images/book8-cover.png" width="80"/> | **3 · Wealth** | **Book 8 — Building &amp; Protecting Wealth** *(capstone, global)* | **90** | [Open](https://chethanbhatbs.github.io/money-mastered/book8-building-and-protecting-wealth.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book8-Building-and-Protecting-Wealth.pdf) |
 
 ### Companion volumes
 
@@ -97,6 +97,9 @@ Portfolio foundations (MPT, risk-adjusted return), asset allocation (three-fund,
 
 **Book 7 — Derivatives, Tax, Psychology & Safety** *(global)*
 The defensive book. Derivatives without the mystique (forwards, futures, options, the four positions, the Greeks, what survives scrutiny, how derivatives go wrong); tax without the headache (income, capital gains short-term vs long-term, tax-advantaged accounts revisited, TLH in practice, international and estate); psychology — your real adversary (the dozen costliest biases, emotional cycles in markets, the IPS-driven anti-fragile habit stack); safety — recognising the cons (the five universal markers, Ponzi/pyramid, modern variants from rug pulls to pig-butchering, the salesperson disguised as advisor); and a closing defensive framework that pulls the four threads into a single checklist.
+
+**Book 8 — Building & Protecting Wealth** *(capstone, global)*
+The capstone of the series. The wealth equation (income × savings rate × time, with worked tables showing why savings rate dominates returns); net worth and the ratios that matter; debt as accelerator vs destroyer; the emergency fund; the big life decisions (buy vs rent with the 5% rule, insurance against ruin, career capital as your largest asset, children and education); the life-cycle decades (20s systems, 30s-40s accumulation, the 50s consolidation decade, decumulation done right in the 60s+); estate planning, generational wealth (the Williams-Preisser causes of failure), philanthropy (DAFs, CRTs, effective giving), and the three legacies; and closing with the question of enough plus a single-page synthesis across all eight books.
 
 ---
 
