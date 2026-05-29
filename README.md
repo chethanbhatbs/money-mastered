@@ -55,25 +55,28 @@ The HTML files are responsive — they re-flow for phone screens. Download the f
 
 This repo is **public** — every HTML book is one-click readable in any browser without downloading. Three options:
 
-### 1. `raw.githack.com` (recommended for sharing)
+### 1. `cdn.jsdelivr.net` (recommended — fastest, most reliable)
 
-Drop-in URLs that render the HTML directly in the browser. Best for sharing a single book with someone:
+Drop-in CDN URLs that render every HTML book directly in the browser. Verified working as of publication. Best for sharing a single book with someone:
 
 | Book | Click-to-read |
 |---|---|
-| 1 — Money, From Zero | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book1-money-from-zero.html> |
-| 2 — Where to Put Your Money | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book2-where-to-put-your-money.html> |
-| 3 — How the Market Works (India) | <https://raw.githack.com/chethanbhatbs/money-mastered/main/vol1-how-the-market-works.html> |
-| 4 — Fundamental Analysis | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book4-fundamental-analysis.html> |
-| 5 — Technical Analysis | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html> |
-| 6 — Funds, SIPs & Portfolios | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book6-funds-sips-portfolios.html> |
-| Landing page (all books) | <https://raw.githack.com/chethanbhatbs/money-mastered/main/index.html> |
+| **Landing page** (all books) | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/index.html> |
+| 1 — Money, From Zero | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book1-money-from-zero.html> |
+| 2 — Where to Put Your Money | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book2-where-to-put-your-money.html> |
+| 3 — How the Market Works (India) | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/vol1-how-the-market-works.html> |
+| 4 — Fundamental Analysis | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book4-fundamental-analysis.html> |
+| 5 — Technical Analysis | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book5-technical-analysis.html> |
+| 6 — Funds, SIPs & Portfolios | <https://cdn.jsdelivr.net/gh/chethanbhatbs/money-mastered@main/book6-funds-sips-portfolios.html> |
 
-### 2. `htmlpreview.github.io` (alternative)
+### 2. `raw.githack.com` and `htmlpreview.github.io` (alternatives)
 
-Same idea, different free service:
+Same idea, different free services. Useful if jsDelivr is ever blocked:
 
-`https://htmlpreview.github.io/?https://github.com/chethanbhatbs/money-mastered/blob/main/book5-technical-analysis.html`
+```
+https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html
+https://htmlpreview.github.io/?https://github.com/chethanbhatbs/money-mastered/blob/main/book5-technical-analysis.html
+```
 
 ### 3. Permanent custom URL via Cloudflare Pages or Netlify
 
