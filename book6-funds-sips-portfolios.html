@@ -301,6 +301,17 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
 .fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
+
+.vignette{margin:1.4em 0;border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 22px;}
+.vignette .vtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.vignette .vname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.disaster{margin:1.4em 0;border-left:4px solid #a44;background:#FAF1ED;padding:14px 22px;}
+.disaster .dtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a44;margin-bottom:.4em;}
+.disaster .dname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.contrarian{margin:1.4em 0;padding:18px 22px;background:var(--ink);color:#F6F0E2;}
+.contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
+.contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
 </style>
 </head>
 <body>
@@ -887,6 +898,13 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <p><strong>Bond duration variants</strong>: split the bond allocation into short and intermediate (e.g., BSV + BIV instead of BND) to control duration risk more precisely.</p>
   <p>None of these dramatically outperforms the simple three-fund. The marginal benefit of each addition is small; the marginal complexity is real.</p>
 
+  
+<div class="vignette">
+  <span class="vtag">Ravi &mdash; The Simplest Possible Portfolio</span>
+  <p><span class="vname">Ravi, now 28, has saved $14,000.</span> He's read this chapter and feels overwhelmed by allocation theory, glide paths, factor tilts. His decision, after thinking it over: a Vanguard Target-Date 2065 fund, 100% of new contributions, automated monthly. One fund. Done. The fund handles US/international split, the bond allocation, the glide path to retirement, the rebalancing &mdash; all of it. Expense ratio: 0.08%. Time required from Ravi each year: roughly five minutes to check the contribution rate.</p>
+  <p>Could he construct his own three-fund portfolio and save 0.05% per year? Yes. Would that 0.05% over 40 years compound to a meaningful sum? About $11,000 on his projected portfolio &mdash; not trivial. But Ravi has already saved 0.05% per year by <em>actually contributing</em>, which is the harder behavioural feat. Optimal beats simple only when you'll actually execute. For Ravi at 28, the simplest possible portfolio is the right portfolio.</p>
+</div>
+
   <h3><span class="subnum">5.5</span> What the Three-Fund Portfolio Quietly Does for You</h3>
   <ul>
     <li><strong>Diversifies you across ~10,000 stocks and ~10,000 bonds</strong> — essentially the entire investable world.</li>
@@ -1366,6 +1384,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <span class="r">Savings of ~$600-800/year, compounding indefinitely. Over 30 years at 7% growth, that's roughly <b>$60,000-80,000</b> of extra wealth at retirement — for the same investments, just in different accounts.</span>
   </div>
 
+  
+<div class="vignette">
+  <span class="vtag">Priya &mdash; Asset Location Across Three Accounts</span>
+  <p><span class="vname">Priya now has three account types:</span> a $250k employer-sponsored retirement account (tax-deferred), a $40k Roth IRA she opened five years ago (tax-free), and $80k in a regular brokerage account (taxable). Until now she's held the same 70/30 stock/bond mix in all three. After reading Chapter 12, she moves the bonds entirely into the retirement account (where their interest income is sheltered), puts the highest-growth equity holdings into the Roth (where the gains will never be taxed), and keeps tax-efficient broad index ETFs in the taxable account. Total dollar amounts and overall 70/30 stay the same. Estimated annual tax savings: roughly $1,200. Compounded over 25 years to her retirement: about $80,000 in extra wealth, for moving the same money between accounts.</p>
+</div>
+
   <h3><span class="subnum">12.5</span> When You Only Have One Account Type</h3>
   <p>Many young investors have only a 401(k) or only a Roth IRA — asset location doesn't apply because there's no choice. In that case, just hold your target allocation in that one account. As your wealth grows and you accumulate multiple account types, asset location becomes available as an optimisation. Re-allocate at that point.</p>
 
@@ -1508,6 +1532,14 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <li><strong>Sequence risk.</strong> The rule survives the <em>worst</em> historical sequence — but only barely. A worse-than-historical sequence (which is possible) might bust it.</li>
     <li><strong>Longer than 30 years.</strong> The rule is calibrated to 30 years. For someone retiring at 55 with a possible 40-year horizon, a lower rate is appropriate.</li>
   </ul>
+
+  
+<div class="disaster">
+  <span class="dtag">Cautionary Tale &mdash; Meera</span>
+  <p><span class="dname">Meera retired at 62 with $850,000.</span> Her financial advisor, paid 1.2% per year on assets under management, suggested 5.5% as a sustainable starting withdrawal &mdash; "above average because we'll manage actively." Meera withdrew $47,000 in year one. Markets fell 22% in year two (a real, recent historical scenario); her portfolio dropped to about $650,000 even after withdrawing. Her advisor's response: increase exposure to high-yield bonds and emerging-market equity to "catch up."</p>
+  <p>Meera withdrew her inflation-adjusted $49,000 in year three. The portfolio kept slipping. By year six, with markets recovering but Meera's withdrawal rate now running at 8-9% of remaining principal, her financial position was no longer fixable. She returned to part-time work at 68 to bridge the gap; her grand-parenthood plans were postponed indefinitely.</p>
+  <p><b>What Meera got wrong:</b> trusted a "5.5% with active management" pitch over the 4% rule's safety margin (Chapter 14); didn't push back when the advisor's response to drawdown was to add more risk; paid 1.2% AUM that compounded to over $80,000 in her first six years. <b>The lesson:</b> the 4% rule has a margin of safety built in for a reason. The 5%+ withdrawal rate often advertised is "average" — meaning roughly half the historical outcomes were worse. Starting retirement at the "average" rate is a coin-flip with your remaining decades.</p>
+</div>
 
   <h3><span class="subnum">14.4</span> Is 4% Still Right Today?</h3>
   <p>Recent research has questioned whether 4% remains the right number. The arguments for a <em>lower</em> rate (often 3% to 3.5%):</p>
@@ -1659,6 +1691,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <li><strong>Recovery time is short</strong> compared to the rest of life — a bad sequence here can't be averaged out by decades of subsequent good returns.</li>
   </ul>
   <p>Outside this window — say, 10 years before retirement or 10 years after — sequence matters less. Before, you can still earn and contribute; after, the worst sequence-induced damage has typically resolved.</p>
+
+  
+<div class="vignette">
+  <span class="vtag">Arun &mdash; Building the Two-Bucket Cash Reserve</span>
+  <p><span class="vname">Arun is 18 months from retirement.</span> His main worry, after reading Chapter 16, is sequence-of-returns risk &mdash; a bad market in his first three years could permanently damage his portfolio. He decides to build a deliberate cash reserve: <em>two years of expected expenses</em> in short Treasury bills and a money-market fund, separate from the rest of the portfolio. The 'cost' of this is the lower yield on cash vs stocks &mdash; roughly $4,000-6,000 per year of foregone expected return. The 'benefit' is that if a 30% bear market hits in 2027, Arun can fund 2027 and 2028 expenses entirely from cash without selling a single share at the bottom. By 2029 he can rebuild the cash bucket from the recovered portfolio. The peace of mind from having 24 months of guaranteed expenses sets him up to ride out the worst sequence without panicking. The $5k/year is insurance, paid willingly.</p>
+</div>
 
   <h3><span class="subnum">16.4</span> Defending Against Sequence Risk</h3>
   <p>Five concrete defences:</p>
@@ -1836,6 +1874,12 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <span class="title">The two rules that matter most</span>
     <p style="margin-bottom:0;">If the entire book reduces to two rules, let them be these: <b>(1) start investing early and never stop — through bull markets, bear markets, recessions, and your own panic.</b> <b>(2) keep costs (fees + taxes) as close to zero as possible.</b> Everything else is calibration. The investor who follows these two and uses a 60/40 three-fund portfolio for forty years will outperform the vast majority of professionals doing far more complicated work.</p>
   </div>
+
+<div class="vignette" style="border-left-color:var(--ink);">
+  <span class="vtag" style="color:var(--ink-soft);">Author's Note · the single most useful sentence in this book</span>
+  <p>If the four hundred pages of <em>Money, Mastered</em> reduce to one sentence, it is this: <strong>save 15-25% of your income from your first paycheque, invest it in low-cost broad-market index funds, and don't stop &mdash; through bull markets, bear markets, recessions, and your own panic &mdash; for thirty years.</strong> That sentence, executed, beats the vast majority of professional portfolios, the vast majority of stock-picking strategies, and the vast majority of tactical-allocation programs. It is the strategy I'd give my own children. It is the strategy the index-investing pioneers (Bogle, Buffett's stated advice for the average person, Charles Ellis, William Bernstein) have all converged on independently. Everything else in this six-volume series &mdash; bonds, technical analysis, tax-loss harvesting, factor investing, decumulation theory &mdash; is calibration around that one sentence. The calibration matters. The sentence matters more.</p>
+</div>
+
 </section>
 
 <!-- ===================== GLOSSARY ===================== -->
