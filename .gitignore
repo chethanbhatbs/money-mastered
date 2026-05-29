@@ -38,3 +38,4 @@ charts/
 !docs/
 !docs/images/
 !docs/images/*.png
+xlsx/*.pkl
