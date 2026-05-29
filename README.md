@@ -18,7 +18,7 @@
 
 The flagship effort is a progressive, beginner-to-confident series. Read in order; each book stands on the one before it. The series is published as **HTML (best reading experience)** and **PDF (print/offline)**.
 
-|  | Stage | Book | Pages | View HTML | Download PDF |
+|  | Stage | Book | Pages | Read | PDF |
 |---|---|---|---:|---|---|
 | <img src="docs/images/book1-cover.png" width="80"/> | **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | 66 | [Open](https://chethanbhatbs.github.io/money-mastered/book1-money-from-zero.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book1-Money-From-Zero.pdf) |
 | <img src="docs/images/book2-cover.png" width="80"/> | **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | 63 | [Open](https://chethanbhatbs.github.io/money-mastered/book2-where-to-put-your-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book2-Where-to-Put-Your-Money.pdf) |
@@ -31,7 +31,7 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 
 ### Companion volumes
 
-|  | Book | Pages | View HTML | Download PDF | Notes |
+|  | Book | Pages | Read | PDF | Notes |
 |---|---|---:|---|---|---|
 | <img src="docs/images/complete-money-cover.png" width="80"/> | **The Complete Money** — A Visual Encyclopedia of Finance, Wealth & Economics *(global)* | 143 | [Open](https://chethanbhatbs.github.io/money-mastered/the-complete-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Complete-Money.pdf) | Big-picture panorama: history, economics, crises, investing, psychology |
 | <img src="docs/images/stock-market-india-cover.png" width="80"/> | **The Stock Market, From Scratch** *(India, one-book overview)* | 88 | [Open](https://chethanbhatbs.github.io/money-mastered/stock-market-india.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Stock-Market-From-Scratch.pdf) | Express overview of the Indian market |
