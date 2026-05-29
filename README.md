@@ -26,7 +26,7 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 | <img src="docs/images/book4-cover.png" width="80"/> | **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | 94 | [Open](https://chethanbhatbs.github.io/money-mastered/book4-fundamental-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book4-Fundamental-Analysis.pdf) |
 | <img src="docs/images/book5-cover.png" width="80"/> | **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **273** | [Open](https://chethanbhatbs.github.io/money-mastered/book5-technical-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book5-Technical-Analysis.pdf) |
 | <img src="docs/images/book6-cover.png" width="80"/> | **2 · The Markets** | **Book 6 — Funds, SIPs &amp; Portfolios** *(global)* | **93** | [Open](https://chethanbhatbs.github.io/money-mastered/book6-funds-sips-portfolios.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book6-Funds-SIPs-Portfolios.pdf) |
-| — | 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | *Planned* | — |
+| <img src="docs/images/book7-cover.png" width="80"/> | **2 · The Markets** | **Book 7 — Derivatives, Tax, Psychology &amp; Safety** *(global)* | **89** | [Open](https://chethanbhatbs.github.io/money-mastered/book7-derivatives-tax-psychology-safety.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book7-Derivatives-Tax-Psychology-Safety.pdf) |
 | — | **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | *Planned* | — |
 
 ### Companion volumes
@@ -91,6 +91,12 @@ Income statement · balance sheet · cash flow · valuation (P/E, P/B, DCF, DuPo
 
 **Book 5 — Technical Analysis** *(global)*
 The encyclopedic volume. Foundations, candlesticks (every pattern on real scanned data), chart patterns, indicators with the full math and Python code, risk management, six historical case studies (1929/1987/2000/2008/2020/2022), the deep schools (Dow/Wyckoff/Elliott/Ichimoku/P&F), specialised techniques (harmonic patterns/volume profile/Heikin-Ashi/Renko), backtesting done properly, a 60+ exercise workbook with full answers, and the Python companion with code for every indicator.
+
+**Book 6 — Funds, SIPs & Portfolios** *(global)*
+Portfolio foundations (MPT, risk-adjusted return), asset allocation (three-fund, glide paths), implementation (ETFs, factor investing, SIPs, rebalancing), tax-efficient investing (asset location, TLH), decumulation (4% rule, dynamic withdrawal, sequence-of-returns risk), and a complete worked retirement plan.
+
+**Book 7 — Derivatives, Tax, Psychology & Safety** *(global)*
+The defensive book. Derivatives without the mystique (forwards, futures, options, the four positions, the Greeks, what survives scrutiny, how derivatives go wrong); tax without the headache (income, capital gains short-term vs long-term, tax-advantaged accounts revisited, TLH in practice, international and estate); psychology — your real adversary (the dozen costliest biases, emotional cycles in markets, the IPS-driven anti-fragile habit stack); safety — recognising the cons (the five universal markers, Ponzi/pyramid, modern variants from rug pulls to pig-butchering, the salesperson disguised as advisor); and a closing defensive framework that pulls the four threads into a single checklist.
 
 ---
 

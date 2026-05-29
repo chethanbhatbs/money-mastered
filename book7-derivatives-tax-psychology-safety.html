@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Derivatives, Tax, Psychology &amp; Safety — Money, Mastered · Book Seven — The Absolute Beginner’s Guide to How Money Works &amp; Why to Invest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,900;1,9..144,500&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   THE COMPLETE MONEY · v3 — Broadsheet editorial
+   Monochrome ink-on-paper + a single gold accent.
+   No gradients, no rounded cards, no drop-shadows.
+   Type: Fraunces (display) · Spectral (text) · Archivo (furniture)
+   ============================================================ */
+:root{
+  --paper:#F6F0E2;          /* warm broadsheet stock */
+  --paper-deep:#ECE3D0;     /* page surround */
+  --panel:#EFE8D7;          /* faint inset tint */
+  --ink:#1E1A15;            /* near-black warm ink */
+  --ink-soft:#4E483D;
+  --faint:#8C8475;
+  --hair:#C9BFA9;           /* hairline rules */
+  --rule:#C9BFA9;
+  --accent:#8A6A23;         /* the single accent — deep gold, on light */
+  --accent-deep:#1E1A15;    /* figures: dark fills = ink */
+  --accent-soft:#CFC4AC;    /* figures: warm gray */
+  --accent-tint:#EFE8D7;
+  --gold:#9C7B30;           /* slightly lighter gold for on-dark highlights */
+  --maxw:840px;
+}
+/* all former part-themes collapse to one monochrome system */
+.theme-1,.theme-2,.theme-3,.theme-4,.theme-5,.theme-6,.theme-7,.theme-8,.theme-9,.theme-10{
+  --accent:#8A6A23; --accent-deep:#1E1A15; --accent-soft:#CFC4AC; --accent-tint:#EFE8D7; --gold:#9C7B30;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--paper-deep);
+  color:var(--ink);
+  font-family:'Spectral',Georgia,'Times New Roman',serif;
+  font-size:18px;line-height:1.72;font-weight:400;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  counter-reset:pg;
+  padding:34px 14px;
+}
+
+/* ---------------- THE PAGE SHEET ---------------- */
+.sheet{
+  position:relative;
+  max-width:var(--maxw);
+  margin:0 auto 22px;
+  background:var(--paper);
+  border:1px solid var(--hair);
+  border-top:3px solid var(--ink);     /* masthead rule */
+  padding:62px 78px 76px;
+  counter-increment:pg;
+}
+.sheet::before{                          /* running head */
+  content:"Derivatives, Tax, Psychology &amp; Safety — Money, Mastered · Book Seven \00b7 Book One   \2014   " attr(data-part);
+  position:absolute;top:22px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--faint);
+  padding-bottom:9px;border-bottom:1px solid var(--hair);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+.sheet::after{                           /* folio */
+  content:counter(pg) "   \00b7   " attr(data-chapter);
+  position:absolute;bottom:30px;left:78px;right:78px;
+  font-family:'Archivo',sans-serif;font-size:10px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--faint);
+  text-align:center;padding-top:9px;border-top:1px solid var(--hair);
+}
+.sheet.plain::before,.sheet.plain::after{content:none;}
+
+/* ---------------- TYPOGRAPHY ---------------- */
+h1,h2,h3,h4,.display{font-family:'Fraunces','Spectral',Georgia,serif;font-optical-sizing:auto;color:var(--ink);font-weight:600;letter-spacing:-.005em;}
+.chapter-title{font-size:3.05rem;line-height:1.02;font-weight:900;margin:.12em 0 .3em;}
+h3{font-size:1.5rem;font-weight:600;margin:2.4em 0 .55em;padding-top:.7em;border-top:1px solid var(--hair);}
+h4{font-size:1.06rem;margin:1.7em 0 .3em;color:var(--ink);font-weight:700;font-family:'Archivo',sans-serif;letter-spacing:.02em;text-transform:uppercase;}
+p{margin:0 0 1.1em;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--hair);}
+a:hover{color:var(--ink);border-color:var(--accent);}
+.lead{font-size:1.4rem;line-height:1.5;color:var(--ink-soft);font-weight:400;font-style:italic;margin-bottom:1.2em;font-family:'Spectral',serif;}
+strong{font-weight:600;color:var(--ink);}
+.label,.kicker{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.24em;font-size:.7rem;font-weight:700;color:var(--accent);}
+.drop::first-letter{font-family:'Fraunces',serif;float:left;font-size:4.8rem;line-height:.76;font-weight:900;color:var(--ink);padding:.04em .1em 0 0;}
+.ornament{text-align:center;color:var(--accent);margin:2em 0;letter-spacing:.5em;font-size:.85rem;}
+.ornament::before{content:"\2756   \2756   \2756";}
+
+/* ---------------- CHAPTER OPENER ---------------- */
+.opener{margin:0 0 26px;}
+.opener .eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.opener .cnum{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.28em;color:var(--accent);text-transform:uppercase;}
+.opener .cline{flex:1;height:1px;background:var(--hair);}
+.opener .lead{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:.7em 0;margin-top:.3em;}
+
+/* ---------------- COVER (broadsheet front page) ---------------- */
+.cover{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:46px 70px 60px;text-align:center;
+}
+.cover .masthead{border-bottom:3px double var(--ink);padding-bottom:8px;margin-bottom:4px;
+  display:flex;justify-content:space-between;font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);}
+.cover .masthead .r{color:var(--accent);}
+.cover .vol{font-family:'Archivo',sans-serif;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--faint);border-bottom:1px solid var(--hair);padding-bottom:18px;margin-bottom:34px;}
+.cover .seal{margin:6px auto 22px;display:block;}
+.cover .kicker{display:block;margin-bottom:10px;}
+.cover h1{font-family:'Fraunces',serif;font-weight:900;font-size:5rem;line-height:.94;margin:.1em 0 .14em;color:var(--ink);letter-spacing:-.02em;}
+.cover .sub{font-size:1.5rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:560px;margin:22px auto;}
+.cover .deck{border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:16px 0;margin-top:28px;
+  font-family:'Archivo',sans-serif;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);}
+
+/* ---------------- PART DIVIDER (section front page) ---------------- */
+.divider{
+  max-width:var(--maxw);margin:0 auto 22px;background:var(--paper);
+  border:1px solid var(--hair);border-top:3px solid var(--ink);
+  padding:54px 78px 64px;color:var(--ink);
+}
+.divider .big{font-family:'Fraunces',serif;font-size:9rem;line-height:.8;font-weight:900;color:var(--ink);letter-spacing:-.04em;}
+.divider .ptag{font-family:'Archivo',sans-serif;letter-spacing:.32em;text-transform:uppercase;font-size:.8rem;color:var(--accent);margin:6px 0 0;border-top:3px double var(--ink);padding-top:14px;}
+.divider h2{font-family:'Fraunces',serif;color:var(--ink);font-size:3.4rem;font-weight:900;margin:.14em 0 .35em;letter-spacing:-.015em;}
+.divider .pintro{font-size:1.3rem;font-weight:400;font-style:italic;color:var(--ink-soft);max-width:580px;}
+.divider .chips{margin-top:30px;border-top:1px solid var(--hair);padding-top:18px;display:flex;flex-wrap:wrap;gap:0;}
+.divider .chip{font-family:'Archivo',sans-serif;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding:0 16px;border-right:1px solid var(--hair);}
+.divider .chip:first-child{padding-left:0;}
+.divider .chip:last-child{border-right:none;}
+
+/* ---------------- FEATURE BLOCKS (ruled, not cards) ---------------- */
+.box{margin:2em 0;padding:18px 0 4px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);font-size:.98rem;line-height:1.62;}
+.box .htag{font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:.5em;color:var(--accent);}
+.box .title{font-family:'Fraunces',serif;font-weight:600;font-size:1.2rem;display:block;margin-bottom:.5em;color:var(--ink);}
+
+/* Did You Know — double rules */
+.dyk{border-top:3px double var(--ink);border-bottom:3px double var(--ink);}
+/* Finance Psychology — heavy left rule */
+.psy{border:none;border-left:4px solid var(--accent);padding:4px 0 4px 22px;}
+.psy .htag{color:var(--accent);}
+/* Common Mistakes — heavy ink left rule */
+.err{border:none;border-left:4px solid var(--ink);padding:4px 0 4px 22px;}
+.err .htag{color:var(--ink);}
+/* Callout — single hairlines, faint tint */
+.callout{background:var(--panel);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 24px;}
+/* Case study — reversed ink panel (the editorial sidebar) */
+.case{background:var(--ink);color:#E9E1CF;border:none;padding:22px 26px;}
+.case .htag{color:var(--gold);} .case .title{color:#fff;} .case strong{color:#fff;}
+
+/* Takeaways — boxed with double rules */
+.takeaways{margin:2.2em 0;padding:20px 26px;border:2px solid var(--ink);background:var(--paper);}
+.takeaways .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.takeaways ol{margin:.7em 0 0;padding-left:1.3em;} .takeaways li{margin:.5em 0;} .takeaways strong{color:var(--ink);}
+
+/* Resources — ruled reading list */
+.resources{margin:2em 0;padding:16px 0 4px;border-top:1px solid var(--hair);}
+.resources .htag{font-family:'Archivo',sans-serif;color:var(--accent);font-weight:700;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;}
+.resources ul{margin:.6em 0 0;padding-left:0;list-style:none;columns:1;}
+.resources li{margin:.4em 0;padding-left:1.4em;position:relative;font-size:.95rem;}
+.resources li::before{content:"\2014";position:absolute;left:0;color:var(--accent);}
+
+/* Pull quote — editorial, ruled */
+.pq{margin:2.4em 0;padding:18px 0;border-top:3px double var(--ink);border-bottom:3px double var(--ink);
+   font-family:'Fraunces',serif;font-size:1.9rem;line-height:1.24;color:var(--ink);font-style:italic;font-weight:500;text-align:center;}
+.pq cite{display:block;margin-top:.6em;font-family:'Archivo',sans-serif;font-style:normal;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);}
+
+/* Margin note — floats into the side as a sidenote */
+.mnote{float:right;clear:right;width:34%;margin:6px 0 16px 28px;padding-left:16px;border-left:2px solid var(--accent);
+  font-family:'Spectral',serif;font-size:.86rem;font-style:italic;line-height:1.5;color:var(--ink-soft);}
+.mnote .ml{display:block;font-family:'Archivo',sans-serif;font-style:normal;font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.3em;}
+
+/* lists */
+ul,ol{margin:0 0 1.2em;padding-left:1.35em;} li{margin:.34em 0;}
+
+/* ---------------- TABLES (newspaper data) ---------------- */
+.compare{margin:2.2em 0;font-family:'Spectral',serif;}
+.compare table{width:100%;border-collapse:collapse;font-size:.94rem;}
+.compare caption{caption-side:top;text-align:left;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);
+  padding:0 0 10px;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;border-bottom:none;}
+.compare thead th{background:none;color:var(--ink);text-transform:uppercase;letter-spacing:.08em;font-size:.66rem;font-weight:700;
+  font-family:'Archivo',sans-serif;padding:8px 14px;text-align:left;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink);}
+.compare th,.compare td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--hair);}
+.compare tbody tr:last-child td{border-bottom:2px solid var(--ink);}
+.compare td:first-child{font-weight:600;color:var(--ink);width:22%;}
+
+/* ---------------- FIGURES (plates) ---------------- */
+figure{margin:2.4em 0;}
+.figframe{border:1px solid var(--ink);background:#fff;}
+.figframe .figtab{font-family:'Archivo',sans-serif;font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  padding:9px 16px;color:var(--ink);border-bottom:1px solid var(--ink);background:var(--paper);}
+.figframe .figtab b{color:var(--accent);}
+figure svg{width:100%;height:auto;display:block;}
+figcaption{font-family:'Spectral',serif;font-style:italic;font-size:.88rem;color:var(--ink-soft);margin-top:.7em;line-height:1.5;padding:0 2px;}
+figcaption b{color:var(--ink);font-style:normal;font-weight:600;}
+
+/* ---------------- STAT STRIP (ruled, no cards) ---------------- */
+.stats{display:flex;flex-wrap:wrap;gap:0;margin:2em 0;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);}
+.stat{flex:1;min-width:150px;padding:16px 22px 16px 0;margin-right:22px;border-right:1px solid var(--hair);}
+.stat:last-child{border-right:none;margin-right:0;}
+.stat .n{font-family:'Fraunces',serif;font-size:2.1rem;color:var(--ink);font-weight:900;line-height:1;}
+.stat .t{font-family:'Spectral',serif;font-size:.84rem;color:var(--ink-soft);margin-top:7px;line-height:1.45;}
+
+/* formula */
+.formula{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1.05rem;color:var(--ink);
+  padding:14px;margin:1.6em 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);letter-spacing:.02em;}
+code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--accent);}
+
+/* ---------------- TOC ---------------- */
+.toc h2{font-size:2.7rem;font-weight:900;}
+.toc .prow{margin:1.7em 0 .4em;font-family:'Archivo',sans-serif;font-weight:700;color:var(--accent);letter-spacing:.16em;
+  text-transform:uppercase;font-size:.74rem;border-bottom:2px solid var(--ink);padding-bottom:.5em;}
+.toc ol{list-style:none;padding:0;margin:0;}
+.toc li{display:flex;justify-content:space-between;align-items:baseline;padding:.32em 0;border-bottom:1px solid var(--hair);}
+.toc li a{border:none;color:var(--ink);font-size:1.05rem;}
+.toc li a:hover{color:var(--accent);}
+.toc .pg{font-family:'JetBrains Mono',monospace;color:var(--faint);font-size:.82rem;}
+
+/* glossary columns */
+.glos{columns:2;column-gap:42px;font-size:.92rem;}
+.glos p{break-inside:avoid;margin:0 0 .8em;}
+
+/* colophon */
+.colophon{max-width:var(--maxw);margin:0 auto;background:var(--paper);border:1px solid var(--hair);border-top:3px solid var(--ink);
+  text-align:center;padding:42px 40px;font-family:'Archivo',sans-serif;font-size:.82rem;color:var(--faint);letter-spacing:.04em;}
+.colophon .rule{display:none;}
+.colophon .bt{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:900;color:var(--ink);margin:0 0 .3em;letter-spacing:-.01em;}
+
+/* responsive */
+@media(max-width:820px){
+  body{padding:10px 0;}
+  .sheet{padding:50px 24px 64px;} .sheet::before,.sheet::after{left:24px;right:24px;}
+  .cover,.divider{padding:40px 26px;}
+  .cover h1{font-size:3rem;} .chapter-title{font-size:2.1rem;}
+  .divider .big{font-size:6rem;} .divider h2{font-size:2.3rem;}
+  .pq{font-size:1.45rem;} .glos{columns:1;}
+  .mnote{float:none;width:auto;margin:14px 0;}
+}
+
+/* ---------------- PRINT ---------------- */
+@page{
+  margin:20mm 18mm 18mm;
+  @top-center{ content:"DERIVATIVES, TAX, PSYCHOLOGY &amp; SAFETY \00b7 BOOK ONE"; font-family:'Archivo',sans-serif; font-size:7.5pt; letter-spacing:2px; color:#9a917f; }
+  @bottom-center{ content: counter(page); font-family:'Archivo',sans-serif; font-size:9pt; color:#9a917f; }
+}
+@media print{
+  body{background:#fff;padding:0;font-size:10.8pt;}
+  .cover,.divider,.sheet,.colophon{border:none;border-top:2.5px solid #000;margin:0;max-width:100%;page-break-after:always;background:#fff;}
+  .sheet{padding:6mm 2mm 0;}
+  .sheet::before,.sheet::after{display:none !important;}
+  figure,.box,.compare,.takeaways,.case,.dyk,.callout,.pq,.stats,.opener{page-break-inside:avoid;}
+  h2,h3,h4{page-break-after:avoid;}
+  .mnote{float:none;width:auto;border-left:2px solid #000;}
+  a{color:var(--ink);border:none;}
+}
+
+
+/* ---- photographic plates (real images) ---- */
+.figframe img{display:block;width:100%;height:auto;}
+.figframe.plate{background:#fff;}
+.figframe.plate img{max-width:520px;margin:0 auto;}
+.credit{display:block;font-family:'Archivo',sans-serif;font-size:.64rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-top:.5em;font-style:normal;}
+.rupee{font-feature-settings:"tnum";}
+.big-num{font-family:'Fraunces',serif;font-weight:900;}
+/* ---- learning objectives ---- */
+.objectives{margin:1.4em 0 2em;padding:14px 0 6px;border-top:1px solid var(--ink);border-bottom:1px solid var(--hair);}
+.objectives .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.objectives ul{margin:.2em 0 .4em;padding-left:1.2em;font-size:.95rem;}
+.objectives li{margin:.25em 0;}
+/* ---- end-of-chapter self-check ---- */
+.selfcheck{margin:2em 0;padding:18px 24px;border:1px solid var(--ink);background:var(--panel);}
+.selfcheck .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.selfcheck ol{margin:.4em 0 0;padding-left:1.3em;font-size:.95rem;}
+.selfcheck li{margin:.4em 0;}
+.selfcheck .ans{display:block;margin-top:.7em;font-size:.86rem;color:var(--ink-soft);font-style:italic;}
+/* ---- prominent risk warning ---- */
+.warnbox{margin:1.8em 0;padding:18px 22px;border:2px solid var(--accent);background:#fff;}
+.warnbox .htag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5em;}
+.warnbox p{margin:0 0 .5em;font-size:.95rem;}
+.warnbox p:last-child{margin-bottom:0;}
+/* ---- back-of-book index ---- */
+.bindex{columns:2;column-gap:42px;font-size:.85rem;line-height:1.5;}
+.bindex p{break-inside:avoid;margin:0 0 .3em;}
+.bindex .ent{font-weight:600;color:var(--ink);}
+
+
+/* ---- sub-chapter headings (x.y) ---- */
+.subnum{font-family:'Archivo',sans-serif;font-weight:800;color:var(--accent);font-size:.9em;margin-right:.4em;}
+/* ---- series roadmap page ---- */
+.roadmap{counter-reset:none;}
+.roadmap .stage{margin:0 0 1.4em;border-top:1px solid var(--ink);padding-top:.6em;}
+.roadmap .stage .st{font-family:'Archivo',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);}
+.roadmap .bk{display:flex;justify-content:space-between;align-items:baseline;padding:.3em 0;border-bottom:1px dotted var(--hair);font-size:1.02rem;}
+.roadmap .bk .tag{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);}
+.roadmap .bk.here{font-weight:700;color:var(--accent-deep);}
+.roadmap .bk.here .tag{color:var(--accent);}
+.calc{margin:1.6em 0;padding:16px 22px;border:1px solid var(--ink);background:#FCFBF7;font-family:'JetBrains Mono',monospace;font-size:.88rem;line-height:1.85;}
+.calc .ct{font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:.7em;}
+.calc b{color:var(--accent);font-weight:700;}
+.calc .r{color:var(--ink-soft);font-style:italic;}
+.calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
+.fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
+
+
+.vignette{margin:1.4em 0;border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 22px;}
+.vignette .vtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.vignette .vname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.disaster{margin:1.4em 0;border-left:4px solid #a44;background:#FAF1ED;padding:14px 22px;}
+.disaster .dtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a44;margin-bottom:.4em;}
+.disaster .dname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.contrarian{margin:1.4em 0;padding:18px 22px;background:var(--ink);color:#F6F0E2;}
+.contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
+.contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
+
+/* The Seven Principles — series-wide framework */
+.principles{margin:2em 0;border:2px solid var(--ink);background:#FCFBF7;padding:24px 28px;}
+.principles .phead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:700;color:var(--accent);margin-bottom:.6em;display:block;}
+.principles .ptitle{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:0 0 .6em;letter-spacing:-0.01em;}
+.principles ol{list-style:none;counter-reset:p;padding:0;margin:0;}
+.principles ol li{counter-increment:p;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:.55em 0;border-top:1px solid var(--hair);align-items:start;}
+.principles ol li::before{content:counter(p);font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--accent-deep);text-align:center;line-height:1;}
+.principles ol li:first-child{border-top:none;padding-top:0;}
+.principles ol li .pn{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;color:var(--ink);display:block;}
+.principles ol li .pb{font-size:.95rem;color:var(--ink-soft);margin-top:.15em;display:block;}
+.pref{display:inline-block;font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;padding:1px 6px;border:1px solid var(--accent);margin:0 4px;vertical-align:1px;border-radius:2px;}
+</style>
+</head>
+<body>
+
+
+<!-- ===================== COVER ===================== -->
+<section class="sheet cover" data-part="Cover" data-chapter="Cover">
+  <div class="cover-mast">
+    <span>Money, Mastered · The Roadmap</span>
+    <span class="r">Book Seven of Eight</span>
+  </div>
+  <div class="cover-strip">Derivatives · tax · psychology · safety</div>
+  <div class="cover-seal-wrap">
+    <svg class="seal" width="116" height="116" viewBox="0 0 116 116" aria-hidden="true">
+      <circle cx="58" cy="58" r="54" fill="none" stroke="#1E1A15" stroke-width="1.5"/>
+      <circle cx="58" cy="58" r="44" fill="none" stroke="#8A6A23" stroke-width="0.7"/>
+      <text x="58" y="73" text-anchor="middle" font-family="Fraunces, serif" font-size="48" font-weight="900" fill="#1E1A15">7</text>
+    </svg>
+  </div>
+  <div class="cover-eyebrow">The Adversarial Half of Finance — Defence Against Other People and Yourself</div>
+  <h1 class="cover-title">Derivatives, Tax, <em>Psychology</em> &amp; Safety</h1>
+  <p class="cover-lede">The first six books taught what to buy, where to put it, and how to manage it. This one teaches the four ways the system gets the better of you anyway: through complex instruments you don't understand, through tax inefficiency you don't notice, through psychology you can't see in yourself, and through scams that are sold to you in the same words a real advisor would use.</p>
+  <div class="cover-strip cover-foot">Defence · Tax efficiency · Your own mind · Recognising the con · Builds on Books 1-6</div>
+</section>
+
+<!-- ===================== COPYRIGHT ===================== -->
+<section class="sheet" id="copyright" data-part="Front Matter" data-chapter="Copyright &amp; Disclosure">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title" style="font-size:2.4rem;">Copyright &amp; Disclosure</h2>
+  </div>
+  <p>© 2026 Money, Mastered. All rights reserved. This is Book Seven of an eight-book finance series; it may be read independently but builds on Books One through Six.</p>
+  <div class="box err" style="margin-top:1.4em;">
+    <span class="htag">Education, not advice</span>
+    <span class="title">Derivatives can lose more than you invest. Tax rules vary. This book is a guide, not advice.</span>
+    <p style="margin-bottom:0;">Nothing in this book is investment, tax, or legal advice. Options and futures can lose more than the initial premium. Tax rules vary by country, change over time, and depend on your individual circumstances; verify with a licensed/fiduciary professional before acting. Scam descriptions are educational — none of the techniques described should be used to defraud anyone, ever.</p>
+  </div>
+</section>
+
+<!-- ===================== WELCOME ===================== -->
+<section class="sheet" id="welcome" data-part="Front Matter" data-chapter="Welcome — The Adversarial Half">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Welcome — The Adversarial Half of Finance</h2>
+    <p class="lead">Most personal-finance books treat finance as a problem of <em>doing the right things</em>: buy this, save that, allocate so. Books One through Six did most of that work. But finance is also adversarial. There are people whose income depends on you doing the wrong thing. There are taxes that quietly siphon off your returns whether you notice or not. There are derivatives whose payoffs are non-linear and whose marketing is dishonest. There is, above all, your own brain — wired by 200,000 years of evolution for survival on the African savannah, not for index-fund discipline through a bear market. This book is about defence.</p>
+  </div>
+  <p>Read this book after the first six, not before. The first six teach what to do. This one teaches what to <em>avoid</em>, and how to recognise it being sold to you. Chapter for chapter it is darker than the earlier volumes; that's the subject matter, not the tone. Done right, defence saves more wealth than any offensive strategy creates.</p>
+  <p>The book is in five parts. <strong>Derivatives</strong> demystifies futures and options without pretending they are useful for most retail investors. <strong>Tax</strong> covers what every long-term investor needs to know about how income, gains, and accounts are taxed, with worked examples. <strong>Psychology</strong> identifies the biases that cost you money — your own and others'. <strong>Safety</strong> teaches the anatomy of scams and the salesperson-disguised-as-advisor problem. <strong>The Defensive Framework</strong> closes by pulling the four threads together into a single checklist.</p>
+</section>
+
+<!-- ===================== READER PATHS ===================== -->
+<section class="sheet" id="reader-paths" data-part="Front Matter" data-chapter="Reader Paths — How to Read by Goal">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Reader Paths — How to Read by Goal</h2>
+    <p class="lead">Eighteen chapters across five parts. Each part is largely standalone — read what you need. None of the four topics is optional in the long run; all four become urgent eventually.</p>
+  </div>
+  <h3><span class="subnum">·</span> Path 1 — The defensive minimum (~40 pages)</h3>
+  <p>Read <strong>Part III (Ch 11-13) on Psychology</strong> first, then <strong>Part IV (Ch 14-17) on Safety</strong>. Skip Part I and Part II unless you're actively dealing with derivatives or have a tax decision pending. Most retail investors lose more money to psychology and scams than to tax inefficiency or derivative misadventures.</p>
+  <h3><span class="subnum">·</span> Path 2 — The tax-conscious investor (~50 pages)</h3>
+  <p>Read <strong>Part II (Ch 6-10) on Tax</strong> end to end. Then Ch 11 (cognitive biases), Ch 17 (salesperson-as-advisor), and the defensive framework in Ch 18. Skip derivatives.</p>
+  <h3><span class="subnum">·</span> Path 3 — Anyone who's been pitched options (~50 pages)</h3>
+  <p><strong>Part I (Ch 1-5) on Derivatives</strong>, paying particular attention to Ch 5 (How Derivatives Go Wrong) and the Vikram disaster vignette in Book 5 Ch 18. Add Ch 11 (biases) and Ch 14 (scam anatomy). The most common loss path for retail investors who venture into derivatives is well-understood; this path teaches the recognition.</p>
+  <h3><span class="subnum">·</span> Path 4 — The full book (~120 pages, in order)</h3>
+  <p>The intended sequence. Each part rests on the previous one; the defensive framework in Ch 18 is the synthesis.</p>
+  <div class="box callout">
+    <span class="title">If you take only one chapter</span>
+    <p style="margin-bottom:0;">Read <b>Chapter 11 — The Cognitive Biases That Cost You Money</b>. Of the four threats this book addresses, your own mind is the most consequential. Most financial mistakes are not analytical errors; they are emotional ones, and they happen even to people who know the analytical correct answer.</p>
+  </div>
+</section>
+
+<!-- ===================== SEVEN PRINCIPLES CARD ===================== -->
+<div class="principles" style="padding:18px 22px;">
+  <span class="phead">Recall · the seven principles from Book 1</span>
+  <h3 class="ptitle" style="font-size:1.15rem;margin:0 0 .6em;">The mental models this book leans on most.</h3>
+  <ol style="margin-top:.2em;">
+    <li><span></span><span><span class="pn">Return follows risk</span> <span class="pb" style="display:inline;"> &middot; especially true for derivatives, where leverage amplifies both.</span></span></li>
+    <li><span></span><span><span class="pn">Time beats timing</span> <span class="pb" style="display:inline;"> &middot; tax-deferred compounding for decades dwarfs tactical timing.</span></span></li>
+    <li><span></span><span><span class="pn">Costs compound</span> <span class="pb" style="display:inline;"> &middot; taxes are the largest cost most investors pay; manage them deliberately.</span></span></li>
+    <li><span></span><span><span class="pn">Diversification buys survival</span> <span class="pb" style="display:inline;"> &middot; single-stock options are negative-expected-value lottery tickets.</span></span></li>
+    <li><span></span><span><span class="pn">Price and value are different</span> <span class="pb" style="display:inline;"> &middot; never more true than for a financial product being sold to you.</span></span></li>
+    <li><span></span><span><span class="pn">Behaviour dominates analysis</span> <span class="pb" style="display:inline;"> &middot; the whole topic of Part III.</span></span></li>
+    <li><span></span><span><span class="pn">Complexity is expensive</span> <span class="pb" style="display:inline;"> &middot; complexity is also the disguise scams wear; if you can't explain it, don't own it.</span></span></li>
+  </ol>
+</div>
+
+<!-- ===================== TOC ===================== -->
+<nav class="sheet toc" data-part="Contents" data-chapter="Table of Contents">
+  <div class="label">Contents · Book Seven</div>
+  <h2>What's Inside</h2>
+  <p class="lead" style="font-style:normal;font-size:1.05rem;">Eighteen chapters across five parts: Derivatives without the mystique, Tax without the headache, Psychology — your real adversary, Safety — recognising the cons, and a closing Defensive Framework that pulls the four threads together.</p>
+
+  <div class="prow">Front Matter</div>
+  <ol>
+    <li><a href="#welcome">Welcome — The Adversarial Half of Finance</a><span class="pg">i</span></li>
+    <li><a href="#reader-paths">Reader Paths — how to read by goal</a><span class="pg">ii</span></li>
+  </ol>
+  <div class="prow">Part I · Derivatives Without the Mystique</div>
+  <ol>
+    <li><a href="#ch1">1 · What a Derivative Actually Is</a><span class="pg">1</span></li>
+    <li><a href="#ch2">2 · Forwards &amp; Futures</a><span class="pg">2</span></li>
+    <li><a href="#ch3">3 · Options — Calls &amp; Puts</a><span class="pg">3</span></li>
+    <li><a href="#ch4">4 · Options Strategies for Retail</a><span class="pg">4</span></li>
+    <li><a href="#ch5">5 · How Derivatives Go Wrong</a><span class="pg">5</span></li>
+  </ol>
+  <div class="prow">Part II · Tax Without the Headache</div>
+  <ol>
+    <li><a href="#ch6">6 · How Investment Income Is Taxed</a><span class="pg">6</span></li>
+    <li><a href="#ch7">7 · Capital Gains — Short-term vs Long-term</a><span class="pg">7</span></li>
+    <li><a href="#ch8">8 · Tax-Advantaged Accounts (revisited)</a><span class="pg">8</span></li>
+    <li><a href="#ch9">9 · Tax-Loss Harvesting in Practice</a><span class="pg">9</span></li>
+    <li><a href="#ch10">10 · International &amp; Estate Considerations</a><span class="pg">10</span></li>
+  </ol>
+  <div class="prow">Part III · Psychology — Your Real Adversary</div>
+  <ol>
+    <li><a href="#ch11">11 · The Cognitive Biases That Cost You Money</a><span class="pg">11</span></li>
+    <li><a href="#ch12">12 · Emotional Cycles in Markets</a><span class="pg">12</span></li>
+    <li><a href="#ch13">13 · Building Anti-Fragile Habits</a><span class="pg">13</span></li>
+  </ol>
+  <div class="prow">Part IV · Safety — Recognising the Cons</div>
+  <ol>
+    <li><a href="#ch14">14 · The Anatomy of a Scam</a><span class="pg">14</span></li>
+    <li><a href="#ch15">15 · Pyramid &amp; Ponzi Schemes</a><span class="pg">15</span></li>
+    <li><a href="#ch16">16 · Modern Financial Scams</a><span class="pg">16</span></li>
+    <li><a href="#ch17">17 · The Salesperson Disguised as Advisor</a><span class="pg">17</span></li>
+  </ol>
+  <div class="prow">Part V · Putting It Together</div>
+  <ol>
+    <li><a href="#ch18">18 · A Defensive Framework</a><span class="pg">18</span></li>
+  </ol>
+  <div class="prow">Back Matter</div>
+  <ol>
+    <li><a href="#glossary">Glossary</a><span class="pg">A</span></li>
+    <li><a href="#sources">Sources &amp; Further Reading</a><span class="pg">B</span></li>
+  </ol>
+</nav>
+
+
+
+<!-- ===================== PART I OPENER ===================== -->
+<section class="sheet partopener" data-part="Part I" data-chapter="Derivatives Without the Mystique">
+  <div class="partlabel">Part I</div>
+  <h2 class="parttitle">Derivatives Without the Mystique</h2>
+  <p class="partlede">Five chapters. The instruments themselves are not complicated — a futures contract is just an agreement to buy something later at a price fixed today, and an option is a one-way version of that. What's complicated is the marketing around them. By the end of this part you'll understand what derivatives are, what they're for, and — most importantly — why almost no retail investor should be selling options for income.</p>
+  <ul class="partmap">
+    <li><b>Ch 1</b> What a derivative actually is — and why it exists</li>
+    <li><b>Ch 2</b> Forwards &amp; futures — the foundational case</li>
+    <li><b>Ch 3</b> Options — calls, puts, and the asymmetry</li>
+    <li><b>Ch 4</b> Options strategies for retail — what survives scrutiny</li>
+    <li><b>Ch 5</b> How derivatives go wrong — the loss path</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 1 ===================== -->
+<section class="sheet chapter" id="ch1" data-part="Part I" data-chapter="What a Derivative Actually Is">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 1</span><span class="cline"></span><span class="ctag">Part I · Derivatives</span></div>
+    <h2 class="chapter-title">What a Derivative <em>Actually</em> Is</h2>
+    <p class="lead">A derivative is a contract whose value <em>derives</em> from the price of something else — a stock, an index, an interest rate, a commodity, a currency. That's it. The word sounds mathematical but the idea is older than algebra: a farmer in seventeenth-century Osaka selling next season's rice at this season's price was writing a derivative. Everything modern markets do with derivatives is a refinement of that bargain.</p>
+  </div>
+  <h3><span class="subnum">1.1</span> The underlying — what the derivative is "derived from"</h3>
+  <p>Every derivative has an <strong>underlying</strong>: the asset whose price determines the contract's payoff. The underlying can be a single stock (Apple), an index (Nifty 50, S&amp;P 500), a commodity (WTI crude, gold), an interest rate (3-month SOFR), a currency pair (USD/INR), or — in exotic cases — the volatility of any of those, or the weather, or a credit event. The derivative itself is not the asset; it is a <em>bet on, hedge of, or claim on</em> the asset.</p>
+  <h3><span class="subnum">1.2</span> Why derivatives exist — three honest answers</h3>
+  <p><strong>Hedging.</strong> An airline burns jet fuel. A jump in oil prices destroys their margins. A futures contract on crude oil locks in their fuel cost months ahead — they trade away upside (cheap oil would have been a windfall) for certainty. This is the original use case, and it is genuinely valuable.</p>
+  <p><strong>Speculation.</strong> A trader has a view that oil will rise. Rather than buying the physical commodity (or a stock proxy) they buy a futures contract, which gives leveraged exposure. Speculators provide the liquidity that lets hedgers transfer risk; without speculators the hedger has no counterparty.</p>
+  <p><strong>Arbitrage.</strong> If two instruments referencing the same underlying diverge in price (a stock and its single-stock future, say) an arbitrageur trades both sides to capture the spread. This is what keeps derivative prices anchored to the underlying.</p>
+  <div class="box callout">
+    <span class="title">Where the trouble starts</span>
+    <p style="margin-bottom:0;">All three uses are real. Retail "investors" buying weekly options on Apple are doing none of them — they are gambling, with a structure that ensures most participants lose. We'll show why in Chapter 4.</p>
+  </div>
+  <h3><span class="subnum">1.3</span> The two families — linear and non-linear</h3>
+  <p>Derivatives split cleanly into two families. <strong>Linear derivatives</strong> (forwards, futures, swaps) have payoffs that move 1:1 with the underlying — if oil rises $1, a long oil futures contract gains $1 per barrel. <strong>Non-linear derivatives</strong> (options) have payoffs that change shape depending on where the underlying ends up — a call option above strike behaves like a stock; below strike it behaves like cash. The non-linearity is what makes options powerful and what makes them dangerous: pricing them correctly requires the entire Black-Scholes apparatus, and selling them naked exposes you to losses far larger than your account.</p>
+  <h3><span class="subnum">1.4</span> Notional vs. premium — the leverage hidden in the headline</h3>
+  <p>When you buy 100 shares of Apple at $180, you spend $18,000. When you buy <em>one</em> Apple call option (which controls 100 shares) for $5 a contract, you spend $500. Your <strong>notional exposure</strong> is still $18,000 — that's the amount of stock whose movement determines your P&amp;L. The ratio of notional to premium (here, 36×) is the leverage. This is the structural fact that makes options "exciting" and that makes most retail users lose money.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State what a derivative is in one sentence using the word "underlying".</li>
+    <li>Name the three uses of derivatives (hedge, speculate, arbitrage) and which one most retail users are doing.</li>
+    <li>Explain the difference between linear and non-linear payoffs.</li>
+    <li>Compute the leverage ratio of a call option given premium and notional.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>A coffee company buys coffee futures. Hedger or speculator?</li>
+    <li>A futures contract is linear; an option is __________.</li>
+    <li>An NVDA call costs $8 and controls 100 shares of a $700 stock. What is the leverage?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 2 ===================== -->
+<section class="sheet chapter" id="ch2" data-part="Part I" data-chapter="Forwards and Futures">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 2</span><span class="cline"></span><span class="ctag">Part I · Derivatives</span></div>
+    <h2 class="chapter-title">Forwards &amp; Futures</h2>
+    <p class="lead">Start with the simplest derivative. A <strong>forward</strong> is a private agreement: you and I agree today that in three months I'll buy 1,000 barrels of oil from you at $80 a barrel. No money changes hands now. In three months we settle: if oil is at $90, I pay you $80 and immediately resell at $90 (gain $10/barrel × 1,000 = $10,000). If oil is at $70, I still must pay $80 (loss $10,000). A <strong>futures contract</strong> is the same bargain made standard and exchange-traded.</p>
+  </div>
+  <h3><span class="subnum">2.1</span> The exchange's job — standardisation and clearing</h3>
+  <p>Forwards have a problem: counterparty risk. If oil moves against me by $10,000, I might not pay. The exchange solves this with two mechanisms. <strong>Standardisation</strong>: every contract specifies the same quantity, quality, delivery date, and delivery point, so contracts are fungible. <strong>Central clearing</strong>: the exchange's clearing house steps between every buyer and seller, becoming the counterparty to each. The clearing house enforces this with <strong>margin</strong>.</p>
+  <h3><span class="subnum">2.2</span> Initial margin and mark-to-market</h3>
+  <p>To open a futures position you post <strong>initial margin</strong> — typically 5-15% of the notional — into a margin account. Each evening the exchange marks every open contract to the closing settlement price. If your position has lost value, the loss is debited from your margin account; if it has gained, the gain is credited. This is <strong>variation margin</strong>, and it is paid daily, in cash, regardless of whether you have closed the position. If your margin falls below the <strong>maintenance margin</strong>, you receive a margin call: top up the account or the broker liquidates your position at market.</p>
+  <div class="calc">
+    <span class="title">Worked calculation — Nifty 50 futures, ₹</span>
+    <p style="margin-bottom:.4em;">Suppose you go long one Nifty 50 futures contract at 22,000. Lot size is 50 (NSE standard). Notional = 22,000 × 50 = ₹11,00,000. Initial margin (≈12%) = ₹1,32,000. Next day Nifty settles at 21,800 — a fall of 200 points.</p>
+    <p style="margin-bottom:.4em;"><b>Mark-to-market loss</b> = 200 × 50 = <b>₹10,000</b>, debited from your account that evening. Your margin balance is now ₹1,22,000 against a notional of ₹10,90,000 — still above maintenance, no margin call yet, but the cash has left your account.</p>
+    <p style="margin-bottom:0;">Over five trading days of a 4% drawdown, you would lose ₹44,000 in cash on a ₹1,32,000 initial margin — a 33% loss on the cash you put up, on a 4% move in the index.</p>
+  </div>
+  <h3><span class="subnum">2.3</span> The futures price formula — cost of carry</h3>
+  <p>For non-dividend-paying stocks the no-arbitrage futures price is <b>F = S × e<sup>rT</sup></b> where S is the spot price, r is the risk-free rate, and T is time to expiry in years. For dividend-paying stocks it becomes F = S × e<sup>(r-q)T</sup> with q the dividend yield. For commodities you add storage costs and subtract a convenience yield. The intuition: the futures price equals what you'd pay to hold the spot today and finance it to the futures expiry; any deviation creates an arbitrage.</p>
+  <h3><span class="subnum">2.4</span> Why retail rarely belongs in futures</h3>
+  <p>Three reasons. <strong>Margin volatility</strong> — daily mark-to-market means losses are realised in cash, not paper, and a quiet account becomes a margin call overnight. <strong>Path dependence</strong> — you can be right about direction over three months and still get liquidated in week two because the path mattered. <strong>Negative carry</strong> — index futures in contango bleed value as expiry approaches; long positions held through roll-over pay a quiet tax. Hedging a genuine business exposure is one thing; "going long Nifty futures" because you're bullish on India is a different, much worse, idea than just buying an index fund.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Explain what an exchange's clearing house does that a private forward contract cannot.</li>
+    <li>Compute mark-to-market P&L on a futures position given a price move and lot size.</li>
+    <li>State the no-arbitrage futures-price formula and the cost-of-carry intuition.</li>
+    <li>Name three reasons most retail investors should avoid speculative futures trading.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Why does the exchange require daily mark-to-market rather than just settling at expiry?</li>
+    <li>You go long Nifty futures at 22,000, lot 50, posting ₹1,32,000 margin. Nifty settles at 21,900. What is your MTM and what is your remaining margin balance?</li>
+    <li>If the risk-free rate is 5% and SPY trades at $500, what is the no-arbitrage 6-month SPY future (ignoring dividends)?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 3 ===================== -->
+<section class="sheet chapter" id="ch3" data-part="Part I" data-chapter="Options — Calls and Puts">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 3</span><span class="cline"></span><span class="ctag">Part I · Derivatives</span></div>
+    <h2 class="chapter-title">Options — <em>Calls</em> &amp; <em>Puts</em></h2>
+    <p class="lead">A futures contract is a two-sided obligation: at expiry I <em>must</em> buy from you at the agreed price. An option converts one side of that into a right rather than an obligation — and the other side accepts that asymmetry in exchange for a payment up front, called the <strong>premium</strong>. That single change — the asymmetry — is where the whole non-linear option zoo comes from.</p>
+  </div>
+  <h3><span class="subnum">3.1</span> The four positions</h3>
+  <p>There are exactly four basic option positions, and every strategy in the world is built by combining them. A <strong>long call</strong> gives the buyer the right (not obligation) to buy the underlying at the strike price by expiry, in exchange for paying a premium. A <strong>long put</strong> gives the buyer the right to sell at strike by expiry, for a premium. A <strong>short call</strong> is the obligation to sell at strike if the buyer exercises — the seller receives the premium up front. A <strong>short put</strong> is the obligation to buy at strike if exercised — again, premium received.</p>
+  <p>Long positions <strong>have</strong> a right; their loss is capped at the premium. Short positions <strong>have</strong> an obligation; their loss can be many multiples of the premium received. This asymmetry is the structural fact you must internalise before you trade a single contract.</p>
+  <h3><span class="subnum">3.2</span> Payoff at expiry — the diagrams everyone draws</h3>
+  <p>Let S be the underlying price at expiry, K the strike, and P the premium paid (long) or received (short).</p>
+  <div class="fml">
+    <span class="title">Option payoffs at expiry</span>
+    <p style="font-family:'JetBrains Mono',monospace;font-size:.95rem;margin:0;line-height:1.8;">
+      Long call:&nbsp;&nbsp;max(S − K, 0) − P&nbsp;&nbsp;&nbsp;&nbsp;[loss capped at P; unlimited upside]<br>
+      Long put:&nbsp;&nbsp;&nbsp;max(K − S, 0) − P&nbsp;&nbsp;&nbsp;&nbsp;[loss capped at P; max gain K − P]<br>
+      Short call:&nbsp;&nbsp;P − max(S − K, 0)&nbsp;&nbsp;&nbsp;&nbsp;[max gain P; <b>unlimited loss</b>]<br>
+      Short put:&nbsp;&nbsp;&nbsp;P − max(K − S, 0)&nbsp;&nbsp;&nbsp;&nbsp;[max gain P; max loss K − P]
+    </p>
+  </div>
+  <h3><span class="subnum">3.3</span> Worked example — Apple $180 call</h3>
+  <div class="calc">
+    <span class="title">Long one AAPL 180 call, 30 days to expiry, premium $5</span>
+    <p>You pay 1 × 100 × $5 = $500 in premium. At expiry:</p>
+    <p style="margin-bottom:.4em;">• AAPL at $175 → call expires worthless → loss = $500 (100% of premium).</p>
+    <p style="margin-bottom:.4em;">• AAPL at $185 → call worth $500 (intrinsic value 100 × $5) → break-even.</p>
+    <p style="margin-bottom:.4em;">• AAPL at $200 → call worth $2,000 → gain = $1,500, a 300% return.</p>
+    <p style="margin-bottom:.4em;">• AAPL at $220 → call worth $4,000 → gain = $3,500, a 700% return.</p>
+    <p style="margin-bottom:0;"><b>Break-even = strike + premium = $185.</b> Note that AAPL must rise <em>and</em> rise quickly: a move from $180 to $185 over 60 days, not 30, would still produce a 100% loss.</p>
+  </div>
+  <h3><span class="subnum">3.4</span> Moneyness, intrinsic value, time value</h3>
+  <p>An option is <strong>in-the-money</strong> (ITM) if exercising now would produce a positive payoff: a call with strike below spot, or a put with strike above spot. <strong>At-the-money</strong> (ATM): strike ≈ spot. <strong>Out-of-the-money</strong> (OTM): the reverse.</p>
+  <p>An option's price has two components. <strong>Intrinsic value</strong> = max(S − K, 0) for a call, max(K − S, 0) for a put — what you'd get if exercising right now. <strong>Time value</strong> = market price − intrinsic value — the price the market puts on the chance the option moves further into the money before expiry. Time value decays toward zero as expiry approaches. This decay is called <strong>theta</strong>, and it is why selling premium <em>looks</em> profitable until it isn't.</p>
+  <h3><span class="subnum">3.5</span> The Greeks — six numbers, plain English</h3>
+  <p>Don't skip this section. The Greeks are not optional fluency for anyone trading options.</p>
+  <ul>
+    <li><strong>Delta</strong> — how much the option price moves for a $1 move in the underlying. A 0.50 delta call gains $0.50 per $1. Delta also approximates the option's probability of finishing ITM.</li>
+    <li><strong>Gamma</strong> — how much delta changes for a $1 move. High near ATM and near expiry; low for deep-ITM or deep-OTM and far-dated options.</li>
+    <li><strong>Theta</strong> — daily time decay. A short ATM option might have theta of $0.05 — you "earn" $5 per day per contract just from time passing. Theta accelerates into expiry; the last week is brutal.</li>
+    <li><strong>Vega</strong> — sensitivity to implied volatility. A vega of 0.10 means the option gains $0.10 per 1-vol-point increase in IV. Long options are long vega; shorts are short vega.</li>
+    <li><strong>Rho</strong> — interest-rate sensitivity. Usually small for short-dated options.</li>
+    <li><strong>Vanna, Vomma, Charm</strong> — second-order Greeks; matter for professional market-makers, not for retail.</li>
+  </ul>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>"Selling premium" looks like free money — until it isn't.</h3>
+    <p>The retail options-selling community talks about theta decay as if it were a paycheck. The math is correct: a short option that expires worthless is 100% profit on the premium. What the math also says — and the marketing leaves out — is that you are short gamma and short vega, which means your single bad trade can wipe out a year of "paychecks". The hedge funds that sell volatility professionally hedge gamma dynamically (it costs them money) and limit position size (so they survive the bad trade). Retail sellers usually do neither. The strategy works for an average of 11 months and then takes the 12th month's "salary" plus all the others.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the four basic option positions and which two have unlimited risk.</li>
+    <li>Write the payoff formula for a long call and compute it at three terminal prices.</li>
+    <li>Define intrinsic value, time value, and the relationship between them.</li>
+    <li>Explain in one sentence each what delta, gamma, theta and vega measure.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Which of the four basic positions has unlimited downside? (There are two.)</li>
+    <li>You sell a put with strike $50 for premium $2. What is your max gain? Max loss?</li>
+    <li>An AAPL call shows price $7, strike $180, spot $182. How much is intrinsic value? How much is time value?</li>
+    <li>If theta is $0.04, how much does the option lose to time decay over a 5-day weekend (Fri-close to Mon-close)?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 4 ===================== -->
+<section class="sheet chapter" id="ch4" data-part="Part I" data-chapter="Options Strategies for Retail">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 4</span><span class="cline"></span><span class="ctag">Part I · Derivatives</span></div>
+    <h2 class="chapter-title">Options Strategies for Retail — <em>What Survives Scrutiny</em></h2>
+    <p class="lead">There are about forty named options strategies. Most are variations on the same handful of building blocks. This chapter walks through the ones a retail investor might legitimately use, the ones marketed to retail that almost no retail investor should use, and the ones that exist purely to generate commissions. The criterion throughout: positive expected value, bounded risk, and a clear purpose.</p>
+  </div>
+  <h3><span class="subnum">4.1</span> Strategies a retail investor can legitimately use</h3>
+  <p><strong>Protective put.</strong> You own 100 shares of a stock and you buy one put as insurance. If the stock crashes, the put profits cover the loss. You pay a premium (the insurance cost), capped downside in exchange. This is the cleanest legitimate retail option use case. It is also expensive — protective puts on broad indices over long periods cost roughly 1-2% of portfolio value per year, which is a meaningful drag on returns. Use it for known-event risk (earnings, an FDA decision on a held biotech, a vote), not as standing protection.</p>
+  <p><strong>Covered call.</strong> You own 100 shares and you sell one OTM call. If the stock stays flat or falls modestly, you keep the premium. If it rallies hard, you forfeit the upside above strike. The strategy is sometimes called "renting out your stock". It has positive expected value <em>only</em> if you would have been willing to sell at the strike anyway. Used systematically on a stock you intend to hold long-term, covered calls cap your winners and let your losers run — exactly the opposite of how compounding works. Used on a specific position you've already decided to trim, they're fine.</p>
+  <p><strong>Cash-secured put.</strong> You want to buy 100 shares of a stock at a price below the current price. Instead of placing a limit order, you sell a put at that strike. If the stock falls to your strike, you're assigned (you buy the stock); if not, you keep the premium. Same caveat: you must <em>actually want to buy</em> at the strike. If you wouldn't buy the stock at the strike, you're picking up nickels in front of a steamroller.</p>
+  <h3><span class="subnum">4.2</span> The defined-risk spreads</h3>
+  <p>Spreads combine a long and a short option of the same type to bound risk. The four basic spreads:</p>
+  <ul>
+    <li><strong>Bull call spread</strong> — buy lower-strike call, sell higher-strike call. Bullish. Limited risk, limited gain.</li>
+    <li><strong>Bear put spread</strong> — buy higher-strike put, sell lower-strike put. Bearish. Limited risk, limited gain.</li>
+    <li><strong>Bull put spread</strong> — sell higher-strike put, buy lower-strike put. Mildly bullish, credit received. Limited risk.</li>
+    <li><strong>Bear call spread</strong> — sell lower-strike call, buy higher-strike call. Mildly bearish, credit received. Limited risk.</li>
+  </ul>
+  <p>The "iron condor" — bear call spread plus bull put spread, all four legs together — is the canonical "income strategy" that fills retail brokerages. It is a bet that the underlying stays in a range. The math is real and the risk is genuinely bounded; what kills the strategy is that retail traders persistently underprice tail risk and overtrade size. An iron condor that expires worthless 11 months in a row, then takes a full-width loss on the 12th, has not been profitable; it's broken even at best, after commissions.</p>
+  <h3><span class="subnum">4.3</span> Strategies retail should almost never use</h3>
+  <p><strong>Naked short calls.</strong> Unlimited upside risk. The 2021 short-squeeze episodes (GameStop, AMC) wiped out individual short-call sellers in days. Brokerages restrict naked call selling to accounts with the highest options-approval level, and even then it is an institutional strategy.</p>
+  <p><strong>Naked short puts on individual stocks.</strong> Max loss = strike × 100 minus premium. If the stock goes to zero (it happens — Enron, Lehman, Wirecard, FTX) you take the full loss. Selling a $50 put on a stock that goes bankrupt costs you $5,000 per contract.</p>
+  <p><strong>Weekly OTM options.</strong> The most marketed and least sensible. The bid-ask spread is wide, theta is brutal, and the implied probability of finishing ITM is exactly what the market is paying you to take. Trading weekly OTM calls is the financial equivalent of buying lottery tickets where the jackpot is calibrated to make the expected return zero — except in options it's calibrated to make the expected return slightly negative, because the market-maker has to make a living.</p>
+  <h3><span class="subnum">4.4</span> The "0DTE" phenomenon — and why it isn't an investment strategy</h3>
+  <p>From 2022 onward, zero-days-to-expiry (0DTE) options on the S&amp;P 500 became a retail phenomenon — SPX/SPY options expiring the same day they're traded. The marketing: high leverage, defined risk, "lottery-like" payoffs. The reality: market-makers price 0DTE near a fair coin flip plus their spread; retail traders' aggregate P&amp;L in 0DTE has been measured as substantially negative across multiple academic studies (the 2024 study by Bryzgalova, Pavlova &amp; Sikorskaya estimated roughly $358,000 in retail losses <em>per day</em> aggregated across 0DTE positions in the studied window).</p>
+  <p>0DTE is not investing, it is not trading, it is gambling — with a structure that is honest about being gambling only after you've lost.</p>
+  <div class="practice">
+    <span class="title">How to use this chapter</span>
+    <p>If you're going to use options, use them for these three purposes only:</p>
+    <ol>
+      <li><b>Hedging a known event</b> on a position you already own (protective put around earnings, an election, an FDA approval).</li>
+      <li><b>Setting a sell discipline</b> on a position you intend to trim anyway (covered call at your intended exit price).</li>
+      <li><b>Setting a buy discipline</b> on a stock you intend to add anyway (cash-secured put at your intended entry).</li>
+    </ol>
+    <p style="margin-bottom:0;">Everything else is, at best, neutral expected value with extra friction. At worst — and worst is what most retail options traders actually do — it is a slow loss disguised as a strategy.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Name the three options strategies that have a legitimate retail use case and the requirement that makes them legitimate.</li>
+    <li>Define the four basic spreads and which two are credit spreads (paid up front).</li>
+    <li>Explain why naked short calls are restricted to high-approval accounts.</li>
+    <li>State why 0DTE options have negative aggregate retail P&L.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You own 100 shares of MSFT at $400. Your target exit is $440 within 6 months. Which strategy fits this profile?</li>
+    <li>An iron condor pays $1 in credit on $5-wide wings. What is your max loss per contract?</li>
+    <li>True/false: A cash-secured put on a stock you wouldn't be willing to own is income.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 5 ===================== -->
+<section class="sheet chapter" id="ch5" data-part="Part I" data-chapter="How Derivatives Go Wrong">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 5</span><span class="cline"></span><span class="ctag">Part I · Derivatives</span></div>
+    <h2 class="chapter-title">How Derivatives Go Wrong</h2>
+    <p class="lead">Derivatives can lose more than you invest. That sentence is the only one in this book that contains all the information you need before you trade your first contract. The rest of this chapter is examples — small, medium, and catastrophic — of what "more than you invest" looks like in practice.</p>
+  </div>
+  <h3><span class="subnum">5.1</span> The retail loss path — small, frequent, accelerating</h3>
+  <p>The typical retail derivatives loss is not a single blow-up. It is a slow grind: a trader opens an options account, makes a few small directional bets, wins some and loses some, but loses on net (the bid-ask spread alone guarantees this). Then they discover "income strategies" — iron condors, naked puts, short straddles. For ten or eleven months these work, generating modest premium income. Then one month the market gaps against the position, the loss is full-width, and it erases the previous year's gains plus more. The trader concludes they "got unlucky" and sizes up the next round to make it back. The next blow-up arrives sooner than the first.</p>
+  <h3><span class="subnum">5.2</span> Vignette — Vikram's options income year</h3>
+  <div class="vignette">
+    <span class="vtag">Investor vignette · 2023-24</span>
+    <h3>Vikram, 32 · ₹18 lakh portfolio · "weekly income" via Nifty option selling</h3>
+    <p>Vikram is a software engineer in Bangalore with ₹18 lakh saved. In late 2022 he opened an F&amp;O account at a discount broker, attracted by ads promising ₹50,000-₹1,00,000 monthly income from selling Nifty weekly options. He started conservatively — selling far-OTM strangles with about a 90% theoretical probability of expiring worthless.</p>
+    <p>For 11 months it worked. He averaged ₹65,000/month — about ₹7.15 lakh on the year, a 40% return on his ₹18 lakh. He told his friends. He started a Telegram channel. He doubled his position size in October 2024, because compounding the income was the whole point.</p>
+    <p>On 4 February 2025 the Nifty fell 4% intraday on a single news event. His short calls were fine; his short puts were not. The loss on a single trading session was ₹9.3 lakh — more than the year's accumulated profit, plus a third of the starting capital. His broker auto-squared-off at the worst moment of the day.</p>
+    <p>The strategy had a positive expected value of about ₹35,000/month on his initial size. The actual mean over a long enough horizon — accounting for tail events of the kind that occur about once every 18-24 months in Nifty — is approximately zero. Vikram experienced 11 months of the positive draw and one month of the negative tail, which is exactly what the math predicted; he just didn't know to read the math.</p>
+  </div>
+  <h3><span class="subnum">5.3</span> The institutional disasters — same mechanism, more zeros</h3>
+  <p><strong>LTCM, 1998.</strong> Long-Term Capital Management ran convergence trades with 25:1 leverage. Russia defaulted in August 1998; the convergence didn't converge; the fund lost $4.6 billion in four months and required a Fed-arranged bailout to avoid contagion. Two Nobel laureates were on the management team.</p>
+  <p><strong>Barings Bank, 1995.</strong> Nick Leeson, a 28-year-old trader in Singapore, took unauthorised long positions in Nikkei 225 futures. The Kobe earthquake on 17 January 1995 sent the Nikkei down; Leeson doubled down. By February the loss was £827 million — more than Barings' entire capital. The 233-year-old bank collapsed.</p>
+  <p><strong>Société Générale, 2008.</strong> Jérôme Kerviel ran €50 billion in unauthorised directional futures positions. When discovered, unwinding the positions over three days in late January 2008 — during the market panic surrounding the early credit crunch — produced a €4.9 billion loss.</p>
+  <p><strong>JPMorgan "London Whale", 2012.</strong> Bruno Iksil's synthetic credit positions in JP Morgan's CIO unit grew so large they moved the market against themselves. Loss: $6.2 billion.</p>
+  <p><strong>Archegos, 2021.</strong> Bill Hwang's family office held concentrated positions via total return swaps — derivatives that gave him equity-like exposure with leverage and without disclosure obligations. When the positions moved against him, margin calls came simultaneously from every prime broker. Credit Suisse alone lost $5.5 billion. Hwang was convicted in 2024.</p>
+  <h3><span class="subnum">5.4</span> The common thread</h3>
+  <p>Every disaster above has the same shape. (1) A position with positive expected value under normal conditions. (2) Size scaled to the positive EV, not the tail. (3) A tail event that produces a loss of many multiples of the normal-condition variance. (4) Liquidity vanishing exactly when liquidation is needed.</p>
+  <p>You can describe the mechanism in one sentence: <em>derivatives sized to the median outcome cannot survive the tail outcome.</em> The fix is also one sentence: <em>size to the tail, not the median, and accept the lower return.</em> Almost no retail derivatives trader sizes to the tail. That is why the sector exists.</p>
+  <div class="disaster">
+    <span class="dtag">Disaster · 1995</span>
+    <h3>Barings Bank — 233 years of history, one trader, eight weeks</h3>
+    <p>Nick Leeson was supposed to be running an arbitrage book at Barings Futures Singapore — small, market-neutral spreads between Osaka and Singapore Nikkei futures. Instead he took directional long positions in Nikkei futures and short positions in Nikkei options (a "straddle" sale that bet on low volatility). The Kobe earthquake on 17 January 1995 collapsed the Nikkei. Leeson hid the loss in account 88888 — an error account he controlled — and doubled the position, trying to recover. By 23 February 1995 the bank's entire capital was gone. Barings was sold to ING for £1.</p>
+    <p>The mechanism was not exotic. It was a directional bet, leveraged with futures, hidden by inadequate controls, doubled into a loss. Every element of it appears in Vikram's vignette above — just at retail size.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Describe the typical retail derivatives loss path in your own words.</li>
+    <li>Name three institutional derivatives disasters and the shared mechanism.</li>
+    <li>State the one-sentence rule that would have prevented every disaster in 5.3.</li>
+    <li>Identify the moment in Vikram's vignette where the strategy stopped working in expectation (it wasn't February 2025).</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>What is the common shape of every derivatives disaster?</li>
+    <li>"Sized to the tail, not the median" — what does this mean in practice for a strangle-seller?</li>
+    <li>Why did Vikram's strategy work for 11 months and fail in month 12?</li>
+    <li>True/false: A strategy that has worked for 11 months is a strategy that works.</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART II OPENER ===================== -->
+<section class="sheet partopener" data-part="Part II" data-chapter="Tax Without the Headache">
+  <div class="partlabel">Part II</div>
+  <h2 class="parttitle">Tax Without the Headache</h2>
+  <p class="partlede">Tax is the single largest cost most long-term investors pay. It dwarfs expense ratios, brokerage commissions, and bid-ask spreads combined — and yet most retail education ignores it. The reason is partly that tax rules vary by country and change every few years, and partly that tax is unglamorous. But the structural ideas behind investment taxation are universal: where the money is held matters more than what's held in it; capital gains tax rates depend on holding period; losses can offset gains; and there are accounts specifically designed to defer or eliminate the tax drag. This part teaches the universal ideas, with worked examples in both US and Indian rules current as of 2025-26.</p>
+  <ul class="partmap">
+    <li><b>Ch 6</b> How investment income is taxed — dividends, interest, gains</li>
+    <li><b>Ch 7</b> Capital gains — short-term vs long-term</li>
+    <li><b>Ch 8</b> Tax-advantaged accounts (revisited from Book 6)</li>
+    <li><b>Ch 9</b> Tax-loss harvesting in practice</li>
+    <li><b>Ch 10</b> International and estate considerations</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 6 ===================== -->
+<section class="sheet chapter" id="ch6" data-part="Part II" data-chapter="How Investment Income Is Taxed">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 6</span><span class="cline"></span><span class="ctag">Part II · Tax</span></div>
+    <h2 class="chapter-title">How Investment Income Is Taxed</h2>
+    <p class="lead">There are four streams of investment income, and most countries tax each one differently. Interest is taxed as ordinary income — the same rate as your salary. Qualified dividends are usually taxed at a preferential rate. Capital gains depend on holding period. Rental income from real estate has its own depreciation regime. The four-stream model is the framework; the rates are what change.</p>
+  </div>
+  <h3><span class="subnum">6.1</span> Interest — the worst-taxed stream</h3>
+  <p><strong>US.</strong> Interest from savings accounts, CDs, money-market funds, and most bonds is taxed as ordinary income at your marginal rate — up to 37% federal in 2025, plus state. Treasury bond interest is exempt from state tax (a meaningful saving in high-tax states). Municipal bond interest is exempt from federal tax and from state tax in your home state.</p>
+  <p><strong>India.</strong> Bank interest, FD interest, and bond interest are taxed at your slab rate — up to 30% plus surcharge plus 4% cess, so an effective top rate of 39%. Interest from PPF, EPF (within limits), and tax-free bonds is exempt.</p>
+  <p>The implication: holding bonds in a taxable account is the worst tax outcome of any reasonable investment. If you hold bonds at all, hold them in a tax-deferred account (US 401(k)/IRA, India NPS) wherever possible. We covered this asset-location principle in Book 6 Chapter 12; it remains the single highest-leverage tax decision most investors make.</p>
+  <h3><span class="subnum">6.2</span> Dividends — preferential, but not free</h3>
+  <p><strong>US.</strong> "Qualified" dividends (from US corporations and qualified foreign corporations, held more than 60 days around the ex-date) are taxed at 0%/15%/20% depending on income — substantially below ordinary rates. "Ordinary" dividends (from REITs, MLPs, some foreign companies) are taxed at ordinary rates. The 60-day holding requirement is real and easy to violate inadvertently.</p>
+  <p><strong>India.</strong> Until FY 2019-20 dividends were tax-free in shareholders' hands (the company paid DDT). From FY 2020-21 dividends are taxable at the shareholder's slab rate. TDS at 10% is deducted by the company if dividends exceed ₹5,000 per company per year.</p>
+  <h3><span class="subnum">6.3</span> Capital gains — chapter 7 covers this in detail</h3>
+  <p>Capital gains arise when you sell an asset for more than you paid. They are taxed only at sale (in most regimes); you pay nothing on paper gains. The rate depends on the holding period — short-term gains are usually taxed at higher rates than long-term gains. This is what next chapter is about.</p>
+  <h3><span class="subnum">6.4</span> Rental income — a separate regime</h3>
+  <p>Rental real estate has unique features: rent counts as ordinary income, but you deduct mortgage interest, property tax, insurance, repairs, and — most importantly — depreciation (in the US, residential rental property depreciates over 27.5 years; commercial 39). Depreciation reduces taxable income while you hold the property but is "recaptured" at sale at a 25% rate. India's rental treatment includes a 30% standard deduction plus actual interest on a home loan.</p>
+  <div class="calctbl">
+    <span class="title">Effective tax drag — three income streams compared (US, top federal bracket, illustrative)</span>
+    <table>
+      <thead><tr><th>Stream</th><th>Pre-tax return</th><th>Tax rate</th><th>After-tax return</th><th>30-year drag*</th></tr></thead>
+      <tbody>
+        <tr><td>Treasury bonds (interest)</td><td>4.5%</td><td>37%</td><td>2.84%</td><td>−1.66 pp/year</td></tr>
+        <tr><td>Qualified dividends</td><td>2.0%</td><td>20%</td><td>1.60%</td><td>−0.40 pp/year</td></tr>
+        <tr><td>Long-term gains (LTCG)</td><td>6.0%</td><td>20%</td><td>4.80%</td><td>−1.20 pp/year, but deferred</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">*Annualised drag over a 30-year hold. The Treasury-bond line is why bonds belong in tax-deferred accounts. LTCG drag is overstated because gains are unrealised until sale — the deferral is itself a benefit (see Chapter 7).</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Name the four streams of investment income and the broad tax treatment of each.</li>
+    <li>State why bonds should not be held in a taxable account if a tax-deferred account is available.</li>
+    <li>Distinguish qualified from ordinary dividends in the US system, and explain India's post-2020 dividend treatment.</li>
+    <li>Define depreciation recapture and the rate that applies in the US.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Which of the four income streams is taxed at the highest rate in most jurisdictions?</li>
+    <li>You're in the top US federal bracket. Where should your Treasury bonds live?</li>
+    <li>You hold an India FD paying 7%. What is your post-tax return at the 30% slab (ignoring surcharge)?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 7 ===================== -->
+<section class="sheet chapter" id="ch7" data-part="Part II" data-chapter="Capital Gains — Short-Term vs Long-Term">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 7</span><span class="cline"></span><span class="ctag">Part II · Tax</span></div>
+    <h2 class="chapter-title">Capital Gains — <em>Short-Term</em> vs <em>Long-Term</em></h2>
+    <p class="lead">The capital-gains code is structured to reward patience. In every major jurisdiction the long-term gains rate is substantially below the short-term rate, often below the ordinary-income rate too. The reason is partly policy (encouraging investment) and partly arithmetic (a long hold means the gain reflects accumulated value, not active trading). Either way, the implication for an individual investor is clear: holding long enough to qualify for long-term treatment is, on average, worth more than nearly any tactical decision you could make.</p>
+  </div>
+  <h3><span class="subnum">7.1</span> The thresholds — US 2025-26 rules</h3>
+  <p>Hold an asset for <strong>more than one year</strong> and it qualifies for long-term capital gains treatment, taxed at <strong>0% / 15% / 20%</strong> depending on income (2025 brackets: 0% up to $48,350 single / $96,700 married filing jointly; 15% above that; 20% above $533,400 single / $600,050 MFJ). Hold for one year or less and the gain is short-term, taxed at your ordinary rate (up to 37%). Above $200,000/$250,000 income there is an additional 3.8% Net Investment Income Tax (NIIT).</p>
+  <h3><span class="subnum">7.2</span> The thresholds — India 2025-26 rules</h3>
+  <p>For listed equity and equity mutual funds: hold more than 12 months → <strong>long-term capital gains (LTCG)</strong> at <strong>12.5%</strong> on gains above ₹1.25 lakh per year (rate raised from 10% in the July 2024 Union Budget). Hold 12 months or less → <strong>short-term (STCG)</strong> at <strong>20%</strong> (raised from 15%). For debt mutual funds purchased on or after 1 April 2023: <em>all</em> gains are taxed at the slab rate regardless of holding period (the indexation benefit was removed). For listed bonds and gold: 24 months threshold, LTCG 12.5%.</p>
+  <h3><span class="subnum">7.3</span> The deferral benefit — why unrealised gains are valuable</h3>
+  <p>Capital gains tax is a transaction tax — it applies only when you sell. Hold an asset for 30 years without selling, and the tax sits as an interest-free loan from the government compounding at the asset's growth rate. This is one of the most under-appreciated features of equity investing.</p>
+  <div class="calc">
+    <span class="title">Worked calculation — deferral is worth real money</span>
+    <p style="margin-bottom:.4em;">Two investors. Both start with $100,000. Both compound at 8% for 30 years. Long-term capital gains tax = 20%.</p>
+    <p style="margin-bottom:.4em;"><b>Investor A</b> "harvests" their gain every year, paying 20% on each year's appreciation and re-investing the rest. Effective compound rate = 6.4%. After 30 years: $100,000 × 1.064^30 = <b>$642,800</b>.</p>
+    <p style="margin-bottom:.4em;"><b>Investor B</b> holds for 30 years, then sells once. After 30 years pre-tax: $100,000 × 1.08^30 = $1,006,266. Gain = $906,266. Tax at 20% = $181,253. After-tax = <b>$825,013</b>.</p>
+    <p style="margin-bottom:0;"><b>The deferral is worth $182,000</b> — about 28% more wealth — on identical investments at identical rates. Every transaction you make that's not for a clear reason is reducing the value of your tax deferral.</p>
+  </div>
+  <h3><span class="subnum">7.4</span> Step-up in basis — the largest individual tax preference in the US code</h3>
+  <p>In the US, if you die holding an appreciated asset, your heirs receive it at the <strong>stepped-up basis</strong> — the market value at date of death. All accumulated gains during your life escape capital gains tax entirely. (Estate tax may apply, but only on estates above $13.99M in 2025 federal.) This is the largest individual tax preference in the entire US code, worth an estimated $40 billion annually in foregone revenue. India does not have a step-up; gifted/inherited assets carry forward the donor's basis.</p>
+  <h3><span class="subnum">7.5</span> Identification of shares — FIFO, average cost, specific lot</h3>
+  <p>When you sell part of a position you've added to over time, which "shares" did you sell? The IRS default is FIFO (first-in-first-out) — you sold your oldest, usually highest-gain, shares. <strong>Specific lot identification</strong> lets you choose, and choosing the highest-basis lots minimises gain (or maximises loss for tax-loss harvesting purposes). India uses FIFO mandatorily; you cannot specify lots.</p>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>"I want to lock in my gains" is one of the most expensive sentences in finance.</h3>
+    <p>The desire to "lock in" gains is psychological, not financial. The instinct is to convert paper money to "real" money — to feel safe. The financial reality is the opposite: locking in the gain triggers tax, ending the deferral, reducing your compounding base. The deferral chart above shows the cost: roughly a quarter of your wealth, over 30 years. There are legitimate reasons to sell (rebalancing, capital need, position has changed). "Locking in" is not one of them.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the US LTCG holding-period threshold and the three preferential rates.</li>
+    <li>State the India equity LTCG threshold (12 months) and the 2025-26 rate (12.5% above ₹1.25 lakh).</li>
+    <li>Explain why deferred capital gains are economically equivalent to an interest-free government loan.</li>
+    <li>Compute the wealth difference between harvesting annually and holding for 30 years given an 8% return and 20% LTCG.</li>
+    <li>Define step-up in basis and which jurisdiction (US or India) provides it.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You buy a stock in March 2024 and sell in February 2025 with a 30% gain. Long-term or short-term, US rules?</li>
+    <li>Same purchase, sold in April 2025. What changes?</li>
+    <li>Why does specific-lot identification not exist for Indian equity investors?</li>
+    <li>True/false: Realising a gain to "lock it in" is, in expectation, financially harmful.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 8 ===================== -->
+<section class="sheet chapter" id="ch8" data-part="Part II" data-chapter="Tax-Advantaged Accounts">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 8</span><span class="cline"></span><span class="ctag">Part II · Tax</span></div>
+    <h2 class="chapter-title">Tax-Advantaged Accounts — A Refresher</h2>
+    <p class="lead">Book 6 Chapter 11 introduced retirement accounts as part of the implementation toolkit. This chapter revisits them through a strictly tax-efficiency lens: which account holds which asset class, why the contribution order matters, and what the most expensive ordering mistakes look like.</p>
+  </div>
+  <h3><span class="subnum">8.1</span> The three tax shells</h3>
+  <p>Every retirement account in every jurisdiction is one of three shells. <strong>Tax-deferred (Traditional)</strong>: contributions are deducted from income today; withdrawals are taxed as ordinary income later. US 401(k), Traditional IRA; India NPS (Tier I, partly). <strong>Tax-free (Roth)</strong>: contributions are made with after-tax dollars; growth and withdrawals are tax-free. US Roth IRA, Roth 401(k); India PPF, EPF (largely), tax-free bonds. <strong>Taxable</strong>: contributions are after-tax; growth and distributions are taxed each year; final liquidation triggers capital-gains tax. Brokerage accounts, demat accounts.</p>
+  <h3><span class="subnum">8.2</span> Contribution priority — the standard order</h3>
+  <p>The textbook ordering, applicable in most situations:</p>
+  <ol>
+    <li><strong>401(k) up to employer match</strong> (US) — this is a 50-100% instant return on contribution. Indian equivalent: employer EPF match. Never leave this on the table.</li>
+    <li><strong>HSA</strong> (US, if eligible) — triple-tax-advantaged: deductible, grows tax-free, withdrawals for medical expenses tax-free. The only triple-tax-free shell in US tax code.</li>
+    <li><strong>Max Roth IRA</strong> (US, if eligible) / <strong>Max PPF</strong> (India) — tax-free growth shells with annual limits.</li>
+    <li><strong>Max 401(k)</strong> / <strong>NPS additional ₹50,000</strong> — further tax-deferred space.</li>
+    <li><strong>Mega-backdoor Roth</strong> (US, if plan permits).</li>
+    <li><strong>Taxable brokerage</strong> — for anything beyond.</li>
+  </ol>
+  <h3><span class="subnum">8.3</span> Asset location — which account holds which asset</h3>
+  <p>This is the most impactful tax decision after using tax-advantaged accounts at all. The rule is intuitive once stated:</p>
+  <div class="box callout">
+    <span class="title">Asset-location rule</span>
+    <p style="margin-bottom:0;"><b>Highest-tax-drag assets in highest-shelter accounts.</b> Bonds and high-dividend assets in tax-deferred accounts (401(k), Traditional IRA, NPS). Tax-efficient broad equity index funds in taxable. High-growth assets you'll hold longest in Roth/PPF (because all the growth is tax-free).</p>
+  </div>
+  <h3><span class="subnum">8.4</span> Worked example — three-fund portfolio with proper asset location</h3>
+  <div class="calctbl">
+    <span class="title">$500,000 portfolio · 60/30/10 stocks/bonds/intl · across three accounts</span>
+    <table>
+      <thead><tr><th>Holding</th><th>Allocation</th><th>$ amount</th><th>Account</th><th>Reason</th></tr></thead>
+      <tbody>
+        <tr><td>US total bond (BND)</td><td>30%</td><td>$150,000</td><td>401(k)</td><td>Worst tax drag in taxable; shelter it</td></tr>
+        <tr><td>International stock (VXUS)</td><td>10%</td><td>$50,000</td><td>Taxable</td><td>Foreign tax credit only available in taxable</td></tr>
+        <tr><td>US total stock (VTI)</td><td>40%</td><td>$200,000</td><td>Taxable</td><td>Tax-efficient (low dividend, mostly LTCG)</td></tr>
+        <tr><td>US total stock (VTI)</td><td>20%</td><td>$100,000</td><td>Roth IRA</td><td>Highest expected growth → most valuable tax-free</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">Same allocation, same expected return — but placement saves an estimated 0.3-0.5 percentage points per year of after-tax return vs. holding the same allocation in each account. Over 30 years on $500k that's $250,000-$500,000 of extra terminal wealth from no extra risk and no extra contributions. Just placement.</p>
+  </div>
+  <h3><span class="subnum">8.5</span> The most common tax-account mistakes</h3>
+  <ol>
+    <li><strong>Leaving employer match on the table.</strong> If your employer matches 50% on the first 6% of salary and you contribute nothing, you have just declined a 50% return on 6% of your salary. There is no other guaranteed 50% return in finance.</li>
+    <li><strong>Holding bonds in Roth.</strong> Roth's tax-free growth is wasted on a 4% bond yield; it's worth most on the highest-expected-return asset.</li>
+    <li><strong>Trading inside a taxable account.</strong> Every trade triggers a taxable event. The brokerage doesn't tell you the tax cost in real time; your April CPA does.</li>
+    <li><strong>Early withdrawal from tax-deferred accounts.</strong> US: 10% penalty plus ordinary income tax under 59½. India NPS: tax penalty on premature withdrawal. The lifetime cost of a $20,000 401(k) raid at age 35 — assuming the money would have grown at 8% to age 65 — is the tax/penalty hit (about $8,000) <em>plus</em> $181,000 of foregone compounding. Total cost of a $20,000 raid: $201,000.</li>
+  </ol>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Name the three tax shells and a US and India example of each.</li>
+    <li>List the standard contribution priority and explain why employer match is first.</li>
+    <li>Apply the asset-location rule to a 60/30/10 portfolio across taxable, Traditional, and Roth accounts.</li>
+    <li>Compute the long-run cost of an early 401(k) withdrawal.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>If you can hold bonds in either your 401(k) or your taxable account, where do they go?</li>
+    <li>You have a Roth IRA and a taxable brokerage. Which one should hold the highest-expected-return asset?</li>
+    <li>You're 32 and considering a $15,000 401(k) early withdrawal for a non-essential purchase. What's the approximate 30-year cost?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 9 ===================== -->
+<section class="sheet chapter" id="ch9" data-part="Part II" data-chapter="Tax-Loss Harvesting in Practice">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 9</span><span class="cline"></span><span class="ctag">Part II · Tax</span></div>
+    <h2 class="chapter-title">Tax-Loss Harvesting in Practice</h2>
+    <p class="lead">Tax-loss harvesting (TLH) is selling an investment at a loss to realise a deductible capital loss, then immediately buying a similar-but-not-identical investment to maintain market exposure. The loss offsets gains elsewhere; the position remains in the market; you defer (or reduce) tax. Done correctly it is a real, repeatable source of after-tax return. Done badly — most often by triggering a wash sale — it produces no benefit and considerable paperwork.</p>
+  </div>
+  <h3><span class="subnum">9.1</span> The mechanics</h3>
+  <ol>
+    <li>You hold 1,000 shares of an S&amp;P 500 ETF (say VOO) bought at $400. Current price is $360. Unrealised loss = $40,000.</li>
+    <li>You sell all 1,000 shares of VOO. Realised loss = $40,000.</li>
+    <li>You immediately buy 1,000 shares of a different S&amp;P 500 ETF (say SPY) at $360. Market exposure is preserved.</li>
+    <li>At tax time you offset $40,000 of capital gains (or, if no gains, deduct $3,000 against ordinary income and carry the remaining $37,000 forward indefinitely in the US).</li>
+  </ol>
+  <h3><span class="subnum">9.2</span> The wash-sale rule — the trap that ruins amateur TLH</h3>
+  <p>US: IRS wash-sale rule prohibits claiming a loss if you buy "substantially identical" securities within 30 days <em>before or after</em> the sale (a 61-day window centred on the trade). India: Section 94(7) covers a narrower case (dividend stripping); equity TLH is more permissive but mutual-fund STT timing matters.</p>
+  <div class="box err">
+    <span class="htag">Wash-sale gotchas</span>
+    <span class="title">"Substantially identical" includes things you would not expect.</span>
+    <ul style="margin-bottom:0;">
+      <li>Selling VOO and buying IVV (both S&amp;P 500 ETFs from different issuers) — likely a wash sale; identical underlying index.</li>
+      <li>Selling AAPL in your taxable account and buying AAPL in your IRA — wash sale (IRS Rev. Rul. 2008-5). Worse: the loss is permanently disallowed (no basis adjustment in IRA).</li>
+      <li>Selling AAPL and your spouse buying AAPL — wash sale.</li>
+      <li>Selling a stock and being assigned shares from a covered call — possible wash sale.</li>
+      <li>Selling at a loss on Dec 28 and buying the same on Jan 5 — wash sale; the 30-day window crosses year-end.</li>
+    </ul>
+  </div>
+  <p>The standard safe substitution: sell one broad S&amp;P 500 index fund and buy a different broad US large-cap index fund tracking a different index (e.g., sell VOO/S&amp;P 500, buy VV/CRSP Large Cap or SCHX/Dow Large Cap). After 31 days you can switch back if you want.</p>
+  <h3><span class="subnum">9.3</span> The math — how much TLH is actually worth</h3>
+  <p>Studies (Khang, Cici &amp; Gibson 2020; Vanguard 2021; AQR 2023) consistently estimate the after-tax alpha from systematic TLH at <strong>0.3-1.0 percentage points per year</strong>, with the higher end for high-tax-bracket investors in volatile years. The benefit is front-loaded: most of the realisable losses appear in the first 3-5 years of a portfolio, after which the basis-step-down from TLH eventually catches up at sale.</p>
+  <div class="calc">
+    <span class="title">TLH worth — illustrative</span>
+    <p style="margin-bottom:.4em;">A $1M taxable portfolio, top US bracket (37% federal + 13% state = 50% effective on harvested ordinary; 23.8% on LTCG offset). Average annual harvest of $30,000 in losses, used to offset $30,000 of long-term gains elsewhere.</p>
+    <p style="margin-bottom:.4em;">Annual tax saving: $30,000 × 23.8% = <b>$7,140/year</b> — about 0.7% of the portfolio.</p>
+    <p style="margin-bottom:0;">Compounded over 20 years at the same rate as the portfolio (say 7%), the value of TLH adds approximately <b>$300,000</b> of terminal wealth on the $1M starting capital.</p>
+  </div>
+  <h3><span class="subnum">9.4</span> When TLH is not worth doing</h3>
+  <p><strong>Small accounts.</strong> Below $50,000-$100,000, the friction (bid-ask, tracking error on the substitute, paperwork) usually exceeds the benefit.</p>
+  <p><strong>Low-tax-bracket investors.</strong> 0% LTCG bracket — there's nothing to offset.</p>
+  <p><strong>India equity holders.</strong> The annual ₹1.25 lakh LTCG exemption already does much of what TLH does for retail investors below the threshold.</p>
+  <p><strong>If it forces a wash sale.</strong> Disallowed losses produce paperwork without tax benefit.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the four steps of tax-loss harvesting.</li>
+    <li>Explain the wash-sale rule and name three non-obvious triggers.</li>
+    <li>Estimate the after-tax alpha attainable from systematic TLH and identify which investors capture most of it.</li>
+    <li>State at least two situations where TLH is not worth doing.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You sell VOO at a loss and buy IVV the next day. Is this a wash sale?</li>
+    <li>You sell AAPL at a loss in your taxable account and your spouse buys AAPL in her IRA the next week. Wash sale?</li>
+    <li>You're in the 0% LTCG bracket. How much value does TLH create for you?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 10 ===================== -->
+<section class="sheet chapter" id="ch10" data-part="Part II" data-chapter="International and Estate Considerations">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 10</span><span class="cline"></span><span class="ctag">Part II · Tax</span></div>
+    <h2 class="chapter-title">International &amp; Estate Considerations</h2>
+    <p class="lead">If your life or your investments span more than one country, the tax surface area grows substantially. This chapter is not a substitute for cross-border tax advice — it is a checklist of the topics that, if missed, cost the most.</p>
+  </div>
+  <h3><span class="subnum">10.1</span> Foreign tax credits and withholding</h3>
+  <p>When you hold foreign stocks or funds in a US taxable account, foreign governments typically withhold 15-30% on dividends at source. The US gives you a <strong>foreign tax credit</strong> (Form 1116, or simplified <$600 reporting) to avoid double taxation. The credit is <em>only available in taxable accounts</em> — if your VXUS sits in an IRA, the foreign withholding is lost. This is one of the few reasons international equity belongs in taxable rather than Roth.</p>
+  <h3><span class="subnum">10.2</span> PFICs — the rule that catches expats</h3>
+  <p>A <strong>Passive Foreign Investment Company</strong> (PFIC) is roughly: a non-US-domiciled fund (most non-US mutual funds and ETFs qualify). The US tax treatment of PFICs is punitive — the default ("excess distribution") regime taxes gains at the highest ordinary rate plus interest charges that grow with each year of holding. Forms 8621 must be filed for each PFIC each year. The practical implication: <strong>US citizens and green card holders should not own non-US-domiciled funds.</strong> Indian-resident NRIs with US tax status who hold Indian mutual funds discover this painfully at tax time.</p>
+  <h3><span class="subnum">10.3</span> NRI considerations — India</h3>
+  <p>NRIs investing in India face: TDS at higher rates (20% on LTCG, 30% on STCG for equity), inability to invest in PPF (new accounts), repatriation limits on NRO accounts, and double-tax-treaty relief that must be claimed each year. NRIs with US ties also need to consider the PFIC problem above.</p>
+  <h3><span class="subnum">10.4</span> Estate considerations — the largest tax most families pay (or don't)</h3>
+  <p><strong>US federal estate tax.</strong> 40% on estates above $13.99M (2025; the doubled exemption from the 2017 TCJA sunsets at the end of 2025 unless extended — the exemption is expected to drop to roughly $7M for 2026). States may add their own estate tax with much lower thresholds.</p>
+  <p><strong>India.</strong> India abolished estate duty in 1985. Inheritance is currently not taxed at receipt. (The donor's basis carries forward.)</p>
+  <p><strong>Step-up in basis (US, again).</strong> The single most valuable individual tax provision in the US code. Plan around it: don't realise large gains late in life on assets you intend to bequeath.</p>
+  <h3><span class="subnum">10.5</span> Account titling and beneficiary designations</h3>
+  <p>The most common avoidable estate tax/administration problem is misaligned beneficiary designations on retirement accounts and life insurance — these pass by designation, not by will, regardless of what the will says. An ex-spouse named as beneficiary remains the beneficiary until you change the form. Check every retirement account, every life policy, every HSA, every 529, after every major life event.</p>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Explain why international equity often belongs in a US taxable account rather than a tax-advantaged one.</li>
+    <li>Define PFIC and state who needs to worry about it.</li>
+    <li>State the 2025 US federal estate tax exemption and what's expected to happen in 2026.</li>
+    <li>Explain why beneficiary designations override wills.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You're a US citizen living in Mumbai and considering buying an Indian-domiciled mutual fund. What's the problem?</li>
+    <li>You have a Vanguard IRA naming your former spouse as beneficiary, and a will leaving everything to your current spouse. Who inherits the IRA?</li>
+    <li>True/false: India taxes inheritance at receipt.</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART III OPENER ===================== -->
+<section class="sheet partopener" data-part="Part III" data-chapter="Psychology — Your Real Adversary">
+  <div class="partlabel">Part III</div>
+  <h2 class="parttitle">Psychology — Your Real Adversary</h2>
+  <p class="partlede">The investor who understands the four financial statements, the Black-Scholes formula, and the entire tax code will still underperform the index if they cannot survive a 35% drawdown without selling. The investor who knows none of those things, but holds a low-cost index fund through every crash, will beat 80% of professionals. This is not an exaggeration; it is the empirical record. The reason behaviour matters more than analysis is that financial losses activate the same neurological loss-aversion circuit as physical threats — and that circuit is much older than your prefrontal cortex. This part teaches the most expensive biases, the predictable emotional cycle in markets, and the habits that make a portfolio anti-fragile to your own brain.</p>
+  <ul class="partmap">
+    <li><b>Ch 11</b> The cognitive biases that cost you money</li>
+    <li><b>Ch 12</b> Emotional cycles in markets</li>
+    <li><b>Ch 13</b> Building anti-fragile habits</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 11 ===================== -->
+<section class="sheet chapter" id="ch11" data-part="Part III" data-chapter="Cognitive Biases That Cost You Money">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 11</span><span class="cline"></span><span class="ctag">Part III · Psychology</span></div>
+    <h2 class="chapter-title">The Cognitive Biases That <em>Cost You Money</em></h2>
+    <p class="lead">A bias is a systematic error in judgement — predictable, replicable, and difficult to debias even after it is named. The behavioural-finance literature catalogues hundreds; the dozen below are the ones most directly responsible for retail investor underperformance, ranked roughly by how expensive they are in practice.</p>
+  </div>
+  <h3><span class="subnum">11.1</span> Loss aversion — the prime mover</h3>
+  <p>Kahneman and Tversky's foundational result (1979): people experience losses roughly <strong>2.0-2.5 times</strong> more intensely than equivalent gains. A $100 loss hurts about as much as a $200-$250 gain pleases. This single asymmetry generates a cascade of downstream biases: the disposition effect (sell winners early, hold losers), panic selling at bottoms, refusal to rebalance into a falling asset class. The Behaviour Gap chart in Book 2 — the empirical fact that fund <em>investors</em> earn 1-3 percentage points per year less than the <em>funds</em> they hold — is loss aversion in aggregate.</p>
+  <h3><span class="subnum">11.2</span> The disposition effect</h3>
+  <p>Selling winners (to "lock in gains") and holding losers (to "wait until they come back to even"). Documented in Shefrin &amp; Statman (1985) and replicated thousands of times since. The behaviour is exactly backwards from what tax law incentivises (you'd prefer to harvest losers and defer winners) and from what return persistence suggests (recent winners modestly outperform recent losers over short horizons). Yet the gravitational pull of the bias is enormous; even experienced fund managers exhibit it, though less than retail.</p>
+  <h3><span class="subnum">11.3</span> Recency bias and the extrapolation trap</h3>
+  <p>The most recent return becomes the central estimate for the future. After 2009-2021 — 13 straight up years for US equities — every retail allocation skewed toward US large-cap growth, exactly the asset class about to deliver −19% in 2022. After 2022 — a 17.5% down year — retirement allocations shifted defensively, exactly before the 26% rally in 2023. The pattern repeats every cycle. The cure is mechanical: rebalance to a stated allocation regardless of recent performance.</p>
+  <h3><span class="subnum">11.4</span> Overconfidence — and its peculiar resistance to evidence</h3>
+  <p>Surveys consistently find 70-80% of investors believe their portfolio will beat the average — a mathematical impossibility. The Barber &amp; Odean (2000) study of 66,000 households at a discount broker found that the more active a household traded, the worse its returns: most-active quintile returned 11.4% vs. market 17.9% — a 6.5 percentage point gap, almost entirely from costs and bad timing. Men traded 45% more than women and earned 1.4 percentage points less per year. Overconfidence is also remarkably resistant to evidence: investors who have just lost money continue to predict above-average future returns.</p>
+  <h3><span class="subnum">11.5</span> Anchoring</h3>
+  <p>The first number you encounter becomes the reference for all subsequent judgements. Buy a stock at $50 — the $50 becomes "fair value" in your mind, regardless of what's happened to the company since. Anchoring drives the "wait until it gets back to my purchase price" pathology that produces the disposition effect's loser-holding side.</p>
+  <h3><span class="subnum">11.6</span> Confirmation bias</h3>
+  <p>Once you hold a position you actively seek information that supports it and discount information that contradicts it. In the era of personalised social feeds this is industrial-scale: your timeline shows you analysts who agree with your thesis and hides the rest. The cure is structural: explicitly write down, at purchase, the conditions under which you would sell. Then check those conditions, not your feed.</p>
+  <h3><span class="subnum">11.7</span> Herding</h3>
+  <p>Doing what others are doing because they're doing it. Sometimes rational (information cascades), often disastrous (1999 dot-com, 2007 housing, 2021 meme stocks, 2022 crypto). The herding instinct is evolutionarily ancient — running with the herd was almost always the survival strategy on the savannah — and it does not deactivate at the entrance to a trading account.</p>
+  <h3><span class="subnum">11.8</span> Mental accounting</h3>
+  <p>Treating different pots of money as economically distinct when they aren't. The classic example: keeping a 4% savings account "for emergencies" while carrying a 22% credit-card balance. The same dollar in the savings account would, if used to pay the card, generate an 18 percentage-point arbitrage. Mental accounting also drives investors to hold high-yield "income" funds in retirement (because spending principal "feels wrong") while in fact a total-return approach with measured drawdowns is identical to spending interest, with better after-tax outcomes.</p>
+  <h3><span class="subnum">11.9</span> Hindsight bias</h3>
+  <p>After an event, it seems obvious it was going to happen. "Anyone could see 2008 coming." (No one did, and the few who claimed to had been claiming it since 1995.) Hindsight bias is dangerous because it creates the illusion that the next big move will be similarly obvious to you. It will not.</p>
+  <h3><span class="subnum">11.10</span> The recency–framing combo (the most expensive single bias)</h3>
+  <p>Combine recency with how a return is framed and you get the most expensive single behavioural pattern: an investor sees their statement showing a 22% one-year loss (recent + framed in dollars), feels physical loss aversion, sells at the bottom, and waits "until things stabilise". The market then recovers — as it always has — and the investor either re-enters near the prior peak or simply stays in cash for years. The Dalbar studies estimate this single behaviour costs the average equity fund investor approximately 3 percentage points per year of lifetime returns.</p>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>Knowing the bias does not eliminate the bias.</h3>
+    <p>This is the most uncomfortable finding in the entire field. Forty years after Kahneman and Tversky named loss aversion, professional fund managers — who have read all the papers, attended the seminars, written the books — exhibit it just slightly less than retail. Knowledge of a bias is necessary but not sufficient; you need structural protections (automated investing, written rules, an advisor or accountability partner) because in the moment of decision the System 1 brain wins. Chapter 13 is about exactly those structural protections.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the loss-aversion ratio and explain its causal role in other biases.</li>
+    <li>Define the disposition effect and explain why it is the exact opposite of tax-efficient behaviour.</li>
+    <li>Name the Barber &amp; Odean finding on trading frequency and returns.</li>
+    <li>Explain why knowing about a bias does not eliminate it.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>You bought NVDA at $400. It's now $350. You "want to wait until it gets back to even before selling". Which bias?</li>
+    <li>You keep $5,000 in a 4% savings account "for emergencies" while carrying $4,000 on a 22% credit card. Which bias?</li>
+    <li>What was the return gap between the most-active and average household in Barber &amp; Odean (2000)?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 12 ===================== -->
+<section class="sheet chapter" id="ch12" data-part="Part III" data-chapter="Emotional Cycles in Markets">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 12</span><span class="cline"></span><span class="ctag">Part III · Psychology</span></div>
+    <h2 class="chapter-title">Emotional Cycles in Markets</h2>
+    <p class="lead">Markets do not move in straight lines, and neither do investor emotions. The two oscillate together, in roughly the same shape, with one persistent feature: emotion peaks at the worst possible time. Maximum optimism occurs near the top, maximum despair near the bottom. The investor who can recognise where they are on the emotional curve — not predict the market, just recognise the emotion — gains a real edge.</p>
+  </div>
+  <h3><span class="subnum">12.1</span> The cycle, in nine emotions</h3>
+  <p>The canonical emotional cycle of investing (drawn first by Westcore Funds in the 1990s, refined since):</p>
+  <ol>
+    <li><strong>Optimism</strong> — early bull market. "I should probably invest some money."</li>
+    <li><strong>Excitement</strong> — gains are real. "I'm making money."</li>
+    <li><strong>Thrill</strong> — gains are large. "I'm a genius."</li>
+    <li><strong>Euphoria</strong> — top. "Everyone is making money. Why work?"</li>
+    <li><strong>Anxiety</strong> — first 10% decline. "This is just a healthy pullback."</li>
+    <li><strong>Denial</strong> — 20% decline. "It will come back."</li>
+    <li><strong>Fear</strong> — 30% decline. "Should I sell?"</li>
+    <li><strong>Despair / Panic</strong> — 40-50% decline. "I'm selling everything. I'll never invest again."</li>
+    <li><strong>Capitulation</strong> — bottom. "It's all over."</li>
+    <li><em>(then back to)</em> <strong>Hope</strong> — first 10% off the bottom. "Maybe it's bottoming."</li>
+  </ol>
+  <p>The wealth-destroying transitions are the same in every cycle: buying near euphoria and selling near despair. The wealth-creating transitions are the same: rebalancing into despair and selling at euphoria — both of which require acting against the prevailing emotion of the moment.</p>
+  <h3><span class="subnum">12.2</span> Historical examples</h3>
+  <p><strong>Dot-com (1999-2002).</strong> Euphoria in Q1 2000 — Time magazine "Person of the Year" was Jeff Bezos (Dec 1999), CNBC coverage was wall-to-wall, retail brokerage account openings hit record highs. Despair in October 2002 — the NASDAQ had fallen 78%, retail money was flowing into bond funds in record amounts, "the death of equities" was on magazine covers again (last seen in 1979). Buying at the despair point produced a 100% return by 2006.</p>
+  <p><strong>2008-09.</strong> Euphoria in mid-2007 — record M&amp;A, record housing starts, "Goldilocks economy" headlines. Despair in March 2009 — S&amp;P 500 at 666 (a 57% drawdown), retail outflows at multi-year highs, magazine covers about the death of capitalism. The S&amp;P doubled by 2013 and quadrupled by 2020.</p>
+  <p><strong>2020.</strong> Despair in March 2020 — 34% drawdown in 23 days, retail panic selling, magazine covers about the end of globalisation. By August 2020 the index made new all-time highs. By Nov 2021 it had compounded 100% off the March low.</p>
+  <h3><span class="subnum">12.3</span> The recognition heuristic</h3>
+  <p>You cannot reliably predict the top or bottom in real time. You can recognise emotional extremes when they are happening. Some useful signals:</p>
+  <ul>
+    <li><strong>Magazine cover indicator.</strong> When a mainstream non-financial magazine puts a market topic on the cover (Time, Newsweek, The Economist), it usually marks an extreme. Not always; often enough to notice.</li>
+    <li><strong>Taxi-driver indicator.</strong> When non-investors start giving you stock tips, the asset is near a top. When non-investors tell you they'll never invest again, it's near a bottom.</li>
+    <li><strong>Retail fund flow.</strong> Inverse signal: retail money is heaviest at tops, lightest at bottoms.</li>
+    <li><strong>VIX.</strong> Sustained high VIX (>40) is associated with bottoms in retrospect; sustained low VIX (<12) with complacency before tops.</li>
+    <li><strong>Your own emotion.</strong> The most reliable signal you have. If you are euphoric about your portfolio, it's a top. If you are nauseated by your statements, you are near a bottom. Trust the feeling — and act against it.</li>
+  </ul>
+  <h3><span class="subnum">12.4</span> The plan-vs-emotion conflict</h3>
+  <p>The point of having a written investment plan is to make decisions when you are calm so that you do not make them when you are not. The plan is not for the bull market; the plan is for the bear market. Rebalancing rules, contribution rates, asset allocation — all of it should be specified during the boring middle of a cycle, and executed mechanically through the emotional extremes.</p>
+  <div class="vignette">
+    <span class="vtag">Investor vignette · 2020-2024</span>
+    <h3>Ravi, 36 · The March-2020 decision that defined the decade</h3>
+    <p>Ravi has appeared throughout this series as the protagonist who keeps doing the right thing under pressure. In Book 1 Chapter 8 he was learning to leave a SIP running. In Book 2 he refused to sell during the 2018 trade-war wobble. The March-2020 episode is his hardest test.</p>
+    <p>By 23 March 2020 his portfolio is down 33% in 31 days. He has just been told to work from home indefinitely, his wife's employer has announced furloughs, his parents in Bangalore are 70 and cannot get an N95 mask. His phone is full of WhatsApp forwards about systemic collapse. His broker app shows red on every line.</p>
+    <p>He opens his written Investment Policy Statement — the one he wrote in mid-2019. It says, in his own words from 18 months earlier: "If equity allocation falls below 55% of target, rebalance from bonds. Continue all SIPs without modification. Do not check portfolio for 30 days after any 20%+ decline. The plan is for this exact moment."</p>
+    <p>He doesn't feel calmer. He does, however, execute the plan. He rebalances ₹2.4 lakh from his bond allocation into equity on 24 March (the day after the bottom, which neither he nor anyone else knew was the bottom). He continues his SIPs through April, May, June. He stops checking his portfolio.</p>
+    <p>By December 2020 he has recovered to even. By December 2021 he is up 40% from the pre-crash high. The rebalance he did on 24 March, alone, contributes about ₹3.8 lakh in additional gains over the next 18 months — more than his annual salary at the time. The IPS he wrote when he was calm did the work his emotions could not have done in the moment.</p>
+    <p>Ravi's portfolio is not bigger than his peers' because he knew something they didn't. It is bigger because he wrote down the right thing to do <em>before</em> the moment when doing the right thing felt impossible.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Name the nine stages of the emotional cycle and where the wealth-destroying transitions occur.</li>
+    <li>State three recognition heuristics for emotional extremes.</li>
+    <li>Explain why a written investment plan is for the bear market, not the bull.</li>
+    <li>Reproduce the structural element from Ravi's vignette that made the March-2020 rebalance possible.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>At which two points in the cycle does the average investor make the wealth-destroying decisions?</li>
+    <li>The S&amp;P 500 hit 666 in March 2009. Where on the emotional cycle was the average investor?</li>
+    <li>Your portfolio is down 30%. Your written plan says rebalance. What is the cost of not doing it?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 13 ===================== -->
+<section class="sheet chapter" id="ch13" data-part="Part III" data-chapter="Building Anti-Fragile Habits">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 13</span><span class="cline"></span><span class="ctag">Part III · Psychology</span></div>
+    <h2 class="chapter-title">Building Anti-Fragile Habits</h2>
+    <p class="lead">"Anti-fragile" in Taleb's sense: a system that does not just survive shocks but benefits from them. A well-constructed personal investing system gets <em>better</em> when markets fall, because every contribution buys more shares, every rebalance moves into beaten-down assets, and the investor's confidence in the system grows. This chapter is the design specification.</p>
+  </div>
+  <h3><span class="subnum">13.1</span> The Investment Policy Statement (IPS)</h3>
+  <p>One short document, written in calm conditions, that specifies what you will do across every market environment. The IPS is the single highest-leverage habit in this entire book. A good IPS fits on one page and contains:</p>
+  <ol>
+    <li><strong>Goals</strong> — what the money is for, and the time horizon for each goal.</li>
+    <li><strong>Asset allocation</strong> — target percentages by asset class, with tolerance bands (e.g., 60/40 target, rebalance when out of band by ±5pp).</li>
+    <li><strong>Contribution schedule</strong> — auto-debit dates and amounts; "rules for changes" (only after annual review, never in response to recent returns).</li>
+    <li><strong>Rebalancing rule</strong> — calendar-based (annually) or threshold-based (5pp band). Either works; pick one.</li>
+    <li><strong>What you will not do</strong> — explicit prohibitions: "I will not trade individual stocks based on news. I will not change allocations during drawdowns greater than 20%. I will not act on tips from anyone."</li>
+    <li><strong>When you will review</strong> — annually, on a fixed date.</li>
+  </ol>
+  <h3><span class="subnum">13.2</span> Automation — removing the decision</h3>
+  <p>The most powerful behavioural intervention is removing the decision from the path entirely. If your SIP debits on the 5th of every month into a target-date fund, you make zero allocation decisions in a year. Zero decisions = zero opportunities for biases to operate. Every major fund company offers auto-investment and auto-rebalancing now; turn them on, then ignore them.</p>
+  <h3><span class="subnum">13.3</span> The 30-day rule</h3>
+  <p>A simple rule that intercepts most of the worst behavioural mistakes: <em>between any decision to materially change your investments and acting on that decision, wait 30 days.</em> If the rationale still holds after 30 days, act. Most rationales — "the Fed will cut", "this stock is hot", "we should reduce equities now" — do not survive the wait. The ones that do are almost always real.</p>
+  <h3><span class="subnum">13.4</span> Account hygiene</h3>
+  <ul>
+    <li><strong>Check less.</strong> Daily checking is documented to increase risk aversion (Thaler &amp; Benartzi 1995) and produce worse outcomes. Quarterly is plenty. Monthly is fine. Daily is harmful.</li>
+    <li><strong>Hide the dollar amount; show the percentages.</strong> A 20% loss on $50,000 feels different from "$10,000 gone." Set your apps to show percentages, not dollars, where possible.</li>
+    <li><strong>Reduce platform count.</strong> Multiple brokerages means multiple emails, multiple notifications, multiple opportunities to act. Consolidate.</li>
+  </ul>
+  <h3><span class="subnum">13.5</span> The accountability structure</h3>
+  <p>Pick one of: a spouse, a friend who is also a long-term investor, or a paid fiduciary advisor. The role is not to choose investments; it is to be the person you must explain a deviation to. The act of having to articulate "I want to sell everything because the Fed announcement spooked me" to another sentient human kills most deviations before they happen.</p>
+  <h3><span class="subnum">13.6</span> The pre-mortem</h3>
+  <p>Before making any significant investment, write down (a) the conditions under which you would sell, (b) the worst plausible outcome and how you would feel about it, (c) the rationale in a single sentence you could defend to a sceptical reader. If the rationale doesn't survive the writing, the position doesn't survive the writing either.</p>
+  <h3><span class="subnum">13.7</span> A one-page IPS template</h3>
+  <div class="calctbl" style="font-family:'JetBrains Mono',monospace;font-size:.85rem;">
+    <span class="title" style="font-family:Archivo,sans-serif;">Investment Policy Statement — _______ (your name) — _______ (date)</span>
+    <p style="margin-bottom:.3em;"><b>1. Goals.</b> Retirement at age ___ with target portfolio of $___ (today's purchasing power). Secondary: house deposit by year ___, kids' college by year ___.</p>
+    <p style="margin-bottom:.3em;"><b>2. Asset allocation (target).</b> US stocks ___% · Intl stocks ___% · Bonds ___% · Cash ___% · Other ___%.</p>
+    <p style="margin-bottom:.3em;"><b>3. Contribution.</b> $___ per month auto-debited on the ___th. Increased annually by ___% on Jan 1.</p>
+    <p style="margin-bottom:.3em;"><b>4. Rebalancing.</b> Annually on ___ date, OR when any asset class is more than ___ percentage points from target.</p>
+    <p style="margin-bottom:.3em;"><b>5. I will NOT.</b> Trade individual stocks. Time the market. Change allocation during drawdowns. Act on tips. Hold derivatives except for stated hedge purposes. Check portfolio more than monthly.</p>
+    <p style="margin-bottom:.3em;"><b>6. Review.</b> Annually on ___. Changes to this IPS require 30 days between drafting and signing.</p>
+    <p style="margin-bottom:0;"><b>Signed:</b> _______________________</p>
+  </div>
+  <div class="practice">
+    <span class="title">Action — write yours this week</span>
+    <p style="margin-bottom:0;">If you take one action from this entire book, write an IPS. Print it. Sign it. Tape it inside the cover of whatever you keep your financial records in. Re-read it on the worst day of the next market drawdown. The first time it saves you from a panic sell, it pays for the entire eight-book series.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the six components of an Investment Policy Statement.</li>
+    <li>Explain why automation is the highest-leverage behavioural intervention.</li>
+    <li>State the 30-day rule and the type of decision it intercepts.</li>
+    <li>List three account-hygiene practices that reduce behavioural error rates.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>What is the rebalancing rule in your (just-drafted) IPS?</li>
+    <li>What is the document that defines what you will <em>not</em> do?</li>
+    <li>If you check your portfolio daily, what is the documented behavioural cost?</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART IV OPENER ===================== -->
+<section class="sheet partopener" data-part="Part IV" data-chapter="Safety — Recognising the Cons">
+  <div class="partlabel">Part IV</div>
+  <h2 class="parttitle">Safety — Recognising the Cons</h2>
+  <p class="partlede">A scam is not a complex thing. Almost every financial scam in history fits one of about five templates, and the templates have been the same for three hundred years. Charles Ponzi did not invent the Ponzi scheme — Sarah Howe was running one in Boston in 1879. Bernie Madoff did not innovate; he ran the same instrument at industrial scale for forty years. FTX was just custodial fraud at crypto scale. What changes is the wrapper — the asset class, the language, the medium. The structure is constant. This part teaches the structure so you can recognise the wrapper.</p>
+  <ul class="partmap">
+    <li><b>Ch 14</b> The anatomy of a scam — the five universal markers</li>
+    <li><b>Ch 15</b> Pyramid &amp; Ponzi schemes</li>
+    <li><b>Ch 16</b> Modern financial scams — crypto, pig-butchering, finfluencers</li>
+    <li><b>Ch 17</b> The salesperson disguised as advisor</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 14 ===================== -->
+<section class="sheet chapter" id="ch14" data-part="Part IV" data-chapter="The Anatomy of a Scam">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 14</span><span class="cline"></span><span class="ctag">Part IV · Safety</span></div>
+    <h2 class="chapter-title">The Anatomy of a Scam</h2>
+    <p class="lead">Five markers. If three or more are present, it is a scam, and the fact that the people running it are charming, well-dressed, and have nice offices in Mumbai or Manhattan does not change that. The markers are below in rough order of reliability.</p>
+  </div>
+  <h3><span class="subnum">14.1</span> Marker 1 — Returns inconsistent with the asset class</h3>
+  <p>The cleanest single marker. If an investment promises 1-2% per month with low volatility, in a world where the risk-free rate is 4% per year and equity averages 8-10% with 15% volatility, the returns are inconsistent with the asset class. Either the investment carries hidden risk being paid by someone else (you, when it collapses) or the returns are fabricated. There are no exceptions. Bernie Madoff's reported returns were 10-12% per year with extraordinary consistency — too consistent for any real strategy. The consistency was the tell, missed by the SEC for forty years.</p>
+  <h3><span class="subnum">14.2</span> Marker 2 — The strategy cannot be explained simply</h3>
+  <p>Real strategies can be explained in three sentences to an intelligent fifteen-year-old. If the explanation requires words like "proprietary algorithm", "quant arbitrage that exploits inefficiencies", "split-strike conversion strategy" (Madoff's actual phrase), or "smart contract yield-generating mechanism" without further specification — the strategy is either fraud or so complex that nobody, including the salesperson, actually understands the risks. In either case you should not invest.</p>
+  <p>The Buffett rule: <em>never invest in a business you cannot understand.</em> Madoff's split-strike was nominally an options-collar strategy on the S&amp;P 100. Real options-collar strategies have a known performance pattern — they do well in moderately rising markets and underperform in sharply rising or sharply falling ones. Madoff's "returns" did well in all environments. A real analyst with five minutes would have seen the impossibility. Many did; few said so publicly until 2008.</p>
+  <h3><span class="subnum">14.3</span> Marker 3 — Custody and audit are with related parties</h3>
+  <p>Legitimate investments separate the manager (decides what to buy) from the custodian (holds the assets) from the auditor (verifies the books). Madoff did all three himself, audited by a three-person firm in suburban New York. FTX's auditor was Prager Metis (the firm with an office in the metaverse). Every Indian chit-fund scam (Saradha, Pearl Agrotech, Sahara) had the same feature: founder-controlled custody, founder-chosen audit, no independent verification.</p>
+  <p>The single most powerful question: <strong>"Who holds the assets?"</strong> If the answer is "the same firm that manages them" or "an entity controlled by the same person", walk away.</p>
+  <h3><span class="subnum">14.4</span> Marker 4 — Pressure to invest more, recruit others, or act fast</h3>
+  <p>Legitimate financial products do not have a "limited window". The window exists because the scam needs cash inflow to pay existing redemptions. Pressure to recruit others — "tell your friends, you'll earn a referral bonus" — is the structural signature of a pyramid scheme (next chapter). Urgency is the lever every salesperson, legitimate or otherwise, uses to bypass deliberation; in a scam, urgency is also operationally necessary because the books require it.</p>
+  <h3><span class="subnum">14.5</span> Marker 5 — Difficulty withdrawing</h3>
+  <p>The first sign for victims is almost always withdrawal friction. "Your withdrawal will be processed next week" becomes "next month" becomes "we are restructuring" becomes silence. By the time it's silence, the assets are gone. Once you see withdrawal friction on any unusual investment, withdraw everything immediately. The cost of being wrong (a few days' inconvenience) is trivial. The cost of being right (total loss) is total.</p>
+  <h3><span class="subnum">14.6</span> The composite — Madoff scored 5/5</h3>
+  <div class="calctbl">
+    <span class="title">The five markers, applied to Bernie Madoff Investment Securities</span>
+    <table>
+      <thead><tr><th>Marker</th><th>Madoff's case</th><th>Score</th></tr></thead>
+      <tbody>
+        <tr><td>Returns inconsistent with asset class</td><td>10-12%/yr with near-zero volatility, in any market</td><td>✗</td></tr>
+        <tr><td>Strategy cannot be explained simply</td><td>"Split-strike conversion" — never publicly demonstrated</td><td>✗</td></tr>
+        <tr><td>Custody &amp; audit with related parties</td><td>Self-custodied; auditor was three-person Friehling &amp; Horowitz</td><td>✗</td></tr>
+        <tr><td>Pressure / recruitment</td><td>Limited capacity, exclusive access, feeder-fund pressure</td><td>✗</td></tr>
+        <tr><td>Withdrawal friction</td><td>None until 2008 (then total)</td><td>± (until end)</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:.85rem;margin-top:.5em;">Harry Markopolos, an analyst who tried to alert the SEC repeatedly from 2000 onward, scored Madoff on essentially these criteria in a 2005 memo titled "The World's Largest Hedge Fund Is a Fraud". The SEC investigated and closed the case without action. The scheme collapsed in December 2008 when redemptions exceeded inflows; total client losses approximately $18 billion of principal, with paper losses ("gains" never earned) of $65 billion.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Name the five universal markers of a financial scam.</li>
+    <li>Apply the markers to Madoff and explain which would have been visible by 2005.</li>
+    <li>State the single most powerful question to ask about any unusual investment.</li>
+    <li>Explain why returns "too consistent" are themselves a red flag.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>A friend offers you 2%/month with no losing months for 3 years. Which markers are triggered?</li>
+    <li>An investment platform processes deposits instantly but says withdrawals "take 7-14 days due to compliance". What should you do?</li>
+    <li>Why is a small auditor often a red flag?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 15 ===================== -->
+<section class="sheet chapter" id="ch15" data-part="Part IV" data-chapter="Pyramid and Ponzi Schemes">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 15</span><span class="cline"></span><span class="ctag">Part IV · Safety</span></div>
+    <h2 class="chapter-title">Pyramid &amp; Ponzi Schemes</h2>
+    <p class="lead">Two related structures, often conflated, both fundamentally about paying old investors with new investors' money. The difference is mechanical: a Ponzi pretends to invest the money and pays "returns" from new inflows; a pyramid pays explicit recruitment commissions, with no pretence of investment. Both are mathematically guaranteed to collapse; only the timing varies.</p>
+  </div>
+  <h3><span class="subnum">15.1</span> The Ponzi mechanism</h3>
+  <p>An operator promises investors a high return. New money flows in. Some is taken by the operator; some is paid back to earlier investors as their "returns". The earlier investors are pleased and recommend the scheme to others. New inflows grow. The longer it runs, the more outflows it must cover from new inflows, until the day inflows are insufficient and the scheme collapses. The collapse is sudden — usually triggered by a recession (when investors need cash), a regulatory inquiry, or one large investor's redemption.</p>
+  <h3><span class="subnum">15.2</span> The Ponzi arithmetic</h3>
+  <p>If a scheme promises 12% returns and grows linearly in investors, it can survive for a while. If it promises 12% and inflows must grow exponentially to cover the compounding obligation, it cannot. Charles Ponzi's 1920 Boston operation promised 50% in 90 days; it collapsed in seven months. Madoff promised 10-12% per year and survived four decades because the obligation grew slowly; the 2008 redemption surge then sank it.</p>
+  <h3><span class="subnum">15.3</span> The pyramid mechanism</h3>
+  <p>An operator sells "membership" — sometimes with a token product, sometimes not. Each member is paid a commission for every new member they recruit, plus a smaller commission for members those recruits bring in. The math is fatal: at six levels deep with five recruits per level, you need 15,625 people at the bottom to support the structure; at ten levels, 9.7 million. Every pyramid runs out of recruits, usually within 18-36 months.</p>
+  <h3><span class="subnum">15.4</span> Modern variants — MLMs and the FTC line</h3>
+  <p>Multi-level marketing (MLM) firms occupy a contested boundary. The legal test (US, FTC): a legitimate MLM derives most of its revenue from sales to <em>end consumers</em>, not from member-to-member sales or recruitment fees. Most MLMs fail this test in practice — the FTC's 2018 study of MLM participants found that 99% lose money or break even after expenses. The line between "legal MLM" and "illegal pyramid" is enforcement-dependent, not structural.</p>
+  <h3><span class="subnum">15.5</span> Indian disasters — Saradha, PACL, Sahara</h3>
+  <p><strong>Saradha Group (collapsed 2013).</strong> Promised 12-25% returns on "deposits" structured as collective investment schemes. SEBI lacked clear jurisdiction; the West Bengal-centred scheme grew to ~₹2,500 crore (some estimates ₹10,000+ crore) before collapsing in 2013. Approximately 1.7 million investors lost savings; political fallout continues a decade later.</p>
+  <p><strong>PACL / Pearl Agrotech (operated 1996-2014).</strong> Pearl Agrotech Corporation Ltd. sold "land plots" as an investment scheme with returns. SEBI declared it a CIS in 2014 and ordered refunds of ₹49,100 crore to ~5.8 crore investors — making it possibly the largest financial fraud in Indian history by victim count.</p>
+  <p><strong>Sahara (2011-).</strong> Sahara India Real Estate and Sahara Housing Investment Corp. raised ₹24,000 crore from ~3 crore "investors" through optionally fully convertible debentures. SEBI ordered refunds in 2011; the company largely did not comply; founder Subrata Roy was imprisoned in 2014 and died in 2023 with much of the money still untraced.</p>
+  <h3><span class="subnum">15.6</span> Recognising one before you join</h3>
+  <p>Five-question checklist:</p>
+  <ol>
+    <li>Where does the money go? "We invest it" — in what specifically? Show me the statements.</li>
+    <li>Who audits the books? Name, firm, and last published audited financials.</li>
+    <li>Is the regulator aware? SEBI/SEC/FCA registration — verify on the regulator's website, not the company's.</li>
+    <li>Does the math work? Promised returns × current AUM = required investment income. Plausible?</li>
+    <li>Can I withdraw a small test amount today? If not, do not invest a larger amount tomorrow.</li>
+  </ol>
+  <div class="disaster">
+    <span class="dtag">Disaster · 2013</span>
+    <h3>Saradha — 1.7 million people, one founder, 25-year promise</h3>
+    <p>Sudipta Sen built Saradha Group in West Bengal selling collective investment schemes disguised as bonds, debentures, and "deposits". Returns offered ranged from 12% to a peak of 40% — far beyond any sustainable investment. Agents, mostly young men from rural Bengal, recruited friends and family with the lure of commissions and political connections. The collapse in April 2013 wiped out the savings of approximately 1.7 million depositors; many of the agents, themselves victims, ended up subjects of suicide reports in the months that followed. Sen was arrested. SEBI eventually established jurisdiction and ordered restitution, but the bulk of the money was already gone. The scheme passed the Saradha test on no objective measure — returns were inconsistent with any asset class, custody was self-controlled, audit was opaque, withdrawal friction grew through 2012 — but it ran for nearly a decade because regulatory authority was unclear and the political environment was protective.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Distinguish a Ponzi (paying "returns" from new inflows under pretence of investment) from a pyramid (paying explicit recruitment commissions).</li>
+    <li>Explain why every pyramid scheme must collapse within a finite number of levels.</li>
+    <li>Name the FTC test for legitimate MLM vs. pyramid.</li>
+    <li>Apply the five-question checklist to any unfamiliar investment.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>A scheme pays "returns" of 1.5%/month and you've successfully withdrawn ₹10,000 last month. Is the scheme legitimate?</li>
+    <li>How many recruits would a 5-wide, 8-deep pyramid need at the bottom?</li>
+    <li>Name two questions from the five-question checklist that you should ask before any unfamiliar investment.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 16 ===================== -->
+<section class="sheet chapter" id="ch16" data-part="Part IV" data-chapter="Modern Financial Scams">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 16</span><span class="cline"></span><span class="ctag">Part IV · Safety</span></div>
+    <h2 class="chapter-title">Modern Financial Scams</h2>
+    <p class="lead">The internet did not invent new scams. It accelerated the old ones. Reach is global, onboarding is one-click, payment is instant and irreversible, and the regulator is usually a continent away. This chapter catalogues the modern variants — crypto rug pulls, pig-butchering romance scams, finfluencer pump-and-dumps, fake brokerages — by their underlying anatomy from Chapter 14.</p>
+  </div>
+  <h3><span class="subnum">16.1</span> Crypto rug pulls</h3>
+  <p>A team launches a new token with a marketing push — Twitter, Telegram, Discord, a slick website, anonymous "developers". Retail buyers bid the token up. The team, who hold the majority of supply, sell at the peak. The token collapses to zero. Onchain forensics firm Chainalysis estimated $7.8B in losses to rug pulls in 2021 alone. The marker is structural: anonymous team, majority team-held supply, no genuine utility beyond price speculation. Every "DeFi yield farm" promising 200%+ APY has, with rare exceptions, been a rug pull.</p>
+  <h3><span class="subnum">16.2</span> Pig-butchering (sha zhu pan)</h3>
+  <p>The name comes from Chinese organised-crime slang: "fattening the pig before slaughter." A scammer initiates a long-form social-engineering relationship — typically over dating apps, WhatsApp, LinkedIn — building trust over weeks or months. The scammer mentions their (fabricated) success in a crypto or forex platform. Eventually the victim is invited to invest on the same platform, which is operated by the scammer's network. Small initial withdrawals succeed (Marker 5, briefly defeated). Larger investments follow. Then withdrawals stop, "fees" are demanded, and contact disappears. US FBI Internet Crime Complaint Centre estimated $4.4B in US pig-butchering losses in 2023; the global figure is multiples of that. Many of the call-centre operations are themselves staffed by trafficked workers in Cambodia, Myanmar, and Laos.</p>
+  <h3><span class="subnum">16.3</span> Finfluencer pump-and-dumps</h3>
+  <p>A social-media personality with a large following accumulates a position in a small-cap stock or low-liquidity crypto, posts content urging followers to buy, dumps into the resulting demand. The classic version is illegal under securities law in most jurisdictions — but the structure has been adapted to evade prosecution: undisclosed paid promotions, "personal opinion" disclaimers, jurisdictionally ambiguous tokens. SEBI's 2024 enforcement against finfluencers and the SEC's 2022 case against eight Twitter "finfluencers" (US v. Constantinescu et al.) both target this template. The reliable retail-side rule: if someone with a large following is touting a specific small-cap or token, they own it and are about to sell.</p>
+  <h3><span class="subnum">16.4</span> Fake brokerages and clone firms</h3>
+  <p>A website mimics a legitimate broker — logo, design, regulator-name. The victim deposits, sees fictitious gains on a fake dashboard, attempts to withdraw, is told to pay "tax" or "verification" fees, eventually loses everything. The FCA's "ScamSmart" warning list publishes hundreds of clone firms each year; SEBI maintains a similar list of unauthorised advisors. Verify the regulator registration on the regulator's own website (never via a link in the firm's marketing).</p>
+  <h3><span class="subnum">16.5</span> The FTX taxonomy — a single case study covering several</h3>
+  <p>FTX (collapsed November 2022, $8B+ customer-funds shortfall) is a useful case study because it scored on multiple markers simultaneously. Custody and audit with related parties (FTX held customer assets, Alameda Research — a related-party fund — borrowed against them, Prager Metis audited). Returns and "growth" inconsistent with asset class (the exchange's reported balance sheet was structurally insolvent from at least mid-2021 if reconstructed honestly; the gap was hidden by recycling FTT, FTX's own token, as collateral). Charismatic founder framing (Sam Bankman-Fried's "effective altruism" positioning was central to media coverage and political access). The collapse, when it came, was textbook Ponzi — a redemption surge triggered by a leaked balance sheet, withdrawal halt, bankruptcy filing — over six trading days.</p>
+  <p>Lesson: even a heavily-marketed, regulator-engaged, celebrity-endorsed firm can be a fraud. The Chapter 14 markers worked on FTX in real time, but were systematically ignored by both retail and institutional capital because the narrative was too attractive. The markers do not care about narrative.</p>
+  <div class="contrarian">
+    <span class="ctag">Contrarian truth</span>
+    <h3>Being on Twitter, having a slick app, and posting "audits" is not the same as being safe.</h3>
+    <p>Every collapsed crypto exchange from 2018 to 2024 had: a clean-looking app, a verified Twitter account, "proof-of-reserves" pages, endorsements from large investors, and a charismatic founder doing podcast circuits. None of those things is custody. None of those things is regulation. None of those things is auditable. If you cannot answer the question "where, legally, are my assets held and who can I sue if they're gone?" then you do not, in any meaningful sense, own those assets.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Describe the structural pattern of a crypto rug pull and name the team-side red flag.</li>
+    <li>Explain pig-butchering and the social-engineering arc it depends on.</li>
+    <li>Name the reliable retail-side rule for finfluencer pumps.</li>
+    <li>Identify which Chapter 14 markers were satisfied by FTX before its collapse.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>Someone you matched with on a dating app suggests you try a "very profitable" trading platform she uses. What is this called and what should you do?</li>
+    <li>A YouTuber with 2M followers spends 20 minutes hyping a small-cap stock without disclosing a position. What is the likely structural setup?</li>
+    <li>Your favourite crypto exchange publishes a "proof-of-reserves" page signed by a small audit firm. Is this sufficient for safety?</li></ol>
+  </div>
+</section>
+
+<!-- ===================== CH 17 ===================== -->
+<section class="sheet chapter" id="ch17" data-part="Part IV" data-chapter="The Salesperson Disguised as Advisor">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 17</span><span class="cline"></span><span class="ctag">Part IV · Safety</span></div>
+    <h2 class="chapter-title">The Salesperson Disguised as <em>Advisor</em></h2>
+    <p class="lead">The most expensive financial harm done to ordinary investors is not done by scams. It is done by people legally permitted to call themselves "financial advisors" while operating under a "suitability" standard rather than a fiduciary one — meaning they may sell you the product that pays them the highest commission, provided it is "suitable" for someone in your situation. This is most of the industry, and the gap between what they are required to do and what most people believe they are doing is the structural source of most retail underperformance.</p>
+  </div>
+  <h3><span class="subnum">17.1</span> Fiduciary vs. suitability — the foundational distinction</h3>
+  <p>A <strong>fiduciary</strong> is legally required to act in your best interest. They must disclose conflicts of interest, recommend the lowest-cost suitable product available, and document the analysis. Examples: US Registered Investment Advisers (RIAs) under the Investment Advisers Act of 1940 when acting on advisory matters; UK Independent Financial Advisers (IFAs); SEBI Registered Investment Advisers (RIA) in India.</p>
+  <p>A <strong>suitability-standard salesperson</strong> must recommend products "suitable" for someone with your profile, but can choose among suitable products based on the commissions they generate. Examples: US broker-dealer registered representatives, most insurance agents, most "wealth managers" at bank branches, mutual fund distributors (in India, "MFDs" under the SEBI Mutual Fund Regulations as distinct from RIAs).</p>
+  <p>The difference, in practice: a fiduciary advising on a Roth IRA will recommend a Vanguard target-date fund (expense ratio 0.08%, no commission). A suitability salesperson can recommend an annuity-wrapped mutual fund (effective expense 2.5%, 7% commission to them), because such a product is "suitable" for a young person saving for retirement. The annuity will, over 30 years, cost you 30-50% of your terminal wealth in fees. The recommendation was legal.</p>
+  <h3><span class="subnum">17.2</span> The product menagerie</h3>
+  <p>The products that pay the highest commissions are, by design, the worst for the customer. The big four:</p>
+  <ul>
+    <li><strong>Variable annuities (US) / ULIPs (India).</strong> Insurance-wrapped investment products with surrender charges, mortality-and-expense fees, sub-account fees, and rider fees that compound to 2-4% per year of drag. Sold as "tax-deferred with downside protection". The protection is usually a separately-priced rider that fully offsets the tax benefit, and the surrender charges trap you for 7-10 years.</li>
+    <li><strong>Whole life insurance / endowment plans.</strong> Bundles term insurance (which you should buy separately and cheaply) with an investment component that earns 4-6% gross, 2-3% net of fees, while charging commissions of 30-100% of first-year premium. The Indian endowment-plan industry alone churns roughly ₹1.5 lakh crore/year of new premium, of which a meaningful fraction is structurally guaranteed to underperform a term-plus-mutual-fund portfolio by 3-5 percentage points per year.</li>
+    <li><strong>Non-traded REITs.</strong> Illiquid real-estate vehicles with 7-10% up-front loads and no public market for exit. Often promoted to retirees seeking "income".</li>
+    <li><strong>Structured notes.</strong> Bank-issued debt instruments with payoffs linked to an equity index, marketed as "principal-protected upside". The fine print: principal protection only if the issuing bank survives, the upside is capped at 70-80% of the index, and the embedded fees are 4-8% of principal hidden in the pricing.</li>
+  </ul>
+  <h3><span class="subnum">17.3</span> How to tell which kind you're dealing with</h3>
+  <p>Three questions, asked at the first meeting, that resolve almost everything:</p>
+  <ol>
+    <li><strong>"Are you a fiduciary on every aspect of our relationship, in writing?"</strong> Note the qualifier "on every aspect". US "dual-registered" advisors can be fiduciaries on one part of your account and broker-dealers (suitability standard) on another. They will say "yes, I'm a fiduciary" without that qualifier. Get it in writing.</li>
+    <li><strong>"How are you compensated?"</strong> Fee-only (you pay them directly, typically 1% of assets or a flat fee) — usually fine. Fee-based — careful, it can mean "fees plus commissions". Commission-only — they are a salesperson.</li>
+    <li><strong>"What is the total cost of the products you'd recommend, all-in?"</strong> A fee-only fiduciary recommending index funds will say 0.05-0.20%. A commission-based salesperson recommending the products above will say "no fee to you" — which means hidden 2-4%/year drag.</li>
+  </ol>
+  <h3><span class="subnum">17.4</span> The Indian regulatory split — SEBI RIA vs. MFD</h3>
+  <p>In India the structural split was clarified by SEBI in 2020. A <strong>SEBI Registered Investment Adviser (RIA)</strong> charges fees, must be fiduciary, cannot receive commissions on recommended products. A <strong>Mutual Fund Distributor (MFD)</strong> receives trail commissions from fund houses and is regulated under different rules — they cannot use the title "advisor". The same person cannot be both, on the same client, simultaneously. Most retail "advisors" you encounter at bank branches and insurance offices are MFDs, not RIAs. The titles are interchangeably misused; the regulatory rules are not.</p>
+  <div class="vignette">
+    <span class="vtag">Investor vignette · 2018-2024</span>
+    <h3>Priya, 38 · The annuity that cost ₹18 lakh she didn't notice</h3>
+    <p>Priya is an architect in Pune. In 2018, when she had a baby, a "relationship manager" from her private bank visited and recommended a unit-linked insurance plan (ULIP) for "tax-saving with downside protection and life cover". The annual premium was ₹3 lakh for 10 years. She signed.</p>
+    <p>The product details, in fine print: 80% of first-year premium went to allocation charges, mortality charges, fund management charges, and policy administration charges. Subsequent years: 4-6% of premium absorbed by the same. The "fund" inside the ULIP was a generic large-cap mutual fund equivalent — but with an effective expense ratio of 2.8% versus the 1.2% she would have paid for a direct-plan version of the same fund.</p>
+    <p>By 2024, after six years of ₹3 lakh annual premiums (₹18 lakh contributed total), her ULIP balance was ₹16.5 lakh. If she had instead bought a ₹50 lakh term insurance plan (annual cost: ₹6,000) and invested the remaining ₹2.94 lakh annually into a Nifty 50 index fund via SIP, her balance — over the same period — would have been approximately ₹24.8 lakh.</p>
+    <p>The cost of the "advice" was roughly ₹8.3 lakh of foregone wealth over six years, on track to grow to ₹40+ lakh over the original 20-year horizon. The "relationship manager" was paid commissions of approximately ₹4.5 lakh on her policy in the first year alone. She did not know any of this until her brother — who had read Book 6 of this series — looked at her statement.</p>
+    <p>Priya did not get scammed in the Chapter 14 sense. She bought a legal product, distributed by a regulated firm, with full statutory disclosure. Her loss is, structurally, the difference between what was sold to her and what she would have been told to buy by a fiduciary. The gap is the entire reason this chapter exists.</p>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>Distinguish a fiduciary from a suitability-standard salesperson and state the legal basis in your jurisdiction.</li>
+    <li>Name the four highest-commission product categories most likely to be mis-sold.</li>
+    <li>Recite the three questions that resolve which kind of person you're dealing with.</li>
+    <li>State the regulatory distinction between SEBI RIA and MFD in India.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check</b>
+    <ol><li>A bank "wealth manager" says she is "an advisor" and recommends a ULIP. What's the first question you ask?</li>
+    <li>What is the structural difference between a fee-only and a commission-based recommendation?</li>
+    <li>True/false: a SEBI MFD can legally call themselves a "financial advisor".</li></ol>
+  </div>
+</section>
+
+
+
+<!-- ===================== PART V OPENER ===================== -->
+<section class="sheet partopener" data-part="Part V" data-chapter="Putting It Together">
+  <div class="partlabel">Part V</div>
+  <h2 class="parttitle">Putting It Together</h2>
+  <p class="partlede">Four threats. One framework. The final chapter consolidates Parts I-IV into a single checklist you can apply to any financial decision: is this exposure I want, is the tax handled, is my behaviour protected, and would I recognise the con if it came wearing a suit and a smile? Defence done deliberately is what lets the offence — everything in Books 1-6 — actually compound.</p>
+  <ul class="partmap">
+    <li><b>Ch 18</b> A Defensive Framework — the consolidated checklist</li>
+  </ul>
+</section>
+
+<!-- ===================== CH 18 ===================== -->
+<section class="sheet chapter" id="ch18" data-part="Part V" data-chapter="A Defensive Framework">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Chapter 18</span><span class="cline"></span><span class="ctag">Part V · Synthesis</span></div>
+    <h2 class="chapter-title">A Defensive Framework</h2>
+    <p class="lead">The seventeen chapters before this one identified four kinds of damage that fall on the unwary investor — complexity (derivatives), friction (tax), emotion (psychology), and predation (scams and mis-selling). This chapter is the one-page response. The framework below is structured as a checklist because checklists work where willpower doesn't. Print it. Tape it to the inside of your statement folder. Re-read it before any significant financial decision.</p>
+  </div>
+  <h3><span class="subnum">18.1</span> The defensive framework — eight questions</h3>
+  <ol>
+    <li><strong>Can I explain what this is in three sentences?</strong> If no, the product is too complex for me to own (Chapter 1, Chapter 14, Chapter 17). The complexity itself is the cost.</li>
+    <li><strong>What is the worst-plausible outcome, and can I survive it without breaking the plan?</strong> Bound the downside before the upside. Position size to the tail, not the median (Chapter 5).</li>
+    <li><strong>Which account holds it, and why?</strong> Asset location is the second-largest tax decision after using tax-advantaged accounts at all (Chapter 8).</li>
+    <li><strong>Will this trigger a taxable event I don't need to trigger?</strong> Defer realisation by default; realise only with explicit reason (Chapter 7).</li>
+    <li><strong>Is this in my written Investment Policy Statement?</strong> If no, defer the decision 30 days; reconsider when calm (Chapter 13).</li>
+    <li><strong>Am I making this decision because of recent returns or recent emotion?</strong> Both signals are unreliable. The plan was written when you were neither (Chapter 11, 12).</li>
+    <li><strong>Who holds the custody, who audits, and is the regulator aware?</strong> Three answers. All three should be independent of the salesperson (Chapter 14, 15).</li>
+    <li><strong>Is the person recommending this a fiduciary, on this transaction, in writing?</strong> If not, they are selling. Either fact is fine to know in advance; conflation is what costs you (Chapter 17).</li>
+  </ol>
+  <h3><span class="subnum">18.2</span> The two-minute monthly review</h3>
+  <p>Schedule two minutes a month — the first Saturday of every month is a clean default — to do exactly five things:</p>
+  <ol>
+    <li>Verify SIPs/auto-debits ran successfully. (One glance at the brokerage statement.)</li>
+    <li>Check that allocation is still within tolerance bands. (One glance at the allocation page.) If out of band, schedule the rebalance for next weekend.</li>
+    <li>Re-read your IPS. Yes, every month. It's one page. The repetition is the point.</li>
+    <li>Note any large life change that should trigger an annual review revision (job change, marriage, child, inheritance, illness).</li>
+    <li>Close the laptop. No further action this month.</li>
+  </ol>
+  <p>Two minutes. That is the entire active management requirement of a well-constructed portfolio. Anything more is either an emergency response (rare, usually unnecessary) or behavioural noise (common, usually harmful).</p>
+  <h3><span class="subnum">18.3</span> The annual review — one hour, once a year</h3>
+  <p>On a fixed annual date (your birthday, January 1, fiscal year-end — pick one and never deviate):</p>
+  <ol>
+    <li><strong>Re-state goals.</strong> Are they still your goals? Has the time horizon changed?</li>
+    <li><strong>Re-state target allocation.</strong> Should it change? Reasons that justify a change: life-stage transition, time horizon shortened, risk tolerance genuinely changed (not "the market was scary this year").</li>
+    <li><strong>Increase contributions.</strong> Default: increase by the rate of inflation plus any salary increase. This is the single highest-leverage habit after writing the IPS.</li>
+    <li><strong>Tax-loss harvest if applicable.</strong> Once per year is enough for most investors below institutional scale (Chapter 9).</li>
+    <li><strong>Update beneficiary designations.</strong> Every retirement account, every life policy, every HSA, every 529. (Chapter 10.)</li>
+    <li><strong>Re-sign the IPS.</strong> Literally: sign and date it again. The ritual matters.</li>
+  </ol>
+  <h3><span class="subnum">18.4</span> What you will <em>not</em> do — the explicit prohibitions</h3>
+  <p>The final piece of the framework is the list of what is forbidden. Made explicit in advance because the costliest financial mistakes are almost always the things you swore you wouldn't do, until you did.</p>
+  <div class="box err">
+    <span class="htag">Your written prohibitions</span>
+    <span class="title">Sign these. The signature is what makes them real.</span>
+    <ul style="margin-bottom:0;">
+      <li>I will not trade individual stocks based on news, tips, or social-media content.</li>
+      <li>I will not sell during a drawdown of less than 30% without consulting my pre-mortem rationale.</li>
+      <li>I will not buy any product I cannot explain in three sentences.</li>
+      <li>I will not buy options or futures except for a hedge of a specific position I already hold, on a specific event with a specific window.</li>
+      <li>I will not work with anyone who calls themselves an "advisor" without first asking the three Chapter 17 questions.</li>
+      <li>I will not invest in anything offering returns inconsistent with the underlying asset class.</li>
+      <li>I will not respond to urgency. Every legitimate financial decision survives 30 days of consideration.</li>
+      <li>I will not make material allocation changes more than once per year.</li>
+    </ul>
+  </div>
+  <h3><span class="subnum">18.5</span> The closing argument</h3>
+  <p>The single observation that ties this book to the six before it: <em>most of what makes someone wealthy over a working life is not optimisation, it is the absence of large mistakes.</em> Books 1-6 taught you what to do. This book taught you what to avoid. Of the two, the avoidance work is harder, less glamorous, and worth more.</p>
+  <p>The investor who does the Book 1-6 work and skips this book will, with high probability, make one of the mistakes catalogued here within five years. Selling at the 2008 bottom. Buying weekly options because a friend made money. Putting bonds in their Roth. Trusting a "wealth manager" with a Hindu-Italian-suit demeanour. Buying a token because a YouTuber praised it. The mistakes are common, the costs are large, and they are largely preventable.</p>
+  <p>You will not avoid every mistake. Markets will surprise you. A regulator will fail. A friend will lose money in a scheme you couldn't talk them out of. You will, despite the IPS, panic in some future drawdown and consider selling. The framework above is designed for that imperfection. It does not require you to be rational; it requires you to be slow. Slow enough to consult the checklist. Slow enough to re-read the IPS. Slow enough to ask the three questions before signing the form.</p>
+  <p>Speed is the friend of the salesperson, the scammer, the bias, and the bear-market panic. Slowness is yours.</p>
+  <div class="hook" style="margin-top:2em;">
+    <em>"The first rule of compounding: never interrupt it unnecessarily." — Charlie Munger</em>
+  </div>
+  <div class="lo">
+    <b>Learning objectives</b>
+    <ol><li>State the eight questions of the defensive framework and which earlier chapter each draws from.</li>
+    <li>Describe the two-minute monthly review and the annual review.</li>
+    <li>Sign your written prohibitions list, in this book or on a separate page.</li>
+    <li>State the closing argument in one sentence of your own words.</li></ol>
+  </div>
+  <div class="sc">
+    <b>Self-check (the only one that matters)</b>
+    <ol><li>Have you written your IPS?</li>
+    <li>Have you scheduled your annual review?</li>
+    <li>Have you signed your prohibitions list?</li>
+    <li>If "yes" to all three: you are now defended better than 95% of retail investors. The remaining work is patience.</li></ol>
+  </div>
+</section>
+
+<!-- ===================== GLOSSARY ===================== -->
+<section class="sheet" id="glossary" data-part="Back Matter" data-chapter="Glossary">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Back Matter · A</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Glossary</h2>
+  </div>
+  <dl style="columns:2;column-gap:2em;font-size:.92rem;line-height:1.55;">
+    <dt><b>Anchoring</b></dt><dd>Cognitive bias: first number encountered becomes the reference for subsequent judgements (Ch 11).</dd>
+    <dt><b>Asset location</b></dt><dd>Decision about which tax shell holds which asset class (Ch 8).</dd>
+    <dt><b>Behaviour gap</b></dt><dd>Empirical fact that fund investors earn less than the funds they hold, due to mis-timed entries and exits.</dd>
+    <dt><b>Call option</b></dt><dd>Right (not obligation) to buy underlying at strike by expiry (Ch 3).</dd>
+    <dt><b>Capital gains tax</b></dt><dd>Tax on the profit from selling an appreciated asset; rate depends on holding period (Ch 7).</dd>
+    <dt><b>Cash-secured put</b></dt><dd>Selling a put with the cash to buy the shares reserved; a buy-discipline strategy (Ch 4).</dd>
+    <dt><b>Confirmation bias</b></dt><dd>Tendency to seek information that supports one's existing view and discount contradicting evidence (Ch 11).</dd>
+    <dt><b>Covered call</b></dt><dd>Selling a call against shares already owned; a sell-discipline strategy (Ch 4).</dd>
+    <dt><b>Delta</b></dt><dd>Sensitivity of option price to $1 move in underlying (Ch 3).</dd>
+    <dt><b>Derivative</b></dt><dd>Contract whose value derives from an underlying asset (Ch 1).</dd>
+    <dt><b>Disposition effect</b></dt><dd>Tendency to sell winners early and hold losers; opposite of tax-efficient (Ch 11).</dd>
+    <dt><b>FIFO</b></dt><dd>First-in-first-out share-identification method; default in many jurisdictions (Ch 7).</dd>
+    <dt><b>Fiduciary</b></dt><dd>Legally required to act in client's best interest; opposite of suitability-standard (Ch 17).</dd>
+    <dt><b>Futures contract</b></dt><dd>Standardised, exchange-traded forward; daily mark-to-market (Ch 2).</dd>
+    <dt><b>Gamma</b></dt><dd>Rate of change of delta with respect to underlying price (Ch 3).</dd>
+    <dt><b>Hedging</b></dt><dd>Using derivatives to offset risk in an existing position (Ch 1).</dd>
+    <dt><b>Investment Policy Statement (IPS)</b></dt><dd>Written one-page document specifying allocation, contribution, rebalancing, and prohibitions (Ch 13, 18).</dd>
+    <dt><b>Iron condor</b></dt><dd>Combination of bull put spread and bear call spread; a range-bound bet (Ch 4).</dd>
+    <dt><b>LTCG</b></dt><dd>Long-Term Capital Gains; preferential tax rate after qualifying holding period (Ch 7).</dd>
+    <dt><b>Loss aversion</b></dt><dd>Losses experienced 2-2.5× more intensely than equivalent gains (Ch 11).</dd>
+    <dt><b>Mark-to-market</b></dt><dd>Daily settlement of P&amp;L on a futures position (Ch 2).</dd>
+    <dt><b>Notional</b></dt><dd>Underlying-asset value controlled by a derivative position (Ch 1).</dd>
+    <dt><b>PFIC</b></dt><dd>Passive Foreign Investment Company; punitive US tax treatment for non-US funds (Ch 10).</dd>
+    <dt><b>Ponzi scheme</b></dt><dd>Fraud paying "returns" to existing investors from new investor inflows under pretence of investment (Ch 15).</dd>
+    <dt><b>Premium</b></dt><dd>Up-front payment for an option contract (Ch 3).</dd>
+    <dt><b>Protective put</b></dt><dd>Buying a put against an owned position to limit downside; portfolio insurance (Ch 4).</dd>
+    <dt><b>Put option</b></dt><dd>Right (not obligation) to sell underlying at strike by expiry (Ch 3).</dd>
+    <dt><b>Pyramid scheme</b></dt><dd>Fraud paying explicit recruitment commissions; collapses when recruits exhausted (Ch 15).</dd>
+    <dt><b>Recency bias</b></dt><dd>Over-weighting recent returns when forecasting future returns (Ch 11).</dd>
+    <dt><b>Rho</b></dt><dd>Sensitivity of option price to interest-rate changes (Ch 3).</dd>
+    <dt><b>RIA</b></dt><dd>Registered Investment Adviser; fiduciary standard in US and India (Ch 17).</dd>
+    <dt><b>Rug pull</b></dt><dd>Crypto fraud where team dumps majority-held supply on retail buyers (Ch 16).</dd>
+    <dt><b>STCG</b></dt><dd>Short-Term Capital Gains; ordinary or near-ordinary tax rate (Ch 7).</dd>
+    <dt><b>Step-up in basis</b></dt><dd>US: appreciated assets receive new market-value basis at owner's death (Ch 10).</dd>
+    <dt><b>Strike price</b></dt><dd>The price at which an option may be exercised (Ch 3).</dd>
+    <dt><b>Suitability standard</b></dt><dd>Lower standard than fiduciary; product must be "suitable" but may pay highest commission (Ch 17).</dd>
+    <dt><b>Tax-loss harvesting (TLH)</b></dt><dd>Realising losses to offset gains while maintaining market exposure via a substitute (Ch 9).</dd>
+    <dt><b>Theta</b></dt><dd>Time decay; daily loss of option value due to time passing (Ch 3).</dd>
+    <dt><b>ULIP</b></dt><dd>Unit-Linked Insurance Plan (India); insurance-wrapped investment with high embedded fees (Ch 17).</dd>
+    <dt><b>Underlying</b></dt><dd>The asset whose price determines a derivative's payoff (Ch 1).</dd>
+    <dt><b>Vega</b></dt><dd>Sensitivity of option price to implied volatility (Ch 3).</dd>
+    <dt><b>Wash sale</b></dt><dd>US: disallowed loss when substantially identical security bought within 30 days of sale (Ch 9).</dd>
+  </dl>
+</section>
+
+<!-- ===================== SOURCES ===================== -->
+<section class="sheet" id="sources" data-part="Back Matter" data-chapter="Sources &amp; Further Reading">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Back Matter · B</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Sources &amp; Further Reading</h2>
+  </div>
+  <h3>Foundational reading</h3>
+  <ul>
+    <li>Kahneman, D. (2011). <em>Thinking, Fast and Slow.</em> The behavioural-finance canon.</li>
+    <li>Thaler, R. (2015). <em>Misbehaving.</em> A practitioner's history of the field.</li>
+    <li>Hull, J. (10th ed., 2017). <em>Options, Futures, and Other Derivatives.</em> The standard text.</li>
+    <li>Bogle, J. C. (2017). <em>The Little Book of Common Sense Investing.</em> Behavioural defence by way of structural discipline.</li>
+  </ul>
+  <h3>Empirical studies cited</h3>
+  <ul>
+    <li>Barber, B. M., &amp; Odean, T. (2000). "Trading is Hazardous to Your Wealth." <em>Journal of Finance</em>, 55(2).</li>
+    <li>Shefrin, H., &amp; Statman, M. (1985). "The Disposition to Sell Winners Too Early and Ride Losers Too Long." <em>Journal of Finance</em>, 40(3).</li>
+    <li>Tversky, A., &amp; Kahneman, D. (1979). "Prospect Theory." <em>Econometrica</em>, 47(2).</li>
+    <li>Bryzgalova, S., Pavlova, A., &amp; Sikorskaya, T. (2024). "Retail Trading in Options and the Rise of the Big Three Wholesalers." <em>Journal of Finance</em>.</li>
+    <li>Thaler, R. H., &amp; Benartzi, S. (1995). "Myopic Loss Aversion and the Equity Premium Puzzle." <em>QJE</em>.</li>
+    <li>Khang, K., Cici, G., &amp; Gibson, S. (2020). "Tax-Loss Harvesting Under Uncertainty." Working paper.</li>
+    <li>Dalbar (annual). "Quantitative Analysis of Investor Behavior." Average equity-fund investor underperformance vs. funds held.</li>
+  </ul>
+  <h3>Regulatory references</h3>
+  <ul>
+    <li>SEBI: Registered Investment Advisers (Amendment) Regulations, 2020.</li>
+    <li>SEBI Order in matter of Saradha Realty India Limited and Ors., 2013.</li>
+    <li>SEBI Order in matter of PACL Limited, 2014.</li>
+    <li>SEC Press Release 2008-293, "SEC Charges Bernard L. Madoff for Multi-Billion Dollar Ponzi Scheme."</li>
+    <li>FTC (2018). Multi-Level Marketing Income Disclosure Studies summary.</li>
+    <li>IRS Publication 550 (Investment Income and Expenses); IRS Publication 590-A/B (IRAs).</li>
+    <li>FCA ScamSmart unauthorised-firms warning list (ongoing).</li>
+  </ul>
+  <h3>Case-history reading</h3>
+  <ul>
+    <li>Markopolos, H. (2010). <em>No One Would Listen.</em> The Madoff whistleblower's account.</li>
+    <li>Leeson, N. (1996). <em>Rogue Trader.</em> The Barings collapse in his own words.</li>
+    <li>Lewis, M. (2010). <em>The Big Short.</em> The 2008 cycle of denial, fear, and capitulation.</li>
+    <li>Lewis, M. (2023). <em>Going Infinite.</em> The FTX collapse.</li>
+  </ul>
+  <p style="margin-top:1.6em;font-style:italic;color:#4E483D;">Verified web sources, regulator filings, and original academic papers were consulted in 2025-26. Tax figures, rates, and statutory thresholds reflect rules current as of the 2025-26 financial year and are illustrative only; verify against current law before acting.</p>
+</section>
+
+<!-- ===================== COLOPHON ===================== -->
+<section class="sheet" data-part="Back Matter" data-chapter="Colophon">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Colophon</span><span class="cline"></span></div>
+    <h2 class="chapter-title" style="font-size:2rem;">A Note on This Book</h2>
+  </div>
+  <p>Book Seven is the seventh of eight in the <em>Money, Mastered</em> series. The series progresses from foundational concepts (Book 1: Money From Zero) through assets, market mechanics, fundamental and technical analysis, and portfolio construction, to the defensive material in this volume and the wealth-protection synthesis to come in Book 8.</p>
+  <p>The voice throughout is intentionally direct. The financial industry profits, in aggregate, from a fog of complexity and respect-the-expert convention. Stripping the fog is most of the work. The math is not hard, the principles are not many, and the largest single source of poor outcomes is not market behaviour but the gap between what people say about money and what is actually true.</p>
+  <p>Set in Fraunces (display, 900), Spectral (body), Archivo (small-caps furniture), and JetBrains Mono (code &amp; numbers). Single accent in warm gold (#8A6A23) on warm paper (#F6F0E2), with ink (#1E1A15) and ink-soft (#4E483D) for type. The design is unchanged from Books 1-6; consistency across the series is itself part of the argument.</p>
+  <p style="margin-top:2em;font-style:italic;color:#4E483D;">— End of Book Seven —</p>
+</section>
+
+
+
+</body>
+</html>

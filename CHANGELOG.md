@@ -69,6 +69,18 @@ The single-session growth of Book 5, captured for the record. Each entry below w
 
 *Updated at the end of each major commit batch. For the full commit log see `git log --oneline`.*
 
+## 2026 — Book 7 first release
+
+| Milestone | Pages | Chapters | Parts | Notable additions |
+|---|---:|---:|---:|---|
+| Book 7 — Derivatives, Tax, Psychology &amp; Safety initial release | 89 | 18 | 5 | The defensive volume of the series |
+
+**Coverage**: Part I — Derivatives Without the Mystique (forwards, futures, options calls/puts, options strategies, how derivatives go wrong — with Vikram options-income disaster vignette and Barings 1995 disaster sidebar). Part II — Tax Without the Headache (income streams, short-term vs long-term capital gains with worked deferral calc, tax-advantaged accounts revisited, TLH in practice with wash-sale traps, international and estate including PFICs and step-up in basis). Part III — Psychology, Your Real Adversary (the dozen biases with Barber-Odean evidence, the nine-stage emotional cycle, the IPS-driven anti-fragile habit stack — with Ravi's March-2020 vignette). Part IV — Safety, Recognising the Cons (the five universal markers applied to Madoff, Ponzi vs. pyramid mechanics with Saradha/PACL/Sahara case studies, modern variants from rug pulls to pig-butchering to FTX, the salesperson-disguised-as-advisor problem with Priya's ULIP vignette). Part V — A Defensive Framework (the eight-question checklist, two-minute monthly review, annual review, written prohibitions).
+
+**Cross-references** to Books 1-6 throughout: Seven Principles card revisited from Book 1; Book 5 Chapter 18 Vikram vignette echoed in Chapter 5; Book 6 asset-location framework re-grounded in Chapter 8.
+
+---
+
 ## 2026 — Book 6 first release
 
 | Milestone | Pages | Chapters | Words | Real charts |
