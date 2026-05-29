@@ -8,7 +8,7 @@
   <em>From Book 1 — the real growth of $1 in the S&amp;P 500 from 1927 to today, with the future-value formula and a worked numeric calculation alongside.</em>
 </p>
 
-> **There's also a landing page.** Open [`index.html`](index.html) for a styled overview with covers and one-click links to every book.
+> **There's a styled landing page** at **[chethanbhatbs.github.io/money-mastered](https://chethanbhatbs.github.io/money-mastered/)** — covers, blurbs, one-click links to every book.
 
 > ⚠️ **Education, not advice.** These books teach how money, markets and investing work in principle. They are **not** investment advice and recommend no specific security or product. Markets carry real risk including loss of capital; no return is guaranteed. Figures are illustrative. Verify current rules/figures for your country and situation, and consult a licensed/fiduciary professional before acting.
 
@@ -40,14 +40,14 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 
 ## How to read (three options)
 
-### 1 · Read in your browser (the best experience)
-Click any **Open** link in the tables above while signed in to GitHub. GitHub shows the source by default; to actually render the HTML, see *“Browser preview”* below — or download the file and open it locally (it’s a single self-contained HTML file with fonts and images embedded, no network needed).
+### 1 · In your browser
+Click any **Open** link in the table above — it opens the rendered book straight from [chethanbhatbs.github.io/money-mastered](https://chethanbhatbs.github.io/money-mastered/). No login, no download required.
 
 ### 2 · As a PDF (print or offline)
-Click any **Download PDF** link. The PDFs are print-ready (broadsheet margins, running headers/footers, page numbers). They open in any PDF reader, on any device.
+Click any **PDF** link. The PDFs are print-ready (broadsheet margins, running headers/footers, page numbers) and open in any PDF reader, on any device.
 
 ### 3 · Mobile
-The HTML files are responsive — they re-flow for phone screens. Download the file and open in your phone’s browser. PDFs work on every mobile PDF reader; the HTML often reads more comfortably.
+The HTML files are responsive — they re-flow for phone screens. The PDFs work on every mobile PDF reader; the HTML usually reads more comfortably.
 
 ---
 
@@ -64,10 +64,6 @@ If GitHub Pages is ever unavailable, the same files render via:
 - **Cloudflare Pages / Netlify** — deploy configs are already in `netlify.toml`, `_headers`, and `_redirects` for a custom domain. See [DEPLOY.md](DEPLOY.md).
 
 > *(Avoid `cdn.jsdelivr.net` for HTML — they serve it as `text/plain`, which makes browsers show the source instead of rendering.)*
-
-### 3. Permanent custom URL via Cloudflare Pages or Netlify
-
-If you want a memorable URL like `https://money-mastered.pages.dev/` (with short aliases like `/book5` and `/book5.pdf`), the deployment configs are already in place. See **[DEPLOY.md](DEPLOY.md)** for the 3-minute setup. Auto-deploys on every push.
 
 ---
 
