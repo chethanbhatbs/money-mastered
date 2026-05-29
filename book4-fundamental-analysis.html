@@ -302,6 +302,35 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .roadmap .bk.here{font-weight:700;color:var(--accent-deep);}
 .roadmap .bk.here .tag{color:var(--accent);}
 
+
+/* Editorial layer */
+.cast{margin:1.6em 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.cast .person{border:1px solid var(--ink);background:#FCFBF7;padding:14px 16px;}
+.cast .person h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .15em;color:var(--ink);}
+.cast .person .age{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.cast .person p{font-size:.92rem;color:var(--ink-soft);margin:.4em 0 0;}
+@media(max-width:680px){.cast{grid-template-columns:1fr;}}
+.vignette{margin:1.4em 0;border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 22px;}
+.vignette .vtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.vignette .vname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.disaster{margin:1.4em 0;border-left:4px solid #a44;background:#FAF1ED;padding:14px 22px;}
+.disaster .dtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a44;margin-bottom:.4em;}
+.disaster .dname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.historybox{margin:1.4em 0;border:1px solid var(--ink);background:#F6F0E2;padding:16px 22px;}
+.historybox .htag2{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.historybox .hyear{font-family:'Fraunces',serif;font-weight:900;font-size:2.2rem;color:var(--accent-deep);line-height:1;float:right;margin:0 0 8px 18px;}
+.historybox h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .35em;font-size:1.15rem;}
+.historybox p{margin:.3em 0;font-size:.95rem;color:var(--ink-soft);}
+.profile{margin:1.4em 0;border:1px solid var(--ink);background:#FCFBF7;padding:16px 22px;display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;}
+.profile .pcoin{width:80px;height:80px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;color:var(--accent-deep);background:#fff;}
+.profile .pcontent .ptag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.2em;}
+.profile h4{font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;margin:0 0 .35em;}
+.profile p{margin:.35em 0;font-size:.95rem;color:var(--ink-soft);}
+.contrarian{margin:1.4em 0;padding:18px 22px;background:var(--ink);color:#F6F0E2;}
+.contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
+.contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
+.hook{margin:0 0 1.2em;font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--ink-soft);line-height:1.5;border-left:3px solid var(--accent);padding-left:18px;}
 </style>
 </head>
 <body>
@@ -466,6 +495,13 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   </div>
   <p class="drop">Imagine you co-own a small shop with a partner. Every day this partner shouts a price at which he'll either buy your half or sell you his. Some days he's euphoric and names a wildly high price; other days he's gloomy and offers to sell his half for almost nothing. The shop itself hasn't changed — only his mood. Would you let his daily mood tell you what your shop is worth? Of course not. Yet that is exactly how most people treat the stock market.</p>
 
+  
+<div class="vignette">
+  <span class="vtag">Ravi &mdash; Reading His First 10-K</span>
+  <p><span class="vname">Ravi, now 26 and four years into investing,</span> wants to understand <em>why</em> his S&amp;P 500 index fund holds what it holds. He downloads Microsoft's annual 10-K and opens it for the first time. It's 200+ pages. He gives up at page 8.</p>
+  <p>This book teaches him to start differently. Don't read the 10-K front-to-back. Read four things: (1) the income statement summary in the MD&amp;A section, (2) the segment reporting (where the revenue actually comes from), (3) the risk factors (what management is officially worried about), and (4) the management discussion of competitive position. That's 25-30 pages, the durable content. The rest is mostly legal and accounting plumbing. By Chapter 16 of this book, Ravi can read a 10-K's important bits in an hour, and he understands &mdash; really understands &mdash; why his index fund holds Microsoft, what could go wrong, and what would have to be true for him to <em>not</em> own it.</p>
+</div>
+
   <h3><span class="subnum">1.1</span> The Difference Between Price and Value</h3>
   <p><strong>Price</strong> is what you pay for a share today — set, moment to moment, by the hopes and fears of millions of buyers and sellers. <strong>Value</strong> (often called <em>intrinsic value</em>) is what the underlying business is actually worth, based on the cash it can produce over its lifetime. The two are related but frequently far apart: a great business can be wildly overpriced, and a sound business can be irrationally cheap. Fundamental analysis exists to estimate <em>value</em>, so that you can judge whether today's <em>price</em> is a bargain, a fair deal, or a trap. As the famous line has it: price is what you pay; value is what you get.</p>
   <figure>
@@ -493,6 +529,13 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     </div>
     <figcaption><b>Two different things.</b> Value (the dark line) reflects the slow reality of the business; price (the gold line) lurches around it on emotion and news. The investor's edge is to know roughly where the value line is, so the price swings become opportunities — buy when price dips well below value — rather than a source of panic.</figcaption>
   </figure>
+
+  
+<div class="vignette">
+  <span class="vtag">Priya &mdash; Evaluating an Active Fund</span>
+  <p><span class="vname">Priya's bank suggests she switch from her index fund</span> into the bank's "actively managed multi-cap" fund. The brochure shows 3-year returns of 18% per year &mdash; better than the index's 14%. The fee is 1.8%. Priya is tempted.</p>
+  <p>This book gives her the tools to actually evaluate it. She pulls the fund's portfolio: 60% of assets in three mega-cap stocks (concentration risk). She pulls the fund's full history: 7 of 10 years it underperformed the index after fees. She pulls the persistence data (Book 2 Ch 14): the fund's recent outperformance is not statistically distinguishable from luck. She calculates the fee compounding over her 20-year horizon: ~30% of the final pot. She declines politely. The bank's relationship manager is disappointed. Priya saves about $90,000 in expected future fees by reading one book.</p>
+</div>
 
   <h3><span class="subnum">1.2</span> Treat the Market as a Moody Partner</h3>
   <p>The shop-partner story is the famous parable of “Mr. Market,” and it's the healthiest mental model an investor can adopt. The market is not a wise oracle telling you what a business is worth; it is an emotional partner offering you prices, which you are completely free to accept or ignore. When Mr. Market is euphoric and offers absurdly high prices, you may sell to him; when he's despairing and offers great businesses for a song, you may buy. Crucially, you are <em>never obliged to trade</em> just because he quoted a price. This reframing turns the market's volatility from a threat into a servant: its mood swings exist to occasionally offer <em>you</em> a good deal, not to tell you the truth about value.</p>
