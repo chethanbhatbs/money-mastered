@@ -331,6 +331,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
 .contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
 .hook{margin:0 0 1.2em;font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--ink-soft);line-height:1.5;border-left:3px solid var(--accent);padding-left:18px;}
+
+/* The Seven Principles — series-wide framework */
+.principles{margin:2em 0;border:2px solid var(--ink);background:#FCFBF7;padding:24px 28px;}
+.principles .phead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:700;color:var(--accent);margin-bottom:.6em;display:block;}
+.principles .ptitle{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:0 0 .6em;letter-spacing:-0.01em;}
+.principles ol{list-style:none;counter-reset:p;padding:0;margin:0;}
+.principles ol li{counter-increment:p;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:.55em 0;border-top:1px solid var(--hair);align-items:start;}
+.principles ol li::before{content:counter(p);font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--accent-deep);text-align:center;line-height:1;}
+.principles ol li:first-child{border-top:none;padding-top:0;}
+.principles ol li .pn{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;color:var(--ink);display:block;}
+.principles ol li .pb{font-size:.95rem;color:var(--ink-soft);margin-top:.15em;display:block;}
+.pref{display:inline-block;font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;padding:1px 6px;border:1px solid var(--accent);margin:0 4px;vertical-align:1px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -467,6 +479,21 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <div class="ornament"></div>
   <p style="text-align:center;font-style:italic;color:var(--ink-soft);">Let's begin with the single idea that separates investing from gambling: the difference between price and value.</p>
 </section>
+
+<div class="principles" style="padding:18px 22px;">
+  <span class="phead">Recall · the seven principles from Book 1</span>
+  <h3 class="ptitle" style="font-size:1.15rem;margin:0 0 .6em;">The mental models this book leans on most.</h3>
+  <ol style="margin-top:.2em;">
+    <li><span></span><span><span class="pn">Return follows risk</span> <span class="pb" style="display:inline;"> &middot; no exceptions, anywhere, ever.</span></span></li>
+    <li><span></span><span><span class="pn">Time beats timing</span> <span class="pb" style="display:inline;"> &middot; years invested &gt; markets timed.</span></span></li>
+    <li><span></span><span><span class="pn">Costs compound</span> <span class="pb" style="display:inline;"> &middot; every basis point against you over decades.</span></span></li>
+    <li><span></span><span><span class="pn">Diversification buys survival</span> <span class="pb" style="display:inline;"> &middot; survival > maximisation.</span></span></li>
+    <li><span></span><span><span class="pn">Price and value are different</span> <span class="pb" style="display:inline;"> &middot; market quotes prices, not values.</span></span></li>
+    <li><span></span><span><span class="pn">Behaviour dominates analysis</span> <span class="pb" style="display:inline;"> &middot; your discipline > your stock picks.</span></span></li>
+    <li><span></span><span><span class="pn">Complexity is expensive</span> <span class="pb" style="display:inline;"> &middot; if you need a paragraph to explain it, you don't own it.</span></span></li>
+  </ol>
+</div>
+
 
 <!-- ===================== PART I DIVIDER ===================== -->
 <section class="divider">
@@ -1343,7 +1370,24 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <p style="margin-bottom:0;">Beginners confuse a hot product, a clever idea, or rapid growth with a moat — but none of those, by itself, stops competitors. Brilliant products get copied; fast growth attracts a stampede of rivals. The question is never “is this impressive <em>now</em>?” but “what stops others from doing the same and competing the profits away?” Many a dazzling company with no real moat has watched its profits erode the moment competitors arrived. Demand a durable defence, not just a good year.</p>
   </div>
 
-  <div class="takeaways">
+
+<h3><span class="subnum">10.5</span> Moats, in Real Businesses</h3>
+<p>Abstract definitions of moats only become useful when you can identify them in real businesses you know. Four examples from companies the average reader has interacted with this week:</p>
+
+<p><strong>Coca-Cola &mdash; brand moat.</strong> Coca-Cola is mostly carbonated sugar water; the production cost is trivial. A competitor could match the formula in a week. So why has Coke earned 25%+ operating margins for a century? Because over 130 years the brand &mdash; the red can, the typography, the global ubiquity, the emotional association with celebration and refreshment &mdash; has been built into hundreds of millions of customers' habits. Pepsi has spent $50 billion trying to displace it and failed. The moat isn't the syrup; it's the synapses in your head that fire when you see the logo. Warren Buffett bought 9% of Coke in 1988 for \$1.3 billion; that stake is worth \$25+ billion today and continues to pay him roughly \$700 million/year in dividends alone. The moat hasn't eroded in 35 years.</p>
+
+<p><strong>Costco &mdash; scale and culture moat.</strong> Costco's "moat" is something most people would not recognise as one: it sells groceries and household goods on the world's tightest margins (15% gross, vs 25-35% for typical grocers), pays its workers far more than competitors, and charges members \$60/year for the privilege of shopping there. The membership fee &mdash; roughly \$4 billion per year &mdash; is almost the entirety of operating profit. The merchandise pays for itself. The result: customers love it, employees stay, suppliers offer Costco better terms because of the predictable volume, and competitors (Sam's Club, BJ's) can't match the unit economics without sacrificing their own scale advantage elsewhere. Costco's stock has compounded at ~14% per year for thirty years on a business model that, on paper, looks unimpressive.</p>
+
+<p><strong>Visa &mdash; network effect moat.</strong> When you swipe a Visa card, four parties are involved: you, your bank, the merchant, and the merchant's bank. Visa earns roughly 0.15% of every transaction by sitting in the middle &mdash; not as a lender, not as a bank, but as the rail. Why can't a competitor build the same rail? Because the network is the moat. Visa is accepted at virtually every merchant in every country precisely because every consumer has a Visa card; consumers carry Visa cards precisely because every merchant takes them. A new entrant has to solve a chicken-and-egg problem so large that even American Express, JP Morgan, and PayPal have not displaced Visa in thirty years. Visa's gross margin: <em>97%</em>. It's the most profitable big business in the world that almost nobody thinks about.</p>
+
+<p><strong>ASML &mdash; technology moat.</strong> ASML, a Dutch company most consumers have never heard of, makes the only machines on Earth that can produce the most advanced semiconductors &mdash; the chips inside every modern phone, every AI accelerator, every advanced GPU. The machines cost roughly \$200 million each and take years to build. Competitors don't exist; the closest non-ASML technology is roughly a decade behind. The moat is twenty-plus years of cumulative scientific R&amp;D, patent thickets, and tight relationships with TSMC, Samsung, and Intel. Without ASML, the modern semiconductor industry simply stops. ASML earns operating margins of 35% on \$30 billion of revenue, and the world's largest tech companies queue up to buy whatever ASML can produce.</p>
+
+<p>The four moats &mdash; <em>brand</em>, <em>scale</em>, <em>network effect</em>, <em>technology</em> &mdash; map roughly onto the categories of Chapter 10.1. The point of seeing them in real businesses is not to memorise the examples; it is to learn to <em>look for moats</em> when you analyse any company. Most companies don't have one. The few that do are the ones worth owning at fair prices.</p>
+
+<p><span class="pref">P5</span> The principle from Book 1: price and value are different. A moat is one of the few things that makes a business genuinely <em>more valuable</em> than its current earnings suggest &mdash; because the earnings will compound. Without a moat, today's high earnings get competed away.</p>
+
+
+    <div class="takeaways">
     <span class="htag">Key Takeaways</span>
     <ol>
       <li><strong>High profits attract competition;</strong> a moat is the durable advantage that protects them.</li>

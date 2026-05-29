@@ -331,6 +331,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .disaster{margin:1.4em 0;border-left:4px solid #a44;background:#FAF1ED;padding:14px 22px;}
 .disaster .dtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a44;margin-bottom:.4em;}
 .disaster .dname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+
+/* The Seven Principles — series-wide framework */
+.principles{margin:2em 0;border:2px solid var(--ink);background:#FCFBF7;padding:24px 28px;}
+.principles .phead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:700;color:var(--accent);margin-bottom:.6em;display:block;}
+.principles .ptitle{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:0 0 .6em;letter-spacing:-0.01em;}
+.principles ol{list-style:none;counter-reset:p;padding:0;margin:0;}
+.principles ol li{counter-increment:p;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:.55em 0;border-top:1px solid var(--hair);align-items:start;}
+.principles ol li::before{content:counter(p);font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--accent-deep);text-align:center;line-height:1;}
+.principles ol li:first-child{border-top:none;padding-top:0;}
+.principles ol li .pn{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;color:var(--ink);display:block;}
+.principles ol li .pb{font-size:.95rem;color:var(--ink-soft);margin-top:.15em;display:block;}
+.pref{display:inline-block;font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;padding:1px 6px;border:1px solid var(--accent);margin:0 4px;vertical-align:1px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -491,6 +503,75 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   </div>
 
   <p>Three lives. The same eight books. By the end you will see how the same decisions look completely different at each life stage — and how the principles that connect them turn out to be far simpler than the financial industry would like you to believe.</p>
+</section>
+
+
+
+<!-- ===================== THE SEVEN PRINCIPLES ===================== -->
+<section class="sheet" id="principles" data-part="Front Matter" data-chapter="The Seven Principles">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title">The Seven Principles</h2>
+    <p class="lead">Across eight books you will meet thousands of facts, hundreds of formulas, dozens of charts. Most of that detail will fade in the months after you finish. Seven principles will remain. They are the mental models that the rest of the series is built around, and the only ideas worth carrying forward unmodified into the next decade of your financial life. Internalise these seven and most of the bad decisions of personal finance disappear from your future.</p>
+  </div>
+
+  <div class="principles">
+    <span class="phead">The Series · seven recurring mental models</span>
+    <h3 class="ptitle">If you remember only these &mdash; you will be ahead of 90% of investors.</h3>
+    <ol>
+      <li>
+        <span><!-- counter --></span>
+        <span>
+          <span class="pn">Return follows risk.</span>
+          <span class="pb">There is no high return without high risk, anywhere, ever. Anyone selling you "high return, no risk" is selling you a misunderstanding or a fraud. The corollary: if you want low risk, accept low return — it's not a defect.</span>
+        </span>
+      </li>
+      <li>
+        <span></span>
+        <span>
+          <span class="pn">Time beats timing.</span>
+          <span class="pb">The 20-year-old saving $200/month outperforms the 35-year-old saving $400/month at the same return — because compounding rewards <em>duration</em> more than amount. Years invested matter more than markets timed.</span>
+        </span>
+      </li>
+      <li>
+        <span></span>
+        <span>
+          <span class="pn">Costs compound.</span>
+          <span class="pb">A 1% fee invisible today becomes 22% of your portfolio gone in 30 years. Taxes work the same way. Every basis point of unnecessary cost compounds against you exactly as your money compounds for you.</span>
+        </span>
+      </li>
+      <li>
+        <span></span>
+        <span>
+          <span class="pn">Diversification buys survival.</span>
+          <span class="pb">Owning one stock is gambling. Owning a thousand is investing. The point of diversification is not to maximise return — it is to make sure you survive long enough to capture the return that compounding promises.</span>
+        </span>
+      </li>
+      <li>
+        <span></span>
+        <span>
+          <span class="pn">Price and value are different.</span>
+          <span class="pb">A great business at a foolish price is a bad investment. A mediocre business at a clear-eyed price is sometimes excellent. The market quotes prices constantly. Value has to be estimated — and is what you should pay for.</span>
+        </span>
+      </li>
+      <li>
+        <span></span>
+        <span>
+          <span class="pn">Behaviour dominates analysis.</span>
+          <span class="pb">The average mutual-fund investor underperforms the mutual fund they own — every year, by every measure. The gap is behaviour: buying after good returns, selling after bad ones. Your own discipline matters more than your stock picks.</span>
+        </span>
+      </li>
+      <li>
+        <span></span>
+        <span>
+          <span class="pn">Complexity is expensive.</span>
+          <span class="pb">If a financial product needs more than one paragraph to explain, you probably don't understand it well enough to own it. The simplest portfolio that solves your problem is almost always also the cheapest and the most resilient.</span>
+        </span>
+      </li>
+    </ol>
+  </div>
+
+  <p style="margin-top:1.8em;">You will see these principles referenced inline through this book and the seven that follow, marked with a small <span class="pref">P3</span> or <span class="pref">P5</span> tag in the margin. When you see one, that paragraph is making the principle concrete. By the end of Book Eight you will have seen each of them illustrated a dozen times in different shapes. That repetition is the point.</p>
 </section>
 
 

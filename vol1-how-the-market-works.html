@@ -319,6 +319,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .disaster{margin:1.4em 0;border-left:4px solid #a44;background:#FAF1ED;padding:14px 22px;}
 .disaster .dtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a44;margin-bottom:.4em;}
 .disaster .dname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+
+/* The Seven Principles — series-wide framework */
+.principles{margin:2em 0;border:2px solid var(--ink);background:#FCFBF7;padding:24px 28px;}
+.principles .phead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:700;color:var(--accent);margin-bottom:.6em;display:block;}
+.principles .ptitle{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:0 0 .6em;letter-spacing:-0.01em;}
+.principles ol{list-style:none;counter-reset:p;padding:0;margin:0;}
+.principles ol li{counter-increment:p;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:.55em 0;border-top:1px solid var(--hair);align-items:start;}
+.principles ol li::before{content:counter(p);font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--accent-deep);text-align:center;line-height:1;}
+.principles ol li:first-child{border-top:none;padding-top:0;}
+.principles ol li .pn{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;color:var(--ink);display:block;}
+.principles ol li .pb{font-size:.95rem;color:var(--ink-soft);margin-top:.15em;display:block;}
+.pref{display:inline-block;font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;padding:1px 6px;border:1px solid var(--accent);margin:0 4px;vertical-align:1px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -362,6 +374,13 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <h2 class="chapter-title" style="font-size:2.2rem;">A Sober Word</h2>
   </div>
   <p class="lead" style="font-size:1.25rem;">This volume teaches how the market <em>works</em>. It does not teach you to trade, and it will not make you rich by Friday. Please carry these four truths into every page.</p>
+  
+<div class="vignette">
+  <span class="vtag">Ravi &mdash; Opening His First Demat Account</span>
+  <p><span class="vname">Ravi, now 24, finally opens a brokerage account.</span> Not because he plans to trade stocks &mdash; he learned in Book 2 that he shouldn't &mdash; but because his mutual-fund SIP got transferred to a demat-linked platform and he had to.</p>
+  <p>His broker offers him: derivatives access, intraday margin, an "expert calls" subscription at $30/month, a margin trading facility, and a "pre-IPO allocation" service for an additional fee. Ravi declines all of them. He pulls down the contract note for his first SIP purchase and reads it: $8.40 in total charges on a $1,000 purchase, or 0.84%. Once a year, no commitment, no leverage, no entanglement. <span class="pref">P3</span> Costs compound &mdash; and Ravi has just made sure his are minimal. The expert-calls subscription alone, at $360/year compounding against him for 30 years, would have cost him $30,000 in lost wealth.</p>
+</div>
+
   <p><strong>One — the market is genuinely risky.</strong> It is not a salary, a fixed deposit, or a slot machine with good odds. Prices fall as well as rise, sometimes violently, and some companies go to zero. Understanding the machinery (this book) reduces your <em>confusion</em>; it does not reduce the market's <em>risk</em>.</p>
   <p><strong>Two — the data on short-term trading is brutal.</strong> Regulatory studies in India have repeatedly found that the large majority of individual traders — especially in Futures &amp; Options — <em>lose</em> money after costs. The people getting rich from frantic trading are usually the ones selling courses, tips and brokerage, not the ones trading. We treat this honestly throughout the series.</p>
   <p><strong>Three — almost everything that works is boring.</strong> Diversify, keep costs low, invest regularly, hold for years, and control your emotions. None of it is exciting, and all of it is hard precisely because it is boring. If a strategy feels thrilling, treat the thrill as a warning light.</p>
@@ -565,6 +584,21 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <div class="selfcheck"><span class="htag">Self-Check</span><ol><li>In one sentence: what does limited liability protect, and what is your maximum loss as a shareholder?</li><li>If a company is wound up, rank by who is paid first: equity shareholders, lenders.</li><li>Why would almost no one buy shares in a world without limited liability?</li><li>Does owning a few shares let you give orders to management? Explain.</li></ol></div>
 </section>
+
+<div class="principles" style="padding:18px 22px;">
+  <span class="phead">Recall · the seven principles from Book 1</span>
+  <h3 class="ptitle" style="font-size:1.15rem;margin:0 0 .6em;">The mental models this book leans on most.</h3>
+  <ol style="margin-top:.2em;">
+    <li><span></span><span><span class="pn">Return follows risk</span> <span class="pb" style="display:inline;"> &middot; no exceptions, anywhere, ever.</span></span></li>
+    <li><span></span><span><span class="pn">Time beats timing</span> <span class="pb" style="display:inline;"> &middot; years invested &gt; markets timed.</span></span></li>
+    <li><span></span><span><span class="pn">Costs compound</span> <span class="pb" style="display:inline;"> &middot; every basis point against you over decades.</span></span></li>
+    <li><span></span><span><span class="pn">Diversification buys survival</span> <span class="pb" style="display:inline;"> &middot; survival > maximisation.</span></span></li>
+    <li><span></span><span><span class="pn">Price and value are different</span> <span class="pb" style="display:inline;"> &middot; market quotes prices, not values.</span></span></li>
+    <li><span></span><span><span class="pn">Behaviour dominates analysis</span> <span class="pb" style="display:inline;"> &middot; your discipline > your stock picks.</span></span></li>
+    <li><span></span><span><span class="pn">Complexity is expensive</span> <span class="pb" style="display:inline;"> &middot; if you need a paragraph to explain it, you don't own it.</span></span></li>
+  </ol>
+</div>
+
 
 <!-- ===================== CH 2 ===================== -->
 <section class="sheet" id="ch2" data-part="Part A · Ownership" data-chapter="Chapter 2 · What a Share Really Is">

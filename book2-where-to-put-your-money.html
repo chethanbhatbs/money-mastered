@@ -331,6 +331,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .disaster{margin:1.4em 0;border-left:4px solid #a44;background:#FAF1ED;padding:14px 22px;}
 .disaster .dtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:#a44;margin-bottom:.4em;}
 .disaster .dname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+
+/* The Seven Principles — series-wide framework */
+.principles{margin:2em 0;border:2px solid var(--ink);background:#FCFBF7;padding:24px 28px;}
+.principles .phead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:700;color:var(--accent);margin-bottom:.6em;display:block;}
+.principles .ptitle{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:0 0 .6em;letter-spacing:-0.01em;}
+.principles ol{list-style:none;counter-reset:p;padding:0;margin:0;}
+.principles ol li{counter-increment:p;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:.55em 0;border-top:1px solid var(--hair);align-items:start;}
+.principles ol li::before{content:counter(p);font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--accent-deep);text-align:center;line-height:1;}
+.principles ol li:first-child{border-top:none;padding-top:0;}
+.principles ol li .pn{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;color:var(--ink);display:block;}
+.principles ol li .pb{font-size:.95rem;color:var(--ink-soft);margin-top:.15em;display:block;}
+.pref{display:inline-block;font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;padding:1px 6px;border:1px solid var(--accent);margin:0 4px;vertical-align:1px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -574,6 +586,21 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <p style="margin-bottom:0;">Read <b>Chapter 14 — The Empirical Case for Indexing</b>. The SPIVA data and the fee-drag math together represent the single most evidence-backed recommendation in personal finance. Even if you choose differently, understanding why most professionals lose to indices is essential context.</p>
   </div>
 </section>
+
+<div class="principles" style="padding:18px 22px;">
+  <span class="phead">Recall · the seven principles from Book 1</span>
+  <h3 class="ptitle" style="font-size:1.15rem;margin:0 0 .6em;">The mental models this book leans on most.</h3>
+  <ol style="margin-top:.2em;">
+    <li><span></span><span><span class="pn">Return follows risk</span> <span class="pb" style="display:inline;"> &middot; no exceptions, anywhere, ever.</span></span></li>
+    <li><span></span><span><span class="pn">Time beats timing</span> <span class="pb" style="display:inline;"> &middot; years invested &gt; markets timed.</span></span></li>
+    <li><span></span><span><span class="pn">Costs compound</span> <span class="pb" style="display:inline;"> &middot; every basis point against you over decades.</span></span></li>
+    <li><span></span><span><span class="pn">Diversification buys survival</span> <span class="pb" style="display:inline;"> &middot; survival > maximisation.</span></span></li>
+    <li><span></span><span><span class="pn">Price and value are different</span> <span class="pb" style="display:inline;"> &middot; market quotes prices, not values.</span></span></li>
+    <li><span></span><span><span class="pn">Behaviour dominates analysis</span> <span class="pb" style="display:inline;"> &middot; your discipline > your stock picks.</span></span></li>
+    <li><span></span><span><span class="pn">Complexity is expensive</span> <span class="pb" style="display:inline;"> &middot; if you need a paragraph to explain it, you don't own it.</span></span></li>
+  </ol>
+</div>
+
 
 <!-- ===================== CH 2 ===================== -->
 <section class="sheet" id="ch2" data-part="Part I · The Ground Rules" data-chapter="Chapter 2 · The Two Ways to Make Money">
@@ -883,6 +910,13 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     </div>
     <figcaption><b>Where ownership is traded.</b> A stock exchange like this is simply a marketplace where slices of the world's businesses change hands — not a casino, however it's portrayed. When you buy a share, you join the ranks of a company's owners. <span class="credit">Photograph via Wikimedia Commons, used under a free licence.</span></figcaption>
   </figure>
+
+  
+<div class="vignette">
+  <span class="vtag">Ravi &mdash; First Equity Exposure</span>
+  <p><span class="vname">Ravi has been saving $300 a month for six months.</span> The $1,800 sits in his savings account at 3%. His SIP into a balanced mutual fund his bank recommended has gained $40. He's about to receive a $1,200 bonus, and his first instinct is "buy a stock my friend recommended" — Tesla. Or maybe Reliance, since his uncle says it always goes up.</p>
+  <p>Reading this book stops him. <span class="pref">P4</span> The principle: diversification buys survival, and a single stock is not diversified. <span class="pref">P7</span> The principle: complexity is expensive — picking the right stock requires research he doesn't have time to do well. He splits the $1,200 into the index fund he was about to choose anyway, and uses the moment to bump his monthly SIP from $300 to $400 instead. Six months later, his friend's Tesla pick is down 38%. Ravi never knew. He didn't have to.</p>
+</div>
 
   <h3><span class="subnum">5.2</span> How a Stock Pays You</h3>
   <p>Stocks reward you through both channels you met in Chapter 2. <strong>Growth (capital appreciation):</strong> as the business grows more valuable, each share is worth more, so you can one day sell for more than you paid. <strong>Income (dividends):</strong> many established companies pay out a slice of their profits to shareholders as cash, just for holding the share. A young, fast-growing company may pay no dividend (ploughing profits back into growth), while a mature one may pay a generous one. Your <em>total return</em> (Chapter 2) is the two combined — and, historically, the bulk of long-run stock wealth has come from growth plus <em>reinvested</em> dividends compounding together.</p>

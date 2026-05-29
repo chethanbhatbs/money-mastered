@@ -312,6 +312,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
 .contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
 .contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
+
+/* The Seven Principles — series-wide framework */
+.principles{margin:2em 0;border:2px solid var(--ink);background:#FCFBF7;padding:24px 28px;}
+.principles .phead{font-family:'Archivo',sans-serif;text-transform:uppercase;letter-spacing:.22em;font-size:.66rem;font-weight:700;color:var(--accent);margin-bottom:.6em;display:block;}
+.principles .ptitle{font-family:'Fraunces',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:0 0 .6em;letter-spacing:-0.01em;}
+.principles ol{list-style:none;counter-reset:p;padding:0;margin:0;}
+.principles ol li{counter-increment:p;display:grid;grid-template-columns:48px 1fr;gap:14px;padding:.55em 0;border-top:1px solid var(--hair);align-items:start;}
+.principles ol li::before{content:counter(p);font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;color:var(--accent-deep);text-align:center;line-height:1;}
+.principles ol li:first-child{border-top:none;padding-top:0;}
+.principles ol li .pn{font-family:'Fraunces',serif;font-weight:700;font-size:1.08rem;color:var(--ink);display:block;}
+.principles ol li .pb{font-size:.95rem;color:var(--ink-soft);margin-top:.15em;display:block;}
+.pref{display:inline-block;font-family:'Archivo',sans-serif;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;padding:1px 6px;border:1px solid var(--accent);margin:0 4px;vertical-align:1px;border-radius:2px;}
 </style>
 </head>
 <body>
@@ -424,6 +436,21 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <p style="margin-bottom:0;">Read <b>Chapter 14 — The 4% Rule</b>. Not because the rule is the right answer (it's a starting point, with real caveats) but because internalising the math of sustainable withdrawal rates is the single most important calculation in retirement planning. Everything else is calibration around it.</p>
   </div>
 </section>
+
+<div class="principles" style="padding:18px 22px;">
+  <span class="phead">Recall · the seven principles from Book 1</span>
+  <h3 class="ptitle" style="font-size:1.15rem;margin:0 0 .6em;">The mental models this book leans on most.</h3>
+  <ol style="margin-top:.2em;">
+    <li><span></span><span><span class="pn">Return follows risk</span> <span class="pb" style="display:inline;"> &middot; no exceptions, anywhere, ever.</span></span></li>
+    <li><span></span><span><span class="pn">Time beats timing</span> <span class="pb" style="display:inline;"> &middot; years invested &gt; markets timed.</span></span></li>
+    <li><span></span><span><span class="pn">Costs compound</span> <span class="pb" style="display:inline;"> &middot; every basis point against you over decades.</span></span></li>
+    <li><span></span><span><span class="pn">Diversification buys survival</span> <span class="pb" style="display:inline;"> &middot; survival > maximisation.</span></span></li>
+    <li><span></span><span><span class="pn">Price and value are different</span> <span class="pb" style="display:inline;"> &middot; market quotes prices, not values.</span></span></li>
+    <li><span></span><span><span class="pn">Behaviour dominates analysis</span> <span class="pb" style="display:inline;"> &middot; your discipline > your stock picks.</span></span></li>
+    <li><span></span><span><span class="pn">Complexity is expensive</span> <span class="pb" style="display:inline;"> &middot; if you need a paragraph to explain it, you don't own it.</span></span></li>
+  </ol>
+</div>
+
 
 <!-- ===================== TOC ===================== -->
 <nav class="sheet toc" data-part="Contents" data-chapter="Table of Contents">
@@ -1877,6 +1904,14 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
 <div class="vignette" style="border-left-color:var(--ink);">
   <span class="vtag" style="color:var(--ink-soft);">Author's Note · the single most useful sentence in this book</span>
+  
+<div class="vignette">
+  <span class="vtag">Ravi &mdash; Five-Year Portfolio Review</span>
+  <p><span class="vname">Ravi is 27 now. Five years of investing.</span> He sits down at the end of the calendar year to do a 30-minute review &mdash; the practice this book recommends. His portfolio: $42,000 across one Target-Date 2065 fund, $4,000 emergency reserve in money market, $1,200 in a Roth IRA he opened last year.</p>
+  <p>His allocation is 87% equity / 13% bonds (his target is 90/10 for his age, so he's slightly bond-heavy due to the Target-Date glide path). His expense ratio across everything is 0.08%. His SIP contribution rate is 24% of gross income (up from 15% three years ago). His total investing time per year: roughly two hours.</p>
+  <p>What did he get right? Starting at 22. Refusing to pick stocks. Refusing to follow his friend's crypto picks. Increasing the SIP every salary bump. What does he need to improve? Almost nothing. The compounding will do the rest. <span class="pref">P2</span> Time beats timing &mdash; and Ravi has 38 more years of time on his side.</p>
+</div>
+
   <p>If the four hundred pages of <em>Money, Mastered</em> reduce to one sentence, it is this: <strong>save 15-25% of your income from your first paycheque, invest it in low-cost broad-market index funds, and don't stop &mdash; through bull markets, bear markets, recessions, and your own panic &mdash; for thirty years.</strong> That sentence, executed, beats the vast majority of professional portfolios, the vast majority of stock-picking strategies, and the vast majority of tactical-allocation programs. It is the strategy I'd give my own children. It is the strategy the index-investing pioneers (Bogle, Buffett's stated advice for the average person, Charles Ellis, William Bernstein) have all converged on independently. Everything else in this six-volume series &mdash; bonds, technical analysis, tax-loss harvesting, factor investing, decumulation theory &mdash; is calibration around that one sentence. The calibration matters. The sentence matters more.</p>
 </div>
 
