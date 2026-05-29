@@ -53,38 +53,31 @@ The HTML files are responsive — they re-flow for phone screens. Download the f
 
 ## Browser preview (rendering HTML, not source)
 
-GitHub natively shows HTML as **source code**, not rendered. To preview the HTML books in a real browser, you have a few options depending on your visibility setting:
+This repo is **public** — every HTML book is one-click readable in any browser without downloading. Three options:
 
-### If this repo is **private** (current state)
-Direct browser preview through third-party services (`htmlpreview.github.io`, `raw.githack.com`) **does not work** for private repos — they can’t see your files.
+### 1. `raw.githack.com` (recommended for sharing)
 
-The practical options while private:
-- **Clone the repo and double-click the HTML file locally.** Each file is fully self-contained (offline-capable, fonts and images embedded as base64).
-- **Use the GitHub web UI**: open the file, click the **Raw** button, then **Save Page As…** to download the HTML.
+Drop-in URLs that render the HTML directly in the browser. Best for sharing a single book with someone:
 
-### If you make this repo **public**
-Each HTML book becomes one-click previewable in any browser via either:
+| Book | Click-to-read |
+|---|---|
+| 1 — Money, From Zero | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book1-money-from-zero.html> |
+| 2 — Where to Put Your Money | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book2-where-to-put-your-money.html> |
+| 3 — How the Market Works (India) | <https://raw.githack.com/chethanbhatbs/money-mastered/main/vol1-how-the-market-works.html> |
+| 4 — Fundamental Analysis | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book4-fundamental-analysis.html> |
+| 5 — Technical Analysis | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html> |
+| 6 — Funds, SIPs & Portfolios | <https://raw.githack.com/chethanbhatbs/money-mastered/main/book6-funds-sips-portfolios.html> |
+| Landing page (all books) | <https://raw.githack.com/chethanbhatbs/money-mastered/main/index.html> |
 
-- **htmlpreview.github.io** (free, third-party, public repos only)
-  `https://htmlpreview.github.io/?https://github.com/chethanbhatbs/money-mastered/blob/main/book5-technical-analysis.html`
-- **raw.githack.com** (similar)
-  `https://raw.githack.com/chethanbhatbs/money-mastered/main/book5-technical-analysis.html`
+### 2. `htmlpreview.github.io` (alternative)
 
-### If you want a permanent public URL while keeping the repo private
+Same idea, different free service:
 
-**Everything is already configured.** This repo contains `index.html` (a styled landing page listing every book), plus `netlify.toml`, `_headers`, and `_redirects` that both Netlify and Cloudflare Pages auto-detect. You just need to click through one deploy flow:
+`https://htmlpreview.github.io/?https://github.com/chethanbhatbs/money-mastered/blob/main/book5-technical-analysis.html`
 
-→ **[See DEPLOY.md for step-by-step instructions](DEPLOY.md)** (Cloudflare Pages, Netlify, GitHub Pages, or just make it public — all four options documented).
+### 3. Permanent custom URL via Cloudflare Pages or Netlify
 
-The recommended path — **Cloudflare Pages** — takes about three minutes and gives you a permanent URL like:
-
-```
-https://money-mastered.pages.dev/
-https://money-mastered.pages.dev/book5             (short alias)
-https://money-mastered.pages.dev/Book5-Technical-Analysis.pdf
-```
-
-Every `git push` to `main` auto-redeploys.
+If you want a memorable URL like `https://money-mastered.pages.dev/` (with short aliases like `/book5` and `/book5.pdf`), the deployment configs are already in place. See **[DEPLOY.md](DEPLOY.md)** for the 3-minute setup. Auto-deploys on every push.
 
 ---
 
