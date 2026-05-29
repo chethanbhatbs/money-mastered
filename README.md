@@ -20,12 +20,12 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 
 |  | Stage | Book | Pages | View HTML | Download PDF |
 |---|---|---|---:|---|---|
-| <img src="docs/images/book1-cover.png" width="80"/> | **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | 66 | [Open](book1-money-from-zero.html) | [PDF](Book1-Money-From-Zero.pdf) |
-| <img src="docs/images/book2-cover.png" width="80"/> | **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | 63 | [Open](book2-where-to-put-your-money.html) | [PDF](Book2-Where-to-Put-Your-Money.pdf) |
-| <img src="docs/images/book3-cover.png" width="80"/> | **2 · The Markets** | **Book 3 — How the Market Works** *(India edition)* | 121 | [Open](vol1-how-the-market-works.html) | [PDF](Vol1-How-the-Market-Works.pdf) |
-| <img src="docs/images/book4-cover.png" width="80"/> | **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | 94 | [Open](book4-fundamental-analysis.html) | [PDF](Book4-Fundamental-Analysis.pdf) |
-| <img src="docs/images/book5-cover.png" width="80"/> | **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **273** | [Open](book5-technical-analysis.html) | [PDF](Book5-Technical-Analysis.pdf) |
-| <img src="docs/images/book6-cover.png" width="80"/> | **2 · The Markets** | **Book 6 — Funds, SIPs &amp; Portfolios** *(global)* | **93** | [Open](book6-funds-sips-portfolios.html) | [PDF](Book6-Funds-SIPs-Portfolios.pdf) |
+| <img src="docs/images/book1-cover.png" width="80"/> | **1 · Foundations** | **Book 1 — Money, From Zero** *(global)* | 66 | [Open](https://chethanbhatbs.github.io/money-mastered/book1-money-from-zero.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book1-Money-From-Zero.pdf) |
+| <img src="docs/images/book2-cover.png" width="80"/> | **1 · Foundations** | **Book 2 — Where to Put Your Money** *(global)* | 63 | [Open](https://chethanbhatbs.github.io/money-mastered/book2-where-to-put-your-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book2-Where-to-Put-Your-Money.pdf) |
+| <img src="docs/images/book3-cover.png" width="80"/> | **2 · The Markets** | **Book 3 — How the Market Works** *(India edition)* | 121 | [Open](https://chethanbhatbs.github.io/money-mastered/vol1-how-the-market-works.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Vol1-How-the-Market-Works.pdf) |
+| <img src="docs/images/book4-cover.png" width="80"/> | **2 · The Markets** | **Book 4 — Fundamental Analysis** *(global)* | 94 | [Open](https://chethanbhatbs.github.io/money-mastered/book4-fundamental-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book4-Fundamental-Analysis.pdf) |
+| <img src="docs/images/book5-cover.png" width="80"/> | **2 · The Markets** | **Book 5 — Technical Analysis** *(global)* | **273** | [Open](https://chethanbhatbs.github.io/money-mastered/book5-technical-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book5-Technical-Analysis.pdf) |
+| <img src="docs/images/book6-cover.png" width="80"/> | **2 · The Markets** | **Book 6 — Funds, SIPs &amp; Portfolios** *(global)* | **93** | [Open](https://chethanbhatbs.github.io/money-mastered/book6-funds-sips-portfolios.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book6-Funds-SIPs-Portfolios.pdf) |
 | — | 2 · The Markets | Book 7 — Derivatives, Tax, Psychology & Safety | — | *Planned* | — |
 | — | **3 · Wealth** | Book 8 — Building & Protecting Wealth | — | *Planned* | — |
 
@@ -33,8 +33,8 @@ The flagship effort is a progressive, beginner-to-confident series. Read in orde
 
 |  | Book | Pages | View HTML | Download PDF | Notes |
 |---|---|---:|---|---|---|
-| <img src="docs/images/complete-money-cover.png" width="80"/> | **The Complete Money** — A Visual Encyclopedia of Finance, Wealth & Economics *(global)* | 143 | [Open](the-complete-money.html) | [PDF](The-Complete-Money.pdf) | Big-picture panorama: history, economics, crises, investing, psychology |
-| <img src="docs/images/stock-market-india-cover.png" width="80"/> | **The Stock Market, From Scratch** *(India, one-book overview)* | 88 | [Open](stock-market-india.html) | [PDF](The-Stock-Market-From-Scratch.pdf) | Express overview of the Indian market |
+| <img src="docs/images/complete-money-cover.png" width="80"/> | **The Complete Money** — A Visual Encyclopedia of Finance, Wealth & Economics *(global)* | 143 | [Open](https://chethanbhatbs.github.io/money-mastered/the-complete-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Complete-Money.pdf) | Big-picture panorama: history, economics, crises, investing, psychology |
+| <img src="docs/images/stock-market-india-cover.png" width="80"/> | **The Stock Market, From Scratch** *(India, one-book overview)* | 88 | [Open](https://chethanbhatbs.github.io/money-mastered/stock-market-india.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Stock-Market-From-Scratch.pdf) | Express overview of the Indian market |
 
 ---
 
@@ -51,23 +51,9 @@ The HTML files are responsive — they re-flow for phone screens. Download the f
 
 ---
 
-## Read the books online
+## Hosting
 
-The site is live at **[chethanbhatbs.github.io/money-mastered](https://chethanbhatbs.github.io/money-mastered/)** (served via GitHub Pages, with proper `text/html` content-types and PDF inline preview).
-
-| Book | Read in browser | Download PDF |
-|---|---|---|
-| **Landing page** (all books) | <https://chethanbhatbs.github.io/money-mastered/> | — |
-| 1 — Money, From Zero | [Read](https://chethanbhatbs.github.io/money-mastered/book1-money-from-zero.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book1-Money-From-Zero.pdf) |
-| 2 — Where to Put Your Money | [Read](https://chethanbhatbs.github.io/money-mastered/book2-where-to-put-your-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book2-Where-to-Put-Your-Money.pdf) |
-| 3 — How the Market Works (India) | [Read](https://chethanbhatbs.github.io/money-mastered/vol1-how-the-market-works.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Vol1-How-the-Market-Works.pdf) |
-| 4 — Fundamental Analysis | [Read](https://chethanbhatbs.github.io/money-mastered/book4-fundamental-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book4-Fundamental-Analysis.pdf) |
-| 5 — Technical Analysis | [Read](https://chethanbhatbs.github.io/money-mastered/book5-technical-analysis.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book5-Technical-Analysis.pdf) |
-| 6 — Funds, SIPs & Portfolios | [Read](https://chethanbhatbs.github.io/money-mastered/book6-funds-sips-portfolios.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/Book6-Funds-SIPs-Portfolios.pdf) |
-| Complete Money (companion) | [Read](https://chethanbhatbs.github.io/money-mastered/the-complete-money.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Complete-Money.pdf) |
-| Stock Market From Scratch (India) | [Read](https://chethanbhatbs.github.io/money-mastered/stock-market-india.html) | [PDF](https://chethanbhatbs.github.io/money-mastered/The-Stock-Market-From-Scratch.pdf) |
-
-Every `git push` to `main` auto-redeploys.
+The site is live at **[chethanbhatbs.github.io/money-mastered](https://chethanbhatbs.github.io/money-mastered/)** (served via GitHub Pages — proper `text/html` content-types, PDFs preview inline). The Read/PDF links in the roadmap table above use these URLs. Every `git push` to `main` auto-redeploys.
 
 ### Alternative URLs (if needed)
 
