@@ -301,6 +301,31 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
 .fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
+
+/* Editorial layer — characters, history, profiles, contrarian */
+.cast{margin:1.6em 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.cast .person{border:1px solid var(--ink);background:#FCFBF7;padding:14px 16px;}
+.cast .person h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .15em;color:var(--ink);}
+.cast .person .age{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.cast .person p{font-size:.92rem;color:var(--ink-soft);margin:.4em 0 0;}
+@media(max-width:680px){.cast{grid-template-columns:1fr;}}
+.vignette{margin:1.4em 0;border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 22px;}
+.vignette .vtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.vignette .vname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.historybox{margin:1.4em 0;border:1px solid var(--ink);background:#F6F0E2;padding:16px 22px;}
+.historybox .htag2{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.historybox .hyear{font-family:'Fraunces',serif;font-weight:900;font-size:2.2rem;color:var(--accent-deep);line-height:1;float:right;margin:0 0 8px 18px;}
+.historybox h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .35em;font-size:1.15rem;}
+.historybox p{margin:.3em 0;font-size:.95rem;color:var(--ink-soft);}
+.profile{margin:1.4em 0;border:1px solid var(--ink);background:#FCFBF7;padding:16px 22px;display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;}
+.profile .pcoin{width:80px;height:80px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;color:var(--accent-deep);background:#fff;}
+.profile .pcontent .ptag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.2em;}
+.profile h4{font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;margin:0 0 .35em;}
+.profile p{margin:.35em 0;font-size:.95rem;color:var(--ink-soft);}
+.contrarian{margin:1.4em 0;padding:18px 22px;background:var(--ink);color:#F6F0E2;}
+.contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
+.contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
 </style>
 </head>
 <body>
@@ -430,6 +455,39 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <div class="ornament"></div>
   <p style="text-align:center;font-style:italic;color:var(--ink-soft);">Let's begin with the strangest, most important question of all: what <em>is</em> money?</p>
 </section>
+
+
+<!-- ===================== MEET THE CAST ===================== -->
+<section class="sheet" id="cast" data-part="Front Matter" data-chapter="Meet the Cast — Three Lives, One Book">
+  <div class="opener">
+    <div class="eyebrow"><span class="cnum">Front Matter</span><span class="cline"></span></div>
+    <h2 class="chapter-title">Meet the Cast — Three Lives, One Book</h2>
+    <p class="lead">Money is abstract until it has people in it. So three characters will accompany you through this entire series — sometimes deciding well, sometimes not, sometimes lucky, sometimes wise. They are composites, not real individuals; their situations are typical, their mistakes ordinary, their victories earned. By Book Eight they will feel like old friends.</p>
+  </div>
+
+  <div class="cast">
+    <div class="person">
+      <span class="age">22 years · just started</span>
+      <h4>Ravi</h4>
+      <p>Engineering graduate. First job at a Bangalore software firm. Take-home: $1,500/month equivalent. No savings, no debt, lives with a roommate. Has heard of mutual funds and crypto from college friends; doesn't really understand either. His main financial question right now is: <em>"What should I even be doing?"</em></p>
+    </div>
+
+    <div class="person">
+      <span class="age">35 years · building</span>
+      <h4>Priya</h4>
+      <p>Marketing manager. Married to a teacher; one child, age four; small home loan; the family income is comfortable but not abundant. Started investing in mutual funds three years ago, half from her employer's retirement plan, half her own. Wants to retire at 55 and pay for her child's education. Her main question is: <em>"Am I doing the right things in the right proportions?"</em></p>
+    </div>
+
+    <div class="person">
+      <span class="age">55 years · near retirement</span>
+      <h4>Arun</h4>
+      <p>School principal. Two children, one in college, one starting work. Has saved diligently for 30 years, mostly in a mix of provident fund, fixed deposits, and a slowly-growing portfolio of mutual funds. Plans to retire at 62. His main question is: <em>"Will what I have actually last? And what do I do if it doesn't?"</em></p>
+    </div>
+  </div>
+
+  <p>Three lives. The same eight books. By the end you will see how the same decisions look completely different at each life stage — and how the principles that connect them turn out to be far simpler than the financial industry would like you to believe.</p>
+</section>
+
 
 <!-- ===================== PART I DIVIDER ===================== -->
 <section class="divider">
@@ -613,6 +671,16 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <span class="r">Using the Rule of 72 in reverse: at 3% inflation, money loses <i>half</i> its value in about 72 &divide; 3 = 24 years — exactly the figure on the chart. Inflation is just compounding pointed the wrong way.</span>
   </div>
 
+  
+<div class="historybox">
+  <span class="htag2">From History · the original bubble</span>
+  <div class="hyear">1637</div>
+  <h4>Tulip Mania &mdash; what happens when money detaches from value</h4>
+  <p>In the Dutch Republic of the 1630s, the bulb of a particular variegated tulip &mdash; the <i>Semper Augustus</i> &mdash; sold for the price of a comfortable Amsterdam house. Speculators borrowed money to trade tulip futures; ordinary tradesmen liquidated their workshops to participate; contracts changed hands many times before any bulb had been planted. In February 1637 the buyers simply stopped showing up. Prices fell by 99% in a few weeks. Most fortunes that had been built vanished within months.</p>
+  <p>Every speculative episode since &mdash; the South Sea Bubble (1720), the railway mania (1840s), the 1929 crash, the dot-com bubble (2000), the housing bubble (2007), crypto (2021), AI (2024 onward?) &mdash; has rhymed with this same story. The names change; the human pattern doesn't. Money detaches from value when enough people believe it has to. Money returns to value when enough people remember it doesn't.</p>
+</div>
+
+
   <h3><span class="subnum">2.4</span> Nominal vs. Real — the Trick That Fools Everyone</h3>
   <p>Here is the mental error that quietly costs people their whole lives. The <strong>nominal</strong> figure is the number you see; the <strong>real</strong> figure is that number <em>after subtracting inflation</em> — what it's actually worth. If your savings earn 4% but inflation is 5%, the bank statement cheerfully grows (nominal +4%) while your purchasing power actually <em>shrinks</em> by about 1% (real −1%). You feel richer and are getting poorer.</p>
   <div class="calc">
@@ -762,6 +830,14 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <p>Strip personal finance down to its core and you get a single line:</p>
   <div class="formula">Income − Spending = Savings → invested = Wealth</div>
   <p>That's the whole machine. You can attack it from either side — earn more or spend less — but the only thing that actually builds wealth is the <em>gap</em> you create and then put to work. A bigger income with an equally bigger lifestyle produces exactly zero wealth. The gap is everything.</p>
+
+  
+<div class="vignette">
+  <span class="vtag">Ravi &mdash; First Job, First Question</span>
+  <p><span class="vname">Ravi's first salary lands.</span> $1,500. He pays rent ($400), buys groceries ($200), eats out twice a week ($150), pays his phone bill, fuel, a streaming subscription. By the 20th of the month, $1,100 has gone somewhere. The remaining $400 sits in his savings account, where it earns about 3% a year &mdash; below inflation. Over the next six months Ravi never <em>decides</em> to save 27% of his income; he just hasn't decided <em>not</em> to. He is on autopilot.</p>
+  <p>Six months in, a colleague mentions she's been putting $300/month into a SIP since she started. Ravi opens her statement: $1,800 invested has grown to $1,950. Small money. But it's <em>moving</em>. His isn't. That conversation, more than any article or course, will be the one that pushes Ravi to set up his first SIP next month. The financial industry doesn't get him &mdash; a colleague does.</p>
+</div>
+
 
   <h3><span class="subnum">4.2</span> Budgeting Without Misery</h3>
   <p>“Budget” sounds like punishment. Reframe it: a budget is just <em>deciding on purpose</em> where your money goes, instead of wondering where it went. The simplest durable framework splits your take-home pay three ways:</p>
@@ -1199,6 +1275,15 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <figcaption><b>One straight line.</b> As you climb toward higher potential returns, risk rises with you — there's no skipping the trade-off. Most beginners belong near the middle: broad, diversified stock funds for long-term growth, with cash and bonds for safety. The far right is where money is most often lost.</figcaption>
   </figure>
 
+  
+<div class="contrarian">
+  <span class="ctag">A Contrarian Truth</span>
+  <span class="cclaim">"Most investors lose money during bull markets."</span>
+  <p>It's a strange sentence and it's empirically true. During the longest equity bull markets in history &mdash; 1982-2000, 2009-2020 &mdash; the indices rose roughly 1,400% and 500% respectively. And in both periods, retail brokerages reported that the <em>average customer account</em> lost money, while the index gained. How? They traded too often, paid spreads and commissions, sold winners too early, held losers too long, panicked at every correction, chased every breakout. Bull markets are not made of one steady ride upward; they're made of jagged advances and frightening retreats, and most retail investors don't survive the retreats.</p>
+  <p>The simple test: would your past five years of trading have outperformed a single index fund bought on day one? For 80% of retail investors, the answer is no.</p>
+</div>
+
+
   <h3><span class="subnum">9.3</span> What “Risk” Really Means</h3>
   <p>Beginners think risk means only one thing: the price might fall. That's part of it, but the fuller picture has three layers. <strong>Volatility</strong> — prices bouncing up and down — is the kind everyone fears, yet for a long-term investor it's mostly noise you can ride out. <strong>Permanent loss</strong> — a company going bankrupt, a fraud, a single bet wiped out — is the kind that truly matters, and diversification is its antidote. And the sneakiest: <strong>the risk of falling short of your goals</strong> — being so cautious that inflation quietly erodes you and your money never grows enough. Hiding everything in cash feels risk-free but quietly guarantees this third kind of loss. The goal is never zero risk; it's the <em>right</em> risk for your time and aims.</p>
 
@@ -1367,6 +1452,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <figcaption><b>The ancient diversifier.</b> Long before banknotes, gold <em>was</em> money; today it is held mainly as a hedge that often holds value when currencies and markets wobble. It earns no income of its own — which is why it diversifies a portfolio rather than anchoring it. <span class="credit">Gold bullion · via Wikimedia Commons, used under a free licence.</span></figcaption>
   </figure>
   <p>Two terms to carry forward. A <strong>stock</strong> (or share) is a small piece of ownership in a company — when it grows, your slice is worth more (Book Three explores this in depth). A <strong>fund</strong> pools many investors' money to buy a whole basket of stocks or bonds at once, so a single purchase gives you instant diversification — which is why it's the most common and sensible first step for a beginner.</p>
+
+  
+<div class="profile">
+  <div class="pcoin">JB</div>
+  <div class="pcontent">
+    <span class="ptag">Investor profile</span>
+    <h4>John C. Bogle &mdash; 1929-2019</h4>
+    <p>Founded Vanguard in 1975 and launched the first index mutual fund &mdash; an idea his industry called "un-American" because it gave up on beating the market. He kept building Vanguard as a mutual structure (owned by its fund-holders, not external shareholders), which structurally forced low fees forever. Today Vanguard's funds manage roughly $8 trillion at expense ratios of 0.03-0.10%.</p>
+    <p><b>What he believed:</b> the simple truth that most active managers underperform the market after costs, so the rational individual investor should buy the market cheaply and never sell. <b>What he got right:</b> almost everything, and the empirical record (Book 2 Ch 14) is overwhelming. <b>What he got wrong:</b> he underestimated how strongly his own creation &mdash; ETFs &mdash; would enable the high-frequency, casino-style trading he warned against.</p>
+  </div>
+</div>
+
 
   <h3><span class="subnum">11.2</span> Diversification — the Only Free Lunch</h3>
   <p>An old piece of wisdom captures the most important rule of all: <strong>don't put all your eggs in one basket.</strong> Spread your money across different investments and the failure of any one of them can't sink you. Economists call diversification the closest thing to a “free lunch” in all of finance, because it reduces your risk <em>without</em> necessarily reducing your expected return. The simplest way a beginner achieves it is exactly that broad <em>fund</em> above: one purchase, and you own dozens or hundreds of companies at once, so no single failure can hurt you much.</p>

@@ -301,6 +301,31 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
 .fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
+
+/* Editorial layer — characters, history, profiles, contrarian */
+.cast{margin:1.6em 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.cast .person{border:1px solid var(--ink);background:#FCFBF7;padding:14px 16px;}
+.cast .person h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .15em;color:var(--ink);}
+.cast .person .age{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.cast .person p{font-size:.92rem;color:var(--ink-soft);margin:.4em 0 0;}
+@media(max-width:680px){.cast{grid-template-columns:1fr;}}
+.vignette{margin:1.4em 0;border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 22px;}
+.vignette .vtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.vignette .vname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.historybox{margin:1.4em 0;border:1px solid var(--ink);background:#F6F0E2;padding:16px 22px;}
+.historybox .htag2{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.historybox .hyear{font-family:'Fraunces',serif;font-weight:900;font-size:2.2rem;color:var(--accent-deep);line-height:1;float:right;margin:0 0 8px 18px;}
+.historybox h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .35em;font-size:1.15rem;}
+.historybox p{margin:.3em 0;font-size:.95rem;color:var(--ink-soft);}
+.profile{margin:1.4em 0;border:1px solid var(--ink);background:#FCFBF7;padding:16px 22px;display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;}
+.profile .pcoin{width:80px;height:80px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;color:var(--accent-deep);background:#fff;}
+.profile .pcontent .ptag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.2em;}
+.profile h4{font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;margin:0 0 .35em;}
+.profile p{margin:.35em 0;font-size:.95rem;color:var(--ink-soft);}
+.contrarian{margin:1.4em 0;padding:18px 22px;background:var(--ink);color:#F6F0E2;}
+.contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
+.contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
 </style>
 </head>
 <body>
@@ -854,6 +879,18 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <h3><span class="subnum">5.2</span> How a Stock Pays You</h3>
   <p>Stocks reward you through both channels you met in Chapter 2. <strong>Growth (capital appreciation):</strong> as the business grows more valuable, each share is worth more, so you can one day sell for more than you paid. <strong>Income (dividends):</strong> many established companies pay out a slice of their profits to shareholders as cash, just for holding the share. A young, fast-growing company may pay no dividend (ploughing profits back into growth), while a mature one may pay a generous one. Your <em>total return</em> (Chapter 2) is the two combined — and, historically, the bulk of long-run stock wealth has come from growth plus <em>reinvested</em> dividends compounding together.</p>
 
+  
+<div class="profile">
+  <div class="pcoin">WB</div>
+  <div class="pcontent">
+    <span class="ptag">Investor profile</span>
+    <h4>Warren Buffett &mdash; b. 1930</h4>
+    <p>Began investing at age 11, took control of a struggling textile mill (Berkshire Hathaway) in 1965, and over the following sixty years compounded its book value at roughly 20% per year &mdash; an achievement no other investor has matched over a comparable horizon.</p>
+    <p><b>What he believes:</b> buy excellent businesses at fair prices and hold them indefinitely; ignore the daily noise of markets; invest only in what you understand. <b>What he got right:</b> the discipline of patience and the recognition that markets are often wrong about specific businesses for years at a time. <b>What he got wrong:</b> missed most of the technology revolution until very late (he bought Apple in 2016, at age 86); has openly said his methods don't translate well to the modern hyper-information age for many small investors. He has also been a vocal advocate of just buying an S&P 500 index fund &mdash; "the best advice I can give to most investors" &mdash; which is the same answer Book 2 Ch 14 reaches from a completely different direction.</p>
+  </div>
+</div>
+
+
   <h3><span class="subnum">5.3</span> Why Stocks Grow Over the Long Run</h3>
   <p>Here's the deep reason stocks have rewarded patient owners: a share is a claim on a <em>productive</em>, adaptable thing — a business full of people working to earn more, sell more and grow. As economies expand, populations grow and productivity improves, the collective earnings of companies tend to rise over time, and share prices follow. Individual companies fail, but the broad market — the whole basket of them — has trended powerfully upward across every long stretch of history, rewarding those who stayed invested through the storms. Stocks are, in essence, a long-term bet on human enterprise continuing to grow — which, so far, it always has.</p>
 
@@ -878,6 +915,17 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     </div>
     <figcaption><b>The owner's deal.</b> As an owner you share fully in the upside — there's no ceiling — but you also bear the risk, with no floor: if the business fails, shareholders are paid last and can lose everything. Unlimited reward, real risk: the bargain at the bold end of the menu.</figcaption>
   </figure>
+
+  
+<div class="historybox">
+  <span class="htag2">From History · the modern bubble</span>
+  <div class="hyear">2000</div>
+  <h4>The dot-com bubble &mdash; when growth is mistaken for value</h4>
+  <p>By March 2000, the NASDAQ Composite had quintupled in three years. Companies with no revenue, no profit, and sometimes no actual product were valued at billions. The conventional wisdom was that the internet had changed the rules of business; <em>this time was different</em>. It always is.</p>
+  <p>From the March 2000 peak the NASDAQ fell 78%. The S&amp;P 500 fell 49% over the next two-and-a-half years. Many of the most prominent dot-com companies were liquidated; their shareholders received nothing. Even the businesses that <em>were</em> ultimately good ones &mdash; Amazon, Cisco, Microsoft &mdash; saw their stocks fall 80-95% on the way down. Amazon shareholders waited a decade to break even from the 2000 high.</p>
+  <p>The lesson is not that growth investing doesn't work. The lesson is that <em>price paid matters even for a great business</em>. A wonderful company at 100× earnings is often a worse investment than a mediocre company at 10×. The buyer at the top, no matter how right about the business, has paid too much for the growth that follows.</p>
+</div>
+
 
   <h3><span class="subnum">5.4</span> The Danger of Single Stocks</h3>
   <p>Here is the crucial warning. While <em>stocks as a group</em> have grown reliably over the long run, <em>any single company</em> can stumble, stagnate or collapse entirely — and plenty of famous, “can't-fail” names have gone to zero, taking their shareholders' money with them. Putting a large share of your savings into one or two companies is not investing; it's concentrated betting. The fix is the most important idea in the next chapter and in Part IV: instead of trying to pick the one winner, you can own a <em>whole basket</em> of companies at once through a fund — capturing the market's long-run growth without betting your future on any single business.</p>
@@ -1197,6 +1245,14 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 
   <h3><span class="subnum">9.2</span> Asset Allocation — the Dial That Matters Most</h3>
   <p><strong>Asset allocation</strong> is simply how you divide your money among the big asset types — chiefly stocks (growth, risky), bonds (steadier), and cash (safe). Decades of research point to a striking conclusion: this broad mix explains the great majority of how your portfolio behaves over time — far more than which specific stocks or funds you pick. In other words, deciding “70% stocks, 30% bonds” matters more than agonising over <em>which</em> stocks. This is liberating: you don't need to be a brilliant stock-picker, you need a sensible allocation and the discipline to stick with it.</p>
+
+  
+<div class="vignette">
+  <span class="vtag">Priya &mdash; The Allocation Question</span>
+  <p><span class="vname">Priya has $40,000 in her portfolio.</span> Currently it sits 100% in two equity mutual funds her financial advisor recommended three years ago. She knows she should diversify; she doesn't quite know <em>how</em>. She is 35, with a four-year-old daughter. Retirement is 20-25 years away. Her daughter's college is 14 years away. Her husband has a stable government job with a pension.</p>
+  <p>The "right" answer for Priya is not one allocation but several. Her retirement money (15-year-plus horizon) can be heavily equity. Her daughter's education money (14-year horizon) can be mostly equity but should taper down by year 10. The emergency reserve (immediate horizon) should be in cash. <em>One person can have three allocations.</em> That is the framework of Chapter 10 of Book 1, applied to Priya. She finishes this book with three pots, not one, and a much clearer sense of how each is doing its job.</p>
+</div>
+
 
   <h3><span class="subnum">9.3</span> The Mix Shifts With Your Life</h3>
   <p>How much risk (stocks) versus safety (bonds and cash) should you hold? It depends mostly on your <strong>time horizon</strong> (Book One, Chapter 9): the longer until you need the money, the more stocks you can hold, because you have years to ride out crashes and let growth compound. As your goal approaches, you shift toward safety so a bad year can't derail you.</p>
@@ -1641,6 +1697,15 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
   <h3><span class="subnum">14.4</span> Persistent Skill — the Holy Grail</h3>
   <p>"But surely some managers <em>do</em> have skill?" Empirically, yes — but identifying them in advance is essentially impossible. SPIVA's <strong>persistence studies</strong> show that fund managers who are in the top quartile in one 5-year period are no more likely to be in the top quartile in the next 5-year period than a random fund. Specifically, the persistence is approximately 25% — the rate you'd expect from chance.</p>
   <p>Some research (Fama-French, Cremers-Petajisto) identifies subtle conditions under which active management has a higher chance of success — concentrated portfolios with high active share, lower-fee structures, manager-owned strategies. But even within those filters, the average outcome is mediocre and the dispersion is wide. The realistic statement is: <em>a small minority of managers genuinely have skill, but you can't reliably identify them in advance and even if you could, fees and capacity constraints often erode the alpha.</em></p>
+
+  
+<div class="contrarian">
+  <span class="ctag">A Contrarian Truth</span>
+  <span class="cclaim">"The average mutual-fund investor underperforms the mutual fund they own."</span>
+  <p>The Morningstar "Mind the Gap" study runs every year. It compares <em>fund returns</em> (what the fund itself delivered) with <em>investor returns</em> (what the actual buyers and sellers of that fund earned, dollar-weighted). The investor return is consistently 1-3% per year lower than the fund return, across categories, across decades. The shortfall is called the <em>behaviour gap</em>.</p>
+  <p>Where does the gap come from? Investors buy after performance has been good and sell after performance has been bad. They pile in at the top and out at the bottom. The same fund, held quietly through both, would have produced its full return. Their behaviour costs them what their fund earned. <em>It's not even active management that's the problem &mdash; it's the active investor.</em></p>
+</div>
+
 
   <h3><span class="subnum">14.5</span> The Three-Fund Portfolio</h3>
   <p>What does the empirical evidence imply for a portfolio? The Bogleheads movement, drawing on Jack Bogle's lifelong work, proposes the <strong>three-fund portfolio</strong>:</p>

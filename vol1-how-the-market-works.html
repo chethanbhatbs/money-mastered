@@ -289,6 +289,31 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
 .calc hr{border:none;border-top:1px solid var(--hair);margin:.6em 0;}
 .fml{text-align:center;font-family:'JetBrains Mono',monospace;font-size:1rem;color:var(--ink);padding:12px;margin:1.2em 0;border-top:1px dashed var(--accent);border-bottom:1px dashed var(--accent);}
 
+
+/* Editorial layer — characters, history, profiles, contrarian */
+.cast{margin:1.6em 0;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.cast .person{border:1px solid var(--ink);background:#FCFBF7;padding:14px 16px;}
+.cast .person h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .15em;color:var(--ink);}
+.cast .person .age{font-family:'Archivo',sans-serif;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+.cast .person p{font-size:.92rem;color:var(--ink-soft);margin:.4em 0 0;}
+@media(max-width:680px){.cast{grid-template-columns:1fr;}}
+.vignette{margin:1.4em 0;border-left:4px solid var(--accent);background:#FCFBF7;padding:14px 22px;}
+.vignette .vtag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.vignette .vname{font-family:'Fraunces',serif;font-weight:700;font-size:1.05rem;color:var(--ink);}
+.historybox{margin:1.4em 0;border:1px solid var(--ink);background:#F6F0E2;padding:16px 22px;}
+.historybox .htag2{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.historybox .hyear{font-family:'Fraunces',serif;font-weight:900;font-size:2.2rem;color:var(--accent-deep);line-height:1;float:right;margin:0 0 8px 18px;}
+.historybox h4{font-family:'Fraunces',serif;font-weight:700;margin:0 0 .35em;font-size:1.15rem;}
+.historybox p{margin:.3em 0;font-size:.95rem;color:var(--ink-soft);}
+.profile{margin:1.4em 0;border:1px solid var(--ink);background:#FCFBF7;padding:16px 22px;display:grid;grid-template-columns:80px 1fr;gap:18px;align-items:start;}
+.profile .pcoin{width:80px;height:80px;border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Fraunces',serif;font-weight:900;font-size:1.7rem;color:var(--accent-deep);background:#fff;}
+.profile .pcontent .ptag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.2em;}
+.profile h4{font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem;margin:0 0 .35em;}
+.profile p{margin:.35em 0;font-size:.95rem;color:var(--ink-soft);}
+.contrarian{margin:1.4em 0;padding:18px 22px;background:var(--ink);color:#F6F0E2;}
+.contrarian .ctag{display:block;font-family:'Archivo',sans-serif;font-weight:700;font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.4em;}
+.contrarian .cclaim{font-family:'Fraunces',serif;font-weight:600;font-style:italic;font-size:1.3rem;color:#F6F0E2;display:block;margin-bottom:.4em;line-height:1.35;}
+.contrarian p{margin:.3em 0;color:#D9D2BD;font-size:.95rem;}
 </style>
 </head>
 <body>
@@ -1054,6 +1079,17 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <h2 class="chapter-title">SEBI: The Regulator, In Depth</h2>
     <p class="lead">Every fair game needs a referee with real authority. In the Indian market that referee is SEBI — and the more you understand its three jobs and its genuine powers, the more confidently (and safely) you can play.</p>
   </div>
+
+<div class="historybox">
+  <span class="htag2">From Indian History · the broker who broke the bank</span>
+  <div class="hyear">1992</div>
+  <h4>Harshad Mehta &mdash; the scam that reshaped Indian markets</h4>
+  <p>In the early 1990s, a Bombay stockbroker named Harshad Mehta exploited a loophole in the inter-bank securities settlement system. Banks could lend each other money against government securities; Mehta used forged "bank receipts" to obtain bank loans that he funnelled into the stock market, driving certain stocks (especially ACC) up 4-fold in months. The Sensex more than doubled in fifteen months on what was, ultimately, borrowed and stolen money.</p>
+  <p>When the scam broke in April 1992, the Sensex fell 50% over the next year. Banks lost an estimated ₹4,000 crore (over ₹40,000 crore in 2026 money). Mehta was charged with 72 criminal cases and 600 civil suits; he died in custody in 2001 with most cases unresolved.</p>
+  <p>The institutional response shaped modern India's market structure: the National Stock Exchange opened in 1994 (electronic, transparent, broker-independent), SEBI gained real regulatory teeth, the depository system replaced paper certificates (Chapter 9), and the T+1 settlement cycle that Chapter 10 of this book describes is a direct descendant of "never let a Harshad Mehta happen again." The system you trade in today was built on the lessons of 1992.</p>
+</div>
+
+
   <div class="objectives"><span class="htag">In this chapter you will learn</span><ul><li>SEBI’s three-part mandate.</li><li>The three kinds of power SEBI uniquely combines.</li><li>What SEBI does for you, and how to verify a registration.</li></ul></div>
   <p class="drop">The <strong>Securities and Exchange Board of India</strong> began life in 1988 as a toothless advisory body. After the 1992 scam exposed how exposed investors were, Parliament gave it statutory teeth through the SEBI Act of 1992. Today it is one of the most powerful financial regulators in the world, and its existence is the single biggest reason the Indian market is safer than it has ever been.</p>
 
@@ -1548,6 +1584,14 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <h2 class="chapter-title">The Decision to Go Public &amp; the DRHP</h2>
     <p class="lead">An <strong>IPO</strong> — Initial Public Offering — is the first time a private company sells its shares to the general public and lists them on an exchange. It is a long, regulated, expensive journey, and it begins with one enormous document that tells you almost everything you'd want to know.</p>
   </div>
+
+<div class="vignette">
+  <span class="vtag">Arun &mdash; A Veteran Investor's First IPO Question</span>
+  <p><span class="vname">Arun has invested for thirty years.</span> He bought his first mutual funds in 1995, weathered the Harshad Mehta scam aftermath as a young saver, lived through the dot-com crash, the 2008 collapse, and the COVID crash. He has roughly ₹80 lakh saved across PPF, FDs, and equity funds. Through all of it, he has never bought a single individual stock or applied for an IPO. He has always invested through mutual funds.</p>
+  <p>His 28-year-old daughter is excited about an upcoming IPO and asks him to subscribe in their joint demat account. Arun pauses. He understands the company &mdash; an established business with a real product. The valuation seems aggressive but defensible. The IPO will be oversubscribed. Should he participate? <em>Arun's reasoning, after reading this book:</em> apply for ₹15,000 (the minimum), accept that he might not get any allotment, and treat it as an educational expense rather than a wealth-building move. For the wealth side of his portfolio, he sticks with the discipline that has worked for thirty years &mdash; the funds. New tools don't change old principles.</p>
+</div>
+
+
   <div class="objectives"><span class="htag">In this chapter you will learn</span><ul><li>What an IPO is, and fresh issue versus offer for sale.</li><li>The cast of players who run an IPO.</li><li>What the DRHP contains, and the two sections to read first.</li></ul></div>
   <p class="drop">Let's define it cleanly. In an IPO, a company offers shares to the public for the first time; investors who apply and are allotted shares become its new part-owners; and once listed, those shares trade freely on the NSE/BSE. It is the bridge between the private world (Chapter 3) and the public market — and crossing it takes months and a small army of specialists.</p>
 
@@ -1689,6 +1733,15 @@ code,.mono{font-family:'JetBrains Mono',monospace;font-size:.85em;color:var(--ac
     <h2 class="chapter-title">Applying, Allotment &amp; Listing Day</h2>
     <p class="lead">Now the practical mechanics: how you actually apply (India's UPI system makes it elegant), why you might not get the shares even after applying, and what really happens on the dramatic “listing day” everyone watches.</p>
   </div>
+
+<div class="contrarian">
+  <span class="ctag">A Contrarian Truth</span>
+  <span class="cclaim">"The Indian retail investor pays more in IPO research than the IPOs earn them on average."</span>
+  <p>Academic studies of Indian IPO returns (NSE-funded research, plus independent work by IIM Ahmedabad in 2019) found that the average retail investor who buys IPOs and holds them for three years <em>underperforms</em> the Nifty 50 by roughly 4-6 percentage points per year. The "listing pop" that retail investors chase is real but small &mdash; and is more than offset by the long-term underperformance of newly-listed companies that haven't yet proven themselves.</p>
+  <p>Yet the financial industry &mdash; brokerages, fintech apps, advisor channels &mdash; sells IPO research aggressively because the application and allotment process generates fees. <em>The product is not the IPO; the product is your participation in the IPO.</em> Once you see this, you stop being the customer.</p>
+</div>
+
+
   <div class="objectives"><span class="htag">In this chapter you will learn</span><ul><li>How an ASBA/UPI IPO application works.</li><li>Why allotment is often a lottery, and what listing day brings.</li><li>Why GMP and lock-in expiries matter.</li></ul></div>
   <p class="drop">Applying for an IPO in India is refreshingly investor-friendly, thanks to a system that blocks your money rather than taking it. But allotment is often a lottery, and listing day is where the hype meets reality.</p>
 
